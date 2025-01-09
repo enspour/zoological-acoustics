@@ -1,0 +1,22 @@
+<span class="header" (click)="onClick($event)">
+  <ng-content />
+</span>
+
+<div
+  #expanded
+  class="expanded"
+  [class.expanded--opened]="isOpen()"
+  [class.expanded--closed]="!isOpen()"
+  (transitionend)="onTransitionEnd()"
+  (transitioncancel)="onTransitionEnd()"
+>
+  @if (isOpen() || status() === 'animated') {
+    @let _content = content();
+
+    @if (_content) {
+      <ng-container [ngTemplateOutlet]="_content" />
+    } @else {
+      <ng-content select="[kuduAccordionItemContent]" />
+    }
+  }
+</div>

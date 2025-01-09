@@ -1,0 +1,14 @@
+:host {
+  min-height: 100vh;
+  display: flex;
+}
+
+.sidebar {
+  height: 100vh;
+  text-wrap: nowrap;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-right: 1px solid #cccccc;
+  overflow: hidden;
+}

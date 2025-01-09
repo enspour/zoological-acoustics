@@ -1,0 +1,45 @@
+@use '../../mixins/layout.mixin.scss';
+
+:host {
+  width: fit-content;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+:host.sm {
+  @include layout.sm;
+  height: 26px;
+}
+
+:host.md {
+  @include layout.md;
+  height: 30px;
+}
+
+:host.lg {
+  @include layout.lg;
+  height: 34px;
+}
+
+:host.outlined {
+  background-color: #ffffff;
+
+  &:hover {
+    background-color: #eeeeee;
+  }
+}
+
+:host.filled {
+  color: #ffffff;
+  background-color: #000000;
+
+  &:hover {
+    background-color: #333333;
+  }
+}
+
+:host:disabled {
+  opacity: 0.3;
+  cursor: auto;
+}

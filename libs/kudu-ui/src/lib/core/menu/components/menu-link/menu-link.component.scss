@@ -1,0 +1,41 @@
+@use '../../../../mixins/layout.mixin.scss';
+
+:host.sm {
+  .link {
+    @include layout.sm;
+    height: 30px;
+  }
+}
+
+:host.md {
+  .link {
+    @include layout.md;
+    height: 38px;
+  }
+}
+
+:host.lg {
+  .link {
+    @include layout.lg;
+    height: 46px;
+  }
+}
+
+.link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  &:hover {
+    background-color: #eeeeee;
+  }
+}
+
+.link--active {
+  background-color: aliceblue;
+
+  &:hover {
+    background-color: aliceblue;
+  }
+}

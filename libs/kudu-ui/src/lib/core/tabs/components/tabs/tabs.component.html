@@ -1,0 +1,12 @@
+<div class="tabs">
+  <ng-content />
+</div>
+
+@let explicitContent = tab().explicitContent();
+@let implicitContent = tab().implicitContent();
+
+@if (explicitContent || implicitContent) {
+  <div class="content">
+    <ng-container [ngTemplateOutlet]="(explicitContent || implicitContent)!" />
+  </div>
+}

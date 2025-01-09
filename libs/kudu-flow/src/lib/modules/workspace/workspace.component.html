@@ -1,0 +1,13 @@
+<div class="workspace" [class.workspace--disabled]="isMoving()">
+  <ng-content select="not-scalable" />
+
+  <div
+    #scalable
+    class="scalable"
+    [style.left.px]="scroll().x"
+    [style.top.px]="scroll().y"
+    [style.transform]="'scale(' + scale() + ')'"
+  >
+    <ng-content />
+  </div>
+</div>

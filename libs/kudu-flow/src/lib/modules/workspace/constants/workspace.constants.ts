@@ -1,0 +1,5 @@
+export const WORKSPACE_SCALING_MIN = 0.1;
+export const WORKSPACE_SCALING_MAX = 5;
+export const WORKSPACE_SCALING_DELTA = 0.1;
+
+export const WORKSPACE_SCROLLING_DELTA = 80;

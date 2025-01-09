@@ -1,0 +1,19 @@
+{
+  "name": "msrv-util-jwt",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/util-jwt/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/core/util-jwt",
+        "main": "libs/core/util-jwt/src/index.ts",
+        "tsConfig": "libs/core/util-jwt/tsconfig.lib.json",
+        "assets": ["libs/core/util-jwt/*.md"]
+      }
+    }
+  }
+}

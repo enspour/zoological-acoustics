@@ -1,0 +1,12 @@
+@if (config()?.hasBackdrop) {
+  <div class="backdrop" (click)="onClickOutside()"></div>
+}
+
+<div
+  class="dialog"
+  kuduGlassmorphism
+  [kuduGlassmorphismConfig]="config()?.glassmorphism"
+  [kuduGlassmorphismDisabled]="!config()?.hasGlassmorphism"
+>
+  <ng-container [ngComponentOutlet]="component()" />
+</div>

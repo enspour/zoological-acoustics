@@ -1,0 +1,19 @@
+{
+  "name": "mfr-util-cookie",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/mfr/core/util-cookie/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/mfr/core/util-cookie",
+        "main": "libs/mfr/core/util-cookie/src/index.ts",
+        "tsConfig": "libs/mfr/core/util-cookie/tsconfig.lib.json",
+        "assets": ["libs/mfr/core/util-cookie/*.md"]
+      }
+    }
+  }
+}

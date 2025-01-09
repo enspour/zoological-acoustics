@@ -1,0 +1,19 @@
+{
+  "name": "kudu-date",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/kudu-date/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/kudu-date",
+        "main": "libs/kudu-date/src/index.ts",
+        "tsConfig": "libs/kudu-date/tsconfig.lib.json",
+        "assets": ["libs/kudu-date/*.md"]
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@use '../../../../mixins/layout.mixin.scss';
+
+:host {
+  box-sizing: border-box;
+}
+
+:host.vertical {
+  display: flex;
+}
+
+:host.vertical .tabs {
+  flex-direction: column;
+  height: fit-content;
+}
+
+:host.sm .tabs {
+  @include layout.sm;
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
+}
+
+:host.md .tabs {
+  @include layout.md;
+  border-radius: 10px;
+  padding: 2px;
+  gap: 2px;
+}
+
+:host.lg .tabs {
+  @include layout.lg;
+  border-radius: 12px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.tabs {
+  height: fit-content !important;
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.content {
+  width: 100%;
+}

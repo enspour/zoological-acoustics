@@ -11,10 +11,80 @@
     "target": "es2015",
     "module": "esnext",
     "lib": ["es2020", "dom"],
+    "strict": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@kudu-date": ["libs/kudu-date/src/index.ts"],
+      "@kudu-flow": ["libs/kudu-flow/src/index.ts"],
+      "@kudu-ui": ["libs/kudu-ui/src/index.ts"],
+      "@kudu/domain": ["libs/domain/src/index.ts"],
+      "@kudu/mfr-data-access-auth": [
+        "libs/mfr/core/data-access-auth/src/index.ts"
+      ],
+      "@kudu/mfr-data-access-employees": [
+        "libs/mfr/core/data-access-employees/src/index.ts"
+      ],
+      "@kudu/mfr-data-access-user": [
+        "libs/mfr/core/data-access-user/src/index.ts"
+      ],
+      "@kudu/mfr-employees/Routes": [
+        "apps/mfr-employees/src/app/remote-entry/entry.routes.ts"
+      ],
+      "@kudu/mfr-feature-employees": [
+        "libs/mfr/mfr-employees/feature-employees/src/index.ts"
+      ],
+      "@kudu/mfr-feature-home": ["libs/mfr/mfr-host/feature-home/src/index.ts"],
+      "@kudu/mfr-feature-login": [
+        "libs/mfr/mfr-host/feature-login/src/index.ts"
+      ],
+      "@kudu/mfr-feature-sidebar": [
+        "libs/mfr/mfr-host/feature-sidebar/src/index.ts"
+      ],
+      "@kudu/mfr-feature-signup": [
+        "libs/mfr/mfr-host/feature-signup/src/index.ts"
+      ],
+      "@kudu/mfr-ui-general": ["libs/mfr/core/ui-general/src/index.ts"],
+      "@kudu/mfr-util-auth-guard": [
+        "libs/mfr/core/util-auth-guard/src/index.ts"
+      ],
+      "@kudu/mfr-util-auth-interceptor": [
+        "libs/mfr/core/util-auth-interceptor/src/index.ts"
+      ],
+      "@kudu/mfr-util-cookie": ["libs/mfr/core/util-cookie/src/index.ts"],
+      "@kudu/mfr-util-http": ["libs/mfr/core/util-http/src/index.ts"],
+      "@kudu/mfr-util-jwt": ["libs/mfr/core/util-jwt/src/index.ts"],
+      "@kudu/msrv-data-access-postgres": [
+        "libs/msrv/core/data-access-postgres/src/index.ts"
+      ],
+      "@kudu/msrv-feature-auth": [
+        "libs/msrv/msrv-identity/feature-auth/src/index.ts"
+      ],
+      "@kudu/msrv-feature-employees": [
+        "libs/msrv/msrv-employees/feature-employees/src/index.ts"
+      ],
+      "@kudu/msrv-feature-user-duplication": [
+        "libs/msrv/core/feature-user-duplication/src/index.ts"
+      ],
+      "@kudu/msrv-feature-user-events": [
+        "libs/msrv/msrv-identity/feature-user-events/src/index.ts"
+      ],
+      "@kudu/msrv-feature-users": [
+        "libs/msrv/msrv-identity/feature-users/src/index.ts"
+      ],
+      "@kudu/msrv-util-auth-guard": [
+        "libs/msrv/core/util-auth-guard/src/index.ts"
+      ],
+      "@kudu/msrv-util-error-handling": [
+        "libs/msrv/core/util-error-handling/src/index.ts"
+      ],
+      "@kudu/msrv-util-event-bus": [
+        "libs/msrv/core/util-event-bus/src/index.ts"
+      ],
+      "@kudu/msrv-util-jwt": ["libs/msrv/core/util-jwt/src/index.ts"],
+      "@kudu/msrv-util-password": ["libs/msrv/core/util-password/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,0 +1,9 @@
+{
+  "name": "msrv-feature-employees",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/msrv/msrv-employees/feature-employees/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project feature-employees --web",
+  "targets": {}
+}

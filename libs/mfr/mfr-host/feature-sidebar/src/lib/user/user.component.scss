@@ -1,0 +1,21 @@
+:host {
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.details {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.details__name {
+  min-width: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

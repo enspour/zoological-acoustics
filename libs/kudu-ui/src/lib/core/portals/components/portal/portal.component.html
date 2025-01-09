@@ -1,0 +1,13 @@
+@for (portal of portals(); track $index) {
+  @if (portal.type === 'template') {
+    <ng-container [ngTemplateOutlet]="portal.template" />
+  }
+
+  @if (portal.type === 'component') {
+    <ng-container
+      [ngComponentOutlet]="portal.component"
+      [ngComponentOutletInjector]="portal.injector"
+      [ngComponentOutletInputs]="portal.inputs"
+    />
+  }
+}

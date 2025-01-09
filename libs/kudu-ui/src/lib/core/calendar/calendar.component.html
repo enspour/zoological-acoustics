@@ -1,0 +1,30 @@
+<div class="controls">
+  <div></div>
+
+  <div class="control">
+    <span class="year">{{ year() }}</span>
+    <span class="month">{{ month() }}</span>
+  </div>
+
+  <div></div>
+</div>
+
+<div class="weeks">
+  @for (week of weeks; track $index) {
+    <div class="week">{{ week }}</div>
+  }
+</div>
+
+<div class="dates">
+  @for (date of dates(); track $index) {
+    <div
+      class="date"
+      [class.date--available]="date | isAvailable: dateTime()"
+      [class.date--today]="date | isToday"
+      [class.date--selected]="date | equals: dateTime()"
+      (click)="onSelectDate(date)"
+    >
+      {{ date | getDay }}
+    </div>
+  }
+</div>

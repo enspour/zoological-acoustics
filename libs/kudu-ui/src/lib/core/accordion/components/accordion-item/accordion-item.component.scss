@@ -1,0 +1,18 @@
+.header {
+  cursor: pointer;
+}
+
+.expanded {
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+.expanded--opened {
+  height: calc-size(auto, size);
+  opacity: 1;
+}
+
+.expanded--closed {
+  height: 0;
+  opacity: 0;
+}

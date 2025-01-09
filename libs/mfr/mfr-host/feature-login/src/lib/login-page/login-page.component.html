@@ -1,0 +1,30 @@
+<form
+  class="form"
+  [formGroup]="form"
+  (submit)="$event.preventDefault(); onSubmit()"
+>
+  <h1 class="form__title">Kudu</h1>
+
+  <input
+    kudu-input
+    type="text"
+    formControlName="username"
+    placeholder="Логин"
+  />
+
+  <input
+    kudu-input
+    type="password"
+    formControlName="password"
+    placeholder="Пароль"
+  />
+
+  <button
+    kudu-button
+    class="form__submit"
+    kind="filled"
+    [disabled]="!form.valid"
+  >
+    Войти
+  </button>
+</form>

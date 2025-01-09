@@ -1,0 +1,14 @@
+:host {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+:host.top {
+  top: 100%;
+}
+
+:host.bottom {
+  bottom: 100%;
+}

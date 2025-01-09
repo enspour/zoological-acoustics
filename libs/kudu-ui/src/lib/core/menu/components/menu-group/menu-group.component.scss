@@ -1,0 +1,41 @@
+@use '../../../../mixins/layout.mixin.scss';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+:host.sm {
+  .title {
+    @include layout.sm;
+    height: 30px;
+  }
+}
+
+:host.md {
+  .title {
+    @include layout.md;
+    height: 38px;
+  }
+}
+
+:host.lg {
+  .title {
+    @include layout.lg;
+    height: 46px;
+  }
+}
+
+.title {
+  width: 100%;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+.items {
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

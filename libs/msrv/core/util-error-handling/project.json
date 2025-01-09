@@ -1,0 +1,9 @@
+{
+  "name": "msrv-util-error-handling",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/msrv/core/util-error-handling/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project util-error-handling --web",
+  "targets": {}
+}

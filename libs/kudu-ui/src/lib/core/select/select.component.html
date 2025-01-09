@@ -1,0 +1,16 @@
+@if (content()) {
+  <div class="content" [innerHTML]="content()" (click)="onClick()"></div>
+} @else {
+  <div class="content" (click)="onClick()">{{ placeholder() }}</div>
+}
+
+@if (isOpen()) {
+  <kudu-dropdown
+    class="options"
+    [class.options--top]="optionsPosition() === 'top'"
+    [class.options--bottom]="optionsPosition() === 'bottom'"
+    [(position)]="optionsPosition"
+  >
+    <ng-content />
+  </kudu-dropdown>
+}

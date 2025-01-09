@@ -1,0 +1,7 @@
+<div class="tab" [class.tab--active]="isActive()" (click)="onClick($event)">
+  {{ name() }}
+</div>
+
+<ng-template>
+  <ng-content />
+</ng-template>

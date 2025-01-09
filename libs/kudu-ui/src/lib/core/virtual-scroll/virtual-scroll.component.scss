@@ -1,0 +1,20 @@
+:host {
+  position: relative;
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+  will-change: scroll-position;
+}
+
+:host.transform {
+  .virtualization {
+    transform: translateY(var(--scroll));
+  }
+}
+
+.no-virtualization {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

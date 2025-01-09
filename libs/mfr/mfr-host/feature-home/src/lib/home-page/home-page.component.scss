@@ -1,0 +1,32 @@
+:host {
+  position: relative;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.container {
+  position: relative;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.viewport {
+  height: 500px;
+}
+
+.viewport__item {
+  position: absolute;
+}
+
+.accordion-item {
+  width: 100%;
+}
+
+.accordion-item-toggle {
+  width: 100%;
+}

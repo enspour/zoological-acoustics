@@ -1,0 +1,23 @@
+:host {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.workspace {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.workspace--disabled {
+  pointer-events: none;
+}
+
+.scalable {
+  width: max-content;
+  position: relative;
+  transform-origin: 0 0;
+}

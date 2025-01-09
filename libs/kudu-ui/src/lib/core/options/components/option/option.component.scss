@@ -1,0 +1,59 @@
+@use '../../../../mixins/layout.mixin.scss';
+
+:host {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-wrap: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+}
+
+:host.sm {
+  @include layout.sm;
+  min-height: 24px;
+}
+
+:host.md {
+  @include layout.md;
+  min-height: 30px;
+}
+
+:host.lg {
+  @include layout.lg;
+  min-height: 34px;
+}
+
+:host.hidden {
+  display: none;
+}
+
+:host.selected {
+  background-color: aliceblue;
+
+  &::after {
+    content: '';
+    margin-left: auto;
+    margin-bottom: 4px;
+    width: 14px;
+    height: 6px;
+    border-left: 2px solid rgb(80, 122, 159);
+    border-bottom: 2px solid rgb(80, 122, 159);
+    transform: rotate(-45deg);
+  }
+}
+
+:host.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: default;
+}
+
+.content {
+  width: 100%;
+  overflow: hidden;
+}

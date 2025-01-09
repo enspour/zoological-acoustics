@@ -1,0 +1,12 @@
+<input class="text" [(ngModel)]="text" [placeholder]="placeholder()" />
+
+@if (isOpen()) {
+  <kudu-dropdown
+    class="options"
+    [class.options--top]="optionsPosition() === 'top'"
+    [class.options--bottom]="optionsPosition() === 'bottom'"
+    [(position)]="optionsPosition"
+  >
+    <ng-content />
+  </kudu-dropdown>
+}
