@@ -9,21 +9,21 @@
 :host.sm {
   .title {
     @include layout.sm;
-    height: 30px;
+    height: 26px;
   }
 }
 
 :host.md {
   .title {
     @include layout.md;
-    height: 38px;
+    height: 30px;
   }
 }
 
 :host.lg {
   .title {
     @include layout.lg;
-    height: 46px;
+    height: 34px;
   }
 }
 

@@ -3,21 +3,21 @@
 :host.sm {
   .link {
     @include layout.sm;
-    height: 30px;
+    height: 26px;
   }
 }
 
 :host.md {
   .link {
     @include layout.md;
-    height: 38px;
+    height: 30px;
   }
 }
 
 :host.lg {
   .link {
     @include layout.lg;
-    height: 46px;
+    height: 34px;
   }
 }
 

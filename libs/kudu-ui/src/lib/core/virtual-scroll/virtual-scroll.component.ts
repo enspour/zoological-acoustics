@@ -7,6 +7,7 @@ import {
   inject,
   input,
 } from '@angular/core';
+import { outputFromObservable, toObservable } from '@angular/core/rxjs-interop';
 
 import { KuduVirtualScrollRenderPosition } from './virtual-scroll-render-position';
 import { KuduVirtualScrollRenderTransform } from './virtual-scroll-render-transform';
@@ -17,7 +18,6 @@ import {
   KuduVirtualScrollRenderType,
 } from './virtual-scroll.interface';
 
-import { outputFromObservable, toObservable } from '@angular/core/rxjs-interop';
 import { heightSignal, scrollSignal } from '../../utils';
 
 const isSameRange = (A: KuduVirtualScrollRange, B: KuduVirtualScrollRange) =>
