@@ -1,11 +1,9 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'kudu-table',
+  selector: 'table[kudu-table]',
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KuduTableComponent<T extends object> {
-  public data = input.required<T[]>();
-}
+export class KuduTableComponent {}

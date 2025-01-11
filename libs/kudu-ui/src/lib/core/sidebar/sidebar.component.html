@@ -1,1 +1,3 @@
-<ng-content />
+<div class="content" [style.width.px]="mode() === 'over' ? maxWidth() : Width">
+  <ng-content />
+</div>

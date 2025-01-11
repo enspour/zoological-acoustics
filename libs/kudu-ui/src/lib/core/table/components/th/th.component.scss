@@ -1,0 +1,77 @@
+@use '../../../../mixins/layout.mixin.scss';
+
+:host {
+  font-weight: 500;
+  text-align: start;
+  border: 1px solid #dedede;
+  border-inline-start: none;
+  border-inline-end: none;
+  box-sizing: border-box;
+}
+
+:host.sm {
+  @include layout.sm;
+  height: 34px;
+  border-radius: 0;
+}
+
+:host.md {
+  @include layout.md;
+  height: 38px;
+  border-radius: 0;
+}
+
+:host.lg {
+  @include layout.lg;
+  height: 42px;
+  border-radius: 0;
+}
+
+:host.sortable {
+  .header {
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-left: 2px solid #000;
+      border-bottom: 2px solid #000;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &:hover::after {
+      margin-bottom: 4px;
+      margin-top: 0;
+      transform: rotate(-45deg);
+      visibility: visible;
+      opacity: 0.4;
+    }
+  }
+}
+
+:host.sortable--asc .header::after,
+:host.sortable--desc .header::after {
+  visibility: visible;
+  opacity: 1 !important;
+}
+
+:host.sortable--asc .header::after {
+  margin-bottom: 4px;
+  margin-top: 0;
+  transform: rotate(-45deg);
+}
+
+:host.sortable--desc .header::after {
+  margin-top: 4px !important;
+  margin-bottom: 0 !important;
+  transform: rotate(135deg) !important;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

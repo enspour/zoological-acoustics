@@ -3,7 +3,6 @@ import {
   Component,
   HostBinding,
   input,
-  model,
 } from '@angular/core';
 
 import { KuduSidebarMode } from './sidebar.interface';
@@ -16,10 +15,10 @@ import { KuduSidebarMode } from './sidebar.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KuduSidebarComponent {
-  public isOpen = model.required<boolean>();
+  public isOpen = input.required<boolean>();
 
-  public minWidth = input.required<number>();
   public maxWidth = input.required<number>();
+  public minWidth = input<number>(0);
   public mode = input<KuduSidebarMode>('push');
 
   @HostBinding('class')

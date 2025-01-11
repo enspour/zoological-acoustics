@@ -1,15 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { KuduTableComponent } from './table.component';
+import { KuduTableRowComponent } from './tr.component';
 
-describe('TableComponent', () => {
-  let component: KuduTableComponent;
-  let fixture: ComponentFixture<KuduTableComponent>;
+describe('TrComponent', () => {
+  let component: KuduTableRowComponent;
+  let fixture: ComponentFixture<KuduTableRowComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [KuduTableComponent],
+      imports: [KuduTableRowComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(KuduTableComponent);
+    fixture = TestBed.createComponent(KuduTableRowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

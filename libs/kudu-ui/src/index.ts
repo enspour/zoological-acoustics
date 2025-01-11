@@ -13,6 +13,7 @@ export * from './lib/core/ripple';
 export * from './lib/core/select';
 export * from './lib/core/sidebar';
 export * from './lib/core/size';
+export * from './lib/core/sort';
 export * from './lib/core/table';
 export * from './lib/core/tabs';
 export * from './lib/core/virtual-scroll';
