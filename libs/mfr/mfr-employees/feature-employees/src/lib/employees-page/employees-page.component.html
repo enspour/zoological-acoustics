@@ -1,20 +1,8 @@
 @let employees = this.employees();
 
 @if (employees) {
-  <table>
-    <thead>
-      <tr>
-        <th>Название</th>
-        <th>Статус</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (employee of employees; track $index) {
-        <tr>
-          <td>{{ employee.name }}</td>
-          <td>{{ employee.status }}</td>
-        </tr>
-      }
-    </tbody>
-  </table>
+  <lib-employee-table
+    [employees]="employees"
+    (byEmployeeClick)="onEmployeeClick($event)"
+  />
 }

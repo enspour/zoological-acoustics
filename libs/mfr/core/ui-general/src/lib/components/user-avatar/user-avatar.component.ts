@@ -2,8 +2,12 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  HostBinding,
+  inject,
   input,
 } from '@angular/core';
+
+import { kuduSize } from '@kudu-ui';
 
 import { User } from '@kudu/domain';
 
@@ -15,6 +19,8 @@ import { User } from '@kudu/domain';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserAvatarComponent {
+  private size = inject(kuduSize);
+
   public user = input.required<User>();
 
   public initials = computed(() =>
@@ -26,4 +32,9 @@ export class UserAvatarComponent {
       .join('')
       .toUpperCase(),
   );
+
+  @HostBinding('class')
+  public get Classes() {
+    return `${this.size()} `;
+  }
 }

@@ -1,12 +1,14 @@
 <kudu-sidebar
   class="sidebar"
-  [(isOpen)]="isOpen"
+  [isOpen]="isOpen()"
   [maxWidth]="300"
   [minWidth]="75"
 >
-  <lib-logo />
-  <lib-menu />
-  <lib-user />
+  <div class="content">
+    <lib-logo />
+    <lib-menu />
+    <lib-user />
+  </div>
 </kudu-sidebar>
 
 <router-outlet></router-outlet>

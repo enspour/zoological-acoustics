@@ -4,11 +4,13 @@
 }
 
 .sidebar {
+  border-right: 1px solid #cccccc;
+}
+
+.content {
   height: 100vh;
   text-wrap: nowrap;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-right: 1px solid #cccccc;
-  overflow: hidden;
 }

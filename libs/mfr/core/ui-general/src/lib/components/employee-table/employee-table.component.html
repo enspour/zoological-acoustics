@@ -1,0 +1,18 @@
+<table kudu-table kuduSort #sortRef="kuduSort">
+  <thead>
+    <tr>
+      <th kudu-th kuduThSort="name">Название</th>
+      <th kudu-th>Статус</th>
+    </tr>
+  </thead>
+  <tbody>
+    @let employees = this.employees() | kuduSort: sortRef.config();
+
+    @for (employee of employees; track employee.uuid) {
+      <tr (click)="onClick(employee)">
+        <td kudu-td>{{ employee.name }}</td>
+        <td kudu-td>{{ employee.status }}</td>
+      </tr>
+    }
+  </tbody>
+</table>
