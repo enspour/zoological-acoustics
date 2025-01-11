@@ -35,6 +35,9 @@
       "@kudu/mfr-feature-employees": [
         "libs/mfr/mfr-employees/feature-employees/src/index.ts"
       ],
+      "@kudu/mfr-feature-explorer": [
+        "libs/mfr/core/feature-explorer/src/index.ts"
+      ],
       "@kudu/mfr-feature-home": ["libs/mfr/mfr-host/feature-home/src/index.ts"],
       "@kudu/mfr-feature-login": [
         "libs/mfr/mfr-host/feature-login/src/index.ts"

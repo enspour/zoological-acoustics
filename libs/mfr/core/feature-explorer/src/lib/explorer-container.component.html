@@ -1,0 +1,17 @@
+<kudu-sidebar
+  class="sidebar"
+  [isOpen]="isOpen()"
+  [maxWidth]="400"
+  mode="over"
+  [style.right]="0"
+>
+  @let config = this.config();
+
+  @if (config) {
+    <ng-container
+      [ngComponentOutlet]="config.component"
+      [ngComponentOutletInputs]="config.inputs"
+      [ngComponentOutletInjector]="config.injector"
+    />
+  }
+</kudu-sidebar>

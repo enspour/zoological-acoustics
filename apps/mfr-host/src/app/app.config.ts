@@ -8,6 +8,7 @@ import { provideRouter } from '@angular/router';
 
 import { provideAuthDataAccess } from '@kudu/mfr-data-access-auth';
 import { provideUserDataAccess } from '@kudu/mfr-data-access-user';
+import { provideExplorer } from '@kudu/mfr-feature-explorer';
 import { AuthInterceptor } from '@kudu/mfr-util-auth-interceptor';
 
 import { appRoutes } from './app.routes';
@@ -17,6 +18,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
     provideHttpClient(withInterceptorsFromDi()),
+    provideExplorer(),
     provideAuthDataAccess(),
     provideUserDataAccess(),
 
