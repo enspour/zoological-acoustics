@@ -3,7 +3,13 @@ import {
   Component,
   inject,
   OnInit,
+  signal,
 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { KuduInputComponent } from '@kudu-ui';
+
+import { KuduFilterPipe } from '@kudu-template-utils';
 
 import { Employee } from '@kudu/domain';
 
@@ -11,7 +17,9 @@ import {
   EmployeesService,
   provideEmployeesDataAccess,
 } from '@kudu/mfr-data-access-employees';
+
 import { ExplorerService } from '@kudu/mfr-feature-explorer';
+
 import {
   EmployeeCardComponent,
   EmployeeTableComponent,
@@ -19,7 +27,12 @@ import {
 
 @Component({
   selector: 'lib-employees-page',
-  imports: [EmployeeTableComponent],
+  imports: [
+    FormsModule,
+    KuduInputComponent,
+    KuduFilterPipe,
+    EmployeeTableComponent,
+  ],
   templateUrl: './employees-page.component.html',
   styleUrl: './employees-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,6 +43,8 @@ export class EmployeesPageComponent implements OnInit {
   private employeesService = inject(EmployeesService);
 
   public employees = this.employeesService.employees;
+
+  public searchedTerm = signal('');
 
   ngOnInit(): void {
     this.employeesService.getAll();
@@ -42,5 +57,9 @@ export class EmployeesPageComponent implements OnInit {
         employee,
       },
     });
+  }
+
+  public filterFn(value: Employee, _: number, search: string) {
+    return value.name.includes(search);
   }
 }

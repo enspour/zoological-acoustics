@@ -1,8 +1,17 @@
-@let employees = this.employees();
+<header class="header">
+  <h2 class="header__title">Сотрудники</h2>
 
-@if (employees) {
-  <lib-employee-table
-    [employees]="employees"
-    (byEmployeeClick)="onEmployeeClick($event)"
+  <input
+    kudu-input
+    class="header__search"
+    placeholder="Поиск по сотрудникам..."
+    [(ngModel)]="searchedTerm"
   />
-}
+</header>
+
+@let employees = this.employees() || [];
+
+<lib-employee-table
+  [employees]="employees | filter: filterFn : searchedTerm()"
+  (byEmployeeClick)="onEmployeeClick($event)"
+/>
