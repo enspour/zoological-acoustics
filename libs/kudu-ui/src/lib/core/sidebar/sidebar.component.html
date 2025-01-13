@@ -1,3 +1,9 @@
-<div class="content" [style.width.px]="mode() === 'over' ? maxWidth() : Width">
-  <ng-content />
-</div>
+@let isOver = mode() === 'over';
+@let isPush = mode() === 'push';
+@let isVisible = isOpen() || isTransition() || (isPush && minWidth() !== 0);
+
+@if (isVisible) {
+  <div class="content" [style.width.px]="isOver ? WidthWhenOpen : Width">
+    <ng-content />
+  </div>
+}

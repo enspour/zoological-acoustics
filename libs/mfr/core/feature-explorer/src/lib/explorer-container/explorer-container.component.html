@@ -1,7 +1,9 @@
 <kudu-sidebar
   class="sidebar"
   [isOpen]="isOpen()"
-  [maxWidth]="550"
+  [width]="width()"
+  [maxWidth]="700"
+  [minWidth]="200"
   mode="over"
   [style.right]="0"
 >
@@ -18,4 +20,6 @@
       [ngComponentOutletInjector]="config.injector"
     />
   }
+
+  <lib-explorer-resizer />
 </kudu-sidebar>

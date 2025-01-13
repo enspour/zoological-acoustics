@@ -2,7 +2,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
+  HostListener,
   input,
+  linkedSignal,
+  signal,
 } from '@angular/core';
 
 import { KuduSidebarMode } from './sidebar.interface';
@@ -17,9 +20,16 @@ import { KuduSidebarMode } from './sidebar.interface';
 export class KuduSidebarComponent {
   public isOpen = input.required<boolean>();
 
+  public width = input<number>();
   public maxWidth = input.required<number>();
   public minWidth = input<number>(0);
   public mode = input<KuduSidebarMode>('push');
+
+  public isTransition = signal(false);
+  public transition = linkedSignal({
+    source: this.isOpen,
+    computation: () => 'width 0.2s, min-width 0.2s',
+  });
 
   @HostBinding('class')
   get Classes() {
@@ -27,8 +37,40 @@ export class KuduSidebarComponent {
   }
 
   @HostBinding('style.width.px')
-  @HostBinding('style.min-width.px')
   get Width() {
-    return this.isOpen() ? this.maxWidth() : this.minWidth();
+    return this.isOpen() ? this.WidthWhenOpen : this.WidthWhenClose;
+  }
+
+  get WidthWhenOpen() {
+    return clamp(
+      this.width() ?? this.maxWidth(),
+      this.minWidth(),
+      this.maxWidth(),
+    );
+  }
+
+  get WidthWhenClose() {
+    return this.mode() === 'push' ? this.minWidth() : 0;
+  }
+
+  @HostBinding('style.transition')
+  get Transition() {
+    return this.transition();
+  }
+
+  @HostListener('transitionstart')
+  public onTransitionStart() {
+    this.isTransition.set(true);
+  }
+
+  @HostListener('transitionend')
+  @HostListener('transitioncancel')
+  public onTransitionEnd() {
+    this.isTransition.set(false);
+    this.transition.set('none');
   }
 }
+
+const clamp = (value: number, min: number, max: number) => {
+  return Math.min(Math.max(value, min), max);
+};

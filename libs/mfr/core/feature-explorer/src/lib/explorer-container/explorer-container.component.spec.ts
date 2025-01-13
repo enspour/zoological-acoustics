@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ExplorerContainerComponent } from './explorer-container.component';
+import { ExplorerContainerComponent } from '../explorer-container.component';
 
 describe('ExplorerContainerComponent', () => {
   let component: ExplorerContainerComponent;

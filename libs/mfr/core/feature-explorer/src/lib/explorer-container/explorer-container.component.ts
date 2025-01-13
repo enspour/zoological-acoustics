@@ -8,12 +8,18 @@ import {
 
 import { KuduIconComponent, KuduSidebarComponent } from '@kudu-ui';
 
-import { ExplorerConfig } from './explorer.interface';
-import { ExplorerService } from './explorer.service';
+import { ExplorerResizerComponent } from '../explorer-resizer/explorer-resizer.component';
+import { ExplorerConfig } from '../explorer.interface';
+import { ExplorerService } from '../explorer.service';
 
 @Component({
   selector: 'lib-explorer-container',
-  imports: [NgComponentOutlet, KuduSidebarComponent, KuduIconComponent],
+  imports: [
+    NgComponentOutlet,
+    KuduSidebarComponent,
+    KuduIconComponent,
+    ExplorerResizerComponent,
+  ],
   templateUrl: './explorer-container.component.html',
   styleUrl: './explorer-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,6 +28,8 @@ export class ExplorerContainerComponent {
   private explorerService = inject(ExplorerService);
 
   public isOpen = this.explorerService.isOpen;
+  public width = this.explorerService.width;
+
   public config = linkedSignal<
     ExplorerConfig<any> | null,
     ExplorerConfig<any> | null
