@@ -1,8 +1,9 @@
 export default {
-  displayName: 'feature-sidebar',
+  displayName: 'feature-sidebar-layout',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../../coverage/libs/mfr/mfr-host/feature-sidebar',
+  coverageDirectory:
+    '../../../../coverage/libs/mfr/mfr-host/feature-sidebar-layout',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

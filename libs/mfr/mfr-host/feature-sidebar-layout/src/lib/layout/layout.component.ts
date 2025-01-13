@@ -8,7 +8,7 @@ import { MenuComponent } from '../menu/menu.component';
 import { UserComponent } from '../user/user.component';
 
 @Component({
-  selector: 'lib-sidebar',
+  selector: 'lib-sidebar-layout',
   imports: [
     RouterOutlet,
     KuduSidebarComponent,
@@ -16,11 +16,11 @@ import { UserComponent } from '../user/user.component';
     LogoComponent,
     UserComponent,
   ],
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss',
+  templateUrl: './layout.component.html',
+  styleUrl: './layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidebarComponent {
+export class LayoutComponent {
   public isOpen = signal(false);
 
   public toggle() {

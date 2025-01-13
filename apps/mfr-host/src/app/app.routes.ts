@@ -9,7 +9,7 @@ const SignupPage = () =>
   import('@kudu/mfr-feature-signup').then((c) => c.SignupPageComponent);
 
 const SidebarLayout = () =>
-  import('@kudu/mfr-feature-sidebar').then((c) => c.SidebarComponent);
+  import('@kudu/mfr-feature-sidebar-layout').then((c) => c.LayoutComponent);
 
 const HomePage = () =>
   import('@kudu/mfr-feature-home').then((c) => c.HomePageComponent);

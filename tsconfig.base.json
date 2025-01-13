@@ -43,8 +43,8 @@
       "@kudu/mfr-feature-login": [
         "libs/mfr/mfr-host/feature-login/src/index.ts"
       ],
-      "@kudu/mfr-feature-sidebar": [
-        "libs/mfr/mfr-host/feature-sidebar/src/index.ts"
+      "@kudu/mfr-feature-sidebar-layout": [
+        "libs/mfr/mfr-host/feature-sidebar-layout/src/index.ts"
       ],
       "@kudu/mfr-feature-signup": [
         "libs/mfr/mfr-host/feature-signup/src/index.ts"

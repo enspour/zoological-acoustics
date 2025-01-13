@@ -1,0 +1,20 @@
+:host {
+  flex: 1;
+}
+
+.menu--opened {
+  .menu__item-title {
+    display: block;
+  }
+}
+
+.menu__item {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu__item-title {
+  display: none;
+}

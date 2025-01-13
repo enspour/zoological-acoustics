@@ -4,7 +4,7 @@ import {
   HostListener,
   inject,
 } from '@angular/core';
-import { SidebarComponent } from '../sidebar/sidebar.component';
+import { LayoutComponent } from '../layout/layout.component';
 
 @Component({
   selector: 'lib-logo',
@@ -14,7 +14,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogoComponent {
-  private sidebar = inject(SidebarComponent);
+  private sidebar = inject(LayoutComponent);
 
   @HostListener('click')
   public onToggle() {

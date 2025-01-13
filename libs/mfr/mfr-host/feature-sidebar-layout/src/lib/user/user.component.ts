@@ -5,7 +5,7 @@ import { KuduButtonComponent } from '@kudu-ui';
 import { AuthService } from '@kudu/mfr-data-access-auth';
 import { UserService } from '@kudu/mfr-data-access-user';
 import { UserAvatarComponent } from '@kudu/mfr-ui-general';
-import { SidebarComponent } from '../sidebar/sidebar.component';
+import { LayoutComponent } from '../layout/layout.component';
 
 @Component({
   selector: 'lib-user',
@@ -18,7 +18,7 @@ export class UserComponent {
   private router = inject(Router);
   private authService = inject(AuthService);
   private userService = inject(UserService);
-  private sidebar = inject(SidebarComponent);
+  private sidebar = inject(LayoutComponent);
 
   public isOpen = this.sidebar.isOpen;
 

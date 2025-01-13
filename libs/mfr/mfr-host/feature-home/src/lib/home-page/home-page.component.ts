@@ -1,15 +1,9 @@
-import { JsonPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
-
-import { UserService } from '@kudu/mfr-data-access-user';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'lib-home-page',
-  imports: [JsonPipe],
+  imports: [],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })
-export class HomePageComponent {
-  private userService = inject(UserService);
-  public user = this.userService.user;
-}
+export class HomePageComponent {}
