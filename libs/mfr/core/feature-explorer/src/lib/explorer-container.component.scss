@@ -1,3 +1,16 @@
 .sidebar {
   background-color: #ffffff;
+  border-left: 1px solid #cccccc;
+}
+
+.sidebar__header {
+  padding: 0 10px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sidebar__header-close {
+  cursor: pointer;
 }

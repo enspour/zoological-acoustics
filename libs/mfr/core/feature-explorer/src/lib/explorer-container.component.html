@@ -1,10 +1,14 @@
 <kudu-sidebar
   class="sidebar"
   [isOpen]="isOpen()"
-  [maxWidth]="400"
+  [maxWidth]="550"
   mode="over"
   [style.right]="0"
 >
+  <header class="sidebar__header">
+    <kudu-icon class="sidebar__header-close" icon="close" (click)="onClose()" />
+  </header>
+
   @let config = this.config();
 
   @if (config) {
