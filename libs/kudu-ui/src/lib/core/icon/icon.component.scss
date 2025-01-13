@@ -1,0 +1,20 @@
+:host.sm {
+  --icon-size: 16px;
+}
+
+:host.md {
+  --icon-size: 20px;
+}
+
+:host.lg {
+  --icon-size: 24px;
+}
+
+:host {
+  display: block;
+  mask: var(--icon-src) no-repeat center/contain;
+  height: var(--icon-size);
+  width: var(--icon-size);
+  min-width: var(--icon-size);
+  background-color: #000000;
+}

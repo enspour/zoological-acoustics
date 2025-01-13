@@ -19,6 +19,7 @@
       "@kudu-date": ["libs/kudu-date/src/index.ts"],
       "@kudu-flow": ["libs/kudu-flow/src/index.ts"],
       "@kudu-ui": ["libs/kudu-ui/src/index.ts"],
+      "@kudu-ui-icons": ["libs/kudu-ui-icons/src/index.ts"],
       "@kudu/domain": ["libs/domain/src/index.ts"],
       "@kudu/mfr-data-access-auth": [
         "libs/mfr/core/data-access-auth/src/index.ts"

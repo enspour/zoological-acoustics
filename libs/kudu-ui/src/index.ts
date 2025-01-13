@@ -5,6 +5,7 @@ export * from './lib/core/calendar';
 export * from './lib/core/dialog';
 export * from './lib/core/dropdown';
 export * from './lib/core/glassmorphism';
+export * from './lib/core/icon';
 export * from './lib/core/input';
 export * from './lib/core/menu';
 export * from './lib/core/options';
