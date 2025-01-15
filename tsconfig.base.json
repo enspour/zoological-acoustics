@@ -22,6 +22,9 @@
       "@kudu-ui": ["libs/kudu-ui/src/index.ts"],
       "@kudu-ui-icons": ["libs/kudu-ui-icons/src/index.ts"],
       "@kudu/domain": ["libs/domain/src/index.ts"],
+      "@kudu/mfr-feature-employee-explorer": [
+        "libs/mfr/mfr-employees/feature-employee-explorer/src/index.ts"
+      ],
       "@kudu/mfr-data-access-auth": [
         "libs/mfr/core/data-access-auth/src/index.ts"
       ],
@@ -41,11 +44,14 @@
         "libs/mfr/core/feature-explorer/src/index.ts"
       ],
       "@kudu/mfr-feature-home": ["libs/mfr/mfr-host/feature-home/src/index.ts"],
+      "@kudu/mfr-feature-invite-employee": [
+        "libs/mfr/mfr-employees/feature-invite-employee/src/index.ts"
+      ],
       "@kudu/mfr-feature-login": [
         "libs/mfr/mfr-host/feature-login/src/index.ts"
       ],
-      "@kudu/mfr-feature-sidebar-layout": [
-        "libs/mfr/mfr-host/feature-sidebar-layout/src/index.ts"
+      "@kudu/mfr-feature-sidebar": [
+        "libs/mfr/mfr-host/feature-sidebar/src/index.ts"
       ],
       "@kudu/mfr-feature-signup": [
         "libs/mfr/mfr-host/feature-signup/src/index.ts"
@@ -60,6 +66,9 @@
       "@kudu/mfr-util-cookie": ["libs/mfr/core/util-cookie/src/index.ts"],
       "@kudu/mfr-util-http": ["libs/mfr/core/util-http/src/index.ts"],
       "@kudu/mfr-util-jwt": ["libs/mfr/core/util-jwt/src/index.ts"],
+      "@kudu/mfr-util-local-storage": [
+        "libs/mfr/core/util-local-storage/src/index.ts"
+      ],
       "@kudu/msrv-data-access-postgres": [
         "libs/msrv/core/data-access-postgres/src/index.ts"
       ],
