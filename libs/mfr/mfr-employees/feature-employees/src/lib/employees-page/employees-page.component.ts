@@ -7,7 +7,12 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { KuduInputComponent } from '@kudu-ui';
+import {
+  KuduButtonComponent,
+  KuduDialogService,
+  KuduIconComponent,
+  KuduInputComponent,
+} from '@kudu-ui';
 
 import { KuduFilterPipe } from '@kudu-template-utils';
 
@@ -18,18 +23,19 @@ import {
   provideEmployeesDataAccess,
 } from '@kudu/mfr-data-access-employees';
 
+import { EmployeeExplorerComponent } from '@kudu/mfr-feature-employee-explorer';
 import { ExplorerService } from '@kudu/mfr-feature-explorer';
+import { InviteEmployeeModalComponent } from '@kudu/mfr-feature-invite-employee';
 
-import {
-  EmployeeCardComponent,
-  EmployeeTableComponent,
-} from '@kudu/mfr-ui-general';
+import { EmployeeTableComponent } from '@kudu/mfr-ui-general';
 
 @Component({
   selector: 'lib-employees-page',
   imports: [
     FormsModule,
     KuduInputComponent,
+    KuduIconComponent,
+    KuduButtonComponent,
     KuduFilterPipe,
     EmployeeTableComponent,
   ],
@@ -39,6 +45,7 @@ import {
   providers: [provideEmployeesDataAccess()],
 })
 export class EmployeesPageComponent implements OnInit {
+  private dialogService = inject(KuduDialogService);
   private explorerService = inject(ExplorerService);
   private employeesService = inject(EmployeesService);
 
@@ -50,9 +57,15 @@ export class EmployeesPageComponent implements OnInit {
     this.employeesService.getAll();
   }
 
+  public onInvite() {
+    this.dialogService.open(InviteEmployeeModalComponent, {
+      hasBackdrop: true,
+    });
+  }
+
   public onEmployeeClick(employee: Employee) {
     this.explorerService.open({
-      component: EmployeeCardComponent,
+      component: EmployeeExplorerComponent,
       inputs: {
         employee,
       },

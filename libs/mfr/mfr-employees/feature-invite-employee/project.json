@@ -1,7 +1,7 @@
 {
-  "name": "feature-sidebar-layout",
+  "name": "feature-invite-employee",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/mfr/mfr-host/feature-sidebar-layout/src",
+  "sourceRoot": "libs/mfr/mfr-employees/feature-invite-employee/src",
   "prefix": "lib",
   "projectType": "library",
   "tags": [],
@@ -10,7 +10,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/mfr/mfr-host/feature-sidebar-layout/jest.config.ts"
+        "jestConfig": "libs/mfr/mfr-employees/feature-invite-employee/jest.config.ts"
       }
     },
     "lint": {
