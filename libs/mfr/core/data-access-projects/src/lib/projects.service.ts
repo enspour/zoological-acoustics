@@ -35,4 +35,16 @@ export class ProjectsService {
 
     return project;
   }
+
+  public async delete(uuid: string) {
+    const request = this.projectsApi.delete(uuid);
+    const project = await lastValueFrom(request);
+
+    const projects = this.projects();
+    if (projects) {
+      this.response.set(projects.filter((p) => p.uuid !== uuid));
+    }
+
+    return project;
+  }
 }

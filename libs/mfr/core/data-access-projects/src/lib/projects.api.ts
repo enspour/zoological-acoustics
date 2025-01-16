@@ -5,6 +5,7 @@ import { map } from 'rxjs';
 import {
   CreateProjectDto,
   CreateProjectResponseDto,
+  DeleteProjectResponseDto,
   GetProjectsResponseDto,
 } from './dtos';
 
@@ -23,6 +24,13 @@ export class ProjectsApi {
     const url = `api/v1/projects/projects`;
     return this.http
       .post<CreateProjectResponseDto>(url, data)
+      .pipe(map((response) => response.data.project));
+  }
+
+  public delete(uuid: string) {
+    const url = `api/v1/projects/projects/${uuid}`;
+    return this.http
+      .delete<DeleteProjectResponseDto>(url)
       .pipe(map((response) => response.data.project));
   }
 }
