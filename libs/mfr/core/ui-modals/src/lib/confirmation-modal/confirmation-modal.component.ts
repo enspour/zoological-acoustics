@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { KuduButtonComponent, KuduDialogData, KuduDialogRef } from '@kudu-ui';
 
 @Component({
-  selector: 'app-confirmation',
+  selector: 'lib-confirmation',
   imports: [KuduButtonComponent],
   templateUrl: './confirmation-modal.component.html',
   styleUrl: './confirmation-modal.component.scss',

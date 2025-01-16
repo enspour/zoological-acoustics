@@ -6,7 +6,7 @@ import {
   KuduMenuLinkComponent,
 } from '@kudu-ui';
 
-import { LayoutComponent } from '../layout/layout.component';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'lib-menu',
@@ -16,7 +16,7 @@ import { LayoutComponent } from '../layout/layout.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MenuComponent {
-  private sidebar = inject(LayoutComponent);
+  private sidebar = inject(SidebarComponent);
 
   public isOpen = this.sidebar.isOpen;
 

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UserAvatarComponent } from './user-avatar.component';
+import { UserAvatarComponent } from './employee-avatar.component';
 
 describe('UserAvatarComponent', () => {
   let component: UserAvatarComponent;

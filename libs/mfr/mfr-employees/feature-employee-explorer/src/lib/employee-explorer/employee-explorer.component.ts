@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { Employee } from '@kudu/domain';
-import { EmployeeCardComponent } from '@kudu/mfr-ui-general';
+import { EmployeeCardComponent } from '@kudu/mfr-ui-employee';
 
 @Component({
   selector: 'lib-employee-explorer',

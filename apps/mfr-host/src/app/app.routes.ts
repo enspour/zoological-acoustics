@@ -8,14 +8,14 @@ const LoginPage = () =>
 const SignupPage = () =>
   import('@kudu/mfr-feature-signup').then((c) => c.SignupPageComponent);
 
-const SidebarLayout = () =>
-  import('@kudu/mfr-feature-sidebar').then((c) => c.LayoutComponent);
+const AuthLayout = () =>
+  import('@kudu/mfr-feature-auth-layout').then((c) => c.LayoutComponent);
 
 const HomePage = () =>
   import('@kudu/mfr-feature-home').then((c) => c.HomePageComponent);
 
 const EmployeesPages = () =>
-  import('@kudu/mfr-employees/Routes').then((m) => m!.remoteRoutes);
+  import('@kudu/mfr-employees/Routes').then((m) => m.remoteRoutes);
 
 export const appRoutes: Route[] = [
   {
@@ -31,7 +31,7 @@ export const appRoutes: Route[] = [
   {
     path: '',
     canActivate: [AuthGuard],
-    loadComponent: SidebarLayout,
+    loadComponent: AuthLayout,
     children: [
       {
         path: '',

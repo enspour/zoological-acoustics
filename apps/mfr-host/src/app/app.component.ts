@@ -2,14 +2,9 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { KuduDialogContainerComponent } from '@kudu-ui';
-import { ExplorerContainerComponent } from '@kudu/mfr-feature-explorer';
 
 @Component({
-  imports: [
-    RouterOutlet,
-    KuduDialogContainerComponent,
-    ExplorerContainerComponent,
-  ],
+  imports: [RouterOutlet, KuduDialogContainerComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

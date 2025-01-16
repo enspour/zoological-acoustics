@@ -1,8 +1,9 @@
 export default {
-  displayName: 'mfr-ui-general',
+  displayName: 'feature-auth-layout',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../../coverage/libs/mfr/core/ui-general',
+  coverageDirectory:
+    '../../../../coverage/libs/mfr/mfr-host/feature-auth-layout',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

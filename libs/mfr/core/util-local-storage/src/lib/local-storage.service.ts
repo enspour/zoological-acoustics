@@ -39,7 +39,7 @@ export class LocalStorageService {
     this.subscribers.set(key, [...subscribers, subscriber]);
   }
 
-  private removeSubscriber(key: string, subscriber: Subscriber<any>) {
+  private removeSubscriber<T>(key: string, subscriber: Subscriber<T>) {
     const subscribers = this.subscribers.get(key) || [];
 
     this.subscribers.set(

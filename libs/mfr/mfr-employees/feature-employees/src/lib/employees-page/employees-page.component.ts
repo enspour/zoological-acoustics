@@ -27,7 +27,7 @@ import { EmployeeExplorerComponent } from '@kudu/mfr-feature-employee-explorer';
 import { ExplorerService } from '@kudu/mfr-feature-explorer';
 import { InviteEmployeeModalComponent } from '@kudu/mfr-feature-invite-employee';
 
-import { EmployeeTableComponent } from '@kudu/mfr-ui-general';
+import { EmployeeTableComponent } from '@kudu/mfr-ui-employee';
 
 @Component({
   selector: 'lib-employees-page',

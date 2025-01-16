@@ -12,13 +12,13 @@ import { kuduSize } from '@kudu-ui';
 import { User } from '@kudu/domain';
 
 @Component({
-  selector: 'lib-user-avatar',
+  selector: 'lib-employee-avatar',
   imports: [],
-  templateUrl: './user-avatar.component.html',
-  styleUrl: './user-avatar.component.scss',
+  templateUrl: './employee-avatar.component.html',
+  styleUrl: './employee-avatar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserAvatarComponent {
+export class EmployeeAvatarComponent {
   private size = inject(kuduSize);
 
   public user = input.required<User>();

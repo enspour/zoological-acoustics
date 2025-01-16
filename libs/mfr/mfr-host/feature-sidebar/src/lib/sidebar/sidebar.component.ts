@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 import { KuduSidebarComponent } from '@kudu-ui';
 
@@ -8,19 +7,13 @@ import { MenuComponent } from '../menu/menu.component';
 import { UserComponent } from '../user/user.component';
 
 @Component({
-  selector: 'lib-sidebar-layout',
-  imports: [
-    RouterOutlet,
-    KuduSidebarComponent,
-    MenuComponent,
-    LogoComponent,
-    UserComponent,
-  ],
-  templateUrl: './layout.component.html',
-  styleUrl: './layout.component.scss',
+  selector: 'lib-sidebar',
+  imports: [KuduSidebarComponent, MenuComponent, LogoComponent, UserComponent],
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LayoutComponent {
+export class SidebarComponent {
   public isOpen = signal(false);
 
   public toggle() {
