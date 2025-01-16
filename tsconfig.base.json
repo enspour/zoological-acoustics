@@ -21,9 +21,15 @@
       "@kudu-template-utils": ["libs/kudu-template-utils/src/index.ts"],
       "@kudu-ui": ["libs/kudu-ui/src/index.ts"],
       "@kudu-ui-icons": ["libs/kudu-ui-icons/src/index.ts"],
+      "@kudu/data-access-projects": [
+        "libs/mfr/core/data-access-projects/src/index.ts"
+      ],
       "@kudu/domain": ["libs/domain/src/index.ts"],
-      "@kudu/mfr-feature-auth-layout": [
-        "libs/mfr/mfr-host/feature-auth-layout/src/index.ts"
+      "@kudu/feature-browse-project": [
+        "libs/mfr/mfr-projects/feature-browse-project/src/index.ts"
+      ],
+      "@kudu/feature-create-project": [
+        "libs/mfr/mfr-projects/feature-create-project/src/index.ts"
       ],
       "@kudu/mfr-data-access-auth": [
         "libs/mfr/core/data-access-auth/src/index.ts"
@@ -37,8 +43,11 @@
       "@kudu/mfr-employees/Routes": [
         "apps/mfr-employees/src/app/remote-entry/entry.routes.ts"
       ],
-      "@kudu/mfr-feature-employee-explorer": [
-        "libs/mfr/mfr-employees/feature-employee-explorer/src/index.ts"
+      "@kudu/mfr-feature-auth-layout": [
+        "libs/mfr/mfr-host/feature-auth-layout/src/index.ts"
+      ],
+      "@kudu/mfr-feature-browse-employee": [
+        "libs/mfr/mfr-employees/feature-browse-employee/src/index.ts"
       ],
       "@kudu/mfr-feature-employees": [
         "libs/mfr/mfr-employees/feature-employees/src/index.ts"
@@ -53,14 +62,21 @@
       "@kudu/mfr-feature-login": [
         "libs/mfr/mfr-host/feature-login/src/index.ts"
       ],
+      "@kudu/mfr-feature-projects": [
+        "libs/mfr/mfr-projects/feature-projects/src/index.ts"
+      ],
       "@kudu/mfr-feature-sidebar": [
         "libs/mfr/mfr-host/feature-sidebar/src/index.ts"
       ],
       "@kudu/mfr-feature-signup": [
         "libs/mfr/mfr-host/feature-signup/src/index.ts"
       ],
+      "@kudu/mfr-projects/Routes": [
+        "apps/mfr-projects/src/app/remote-entry/entry.routes.ts"
+      ],
       "@kudu/mfr-ui-employee": ["libs/mfr/core/ui-employee/src/index.ts"],
       "@kudu/mfr-ui-modals": ["libs/mfr/core/ui-modals/src/index.ts"],
+      "@kudu/mfr-ui-project": ["libs/mfr/core/ui-project/src/index.ts"],
       "@kudu/mfr-util-auth-guard": [
         "libs/mfr/core/util-auth-guard/src/index.ts"
       ],
@@ -81,6 +97,9 @@
       ],
       "@kudu/msrv-feature-employees": [
         "libs/msrv/msrv-employees/feature-employees/src/index.ts"
+      ],
+      "@kudu/msrv-feature-projects": [
+        "libs/msrv/msrv-projects/feature-projects/src/index.ts"
       ],
       "@kudu/msrv-feature-user-duplication": [
         "libs/msrv/core/feature-user-duplication/src/index.ts"

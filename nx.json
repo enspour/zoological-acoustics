@@ -40,7 +40,8 @@
       "exclude": [
         "apps/msrv-users-e2e/**/*",
         "apps/msrv-identity-e2e/**/*",
-        "apps/msrv-employees-e2e/**/*"
+        "apps/msrv-employees-e2e/**/*",
+        "apps/msrv-projects-e2e/**/*"
       ]
     },
     {

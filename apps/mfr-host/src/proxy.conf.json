@@ -6,5 +6,9 @@
   "/api/v1/employees": {
     "target": "http://localhost:3001",
     "secure": false
+  },
+  "/api/v1/projects": {
+    "target": "http://localhost:3002",
+    "secure": false
   }
 }

@@ -17,6 +17,9 @@ const HomePage = () =>
 const EmployeesPages = () =>
   import('@kudu/mfr-employees/Routes').then((m) => m.remoteRoutes);
 
+const ProjectsPages = () =>
+  import('@kudu/mfr-projects/Routes').then((m) => m.remoteRoutes);
+
 export const appRoutes: Route[] = [
   {
     path: 'login',
@@ -40,6 +43,10 @@ export const appRoutes: Route[] = [
       {
         path: 'employees',
         loadChildren: EmployeesPages,
+      },
+      {
+        path: 'projects',
+        loadChildren: ProjectsPages,
       },
     ],
   },

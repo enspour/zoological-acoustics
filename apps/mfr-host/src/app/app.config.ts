@@ -6,7 +6,9 @@ import {
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
+import { provideProjectsDataAccess } from '@kudu/data-access-projects';
 import { provideAuthDataAccess } from '@kudu/mfr-data-access-auth';
+import { provideEmployeesDataAccess } from '@kudu/mfr-data-access-employees';
 import { provideUserDataAccess } from '@kudu/mfr-data-access-user';
 import { provideExplorer } from '@kudu/mfr-feature-explorer';
 import { AuthInterceptor } from '@kudu/mfr-util-auth-interceptor';
@@ -21,6 +23,8 @@ export const appConfig: ApplicationConfig = {
     provideExplorer(),
     provideAuthDataAccess(),
     provideUserDataAccess(),
+    provideEmployeesDataAccess(),
+    provideProjectsDataAccess(),
 
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],

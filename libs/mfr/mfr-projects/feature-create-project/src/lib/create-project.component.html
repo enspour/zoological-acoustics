@@ -1,0 +1,7 @@
+<form [formGroup]="form" (submit)="$event.preventDefault(); create()">
+  <input kudu-input formControlName="name" placeholder="Название" />
+
+  <button kudu-button type="submit" [disabled]="!form.valid">
+    Создать проект
+  </button>
+</form>

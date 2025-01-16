@@ -23,5 +23,6 @@ export class MenuComponent {
   public apps = [
     { title: 'Главная', icon: 'home', href: '/' },
     { title: 'Сотрудники', icon: 'users', href: '/employees' },
+    { title: 'Проекты', icon: 'list', href: '/projects' },
   ];
 }

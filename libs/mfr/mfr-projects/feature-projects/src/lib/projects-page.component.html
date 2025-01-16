@@ -1,0 +1,20 @@
+<header class="header">
+  <button class="header__btn" kudu-button (click)="onCreateProject()">
+    <kudu-icon icon="plus" />
+    <span>Создать новый проект</span>
+  </button>
+
+  <input
+    kudu-input
+    class="header__search"
+    placeholder="Поиск по сотрудникам..."
+    [(ngModel)]="searchedTerm"
+  />
+</header>
+
+@let projects = this.projects() || [];
+
+<lib-project-table
+  [projects]="projects | filter: filterFn : searchedTerm()"
+  (byProjectClick)="onClickProject($event)"
+/>
