@@ -1,9 +1,9 @@
 export default {
-  displayName: 'feature-employee-explorer',
+  displayName: 'feature-browse-employee',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory:
-    '../../../../coverage/libs/mfr/mfr-employees/feature-employee-explorer',
+    '../../../../coverage/libs/mfr/mfr-employees/feature-browse-employee',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

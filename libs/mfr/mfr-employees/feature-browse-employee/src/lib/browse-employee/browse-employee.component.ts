@@ -4,12 +4,12 @@ import { Employee } from '@kudu/domain';
 import { EmployeeCardComponent } from '@kudu/mfr-ui-employee';
 
 @Component({
-  selector: 'lib-employee-explorer',
+  selector: 'lib-browse-employee',
   imports: [EmployeeCardComponent],
-  templateUrl: './employee-explorer.component.html',
-  styleUrl: './employee-explorer.component.scss',
+  templateUrl: './browse-employee.component.html',
+  styleUrl: './browse-employee.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EmployeeExplorerComponent {
+export class BrowseEmployeeComponent {
   public employee = input.required<Employee>();
 }

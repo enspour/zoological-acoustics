@@ -17,11 +17,7 @@ export class EmployeesService {
   public error = this.response.error;
   public isLoading = this.response.isLoading;
 
-  public getAll() {
+  public reload() {
     this.response.reload();
   }
-
-  public update() {}
-
-  public remove() {}
 }

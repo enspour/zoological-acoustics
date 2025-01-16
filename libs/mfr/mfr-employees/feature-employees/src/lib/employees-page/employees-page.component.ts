@@ -18,12 +18,9 @@ import { KuduFilterPipe } from '@kudu-template-utils';
 
 import { Employee } from '@kudu/domain';
 
-import {
-  EmployeesService,
-  provideEmployeesDataAccess,
-} from '@kudu/mfr-data-access-employees';
+import { EmployeesService } from '@kudu/mfr-data-access-employees';
 
-import { EmployeeExplorerComponent } from '@kudu/mfr-feature-employee-explorer';
+import { BrowseEmployeeComponent } from '@kudu/mfr-feature-browse-employee';
 import { ExplorerService } from '@kudu/mfr-feature-explorer';
 import { InviteEmployeeModalComponent } from '@kudu/mfr-feature-invite-employee';
 
@@ -42,7 +39,6 @@ import { EmployeeTableComponent } from '@kudu/mfr-ui-employee';
   templateUrl: './employees-page.component.html',
   styleUrl: './employees-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideEmployeesDataAccess()],
 })
 export class EmployeesPageComponent implements OnInit {
   private dialogService = inject(KuduDialogService);
@@ -54,7 +50,7 @@ export class EmployeesPageComponent implements OnInit {
   public searchedTerm = signal('');
 
   ngOnInit(): void {
-    this.employeesService.getAll();
+    this.employeesService.reload();
   }
 
   public onInvite() {
@@ -65,7 +61,7 @@ export class EmployeesPageComponent implements OnInit {
 
   public onEmployeeClick(employee: Employee) {
     this.explorerService.open({
-      component: EmployeeExplorerComponent,
+      component: BrowseEmployeeComponent,
       inputs: {
         employee,
       },

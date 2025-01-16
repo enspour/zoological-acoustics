@@ -5,7 +5,7 @@ import {
   HttpStatus,
   Param,
   ParseUUIDPipe,
-  Post,
+  Put,
   UseGuards,
 } from '@nestjs/common';
 import {
@@ -45,7 +45,7 @@ export class EmployeesController {
     return { statusCode: 200, data: { employee } };
   }
 
-  @Post(':uuid')
+  @Put(':uuid')
   @ApiOperation({ summary: 'Update Employee By UUID' })
   @ApiParam({ name: 'uuid', description: 'UUID', required: true })
   @ApiBody({ type: UpdateEmployeeDto })
