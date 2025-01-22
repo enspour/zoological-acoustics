@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { GanttComponent } from './gantt.component';
+import { GanttComponent } from './gantt-page.component';
 
 describe('GanttComponent', () => {
   let component: GanttComponent;

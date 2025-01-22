@@ -5,29 +5,16 @@ import {
   input,
   resource,
 } from '@angular/core';
-
-import {
-  KuduTabComponent,
-  KuduTabContentDirective,
-  KuduTabsComponent,
-} from '@kudu-ui';
+import { RouterOutlet } from '@angular/router';
 
 import { provideGanttDataAccess } from '@kudu/mfr-data-access-gantt';
 import { ProjectService } from '@kudu/mfr-data-access-project';
-
-import { GanttComponent } from '@kudu/mfr-feature-gantt';
 
 import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'lib-project-page',
-  imports: [
-    GanttComponent,
-    HeaderComponent,
-    KuduTabsComponent,
-    KuduTabComponent,
-    KuduTabContentDirective,
-  ],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './project-page.component.html',
   styleUrl: './project-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

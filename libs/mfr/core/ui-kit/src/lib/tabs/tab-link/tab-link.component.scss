@@ -1,0 +1,21 @@
+:host {
+  height: 100%;
+}
+
+.link {
+  height: 100%;
+  display: inline-block;
+  line-height: 18px;
+  color: #b2b2b2;
+  border-bottom: 2px solid transparent;
+}
+
+.link:hover {
+  color: #6c6c6c;
+  border-bottom: 2px solid #6c6c6c;
+}
+
+.link--active {
+  color: #4e7ca6 !important;
+  border-bottom: 2px solid #4e7ca6 !important;
+}

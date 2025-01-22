@@ -78,6 +78,9 @@
       "@kudu/mfr-feature-invite-employee": [
         "libs/mfr/mfr-employees/feature-invite-employee/src/index.ts"
       ],
+      "@kudu/mfr-feature-kanban": [
+        "libs/mfr/mfr-kanban/feature-kanban/src/index.ts"
+      ],
       "@kudu/mfr-feature-login": [
         "libs/mfr/mfr-host/feature-login/src/index.ts"
       ],
@@ -151,7 +154,8 @@
         "libs/msrv/core/util-event-bus/src/index.ts"
       ],
       "@kudu/msrv-util-jwt": ["libs/msrv/core/util-jwt/src/index.ts"],
-      "@kudu/msrv-util-password": ["libs/msrv/core/util-password/src/index.ts"]
+      "@kudu/msrv-util-password": ["libs/msrv/core/util-password/src/index.ts"],
+      "@kudu/ui-kit": ["libs/mfr/core/ui-kit/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

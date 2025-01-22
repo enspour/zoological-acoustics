@@ -16,7 +16,7 @@ import { GanttSidebarComponent } from '@kudu/mfr-feature-gantt-sidebar';
 import { GanttToolbarComponent } from '@kudu/mfr-feature-gantt-toolbar';
 
 @Component({
-  selector: 'lib-gantt',
+  selector: 'lib-gantt-page',
   imports: [
     KuduVirtualizationDirective,
     KuduVirtualizeByRangeDirective,
@@ -26,11 +26,11 @@ import { GanttToolbarComponent } from '@kudu/mfr-feature-gantt-toolbar';
     GanttLayoutDirective,
     GanttChartLayoutDirective,
   ],
-  templateUrl: './gantt.component.html',
-  styleUrl: './gantt.component.scss',
+  templateUrl: './gantt-page.component.html',
+  styleUrl: './gantt-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GanttComponent {
+export class GanttPageComponent {
   private ganttChartService = inject(GanttChartService);
 
   public rows = this.ganttChartService.rows;

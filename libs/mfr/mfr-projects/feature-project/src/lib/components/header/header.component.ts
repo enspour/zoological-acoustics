@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
+import { TabLinkComponent, TabsComponent } from '@kudu/ui-kit';
+
 import { ProjectPageComponent } from '../../project-page.component';
 
 @Component({
   selector: 'lib-header',
-  imports: [],
+  imports: [TabsComponent, TabLinkComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

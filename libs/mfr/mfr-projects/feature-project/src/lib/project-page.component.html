@@ -1,13 +1,5 @@
 <lib-header class="header" />
 
-<kudu-tabs>
-  <kudu-tab name="Гантт">
-    <ng-template kuduTabContent>
-      <lib-gantt class="content" />
-    </ng-template>
-  </kudu-tab>
-
-  <kudu-tab name="Канбан">
-    <ng-template kuduTabContent> </ng-template>
-  </kudu-tab>
-</kudu-tabs>
+<div class="content">
+  <router-outlet />
+</div>

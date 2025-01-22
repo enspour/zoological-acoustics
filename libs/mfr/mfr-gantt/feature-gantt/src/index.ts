@@ -1,1 +1,1 @@
-export * from './lib/gantt.component';
+export * from './lib/gantt-page.component';
