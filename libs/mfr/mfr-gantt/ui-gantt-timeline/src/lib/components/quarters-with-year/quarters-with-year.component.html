@@ -1,0 +1,7 @@
+<div class="quarters">
+  @for (quarter of quarters(); track $index) {
+    <div class="quarter" [style.width.px]="columnWidth() * quarter.count">
+      {{ quarter.value }}
+    </div>
+  }
+</div>

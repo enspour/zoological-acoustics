@@ -1,0 +1,13 @@
+:host {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  display: none;
+  background-color: red;
+  z-index: 3;
+}
+
+:host(.visible) {
+  display: block;
+}

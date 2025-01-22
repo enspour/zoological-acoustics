@@ -18,24 +18,25 @@
     "paths": {
       "@kudu-date": ["libs/kudu-date/src/index.ts"],
       "@kudu-flow": ["libs/kudu-flow/src/index.ts"],
-      "@kudu-template-utils": ["libs/kudu-template-utils/src/index.ts"],
+      "@kudu-ng-utils": ["libs/kudu-ng-utils/src/index.ts"],
       "@kudu-ui": ["libs/kudu-ui/src/index.ts"],
       "@kudu-ui-icons": ["libs/kudu-ui-icons/src/index.ts"],
-      "@kudu/data-access-projects": [
-        "libs/mfr/core/data-access-projects/src/index.ts"
-      ],
+      "@kudu-utils": ["libs/kudu-utils/src/index.ts"],
       "@kudu/domain": ["libs/domain/src/index.ts"],
-      "@kudu/feature-browse-project": [
-        "libs/mfr/mfr-projects/feature-browse-project/src/index.ts"
-      ],
-      "@kudu/feature-create-project": [
-        "libs/mfr/mfr-projects/feature-create-project/src/index.ts"
-      ],
       "@kudu/mfr-data-access-auth": [
         "libs/mfr/core/data-access-auth/src/index.ts"
       ],
       "@kudu/mfr-data-access-employees": [
         "libs/mfr/core/data-access-employees/src/index.ts"
+      ],
+      "@kudu/mfr-data-access-gantt": [
+        "libs/mfr/core/data-access-gantt/src/index.ts"
+      ],
+      "@kudu/mfr-data-access-project": [
+        "libs/mfr/core/data-access-project/src/index.ts"
+      ],
+      "@kudu/mfr-data-access-projects": [
+        "libs/mfr/core/data-access-projects/src/index.ts"
       ],
       "@kudu/mfr-data-access-user": [
         "libs/mfr/core/data-access-user/src/index.ts"
@@ -49,11 +50,29 @@
       "@kudu/mfr-feature-browse-employee": [
         "libs/mfr/mfr-employees/feature-browse-employee/src/index.ts"
       ],
+      "@kudu/mfr-feature-browse-task": [
+        "libs/mfr/mfr-tasks/feature-browse-task/src/index.ts"
+      ],
+      "@kudu/mfr-feature-create-project": [
+        "libs/mfr/mfr-projects/feature-create-project/src/index.ts"
+      ],
       "@kudu/mfr-feature-employees": [
         "libs/mfr/mfr-employees/feature-employees/src/index.ts"
       ],
       "@kudu/mfr-feature-explorer": [
         "libs/mfr/core/feature-explorer/src/index.ts"
+      ],
+      "@kudu/mfr-feature-gantt": [
+        "libs/mfr/mfr-gantt/feature-gantt/src/index.ts"
+      ],
+      "@kudu/mfr-feature-gantt-chart": [
+        "libs/mfr/mfr-gantt/feature-gantt-chart/src/index.ts"
+      ],
+      "@kudu/mfr-feature-gantt-sidebar": [
+        "libs/mfr/mfr-gantt/feature-gantt-sidebar/src/index.ts"
+      ],
+      "@kudu/mfr-feature-gantt-toolbar": [
+        "libs/mfr/mfr-gantt/feature-gantt-toolbar/src/index.ts"
       ],
       "@kudu/mfr-feature-home": ["libs/mfr/mfr-host/feature-home/src/index.ts"],
       "@kudu/mfr-feature-invite-employee": [
@@ -61,6 +80,9 @@
       ],
       "@kudu/mfr-feature-login": [
         "libs/mfr/mfr-host/feature-login/src/index.ts"
+      ],
+      "@kudu/mfr-feature-project": [
+        "libs/mfr/mfr-projects/feature-project/src/index.ts"
       ],
       "@kudu/mfr-feature-projects": [
         "libs/mfr/mfr-projects/feature-projects/src/index.ts"
@@ -75,6 +97,15 @@
         "apps/mfr-projects/src/app/remote-entry/entry.routes.ts"
       ],
       "@kudu/mfr-ui-employee": ["libs/mfr/core/ui-employee/src/index.ts"],
+      "@kudu/mfr-ui-gantt-board": [
+        "libs/mfr/mfr-gantt/ui-gantt-board/src/index.ts"
+      ],
+      "@kudu/mfr-ui-gantt-task": [
+        "libs/mfr/mfr-gantt/ui-gantt-task/src/index.ts"
+      ],
+      "@kudu/mfr-ui-gantt-timeline": [
+        "libs/mfr/mfr-gantt/ui-gantt-timeline/src/index.ts"
+      ],
       "@kudu/mfr-ui-modals": ["libs/mfr/core/ui-modals/src/index.ts"],
       "@kudu/mfr-ui-project": ["libs/mfr/core/ui-project/src/index.ts"],
       "@kudu/mfr-util-auth-guard": [

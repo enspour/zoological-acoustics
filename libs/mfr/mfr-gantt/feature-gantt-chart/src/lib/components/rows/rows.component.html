@@ -1,0 +1,28 @@
+<div class="rows">
+  @let periodStartDate = period().startDate.toDateString();
+
+  @for (row of rows(); track row.task.uuid) {
+    <div
+      class="row"
+      [style.top.px]="rowHeight() * row.index"
+      [style.height.px]="rowHeight()"
+    >
+      @let left =
+        periodStartDate | calculateOffset: row.task.startDate : columnWidth();
+
+      @let width =
+        row.task.startDate | calculateOffset: row.task.endDate : columnWidth();
+
+      <lib-gantt-task
+        [task]="row.task"
+        class="task"
+        [style.left.px]="left"
+        [style.width.px]="width"
+        [style.height.px]="rowHeight() - 4"
+        (byTaskClick)="onTaskClick($event)"
+      />
+    </div>
+  }
+</div>
+
+<div [style.height.px]="height()" [style.width.px]="width()"></div>

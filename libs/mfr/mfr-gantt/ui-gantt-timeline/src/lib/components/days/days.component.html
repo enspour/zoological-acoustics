@@ -1,0 +1,5 @@
+<div class="days">
+  @for (day of days(); track $index) {
+    <div class="day" [style.width.px]="columnWidth()">{{ day }}</div>
+  }
+</div>

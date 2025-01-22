@@ -1,0 +1,18 @@
+<lib-gantt-toolbar />
+
+<div
+  class="layout"
+  #layout="libGanttLayout"
+  libGanttLayout
+  #virtualization="kuduVirtualization"
+  kuduVirtualization
+  kuduVirtualizeByRange
+  [elements]="rows()"
+  [elementHeight]="layout.rowHeight()"
+>
+  <lib-gantt-sidebar [rows]="virtualization.elementsToRender()" />
+  <lib-gantt-chart
+    libGanttChartLayout
+    [rows]="virtualization.elementsToRender()"
+  />
+</div>

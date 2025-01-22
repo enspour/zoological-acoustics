@@ -1,0 +1,55 @@
+:host {
+  display: flex;
+  align-self: center;
+  gap: 10px;
+}
+
+.range {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.range__input {
+  appearance: none;
+  background: transparent;
+  accent-color: #b2b2b2;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.range__line {
+  position: absolute;
+  margin: 0 5px;
+  height: 2px;
+  width: calc(100% - 10px);
+  display: block;
+  border-radius: 2px;
+  background: #b2b2b2;
+}
+
+.range__variants {
+  padding: 0 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.range__variant {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid #b2b2b2;
+  background: #ffffff;
+}
+
+.value {
+  width: 60px;
+  font-size: 14px;
+}

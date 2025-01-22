@@ -6,7 +6,9 @@ import {
   signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { KuduFilterPipe } from '@kudu-template-utils';
+import { Router } from '@angular/router';
+
+import { KuduFilterPipe } from '@kudu-ng-utils';
 
 import { Project } from '@kudu/domain';
 
@@ -16,10 +18,9 @@ import {
   KuduInputComponent,
 } from '@kudu-ui';
 
-import { ProjectsService } from '@kudu/data-access-projects';
+import { ProjectsService } from '@kudu/mfr-data-access-projects';
 
-import { BrowseProjectComponent } from '@kudu/feature-browse-project';
-import { CreateProjectComponent } from '@kudu/feature-create-project';
+import { CreateProjectComponent } from '@kudu/mfr-feature-create-project';
 import { ExplorerService } from '@kudu/mfr-feature-explorer';
 
 import { ProjectTableComponent } from '@kudu/mfr-ui-project';
@@ -39,6 +40,7 @@ import { ProjectTableComponent } from '@kudu/mfr-ui-project';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsPageComponent implements OnInit {
+  private router = inject(Router);
   private explorerService = inject(ExplorerService);
   private projectsService = inject(ProjectsService);
 
@@ -57,12 +59,7 @@ export class ProjectsPageComponent implements OnInit {
   }
 
   public onClickProject(project: Project) {
-    this.explorerService.open({
-      component: BrowseProjectComponent,
-      inputs: {
-        project,
-      },
-    });
+    this.router.navigateByUrl(`/projects/${project.uuid}`);
   }
 
   public filterFn(value: Project, _: number, search: string) {

@@ -1,0 +1,7 @@
+<div class="years">
+  @for (year of years(); track $index) {
+    <div class="year" [style.width.px]="columnWidth() * year.count">
+      {{ year.value }}
+    </div>
+  }
+</div>

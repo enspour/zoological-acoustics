@@ -1,0 +1,25 @@
+:host {
+  position: relative;
+  height: max-content;
+  width: max-content;
+  overflow: hidden;
+}
+
+.rows {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.row {
+  position: absolute;
+  width: 100%;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.task {
+  position: absolute;
+  top: 2px;
+  z-index: 4;
+}

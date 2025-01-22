@@ -14,7 +14,7 @@ import {
   KuduInputComponent,
 } from '@kudu-ui';
 
-import { KuduFilterPipe } from '@kudu-template-utils';
+import { KuduFilterPipe } from '@kudu-ng-utils';
 
 import { Employee } from '@kudu/domain';
 

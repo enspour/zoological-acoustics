@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   HttpStatus,
+  NotFoundException,
   Param,
   ParseUUIDPipe,
   Post,
@@ -34,6 +35,11 @@ export class ProjectsController {
   @ApiResponse({ status: HttpStatus.NOT_FOUND, description: 'Not Found' })
   public async getByUuid(@Param('uuid', new ParseUUIDPipe()) uuid: string) {
     const project = await this.projectsService.getByUuid(uuid);
+
+    if (!project) {
+      throw new NotFoundException('Проект не найден!');
+    }
+
     return { statusCode: 200, data: { project } };
   }
 

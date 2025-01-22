@@ -3,7 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { KuduButtonComponent, KuduInputComponent } from '@kudu-ui';
 
-import { ProjectsService } from '@kudu/data-access-projects';
+import { ProjectsService } from '@kudu/mfr-data-access-projects';
 
 @Component({
   selector: 'lib-create-project',

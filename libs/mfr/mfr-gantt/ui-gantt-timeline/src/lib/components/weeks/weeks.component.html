@@ -1,0 +1,7 @@
+<div class="weeks">
+  @for (week of weeks(); track $index) {
+    <div class="week" [style.width.px]="columnWidth() * week.count">
+      {{ week.value }}
+    </div>
+  }
+</div>

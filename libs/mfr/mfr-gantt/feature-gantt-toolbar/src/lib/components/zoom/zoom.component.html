@@ -1,0 +1,20 @@
+<div class="range">
+  <input
+    class="range__input"
+    type="range"
+    min="0"
+    max="4"
+    step="1"
+    [value]="valueIndex()"
+    (change)="onValueChange($event)"
+  />
+
+  <div class="range__line"></div>
+  <div class="range__variants">
+    @for (variant of variants; track $index) {
+      <div class="range__variant"></div>
+    }
+  </div>
+</div>
+
+<div class="value">{{ text() }}</div>

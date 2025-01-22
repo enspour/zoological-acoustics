@@ -1,0 +1,23 @@
+@if (zoom() === 'days') {
+  <lib-months-with-year />
+  <lib-days />
+}
+
+@if (zoom() === 'weeks') {
+  <lib-months-with-year />
+  <lib-weeks />
+}
+
+@if (zoom() === 'months') {
+  <lib-years />
+  <lib-months />
+}
+
+@if (zoom() === 'quarter') {
+  <lib-quarters-with-year />
+  <lib-months [isShort]="true" />
+}
+
+@if (zoom() === 'years') {
+  <lib-years />
+}

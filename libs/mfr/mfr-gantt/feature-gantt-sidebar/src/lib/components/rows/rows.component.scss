@@ -1,0 +1,21 @@
+:host {
+  position: relative;
+  display: block;
+}
+
+.rows {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.row {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f5f5f5;
+}

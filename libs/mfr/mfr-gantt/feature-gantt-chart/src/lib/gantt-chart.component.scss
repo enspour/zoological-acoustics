@@ -1,0 +1,9 @@
+:host {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: max-content;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+}

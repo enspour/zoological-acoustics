@@ -1,0 +1,7 @@
+<div class="months">
+  @for (month of months(); track $index) {
+    <div class="month" [style.width.px]="columnWidth() * month.count">
+      {{ month.value }}
+    </div>
+  }
+</div>

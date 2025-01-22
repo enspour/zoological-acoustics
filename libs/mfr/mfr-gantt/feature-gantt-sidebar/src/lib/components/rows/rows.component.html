@@ -1,0 +1,14 @@
+<div class="rows">
+  @for (row of rows(); track row.task.uuid) {
+    <button
+      class="row"
+      [style.height.px]="rowHeight()"
+      [style.top.px]="row.index * rowHeight()"
+      (click)="onTaskClick(row.task)"
+    >
+      {{ row.task.title }}
+    </button>
+  }
+</div>
+
+<div [style.height.px]="height()"></div>
