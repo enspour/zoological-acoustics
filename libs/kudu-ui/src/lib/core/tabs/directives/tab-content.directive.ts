@@ -11,5 +11,5 @@ export const kuduTabContent = new InjectionToken<KuduTabContentDirective>(
   ],
 })
 export class KuduTabContentDirective {
-  public template = inject<TemplateRef<any>>(TemplateRef);
+  public template = inject<TemplateRef<unknown>>(TemplateRef);
 }

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SwitchComponent } from './switch.component';
+import { KuduSwitchComponent } from './switch.component';
 
-describe('SwitchComponent', () => {
-  let component: SwitchComponent;
-  let fixture: ComponentFixture<SwitchComponent>;
+describe('KuduSwitchComponent', () => {
+  let component: KuduSwitchComponent;
+  let fixture: ComponentFixture<KuduSwitchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SwitchComponent],
+      imports: [KuduSwitchComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SwitchComponent);
+    fixture = TestBed.createComponent(KuduSwitchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

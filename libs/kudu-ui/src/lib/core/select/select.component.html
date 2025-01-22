@@ -1,7 +1,7 @@
 @if (content()) {
-  <div class="content" [innerHTML]="content()" (click)="onClick()"></div>
+  <button class="content" [innerHTML]="content()" (click)="onClick()"></button>
 } @else {
-  <div class="content" (click)="onClick()">{{ placeholder() }}</div>
+  <button class="content" (click)="onClick()">{{ placeholder() }}</button>
 }
 
 @if (isOpen()) {

@@ -6,10 +6,8 @@
   will-change: scroll-position;
 }
 
-:host.transform {
-  .virtualization {
-    transform: translateY(var(--scroll));
-  }
+.virtualization {
+  transform: translateY(var(--scroll));
 }
 
 .no-virtualization {

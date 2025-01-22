@@ -20,3 +20,4 @@ export * from './lib/core/switch';
 export * from './lib/core/table';
 export * from './lib/core/tabs';
 export * from './lib/core/virtual-scroll';
+export * from './lib/core/virtualization';

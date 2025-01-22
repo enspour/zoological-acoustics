@@ -4,7 +4,6 @@ import {
   HostBinding,
   HostListener,
   inject,
-  InjectionToken,
   input,
   model,
   signal,
@@ -18,17 +17,12 @@ import { KuduOptionComponent, KuduOptionsDirective } from '../options';
 import { kuduSize } from '../size';
 import { KuduZoneDirective } from '../zone';
 
-export interface KuduSelect {}
-
-export const KuduSelect = new InjectionToken<KuduSelect>('kudu-ui/select');
-
 @Component({
   selector: 'kudu-select',
   imports: [KuduDropdownComponent],
   templateUrl: './select.component.html',
   styleUrl: './select.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: KuduSelect, useExisting: KuduSelectComponent }],
   hostDirectives: [
     {
       directive: KuduClickOutsideDirective,
@@ -42,7 +36,7 @@ export const KuduSelect = new InjectionToken<KuduSelect>('kudu-ui/select');
     { directive: KuduZoneDirective },
   ],
 })
-export class KuduSelectComponent implements KuduSelect {
+export class KuduSelectComponent {
   private domSanitizer = inject(DomSanitizer);
   private size = inject(kuduSize);
 
@@ -65,7 +59,7 @@ export class KuduSelectComponent implements KuduSelect {
   }
 
   @HostListener('bySelectedChange', ['$event'])
-  public onOptionChange(selected: KuduOptionComponent<any>[]) {
+  public onOptionChange(selected: KuduOptionComponent<unknown>[]) {
     if (selected.length === 0) {
       return this.content.set('');
     }

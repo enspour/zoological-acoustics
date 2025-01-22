@@ -7,7 +7,12 @@ import {
   model,
 } from '@angular/core';
 
-import { DateTime, DateTimePeriod, MONTHS, WEEKS } from '@kudu-date';
+import {
+  DateTime,
+  DateTimePeriod,
+  DAY_SHORT_NAMES,
+  MONTH_FULL_NAMES,
+} from '@kudu-date';
 
 import { kuduSize } from '../size';
 
@@ -40,8 +45,8 @@ export class KuduCalendarComponent {
   public month = computed(() => this.dateTime().getMonthString());
   public year = computed(() => this.dateTime().getYear());
 
-  public months = MONTHS;
-  public weeks = WEEKS;
+  public months = MONTH_FULL_NAMES;
+  public weeks = DAY_SHORT_NAMES;
   public dates = computed(() => this.generateDates(this.dateTime()));
 
   @HostBinding('class')

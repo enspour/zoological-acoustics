@@ -1,8 +1,16 @@
 export const DAY_IN_MS = 86400000;
 
-export const WEEKS = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'] as const;
+export const DAY_SHORT_NAMES = [
+  'Пн',
+  'Вт',
+  'Ср',
+  'Чт',
+  'Пт',
+  'Сб',
+  'Вс',
+] as const;
 
-export const MONTHS = [
+export const MONTH_FULL_NAMES = [
   'Январь',
   'Февраль',
   'Март',
@@ -16,3 +24,25 @@ export const MONTHS = [
   'Ноябрь',
   'Декабрь',
 ] as const;
+
+export const MONTH_SHORT_NAMES = [
+  'Янв',
+  'Фев',
+  'Мар',
+  'Апр',
+  'Май',
+  'Июн',
+  'Июл',
+  'Авг',
+  'Сен',
+  'Окт',
+  'Ноя',
+  'Дек',
+];
+
+export const QUARTER_FULL_NAMES = [
+  '1 Квартал',
+  '2 Квартал',
+  '3 Квартал',
+  '4 Квартал',
+];

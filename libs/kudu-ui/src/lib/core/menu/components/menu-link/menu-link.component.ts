@@ -20,6 +20,7 @@ export class KuduMenuLinkComponent {
   private size = inject(kuduSize);
 
   public href = input.required<string>();
+  public exact = input<boolean>(false);
 
   @HostBinding('class')
   public get Classes() {

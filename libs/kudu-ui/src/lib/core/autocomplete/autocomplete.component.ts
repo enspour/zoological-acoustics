@@ -5,7 +5,6 @@ import {
   HostBinding,
   HostListener,
   inject,
-  InjectionToken,
   input,
   model,
 } from '@angular/core';
@@ -18,21 +17,12 @@ import { KuduOptions, KuduOptionsDirective } from '../options';
 import { kuduSize } from '../size';
 import { KuduZoneDirective } from '../zone';
 
-export interface KuduAutocomplete {}
-
-export const KuduAutocomplete = new InjectionToken<KuduAutocomplete>(
-  'kudu-ui/autocomplete',
-);
-
 @Component({
   selector: 'kudu-autocomplete',
   imports: [FormsModule, KuduDropdownComponent],
   templateUrl: './autocomplete.component.html',
   styleUrl: './autocomplete.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    { provide: KuduAutocomplete, useExisting: KuduAutocompleteComponent },
-  ],
   hostDirectives: [
     {
       directive: KuduClickOutsideDirective,
@@ -46,7 +36,7 @@ export const KuduAutocomplete = new InjectionToken<KuduAutocomplete>(
     { directive: KuduZoneDirective },
   ],
 })
-export class KuduAutocompleteComponent implements KuduAutocomplete {
+export class KuduAutocompleteComponent {
   private options = inject(KuduOptions);
   public size = inject(kuduSize);
 

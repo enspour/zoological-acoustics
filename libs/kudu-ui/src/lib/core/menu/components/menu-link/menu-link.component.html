@@ -2,7 +2,7 @@
   class="link"
   [routerLink]="href()"
   routerLinkActive="link--active"
-  [routerLinkActiveOptions]="{ exact: true }"
+  [routerLinkActiveOptions]="{ exact: exact() }"
 >
   <ng-content />
 </a>

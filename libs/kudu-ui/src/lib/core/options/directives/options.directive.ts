@@ -25,7 +25,7 @@ export interface KuduOptions<T> {
   filterByInnerText(text: string): void;
 }
 
-export const KuduOptions = new InjectionToken<KuduOptions<any>>(
+export const KuduOptions = new InjectionToken<KuduOptions<unknown>>(
   'kudu-ui/options',
 );
 

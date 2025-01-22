@@ -1,7 +1,4 @@
-<div
-  class="virtualization"
-  [style.--scroll.px]="range().startIndex * elementHeight()"
->
+<div class="virtualization" [style.--scroll.px]="scroll()">
   <ng-content />
 </div>
 

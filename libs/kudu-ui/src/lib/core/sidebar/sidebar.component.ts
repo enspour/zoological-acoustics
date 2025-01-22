@@ -8,6 +8,8 @@ import {
   signal,
 } from '@angular/core';
 
+import { clamp } from '@kudu-utils';
+
 import { KuduSidebarMode } from './sidebar.interface';
 
 @Component({
@@ -70,7 +72,3 @@ export class KuduSidebarComponent {
     this.transition.set('none');
   }
 }
-
-const clamp = (value: number, min: number, max: number) => {
-  return Math.min(Math.max(value, min), max);
-};

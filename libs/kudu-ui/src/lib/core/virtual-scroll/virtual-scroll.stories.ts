@@ -1,7 +1,8 @@
 import { Meta, StoryObj } from '@storybook/angular';
+
 import { KuduVirtualScrollComponent } from './virtual-scroll.component';
 
-type VirtualScroll = KuduVirtualScrollComponent<any, any> & {
+type VirtualScroll = KuduVirtualScrollComponent<number> & {
   height: number;
 };
 
@@ -11,13 +12,11 @@ const meta: Meta<VirtualScroll> = {
     height: { control: 'number' },
     elements: { control: { disable: true } },
     elementHeight: { control: 'number' },
-    render: { control: 'select', options: ['transform', 'position'] },
   },
   args: {
     height: 500,
     elements: [...Array(10000)].map((_, i) => i),
     elementHeight: 30,
-    render: 'transform',
   },
 };
 
@@ -30,14 +29,14 @@ export const Example: Story = {
     props: args,
     template: `
       <kudu-virtual-scroll
-        #viewport
+        #virtualization="kuduVirtualization"
         [elements]="elements"
         [elementHeight]="elementHeight"
         [style.height.px]="height"
       >
-        @for (element of viewport.rangeElements(); track element.index) {
+        @for (element of virtualization.elementsToRender(); track element) {
           <div [style.height.px]="elementHeight">
-            {{ element.index }}
+            {{ element }}
           </div>
         }
       </kudu-virtual-scroll>

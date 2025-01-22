@@ -17,7 +17,7 @@
 
 <div class="dates">
   @for (date of dates(); track $index) {
-    <div
+    <button
       class="date"
       [class.date--available]="date | isAvailable: dateTime()"
       [class.date--today]="date | isToday"
@@ -25,6 +25,6 @@
       (click)="onSelectDate(date)"
     >
       {{ date | getDay }}
-    </div>
+    </button>
   }
 </div>

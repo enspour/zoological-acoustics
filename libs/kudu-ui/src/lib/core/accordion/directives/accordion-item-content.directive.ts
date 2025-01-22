@@ -14,7 +14,7 @@ export const kuduAccordionItemContent = new InjectionToken(
   ],
 })
 export class KuduAccordionItemContentDirective {
-  public template = inject<TemplateRef<any> | undefined>(TemplateRef, {
+  public template = inject<TemplateRef<unknown> | undefined>(TemplateRef, {
     optional: true,
   });
 }

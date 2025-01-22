@@ -1,4 +1,4 @@
-import { DAY_IN_MS, MONTHS } from '../constants';
+import { DAY_IN_MS, MONTH_FULL_NAMES } from '../constants';
 
 export enum Unit {
   Year = 'year',
@@ -20,12 +20,36 @@ export class DateTime {
     return this.date.getFullYear();
   }
 
+  public getQuarter() {
+    return Math.floor((this.date.getMonth() + 3) / 3);
+  }
+
   public getMonth() {
-    return this.date.getMonth() + 1;
+    return this.date.getMonth();
   }
 
   public getMonthString() {
-    return MONTHS[this.getMonth() - 1];
+    return MONTH_FULL_NAMES[this.getMonth()];
+  }
+
+  public getWeek() {
+    const date = new Date(
+      Date.UTC(
+        this.date.getFullYear(),
+        this.date.getMonth(),
+        this.date.getDate(),
+      ),
+    );
+
+    const dayNumber = date.getUTCDay() || 7;
+
+    date.setUTCDate(date.getUTCDate() + 4 - dayNumber);
+
+    const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
+
+    return Math.ceil(
+      ((date.valueOf() - yearStart.valueOf()) / DAY_IN_MS + 1) / 7,
+    );
   }
 
   public getDay() {
@@ -64,9 +88,9 @@ export class DateTime {
 
   public setMonth(month: number | ((current: number) => number)) {
     if (typeof month === 'function') {
-      this.date.setMonth(month(this.getMonth()) - 1);
+      this.date.setMonth(month(this.getMonth()));
     } else {
-      this.date.setMonth(month - 1);
+      this.date.setMonth(month);
     }
 
     return this;
@@ -81,7 +105,7 @@ export class DateTime {
   }
 
   public toDateString() {
-    return `${this.getYear()}-${this.getMonth()}-${this.getDay()}`;
+    return `${this.getYear()}-${this.getMonth() + 1}-${this.getDay()}`;
   }
 
   public valueOf() {
@@ -109,5 +133,13 @@ export class DateTimePeriod {
     return [...Array(this.getDays())].map((_, day) =>
       this.from.clone().setDay((value) => value + day),
     );
+  }
+
+  public isBetween(date: DateTime): boolean {
+    if (this.from <= date && date <= this.to) {
+      return true;
+    }
+
+    return false;
   }
 }

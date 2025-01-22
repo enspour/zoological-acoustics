@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  InjectionToken,
-} from '@angular/core';
-
-export interface KuduMenu {}
-
-export const KuduMenu = new InjectionToken<KuduMenu>('kudu-ui/menu');
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'kudu-menu',
@@ -14,11 +6,5 @@ export const KuduMenu = new InjectionToken<KuduMenu>('kudu-ui/menu');
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    {
-      provide: KuduMenu,
-      useExisting: KuduMenuComponent,
-    },
-  ],
 })
-export class KuduMenuComponent implements KuduMenu {}
+export class KuduMenuComponent {}

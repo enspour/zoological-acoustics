@@ -6,18 +6,11 @@ import {
   contentChildren,
   HostBinding,
   inject,
-  InjectionToken,
   input,
 } from '@angular/core';
 
 import { kuduSize } from '../../../size';
 import { KuduAccordionItemComponent } from '../accordion-item/accordion-item.component';
-
-export interface KuduAccordion {}
-
-export const KuduAccordion = new InjectionToken<KuduAccordion>(
-  'kudu-ui/accordion',
-);
 
 @Component({
   selector: 'kudu-accordion',
@@ -26,9 +19,8 @@ export const KuduAccordion = new InjectionToken<KuduAccordion>(
   templateUrl: './accordion.component.html',
   styleUrl: './accordion.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: KuduAccordion, useExisting: KuduAccordionComponent }],
 })
-export class KuduAccordionComponent implements KuduAccordion, AfterContentInit {
+export class KuduAccordionComponent implements AfterContentInit {
   public size = inject(kuduSize);
 
   private items = contentChildren(KuduAccordionItemComponent);

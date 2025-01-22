@@ -7,7 +7,9 @@ import {
   inject,
   model,
 } from '@angular/core';
-import { intersectionObservable } from '../../utils';
+import { toSignal } from '@angular/core/rxjs-interop';
+
+import { intersectionObservable } from '@kudu-ng-utils';
 
 export type KuduDropdownPosition = 'top' | 'bottom';
 
@@ -23,9 +25,11 @@ export class KuduDropdownComponent {
 
   public position = model<KuduDropdownPosition>('top');
 
-  private intersectionObserver = intersectionObservable(this.elementRef, {
-    threshold: [0, 1],
-  });
+  private intersectionObserver = toSignal(
+    intersectionObservable(this.elementRef, {
+      threshold: [0, 1],
+    }),
+  );
 
   constructor() {
     effect(() => {

@@ -8,21 +8,15 @@ import {
   effect,
   HostBinding,
   inject,
-  InjectionToken,
   input,
   linkedSignal,
   model,
 } from '@angular/core';
 
-import { KuduSelect } from '../../../select';
 import { kuduSize } from '../../../size';
 import { KuduTabComponent } from '../tab/tab.component';
 
 export type KuduTabsOrientation = 'vertical' | 'horizontal';
-
-export interface KuduTabs {}
-
-export const KuduTabs = new InjectionToken<KuduSelect>('kudu-ui/tabs');
 
 @Component({
   selector: 'kudu-tabs',
@@ -30,7 +24,6 @@ export const KuduTabs = new InjectionToken<KuduSelect>('kudu-ui/tabs');
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: KuduTabs, useExisting: KuduTabsComponent }],
 })
 export class KuduTabsComponent implements AfterContentInit {
   public size = inject(kuduSize);

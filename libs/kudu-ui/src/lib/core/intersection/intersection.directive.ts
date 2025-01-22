@@ -1,5 +1,4 @@
 import {
-  computed,
   Directive,
   effect,
   ElementRef,
@@ -7,8 +6,10 @@ import {
   input,
   output,
 } from '@angular/core';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { switchMap } from 'rxjs';
 
-import { intersectionObservable } from '../../utils';
+import { intersectionObservable } from '@kudu-ng-utils';
 
 type Options = IntersectionObserverInit | undefined;
 
@@ -21,13 +22,17 @@ export class KuduIntersectionDirective {
   public kuduIntersectionOptions = input<Options>(undefined);
   public kuduIntersection = output<IntersectionObserverEntry>();
 
-  private intersectionObserver = computed(() =>
-    intersectionObservable(this.elementRef, this.kuduIntersectionOptions()),
+  private intersectionObserver = toSignal(
+    toObservable(this.kuduIntersectionOptions).pipe(
+      switchMap(() =>
+        intersectionObservable(this.elementRef, this.kuduIntersectionOptions()),
+      ),
+    ),
   );
 
   constructor() {
     effect(() => {
-      const entry = this.intersectionObserver()();
+      const entry = this.intersectionObserver();
       if (entry) {
         this.kuduIntersection.emit(entry);
       }
