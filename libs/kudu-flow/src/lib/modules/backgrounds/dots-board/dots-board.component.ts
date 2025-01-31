@@ -6,7 +6,7 @@ import {
   input,
 } from '@angular/core';
 
-import { KuduFlowWorkspaceService } from '../../workspace/services';
+import { KuduFlowWorkspaceDirective } from '../../workspace';
 
 @Component({
   selector: 'kudu-flow-dots-board',
@@ -15,12 +15,12 @@ import { KuduFlowWorkspaceService } from '../../workspace/services';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KuduFlowDotsBoardComponent {
-  private workspaceService = inject(KuduFlowWorkspaceService);
+  private workspaceDirective = inject(KuduFlowWorkspaceDirective);
 
   public size = input(10);
 
-  private scale = this.workspaceService.scale;
-  private scroll = this.workspaceService.scroll;
+  private scale = this.workspaceDirective.scale;
+  private scroll = this.workspaceDirective.scroll;
 
   @HostBinding('style.background-size')
   get Size() {

@@ -1,25 +1,20 @@
 import { DOCUMENT } from '@angular/common';
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  effect,
-  ElementRef,
-  Inject,
-  model,
+  inject,
   OnDestroy,
-  OnInit,
   signal,
-  viewChild,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Subject, takeUntil } from 'rxjs';
 
-import { KuduFlowWorkspaceService } from './services';
-
-import { KuduFlowWorkspaceEventsDirective } from './directives';
+import {
+  KuduFlowWorkspaceDirective,
+  KuduFlowWorkspaceEventsDirective,
+} from './directives';
 
 import { Point } from '../../interfaces';
-import { KuduFlowWorkspaceScale, KuduFlowWorkspaceScroll } from './interfaces';
 
 import { getWheelDirection } from './utils';
 
@@ -27,64 +22,44 @@ import { getWheelDirection } from './utils';
   selector: 'kudu-flow-workspace',
   templateUrl: './workspace.component.html',
   styleUrl: './workspace.component.scss',
-  providers: [KuduFlowWorkspaceService],
-  hostDirectives: [KuduFlowWorkspaceEventsDirective],
+  hostDirectives: [
+    { directive: KuduFlowWorkspaceDirective, inputs: ['scroll', 'scale'] },
+    KuduFlowWorkspaceEventsDirective,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KuduFlowWorkspaceComponent
-  implements OnInit, OnDestroy, AfterViewInit
-{
-  private scalableRef = viewChild<ElementRef<HTMLDivElement>>('scalable');
+export class KuduFlowWorkspaceComponent implements OnDestroy {
+  private document = inject(DOCUMENT);
 
-  public scroll = model<KuduFlowWorkspaceScroll>({ x: 0, y: 0 });
-  public scale = model<KuduFlowWorkspaceScale>(1);
+  private workspaceDirective = inject(KuduFlowWorkspaceDirective);
+  private workspaceEventsDirective = inject(KuduFlowWorkspaceEventsDirective);
+
+  protected scroll = this.workspaceDirective.scroll;
+  protected scale = this.workspaceDirective.scale;
 
   protected isMoving = signal(false);
 
   private isPressSpace = false;
 
   private cleaner$ = new Subject<void>();
-  private destroy$ = new Subject<void>();
 
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private elementRef: ElementRef<HTMLElement>,
-    private workspaceService: KuduFlowWorkspaceService,
-    private workspaceEventsDirective: KuduFlowWorkspaceEventsDirective,
-  ) {
-    effect(() => this.workspaceService.setScroll(this.scroll()));
-    effect(() => this.workspaceService.setScale(this.scale()));
-    effect(() => this.scroll.set(this.workspaceService.scroll()));
-    effect(() => this.scale.set(this.workspaceService.scale()));
-  }
-
-  ngOnInit(): void {
-    const { left, top } = this.elementRef.nativeElement.getBoundingClientRect();
-    this.workspaceService.setOffset({ left, top });
-
+  constructor() {
     this.workspaceEventsDirective.mousedown$
-      .pipe(takeUntil(this.destroy$))
+      .pipe(takeUntilDestroyed())
       .subscribe((event) => this.handleMouseDown(event));
 
     this.workspaceEventsDirective.mousewheel$
-      .pipe(takeUntil(this.destroy$))
+      .pipe(takeUntilDestroyed())
       .subscribe((event) => this.handleWheel(event));
 
     this.workspaceEventsDirective.space$
-      .pipe(takeUntil(this.destroy$))
+      .pipe(takeUntilDestroyed())
       .subscribe((space) => this.handleSpacePressed(space.isPress));
   }
 
   ngOnDestroy(): void {
     this.cleaner$.next();
     this.cleaner$.complete();
-
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
-
-  ngAfterViewInit(): void {
-    this.workspaceService.setScalableRef(this.scalableRef()!);
   }
 
   handleSpacePressed(isPress: boolean) {
@@ -124,14 +99,14 @@ export class KuduFlowWorkspaceComponent
 
     this.workspaceEventsDirective.mouseup$
       .pipe(takeUntil(this.cleaner$))
-      .subscribe((event) => this.handleMouseUp(event));
+      .subscribe(() => this.handleMouseUp());
 
     this.workspaceEventsDirective.mouseleave$
       .pipe(takeUntil(this.cleaner$))
-      .subscribe((event) => this.handleMouseUp(event));
+      .subscribe(() => this.handleMouseUp());
   }
 
-  handleMouseUp(event: MouseEvent) {
+  handleMouseUp() {
     this.isMoving.set(false);
 
     if (!this.isPressSpace) {
@@ -159,7 +134,7 @@ export class KuduFlowWorkspaceComponent
     prevPoint.x = point.x;
     prevPoint.y = point.y;
 
-    this.workspaceService.setScroll({
+    this.workspaceDirective.setScroll({
       x: this.scroll().x + diffX,
       y: this.scroll().y + diffY,
     });
@@ -180,17 +155,23 @@ export class KuduFlowWorkspaceComponent
   }
 
   private onScaling(event: WheelEvent) {
+    const layout = this.workspaceDirective.layout();
+
+    if (!layout) {
+      return;
+    }
+
     const direction = getWheelDirection(event);
 
     if (direction === 'forward') {
-      this.workspaceService.scaleIn({
-        x: event.clientX - this.workspaceService.offset().left,
-        y: event.clientY - this.workspaceService.offset().top,
+      this.workspaceDirective.scaleIn({
+        x: event.clientX - layout.left,
+        y: event.clientY - layout.top,
       });
     } else {
-      this.workspaceService.scaleOut({
-        x: event.clientX - this.workspaceService.offset().left,
-        y: event.clientY - this.workspaceService.offset().top,
+      this.workspaceDirective.scaleOut({
+        x: event.clientX - layout.left,
+        y: event.clientY - layout.top,
       });
     }
   }
@@ -199,9 +180,9 @@ export class KuduFlowWorkspaceComponent
     const direction = getWheelDirection(event);
 
     if (direction === 'forward') {
-      this.workspaceService.scrollLeft();
+      this.workspaceDirective.scrollLeft();
     } else {
-      this.workspaceService.scrollRight();
+      this.workspaceDirective.scrollRight();
     }
   }
 
@@ -209,9 +190,9 @@ export class KuduFlowWorkspaceComponent
     const direction = getWheelDirection(event);
 
     if (direction === 'forward') {
-      this.workspaceService.scrollUp();
+      this.workspaceDirective.scrollUp();
     } else {
-      this.workspaceService.scrollDown();
+      this.workspaceDirective.scrollDown();
     }
   }
 }

@@ -14,7 +14,7 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: ['mfr-employees', 'mfr-projects'],
+  remotes: ['mfr-employees', 'mfr-projects', 'mfr-integrations'],
 };
 
 /**

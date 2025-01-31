@@ -24,6 +24,9 @@
       "@kudu-ui-icons": ["libs/kudu-ui-icons/src/index.ts"],
       "@kudu-utils": ["libs/kudu-utils/src/index.ts"],
       "@kudu/domain": ["libs/domain/src/index.ts"],
+      "@kudu/mfr-feature-integration": [
+        "libs/mfr/mfr-integrations/feature-integration/src/index.ts"
+      ],
       "@kudu/mfr-data-access-auth": [
         "libs/mfr/core/data-access-auth/src/index.ts"
       ],
@@ -79,6 +82,9 @@
         "libs/mfr/mfr-gantt/feature-gantt-toolbar/src/index.ts"
       ],
       "@kudu/mfr-feature-home": ["libs/mfr/mfr-host/feature-home/src/index.ts"],
+      "@kudu/mfr-feature-integrations": [
+        "libs/mfr/mfr-integrations/feature-integrations/src/index.ts"
+      ],
       "@kudu/mfr-feature-invite-employee": [
         "libs/mfr/mfr-employees/feature-invite-employee/src/index.ts"
       ],
@@ -102,6 +108,9 @@
       ],
       "@kudu/mfr-feature-signup": [
         "libs/mfr/mfr-host/feature-signup/src/index.ts"
+      ],
+      "@kudu/mfr-integrations/Routes": [
+        "apps/mfr-integrations/src/app/remote-entry/entry.routes.ts"
       ],
       "@kudu/mfr-projects/Routes": [
         "apps/mfr-projects/src/app/remote-entry/entry.routes.ts"

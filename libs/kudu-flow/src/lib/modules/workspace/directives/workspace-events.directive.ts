@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Directive, ElementRef, inject } from '@angular/core';
 import { filter, fromEvent, map, merge, Observable } from 'rxjs';
 
-@Directive({})
+@Directive()
 export class KuduFlowWorkspaceEventsDirective {
   private document = inject(DOCUMENT);
   private elementRef = inject(ElementRef);
