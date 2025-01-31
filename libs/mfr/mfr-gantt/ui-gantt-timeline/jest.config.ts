@@ -1,5 +1,5 @@
 export default {
-  displayName: 'ui-gantt-timeline',
+  displayName: 'mfr-ui-gantt-timeline',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory:

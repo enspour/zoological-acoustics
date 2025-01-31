@@ -1,5 +1,5 @@
 export default {
-  displayName: 'data-access-gantt',
+  displayName: 'mfr-data-access-gantt',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../../coverage/libs/mfr/core/data-access-gantt',

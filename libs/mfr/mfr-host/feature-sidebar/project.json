@@ -1,5 +1,5 @@
 {
-  "name": "feature-sidebar",
+  "name": "mfr-feature-sidebar",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/mfr-host/feature-sidebar/src",
   "prefix": "lib",

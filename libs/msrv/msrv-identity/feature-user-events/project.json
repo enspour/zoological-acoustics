@@ -1,5 +1,5 @@
 {
-  "name": "feature-user-events",
+  "name": "msrv-feature-user-events",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/msrv/msrv-identity/feature-user-events/src",
   "projectType": "library",

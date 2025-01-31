@@ -1,5 +1,5 @@
 {
-  "name": "ui-gantt-task",
+  "name": "mfr-ui-gantt-task",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/mfr-gantt/ui-gantt-task/src",
   "prefix": "lib",

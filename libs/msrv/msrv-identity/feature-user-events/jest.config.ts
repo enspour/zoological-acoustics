@@ -1,5 +1,5 @@
 export default {
-  displayName: 'feature-user-events',
+  displayName: 'msrv-feature-user-events',
   preset: '../../../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

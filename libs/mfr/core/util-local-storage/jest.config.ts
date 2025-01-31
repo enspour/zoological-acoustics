@@ -1,5 +1,5 @@
 export default {
-  displayName: 'util-local-storage',
+  displayName: 'mfr-util-local-storage',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../../coverage/libs/mfr/core/util-local-storage',

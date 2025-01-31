@@ -1,5 +1,5 @@
 export default {
-  displayName: 'data-access-employees',
+  displayName: 'mfr-data-access-employees',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../../coverage/libs/mfr/core/data-access-employees',

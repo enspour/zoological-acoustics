@@ -1,0 +1,12 @@
+@for (task of row().tasks; track task.uuid) {
+  @let props = task | calculateTaskProps: period() : columnWidth();
+
+  <lib-gantt-task
+    [task]="task"
+    class="task"
+    [style.left.px]="props.left"
+    [style.width.px]="props.width"
+    [style.height.px]="rowHeight() - 4"
+    (byTaskClick)="onTaskClick($event)"
+  />
+}

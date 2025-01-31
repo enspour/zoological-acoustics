@@ -1,5 +1,5 @@
 export default {
-  displayName: 'feature-invite-employee',
+  displayName: 'mfr-feature-invite-employee',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory:

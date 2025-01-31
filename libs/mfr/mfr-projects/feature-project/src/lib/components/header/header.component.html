@@ -1,4 +1,14 @@
-<div class="title">{{ project()?.name }}</div>
+<div class="head">
+  <div class="head__section">
+    <kudu-icon icon="star" [iconSize]="16" />
+    <div>{{ project()?.name }}</div>
+  </div>
+
+  <div class="head__section">
+    <kudu-icon icon="settings" />
+    <kudu-icon icon="dots" />
+  </div>
+</div>
 
 <lib-tabs class="tabs">
   <lib-tab-link href="./gantt"> Диаграмма </lib-tab-link>

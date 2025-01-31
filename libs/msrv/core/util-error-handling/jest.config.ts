@@ -1,5 +1,5 @@
 export default {
-  displayName: 'util-error-handling',
+  displayName: 'msrv-util-error-handling',
   preset: '../../../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

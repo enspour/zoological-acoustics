@@ -1,5 +1,5 @@
 export default {
-  displayName: 'feature-browse-employee',
+  displayName: 'mfr-feature-browse-employee',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory:

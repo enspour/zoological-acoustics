@@ -1,5 +1,5 @@
 {
-  "name": "util-local-storage",
+  "name": "mfr-util-local-storage",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/core/util-local-storage/src",
   "prefix": "lib",

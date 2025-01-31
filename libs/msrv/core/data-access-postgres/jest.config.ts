@@ -1,5 +1,5 @@
 export default {
-  displayName: 'data-access-postgres',
+  displayName: 'msrv-data-access-postgres',
   preset: '../../../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

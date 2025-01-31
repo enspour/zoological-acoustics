@@ -1,5 +1,5 @@
 {
-  "name": "util-event-bus",
+  "name": "msrv-util-event-bus",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/msrv/core/util-event-bus/src",
   "projectType": "library",

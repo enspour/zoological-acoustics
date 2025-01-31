@@ -1,5 +1,5 @@
 export default {
-  displayName: 'data-access-auth',
+  displayName: 'mfr-data-access-auth',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../../coverage/libs/mfr/core/data-access-auth',

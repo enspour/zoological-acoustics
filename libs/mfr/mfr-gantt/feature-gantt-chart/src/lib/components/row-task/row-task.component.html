@@ -1,0 +1,10 @@
+@let props = row().task | calculateTaskProps: period() : columnWidth();
+
+<lib-gantt-task
+  [task]="row().task"
+  class="task"
+  [style.left.px]="props.left"
+  [style.width.px]="props.width"
+  [style.height.px]="rowHeight() - 4"
+  (byTaskClick)="onTaskClick($event)"
+/>

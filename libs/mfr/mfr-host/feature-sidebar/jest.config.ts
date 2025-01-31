@@ -1,5 +1,5 @@
 export default {
-  displayName: 'feature-sidebar',
+  displayName: 'mfr-feature-sidebar',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../../coverage/libs/mfr/mfr-host/feature-sidebar',

@@ -1,5 +1,5 @@
 export default {
-  displayName: 'feature-auth',
+  displayName: 'msrv-feature-auth',
   preset: '../../../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

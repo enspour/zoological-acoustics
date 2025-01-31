@@ -1,5 +1,5 @@
 {
-  "name": "feature-browse-employee",
+  "name": "mfr-feature-browse-employee",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/mfr-employees/feature-browse-employee/src",
   "prefix": "lib",

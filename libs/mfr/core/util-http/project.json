@@ -1,5 +1,5 @@
 {
-  "name": "util-http",
+  "name": "mfr-util-http",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/core/util-http/src",
   "prefix": "lib",

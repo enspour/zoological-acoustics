@@ -1,5 +1,5 @@
 export default {
-  displayName: 'util-event-bus',
+  displayName: 'msrv-util-event-bus',
   preset: '../../../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

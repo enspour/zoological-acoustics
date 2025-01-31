@@ -1,5 +1,5 @@
 {
-  "name": "data-access-auth",
+  "name": "mfr-data-access-auth",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/core/data-access-auth/src",
   "prefix": "lib",

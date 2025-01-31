@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@kudu-date": ["libs/kudu-date/src/index.ts"],
+      "@kudu-dnd": ["libs/kudu-dnd/src/index.ts"],
       "@kudu-flow": ["libs/kudu-flow/src/index.ts"],
       "@kudu-ng-utils": ["libs/kudu-ng-utils/src/index.ts"],
       "@kudu-ui": ["libs/kudu-ui/src/index.ts"],
@@ -30,7 +31,10 @@
         "libs/mfr/core/data-access-employees/src/index.ts"
       ],
       "@kudu/mfr-data-access-gantt": [
-        "libs/mfr/core/data-access-gantt/src/index.ts"
+        "libs/mfr/mfr-gantt/data-access-gantt/src/index.ts"
+      ],
+      "@kudu/mfr-data-access-kanban": [
+        "libs/mfr/mfr-kanban/data-access-kanban/src/index.ts"
       ],
       "@kudu/mfr-data-access-project": [
         "libs/mfr/core/data-access-project/src/index.ts"
@@ -81,6 +85,9 @@
       "@kudu/mfr-feature-kanban": [
         "libs/mfr/mfr-kanban/feature-kanban/src/index.ts"
       ],
+      "@kudu/mfr-feature-kanban-board": [
+        "libs/mfr/mfr-kanban/feature-kanban-board/src/index.ts"
+      ],
       "@kudu/mfr-feature-login": [
         "libs/mfr/mfr-host/feature-login/src/index.ts"
       ],
@@ -109,6 +116,13 @@
       "@kudu/mfr-ui-gantt-timeline": [
         "libs/mfr/mfr-gantt/ui-gantt-timeline/src/index.ts"
       ],
+      "@kudu/mfr-ui-kanban-column": [
+        "libs/mfr/mfr-kanban/ui-kanban-column/src/index.ts"
+      ],
+      "@kudu/mfr-ui-kanban-task": [
+        "libs/mfr/mfr-kanban/ui-kanban-task/src/index.ts"
+      ],
+      "@kudu/mfr-ui-kit": ["libs/mfr/core/ui-kit/src/index.ts"],
       "@kudu/mfr-ui-modals": ["libs/mfr/core/ui-modals/src/index.ts"],
       "@kudu/mfr-ui-project": ["libs/mfr/core/ui-project/src/index.ts"],
       "@kudu/mfr-util-auth-guard": [
@@ -118,11 +132,15 @@
         "libs/mfr/core/util-auth-interceptor/src/index.ts"
       ],
       "@kudu/mfr-util-cookie": ["libs/mfr/core/util-cookie/src/index.ts"],
+      "@kudu/mfr-util-gantt-chart": [
+        "libs/mfr/mfr-gantt/util-gantt-chart/src/index.ts"
+      ],
       "@kudu/mfr-util-http": ["libs/mfr/core/util-http/src/index.ts"],
       "@kudu/mfr-util-jwt": ["libs/mfr/core/util-jwt/src/index.ts"],
       "@kudu/mfr-util-local-storage": [
         "libs/mfr/core/util-local-storage/src/index.ts"
       ],
+      "@kudu/mfr-util-tasks": ["libs/mfr/core/util-tasks/src/index.ts"],
       "@kudu/msrv-data-access-postgres": [
         "libs/msrv/core/data-access-postgres/src/index.ts"
       ],
@@ -154,8 +172,7 @@
         "libs/msrv/core/util-event-bus/src/index.ts"
       ],
       "@kudu/msrv-util-jwt": ["libs/msrv/core/util-jwt/src/index.ts"],
-      "@kudu/msrv-util-password": ["libs/msrv/core/util-password/src/index.ts"],
-      "@kudu/ui-kit": ["libs/mfr/core/ui-kit/src/index.ts"]
+      "@kudu/msrv-util-password": ["libs/msrv/core/util-password/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

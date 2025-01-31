@@ -1,5 +1,5 @@
 export default {
-  displayName: 'ui-kit',
+  displayName: 'mfr-ui-kit',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../../coverage/libs/mfr/core/ui-kit',

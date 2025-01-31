@@ -1,5 +1,5 @@
 export default {
-  displayName: 'util-http',
+  displayName: 'mfr-util-http',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../../coverage/libs/mfr/core/util-http',

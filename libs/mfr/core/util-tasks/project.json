@@ -1,0 +1,8 @@
+{
+  "name": "mfr-util-tasks",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/mfr/core/util-tasks/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {}
+}

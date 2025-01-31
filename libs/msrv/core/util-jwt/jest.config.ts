@@ -1,5 +1,5 @@
 export default {
-  displayName: 'util-jwt',
+  displayName: 'msrv-util-jwt',
   preset: '../../../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

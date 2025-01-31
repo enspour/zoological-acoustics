@@ -1,5 +1,5 @@
 export default {
-  displayName: 'util-password',
+  displayName: 'msrv-util-password',
   preset: '../../../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

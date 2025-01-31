@@ -1,5 +1,5 @@
 export default {
-  displayName: 'feature-gantt-toolbar',
+  displayName: 'mfr-feature-gantt-toolbar',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory:

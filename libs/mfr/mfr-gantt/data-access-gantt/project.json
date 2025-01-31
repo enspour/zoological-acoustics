@@ -1,5 +1,5 @@
 {
-  "name": "data-access-gantt",
+  "name": "mfr-data-access-gantt",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/core/data-access-gantt/src",
   "prefix": "lib",

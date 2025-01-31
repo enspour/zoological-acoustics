@@ -59,7 +59,7 @@ export class ProjectsPageComponent implements OnInit {
   }
 
   public onClickProject(project: Project) {
-    this.router.navigateByUrl(`/projects/${project.uuid}`);
+    this.router.navigateByUrl(`/projects/${project.uuid}/gantt`);
   }
 
   public filterFn(value: Project, _: number, search: string) {

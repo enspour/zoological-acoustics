@@ -1,5 +1,5 @@
 {
-  "name": "feature-gantt-sidebar",
+  "name": "mfr-feature-gantt-sidebar",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/mfr-gantt/feature-gantt-sidebar/src",
   "prefix": "lib",

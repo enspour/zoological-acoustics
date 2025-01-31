@@ -1,13 +1,13 @@
 import { computed, Directive, ElementRef, inject, signal } from '@angular/core';
 
-import { GanttService } from './gantt.service';
+import { GanttChartService } from './gantt-chart.service';
 
 @Directive({
   selector: '[libGanttLayout]',
   exportAs: 'libGanttLayout',
 })
 export class GanttLayoutDirective {
-  private ganttService = inject(GanttService);
+  private ganttChartService = inject(GanttChartService);
 
   public elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
 
@@ -17,7 +17,7 @@ export class GanttLayoutDirective {
   public height = computed(() => this.getHeight());
 
   private getRowCount() {
-    return this.ganttService.tasks().length;
+    return this.ganttChartService.rows().length;
   }
 
   private getHeight() {

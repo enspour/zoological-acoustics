@@ -1,5 +1,5 @@
 export default {
-  displayName: 'feature-users',
+  displayName: 'msrv-feature-users',
   preset: '../../../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

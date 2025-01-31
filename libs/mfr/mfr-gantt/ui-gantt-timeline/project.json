@@ -1,5 +1,5 @@
 {
-  "name": "ui-gantt-timeline",
+  "name": "mfr-ui-gantt-timeline",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/mfr-gantt/ui-gantt-timeline/src",
   "prefix": "lib",

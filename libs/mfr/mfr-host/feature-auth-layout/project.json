@@ -1,5 +1,5 @@
 {
-  "name": "feature-auth-layout",
+  "name": "mfr-feature-auth-layout",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/mfr-host/feature-auth-layout/src",
   "prefix": "lib",

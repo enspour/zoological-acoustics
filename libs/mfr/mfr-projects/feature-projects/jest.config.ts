@@ -1,5 +1,5 @@
 export default {
-  displayName: 'feature-projects',
+  displayName: 'mfr-feature-projects',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory:

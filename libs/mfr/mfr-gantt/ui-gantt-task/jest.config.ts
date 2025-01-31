@@ -1,5 +1,5 @@
 export default {
-  displayName: 'ui-gantt-task',
+  displayName: 'mfr-ui-gantt-task',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../../coverage/libs/mfr/mfr-gantt/ui-gantt-task',

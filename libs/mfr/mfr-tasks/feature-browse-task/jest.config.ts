@@ -1,5 +1,5 @@
 export default {
-  displayName: 'feature-browse-task',
+  displayName: 'mfr-feature-browse-task',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory:

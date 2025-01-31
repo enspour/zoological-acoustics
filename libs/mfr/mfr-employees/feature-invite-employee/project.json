@@ -1,5 +1,5 @@
 {
-  "name": "feature-invite-employee",
+  "name": "mfr-feature-invite-employee",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/mfr-employees/feature-invite-employee/src",
   "prefix": "lib",

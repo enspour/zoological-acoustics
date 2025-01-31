@@ -1,5 +1,5 @@
 {
-  "name": "feature-gantt-chart",
+  "name": "mfr-feature-gantt-chart",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/mfr-gantt/feature-gantt-chart/src",
   "prefix": "lib",

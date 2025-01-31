@@ -1,5 +1,5 @@
 export default {
-  displayName: 'ui-gantt-board',
+  displayName: 'mfr-ui-gantt-board',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../../coverage/libs/mfr/mfr-gantt/ui-gantt-board',

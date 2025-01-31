@@ -1,5 +1,5 @@
 export default {
-  displayName: 'data-access-projects',
+  displayName: 'mfr-data-access-projects',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../../coverage/libs/mfr/core/data-access-projects',

@@ -1,5 +1,5 @@
 {
-  "name": "ui-kit",
+  "name": "mfr-ui-kit",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/core/ui-kit/src",
   "prefix": "lib",

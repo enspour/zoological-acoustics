@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.grouping {
+  width: 140px;
+  z-index: 100;
+}
+
+.grouping__title {
+  font-size: 14px;
+}

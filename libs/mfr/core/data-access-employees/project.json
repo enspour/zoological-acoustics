@@ -1,5 +1,5 @@
 {
-  "name": "data-access-employees",
+  "name": "mfr-data-access-employees",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/core/data-access-employees/src",
   "prefix": "lib",

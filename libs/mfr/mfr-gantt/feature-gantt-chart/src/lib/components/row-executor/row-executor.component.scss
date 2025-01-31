@@ -1,0 +1,14 @@
+:host {
+  position: absolute;
+  width: 100%;
+}
+
+:host(.is-last) {
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.task {
+  position: absolute;
+  top: 2px;
+  z-index: 4;
+}

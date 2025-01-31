@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { provideGanttDataAccess } from '@kudu/mfr-data-access-gantt';
 import { ProjectService } from '@kudu/mfr-data-access-project';
 
 import { HeaderComponent } from './components/header/header.component';
@@ -18,7 +17,6 @@ import { HeaderComponent } from './components/header/header.component';
   templateUrl: './project-page.component.html',
   styleUrl: './project-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideGanttDataAccess()],
 })
 export class ProjectPageComponent {
   private projectService = inject(ProjectService);

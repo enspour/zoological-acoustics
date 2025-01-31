@@ -1,5 +1,5 @@
 export default {
-  displayName: 'feature-explorer',
+  displayName: 'mfr-feature-explorer',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../../coverage/libs/mfr/core/feature-explorer',

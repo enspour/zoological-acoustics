@@ -1,5 +1,5 @@
 export default {
-  displayName: 'feature-auth-layout',
+  displayName: 'mfr-feature-auth-layout',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory:

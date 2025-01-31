@@ -1,5 +1,5 @@
 {
-  "name": "feature-projects",
+  "name": "mfr-feature-projects",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/mfr-projects/feature-projects/src",
   "prefix": "lib",

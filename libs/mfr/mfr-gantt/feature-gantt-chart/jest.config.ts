@@ -1,5 +1,5 @@
 export default {
-  displayName: 'feature-gantt-chart',
+  displayName: 'mfr-feature-gantt-chart',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory:

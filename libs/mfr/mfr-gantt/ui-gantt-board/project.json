@@ -1,5 +1,5 @@
 {
-  "name": "ui-gantt-board",
+  "name": "mfr-ui-gantt-board",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/mfr-gantt/ui-gantt-board/src",
   "prefix": "lib",

@@ -1,5 +1,5 @@
 {
-  "name": "feature-explorer",
+  "name": "mfr-feature-explorer",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/core/feature-explorer/src",
   "prefix": "lib",

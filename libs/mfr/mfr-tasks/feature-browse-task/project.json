@@ -1,5 +1,5 @@
 {
-  "name": "feature-browse-task",
+  "name": "mfr-feature-browse-task",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/mfr-tasks/feature-browse-task/src",
   "prefix": "lib",
