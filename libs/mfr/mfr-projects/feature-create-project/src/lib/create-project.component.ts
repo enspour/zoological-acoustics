@@ -1,13 +1,24 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { KuduButtonComponent, KuduInputComponent } from '@kudu-ui';
+import {
+  KuduAutofocusDirective,
+  KuduButtonComponent,
+  KuduInputComponent,
+  KuduInputContainerComponent,
+} from '@kudu-ui';
 
 import { ProjectsService } from '@kudu/mfr-data-access-projects';
 
 @Component({
   selector: 'lib-create-project',
-  imports: [ReactiveFormsModule, KuduInputComponent, KuduButtonComponent],
+  imports: [
+    ReactiveFormsModule,
+    KuduInputComponent,
+    KuduInputContainerComponent,
+    KuduButtonComponent,
+    KuduAutofocusDirective,
+  ],
   templateUrl: './create-project.component.html',
   styleUrl: './create-project.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

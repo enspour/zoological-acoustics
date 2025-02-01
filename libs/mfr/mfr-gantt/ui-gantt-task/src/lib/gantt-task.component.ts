@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  HostListener,
-  input,
-  output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { Task } from '@kudu/domain';
 
@@ -17,11 +11,4 @@ import { Task } from '@kudu/domain';
 })
 export class GanttTaskComponent {
   public task = input.required<Task>();
-
-  public byTaskClick = output<Task>();
-
-  @HostListener('click')
-  public onClick() {
-    this.byTaskClick.emit(this.task());
-  }
 }

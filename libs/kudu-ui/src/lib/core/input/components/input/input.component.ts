@@ -6,8 +6,9 @@ import {
   input,
 } from '@angular/core';
 
-import { kuduSize } from '../size';
-import { KuduInputKind } from './input.interface';
+import { kuduSize } from '../../../size';
+
+import { KuduInputKind } from '../../input.interface';
 
 @Component({
   selector: 'input[kudu-input]',

@@ -2,16 +2,18 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
+  input,
   OnInit,
-  signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import {
   KuduButtonComponent,
   KuduDialogService,
   KuduIconComponent,
   KuduInputComponent,
+  KuduInputContainerComponent,
 } from '@kudu-ui';
 
 import { KuduFilterPipe } from '@kudu-ng-utils';
@@ -31,6 +33,7 @@ import { EmployeeTableComponent } from '@kudu/mfr-ui-employee';
   imports: [
     FormsModule,
     KuduInputComponent,
+    KuduInputContainerComponent,
     KuduIconComponent,
     KuduButtonComponent,
     KuduFilterPipe,
@@ -41,16 +44,21 @@ import { EmployeeTableComponent } from '@kudu/mfr-ui-employee';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeesPageComponent implements OnInit {
+  private router = inject(Router);
   private dialogService = inject(KuduDialogService);
   private explorerService = inject(ExplorerService);
   private employeesService = inject(EmployeesService);
 
   public employees = this.employeesService.employees;
 
-  public searchedTerm = signal('');
+  public searchTerm = input<string>();
 
   ngOnInit(): void {
     this.employeesService.reload();
+  }
+
+  public onSearchTermChange(searchTerm: string) {
+    this.router.navigateByUrl(`/employees?searchTerm=${searchTerm}`);
   }
 
   public onInvite() {
@@ -69,6 +77,6 @@ export class EmployeesPageComponent implements OnInit {
   }
 
   public filterFn(value: Employee, _: number, search: string) {
-    return value.name.includes(search);
+    return value.name.toLowerCase().includes(search.toLowerCase());
   }
 }

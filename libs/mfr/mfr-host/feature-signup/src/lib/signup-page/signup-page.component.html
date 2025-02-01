@@ -5,21 +5,32 @@
 >
   <h1 class="form__title">Kudu</h1>
 
-  <input kudu-input type="text" formControlName="name" placeholder="ФИО" />
+  <kudu-input-container class="form__field">
+    <kudu-icon icon="" />
+    <input kudu-input type="text" formControlName="name" placeholder="ФИО" />
+  </kudu-input-container>
 
-  <input
-    kudu-input
-    type="text"
-    formControlName="username"
-    placeholder="Логин"
-  />
+  <kudu-input-container class="form__field">
+    <kudu-icon icon="user" />
 
-  <input
-    kudu-input
-    type="password"
-    formControlName="password"
-    placeholder="Пароль"
-  />
+    <input
+      kudu-input
+      type="text"
+      formControlName="username"
+      placeholder="Логин"
+    />
+  </kudu-input-container>
+
+  <kudu-input-container class="form__field">
+    <kudu-icon icon="lock" />
+
+    <input
+      kudu-input
+      type="password"
+      formControlName="password"
+      placeholder="Пароль"
+    />
+  </kudu-input-container>
 
   <button
     kudu-button

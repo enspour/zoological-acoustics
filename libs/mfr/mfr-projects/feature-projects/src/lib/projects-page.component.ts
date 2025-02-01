@@ -2,8 +2,8 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
+  input,
   OnInit,
-  signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -16,6 +16,7 @@ import {
   KuduButtonComponent,
   KuduIconComponent,
   KuduInputComponent,
+  KuduInputContainerComponent,
 } from '@kudu-ui';
 
 import { ProjectsService } from '@kudu/mfr-data-access-projects';
@@ -32,6 +33,7 @@ import { ProjectTableComponent } from '@kudu/mfr-ui-project';
     KuduButtonComponent,
     KuduIconComponent,
     KuduInputComponent,
+    KuduInputContainerComponent,
     KuduFilterPipe,
     ProjectTableComponent,
   ],
@@ -46,10 +48,14 @@ export class ProjectsPageComponent implements OnInit {
 
   public projects = this.projectsService.projects;
 
-  public searchedTerm = signal('');
+  public searchTerm = input<string>();
 
   ngOnInit(): void {
     this.projectsService.reload();
+  }
+
+  public onSearchTermChange(searchTerm: string) {
+    this.router.navigateByUrl(`/projects?searchTerm=${searchTerm}`);
   }
 
   public onCreateProject() {
@@ -63,6 +69,6 @@ export class ProjectsPageComponent implements OnInit {
   }
 
   public filterFn(value: Project, _: number, search: string) {
-    return value.name.includes(search);
+    return value.name.toLowerCase().includes(search.toLowerCase());
   }
 }

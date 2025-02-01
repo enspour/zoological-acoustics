@@ -31,8 +31,8 @@ export class ExplorerContainerComponent {
   public width = this.explorerService.width;
 
   public config = linkedSignal<
-    ExplorerConfig<any> | null,
-    ExplorerConfig<any> | null
+    ExplorerConfig<unknown> | null,
+    ExplorerConfig<unknown> | null
   >({
     source: this.explorerService.config,
     computation: (config, previous) => config || previous?.value || null,

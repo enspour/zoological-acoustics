@@ -1,5 +1,12 @@
 <form [formGroup]="form" (submit)="$event.preventDefault(); create()">
-  <input kudu-input formControlName="name" placeholder="Название" />
+  <kudu-input-container>
+    <input
+      kudu-input
+      formControlName="name"
+      placeholder="Название"
+      kuduAutofocus
+    />
+  </kudu-input-container>
 
   <button kudu-button type="submit" [disabled]="!form.valid">
     Создать проект

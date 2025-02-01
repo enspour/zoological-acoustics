@@ -20,6 +20,12 @@
   text-align: center;
 }
 
+.form__field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .form__submit {
   align-self: flex-end;
 }

@@ -4,17 +4,21 @@
     <span>Пригласить</span>
   </button>
 
-  <input
-    kudu-input
-    class="header__search"
-    placeholder="Поиск по сотрудникам..."
-    [(ngModel)]="searchedTerm"
-  />
+  <kudu-input-container class="header__search">
+    <kudu-icon icon="search" />
+
+    <input
+      kudu-input
+      placeholder="Поиск по сотрудникам..."
+      [ngModel]="searchTerm()"
+      (ngModelChange)="onSearchTermChange($event)"
+    />
+  </kudu-input-container>
 </header>
 
 @let employees = this.employees() || [];
 
 <lib-employee-table
-  [employees]="employees | filter: filterFn : searchedTerm()"
+  [employees]="employees | filter: filterFn : searchTerm() || ''"
   (byEmployeeClick)="onEmployeeClick($event)"
 />

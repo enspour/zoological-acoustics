@@ -1,6 +1,6 @@
 import { computed, Directive, ElementRef, inject, input } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
-import { switchMap } from 'rxjs';
+import { map, switchMap } from 'rxjs';
 
 import { resizeObservable, scrollObservable } from '@kudu-ng-utils';
 
@@ -33,9 +33,10 @@ export class KuduVirtualizationDirective<T> {
   public elements = input.required<T[]>();
   public elementsToRender = computed(() => this.getElementsToRender());
 
-  public viewportSize = toSignal(
+  public viewportLayout = toSignal(
     toObservable(this.viewport).pipe(
       switchMap((viewport) => resizeObservable(viewport)),
+      map((entry) => entry.contentRect),
     ),
   );
 
@@ -47,7 +48,7 @@ export class KuduVirtualizationDirective<T> {
 
   public getElementsToRender() {
     const config = {
-      layout: this.viewportSize()?.contentRect,
+      layout: this.viewportLayout(),
       scroll: this.viewportScroll(),
     };
 

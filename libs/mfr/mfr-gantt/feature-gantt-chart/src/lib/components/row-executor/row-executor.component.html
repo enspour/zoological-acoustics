@@ -7,6 +7,6 @@
     [style.left.px]="props.left"
     [style.width.px]="props.width"
     [style.height.px]="rowHeight() - 4"
-    (byTaskClick)="onTaskClick($event)"
+    (click)="onTaskClick(task)"
   />
 }

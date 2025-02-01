@@ -1,13 +1,25 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { KuduButtonComponent, KuduInputComponent } from '@kudu-ui';
+
+import {
+  KuduButtonComponent,
+  KuduIconComponent,
+  KuduInputComponent,
+  KuduInputContainerComponent,
+} from '@kudu-ui';
 
 import { AuthService } from '@kudu/mfr-data-access-auth';
 
 @Component({
   selector: 'lib-signup-page',
-  imports: [ReactiveFormsModule, KuduInputComponent, KuduButtonComponent],
+  imports: [
+    ReactiveFormsModule,
+    KuduInputComponent,
+    KuduInputContainerComponent,
+    KuduButtonComponent,
+    KuduIconComponent,
+  ],
   templateUrl: './signup-page.component.html',
   styleUrl: './signup-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

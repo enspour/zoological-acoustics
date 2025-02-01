@@ -1,18 +1,16 @@
-@use '../../mixins/layout.mixin.scss';
+@use '../../../../mixins/layout.mixin.scss';
 
 :host {
+  box-sizing: border-box;
   width: 100%;
-  font-weight: 500;
+  display: block;
   color: #191919;
   border: 1px solid #dddddd;
   background-color: #ffffff;
-  outline: none;
-  box-sizing: border-box;
 
-  &:focus {
+  &:focus-within {
     background-color: #f5f5f5;
-    border: 1px solid #909090;
-    box-shadow: 0 0 0 2px rgba(#6a6a6a, 0.3);
+    border: 1px solid #6a6a6a;
   }
 
   &:hover {
