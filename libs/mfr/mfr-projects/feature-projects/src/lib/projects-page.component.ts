@@ -14,6 +14,7 @@ import { Project } from '@kudu/domain';
 
 import {
   KuduButtonComponent,
+  KuduDialogService,
   KuduIconComponent,
   KuduInputComponent,
   KuduInputContainerComponent,
@@ -21,8 +22,7 @@ import {
 
 import { ProjectsService } from '@kudu/mfr-data-access-projects';
 
-import { CreateProjectComponent } from '@kudu/mfr-feature-create-project';
-import { ExplorerService } from '@kudu/mfr-feature-explorer';
+import { CreateProjectModalComponent } from '@kudu/mfr-feature-create-project';
 
 import { ProjectTableComponent } from '@kudu/mfr-ui-project';
 
@@ -43,7 +43,7 @@ import { ProjectTableComponent } from '@kudu/mfr-ui-project';
 })
 export class ProjectsPageComponent implements OnInit {
   private router = inject(Router);
-  private explorerService = inject(ExplorerService);
+  private dialog = inject(KuduDialogService);
   private projectsService = inject(ProjectsService);
 
   public projects = this.projectsService.projects;
@@ -59,8 +59,8 @@ export class ProjectsPageComponent implements OnInit {
   }
 
   public onCreateProject() {
-    this.explorerService.open({
-      component: CreateProjectComponent,
+    this.dialog.open(CreateProjectModalComponent, {
+      hasBackdrop: true,
     });
   }
 

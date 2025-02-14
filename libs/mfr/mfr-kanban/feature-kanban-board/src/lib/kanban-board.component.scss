@@ -1,0 +1,36 @@
+:host {
+  padding: 10px;
+  height: 100%;
+  display: flex;
+  gap: 10px;
+  overflow: auto;
+}
+
+.columns {
+  display: flex;
+  gap: 10px;
+}
+
+.task__creation {
+  flex-shrink: 0;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #005aaa;
+  background-color: transparent !important;
+}
+
+.tasks {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: auto;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

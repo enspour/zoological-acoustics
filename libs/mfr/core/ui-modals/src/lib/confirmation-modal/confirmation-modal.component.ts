@@ -1,10 +1,15 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
-import { KuduButtonComponent, KuduDialogData, KuduDialogRef } from '@kudu-ui';
+import {
+  KuduButtonComponent,
+  KuduDialogData,
+  KuduDialogRef,
+  KuduIconComponent,
+} from '@kudu-ui';
 
 @Component({
   selector: 'lib-confirmation',
-  imports: [KuduButtonComponent],
+  imports: [KuduButtonComponent, KuduIconComponent],
   templateUrl: './confirmation-modal.component.html',
   styleUrl: './confirmation-modal.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,11 +19,11 @@ export class ConfirmationModalComponent {
 
   public data = inject(KuduDialogData);
 
-  public close() {
+  public onClose() {
     this.dialogRef.close(false);
   }
 
-  public confirm() {
+  public onConfirm() {
     this.dialogRef.close(true);
   }
 }

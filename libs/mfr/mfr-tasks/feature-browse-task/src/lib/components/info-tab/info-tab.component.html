@@ -1,0 +1,25 @@
+<div class="section">
+  <div class="section__title">Создатель и исполнители</div>
+
+  <div class="section__field">
+    <div>Создатель:</div>
+  </div>
+
+  <div class="section__field">
+    <div>Исполнители:</div>
+
+    @let employees = this.employees();
+
+    @if (employees) {
+      <lib-employee-picker
+        [(value)]="employeesSelected"
+        [employees]="employees"
+        [multiple]="true"
+      />
+    }
+  </div>
+</div>
+
+<div class="section">
+  <div class="section__title">Дедлайн</div>
+</div>

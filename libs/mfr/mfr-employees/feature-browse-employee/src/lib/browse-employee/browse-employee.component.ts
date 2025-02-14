@@ -1,11 +1,10 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { Employee } from '@kudu/domain';
-import { EmployeeCardComponent } from '@kudu/mfr-ui-employee';
 
 @Component({
   selector: 'lib-browse-employee',
-  imports: [EmployeeCardComponent],
+  imports: [],
   templateUrl: './browse-employee.component.html',
   styleUrl: './browse-employee.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

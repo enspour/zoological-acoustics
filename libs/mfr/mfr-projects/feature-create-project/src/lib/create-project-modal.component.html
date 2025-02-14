@@ -1,0 +1,23 @@
+<div class="header">
+  <div class="header__title">Создание проекта</div>
+  <kudu-icon class="header__icon" icon="close" (click)="onClose()" />
+</div>
+
+<form
+  class="form"
+  [formGroup]="form"
+  (submit)="$event.preventDefault(); onCreate()"
+>
+  <kudu-input-container>
+    <input
+      kudu-input
+      formControlName="name"
+      placeholder="Название"
+      kuduAutofocus
+    />
+  </kudu-input-container>
+
+  <button class="form__btn" kudu-button type="submit" [disabled]="!form.valid">
+    Создать проект
+  </button>
+</form>

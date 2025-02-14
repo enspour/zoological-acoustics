@@ -1,0 +1,7 @@
+<button class="logout" kudu-button (click)="onLogout()">
+  <kudu-icon icon="logout" />
+
+  @if (isOpen()) {
+    <div class="details">Завершить сессию</div>
+  }
+</button>

@@ -5,12 +5,12 @@
   </div>
 
   <div class="head__section">
-    <kudu-icon icon="settings" (click)="onOpenSettings()" />
-    <kudu-icon icon="dots" />
+    <kudu-icon class="head__icon" icon="settings" (click)="onOpenSettings()" />
+    <lib-header-more />
   </div>
 </div>
 
 <lib-tabs class="tabs">
   <lib-tab-link href="./gantt"> Диаграмма </lib-tab-link>
-  <lib-tab-link href="./kanban"> Доска </lib-tab-link>
+  <lib-tab-link href="./kanban"> Доски </lib-tab-link>
 </lib-tabs>

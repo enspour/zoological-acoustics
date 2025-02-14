@@ -1,0 +1,12 @@
+<div class="container" kuduDropContainer [kuduDropContainerTypes]="['board']">
+  @for (board of boards(); track board.uuid) {
+    <lib-kanban-board-tab
+      [board]="board"
+      [isActive]="board.uuid === selected().uuid"
+      (click)="onSelectTab(board)"
+      kuduDrag
+      kuduDragType="board"
+      [kuduDragData]="board"
+    />
+  }
+</div>

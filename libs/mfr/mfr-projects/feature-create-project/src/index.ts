@@ -1,1 +1,1 @@
-export * from './lib/create-project.component';
+export * from './lib/create-project-modal.component';

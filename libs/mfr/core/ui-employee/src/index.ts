@@ -1,3 +1,3 @@
-export * from './lib/components/employee-card';
-export * from './lib/components/employee-table';
 export * from './lib/components/employee-avatar';
+export * from './lib/components/employee-picker';
+export * from './lib/components/employee-table';

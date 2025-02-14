@@ -10,7 +10,12 @@
   (keydown.escape)="$event.stopPropagation(); onClose()"
 >
   <header class="sidebar__header">
-    <kudu-icon class="sidebar__header-close" icon="close" (click)="onClose()" />
+    <kudu-icon
+      class="sidebar__header-close"
+      icon="close"
+      [iconSize]="18"
+      (click)="onClose()"
+    />
   </header>
 
   @let config = this.config();

@@ -1,11 +1,39 @@
 :host {
-  padding: 10px;
+  max-width: 400px;
+  padding: 10px 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.controls {
+.header {
+  height: 40px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__title {
+  font-size: 20px;
+}
+
+.header__icon {
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form__description {
+  color: #555555;
+  font-size: 18;
+}
+
+.form__controls {
+  display: flex;
+  justify-content: flex-end;
   gap: 10px;
 }

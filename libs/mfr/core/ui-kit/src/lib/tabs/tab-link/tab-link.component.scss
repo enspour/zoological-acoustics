@@ -16,6 +16,11 @@
 }
 
 .link--active {
-  color: #4e7ca6 !important;
-  border-bottom: 2px solid #4e7ca6 !important;
+  color: #3b5d7d;
+  border-bottom: 2px solid #3b5d7d;
+
+  &:hover {
+    color: #3b5d7d;
+    border-bottom: 2px solid #3b5d7d;
+  }
 }

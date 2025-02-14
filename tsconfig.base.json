@@ -10,7 +10,7 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": ["es2023", "dom"],
     "strict": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
@@ -24,9 +24,6 @@
       "@kudu-ui-icons": ["libs/kudu-ui-icons/src/index.ts"],
       "@kudu-utils": ["libs/kudu-utils/src/index.ts"],
       "@kudu/domain": ["libs/domain/src/index.ts"],
-      "@kudu/mfr-feature-project-settings": [
-        "libs/mfr/mfr-projects/feature-project-settings/src/index.ts"
-      ],
       "@kudu/mfr-data-access-auth": [
         "libs/mfr/core/data-access-auth/src/index.ts"
       ],
@@ -97,11 +94,17 @@
       "@kudu/mfr-feature-kanban-board": [
         "libs/mfr/mfr-kanban/feature-kanban-board/src/index.ts"
       ],
+      "@kudu/mfr-feature-kanban-toolbar": [
+        "libs/mfr/mfr-kanban/feature-kanban-toolbar/src/index.ts"
+      ],
       "@kudu/mfr-feature-login": [
         "libs/mfr/mfr-host/feature-login/src/index.ts"
       ],
       "@kudu/mfr-feature-project": [
         "libs/mfr/mfr-projects/feature-project/src/index.ts"
+      ],
+      "@kudu/mfr-feature-project-settings": [
+        "libs/mfr/mfr-projects/feature-project-settings/src/index.ts"
       ],
       "@kudu/mfr-feature-projects": [
         "libs/mfr/mfr-projects/feature-projects/src/index.ts"
@@ -127,6 +130,9 @@
       ],
       "@kudu/mfr-ui-gantt-timeline": [
         "libs/mfr/mfr-gantt/ui-gantt-timeline/src/index.ts"
+      ],
+      "@kudu/mfr-ui-kanban-board-tabs": [
+        "libs/mfr/mfr-kanban/ui-kanban-board-tabs/src/index.ts"
       ],
       "@kudu/mfr-ui-kanban-column": [
         "libs/mfr/mfr-kanban/ui-kanban-column/src/index.ts"

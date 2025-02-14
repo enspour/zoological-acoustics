@@ -1,5 +1,5 @@
 {
-  "name": "feature-kanban",
+  "name": "mfr-feature-kanban",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/mfr/mfr-kanban/feature-kanban/src",
   "prefix": "lib",

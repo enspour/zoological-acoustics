@@ -1,5 +1,5 @@
 export default {
-  displayName: 'feature-kanban',
+  displayName: 'mfr-feature-kanban',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../../coverage/libs/mfr/mfr-kanban/feature-kanban',

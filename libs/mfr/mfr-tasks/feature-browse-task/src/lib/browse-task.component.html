@@ -1,3 +1,17 @@
-{{ task().title }}
-{{ task().startDate }}
-{{ task().endDate }}
+<div class="header">
+  <div class="header__title">{{ task().title }}</div>
+</div>
+
+<kudu-tabs class="tabs" [(currentIndex)]="currentIndex">
+  <kudu-tab name="Информация">
+    <ng-template kuduTabContent>
+      <lib-info-tab />
+    </ng-template>
+  </kudu-tab>
+
+  <kudu-tab name="Логи">
+    <ng-template kuduTabContent>
+      <lib-logs-tab />
+    </ng-template>
+  </kudu-tab>
+</kudu-tabs>

@@ -2,12 +2,8 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  HostBinding,
-  inject,
   input,
 } from '@angular/core';
-
-import { kuduSize } from '@kudu-ui';
 
 import { User } from '@kudu/domain';
 
@@ -17,14 +13,16 @@ import { User } from '@kudu/domain';
   templateUrl: './employee-avatar.component.html',
   styleUrl: './employee-avatar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[style.--avatar-size.px]': 'avatarSize()',
+  },
 })
 export class EmployeeAvatarComponent {
-  private size = inject(kuduSize);
-
-  public user = input.required<User>();
+  public avatar = input.required<User>();
+  public avatarSize = input<number>();
 
   public initials = computed(() =>
-    this.user()
+    this.avatar()
       .name.split(' ')
       .slice(0, 2)
       .filter((item) => item)
@@ -32,9 +30,4 @@ export class EmployeeAvatarComponent {
       .join('')
       .toUpperCase(),
   );
-
-  @HostBinding('class')
-  public get Classes() {
-    return `${this.size()} `;
-  }
 }

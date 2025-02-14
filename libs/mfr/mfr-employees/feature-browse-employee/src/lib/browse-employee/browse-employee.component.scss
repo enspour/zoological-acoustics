@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header {
+  padding: 20px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.header__title {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 500;
+}
