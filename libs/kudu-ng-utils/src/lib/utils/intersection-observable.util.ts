@@ -14,3 +14,25 @@ export const intersectionObservable = (
     return () => intersection.disconnect();
   });
 };
+
+export const surroundedIntersectionObservable = (
+  elementRef: ElementRef<HTMLElement>,
+  elementRect: DOMRect,
+) => {
+  const root = document.documentElement;
+
+  const rootMargin = [
+    Math.floor(elementRect.top),
+    Math.floor(root.clientWidth - elementRect.right),
+    Math.floor(root.clientHeight - elementRect.bottom),
+    Math.floor(elementRect.left),
+  ]
+    .map((value) => `${-1 * value}px`)
+    .join(' ');
+
+  return intersectionObservable(elementRef, {
+    root: root.ownerDocument,
+    rootMargin,
+    threshold: [1],
+  });
+};

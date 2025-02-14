@@ -9,8 +9,9 @@ import {
 } from '@angular/core';
 
 import { KuduClickOutsideDirective } from '../../../click-outside';
+
 import { KuduGlassmorphismDirective } from '../../../glassmorphism';
-import { KuduZoneDirective } from '../../../zone';
+
 import { KuduDialogConfig, KuduDialogRef } from '../../services/dialog.service';
 
 @Component({
@@ -24,7 +25,6 @@ import { KuduDialogConfig, KuduDialogRef } from '../../services/dialog.service';
       directive: KuduClickOutsideDirective,
       outputs: ['byClickOutside'],
     },
-    { directive: KuduZoneDirective },
   ],
 })
 export class KuduDialogComponent {

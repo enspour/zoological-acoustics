@@ -6,75 +6,98 @@ import {
   inject,
   input,
   model,
+  OnInit,
   signal,
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
-import { KuduClickOutsideDirective } from '../click-outside';
+import {
+  KuduOverlayComponent,
+  KuduOverlayConfig,
+  KuduOverlayOriginDirective,
+  KuduOverlayPositionX,
+  KuduOverlayPositionY,
+} from '../overlay';
 
-import { KuduDropdownComponent, KuduDropdownPosition } from '../dropdown';
+import { KuduClickOutsideZoneDirective } from '../click-outside';
 import { KuduOptionComponent, KuduOptionsDirective } from '../options';
 import { kuduSize } from '../size';
-import { KuduZoneDirective } from '../zone';
 
 @Component({
   selector: 'kudu-select',
-  imports: [KuduDropdownComponent],
+  imports: [KuduOverlayComponent, KuduOverlayOriginDirective],
   templateUrl: './select.component.html',
   styleUrl: './select.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
-    {
-      directive: KuduClickOutsideDirective,
-      outputs: ['byClickOutside'],
-    },
+    KuduClickOutsideZoneDirective,
     {
       directive: KuduOptionsDirective,
       inputs: ['value', 'multiple'],
       outputs: ['valueChange', 'byOptionClick', 'bySelectedChange'],
     },
-    { directive: KuduZoneDirective },
   ],
 })
-export class KuduSelectComponent {
+export class KuduSelectComponent implements OnInit {
   private domSanitizer = inject(DomSanitizer);
-  private size = inject(kuduSize);
+
+  public size = inject(kuduSize);
 
   public isOpen = model(false);
 
   public placeholder = input<string>('');
 
-  public optionsPosition = model<KuduDropdownPosition>('top');
+  public config: KuduOverlayConfig = {
+    width: 'origin-width',
+    positionX: 'right',
+    positionY: 'under',
+    lockX: true,
+    lockY: false,
+  };
+
+  public positionX = signal<KuduOverlayPositionX>('right');
+  public positionY = signal<KuduOverlayPositionY>('under');
 
   public content = signal<SafeHtml>('');
 
   @HostBinding('class')
   public get Classes() {
-    return `${this.size()} ${this.isOpen() ? 'opened' : ''} ${this.optionsPosition()}`;
+    return `
+      ${this.size()} 
+      ${this.isOpen() ? 'opened' : 'closed'} 
+      ${this.positionX()}
+      ${this.positionY()}
+    `;
   }
 
-  @HostListener('byClickOutside')
-  public onClickOutside() {
-    this.isOpen.set(false);
+  ngOnInit(): void {
+    this.setContentToPlaceholder();
+  }
+
+  public onClick() {
+    this.isOpen.update((isOpen) => !isOpen);
   }
 
   @HostListener('bySelectedChange', ['$event'])
   public onOptionChange(selected: KuduOptionComponent<unknown>[]) {
     if (selected.length === 0) {
-      return this.content.set('');
+      return this.setContentToPlaceholder();
     }
 
     if (selected.length === 1) {
-      const content = selected[0].elementRef.nativeElement.innerHTML;
-      return this.content.set(
-        this.domSanitizer.bypassSecurityTrustHtml(content),
-      );
+      return this.setContentToSelected(selected[0]);
     }
 
     this.content.set(`Выбрано: ${selected.length}`);
   }
 
-  public onClick() {
-    this.isOpen.update((isOpen) => !isOpen);
+  private setContentToPlaceholder() {
+    const content = this.placeholder();
+    this.content.set(this.domSanitizer.bypassSecurityTrustHtml(content));
+  }
+
+  private setContentToSelected(selected: KuduOptionComponent<unknown>) {
+    const content = selected.elementRef.nativeElement.innerHTML;
+    return this.content.set(this.domSanitizer.bypassSecurityTrustHtml(content));
   }
 }

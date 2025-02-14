@@ -1,12 +1,17 @@
 import { Directive, HostListener, inject, output } from '@angular/core';
 
-import { KuduZoneDirective } from '../zone';
+import { KuduClickOutsideZoneDirective } from './click-outside-zone.directive';
 
 @Directive({
   selector: '[kuduClickOutside]',
+  hostDirectives: [KuduClickOutsideZoneDirective],
 })
 export class KuduClickOutsideDirective {
-  private zone = inject(KuduZoneDirective, { optional: true });
+  private inner = inject(KuduClickOutsideZoneDirective);
+  private outer = inject(KuduClickOutsideZoneDirective, {
+    skipSelf: true,
+    optional: true,
+  });
 
   public byClickOutside = output<Event>();
 
@@ -14,7 +19,9 @@ export class KuduClickOutsideDirective {
   public onClickOutside(event: Event) {
     const target = event.target as HTMLElement;
 
-    if (!this.zone?.contains(target)) {
+    const origin = this.outer || this.inner;
+
+    if (!origin.contains(target)) {
       this.byClickOutside.emit(event);
     }
   }

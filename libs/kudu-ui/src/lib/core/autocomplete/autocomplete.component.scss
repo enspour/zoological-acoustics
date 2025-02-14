@@ -20,46 +20,31 @@
 :host.sm {
   @include layout.sm;
   height: 26px;
-
-  .options {
-    border-radius: 6px;
-    max-height: calc(26px * 5 + 4px * 5 + 4px);
-  }
 }
 
 :host.md {
   @include layout.md;
   height: 30px;
-
-  .options {
-    border-radius: 8px;
-    max-height: calc(30px * 5 + 4px * 5 + 4px);
-  }
 }
 
 :host.lg {
   @include layout.lg;
   height: 34px;
   border-radius: 10px;
-
-  .options {
-    border-radius: 10px;
-    max-height: calc(34px * 5 + 4px * 5 + 4px);
-  }
 }
 
 :host.opened {
   background-color: #f5f5f5;
 }
 
-:host.opened.top {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-:host.opened.bottom {
+:host.opened.above {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+:host.opened.under {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .text {
@@ -85,14 +70,29 @@
   z-index: 1;
 }
 
-.options--top {
-  top: calc(100% + 2px) !important;
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
+.options.sm {
+  border-radius: 6px;
+  max-height: calc(26px * 5 + 4px * 5 + 4px);
 }
 
-.options--bottom {
-  bottom: calc(100% + 2px) !important;
-  border-bottom-left-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
+.options.md {
+  border-radius: 8px;
+  max-height: calc(30px * 5 + 4px * 5 + 4px);
+}
+
+.options.lg {
+  border-radius: 10px;
+  max-height: calc(34px * 5 + 4px * 5 + 4px);
+}
+
+.options.above {
+  bottom: calc(100% + 2px);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.options.under {
+  top: calc(100% + 2px);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }

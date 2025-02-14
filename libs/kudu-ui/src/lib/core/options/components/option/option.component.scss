@@ -16,16 +16,19 @@
 :host.sm {
   @include layout.sm;
   min-height: 24px;
+  gap: 8px;
 }
 
 :host.md {
   @include layout.md;
   min-height: 30px;
+  gap: 12px;
 }
 
 :host.lg {
   @include layout.lg;
   min-height: 34px;
+  gap: 16px;
 }
 
 :host.hidden {

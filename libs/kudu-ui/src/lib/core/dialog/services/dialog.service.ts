@@ -9,9 +9,11 @@ import { Subject } from 'rxjs';
 
 import { KuduDialogComponent } from '../components/dialog/dialog.component';
 
-import { KuduPortalByComponent, KuduPortalRef } from '../../portals';
-
-import { kuduDialogPortals } from '../tokens';
+import {
+  KuduPortalByComponent,
+  KuduPortalRef,
+  KuduPortalsService,
+} from '../../portals';
 
 import { KuduGlassmorphismConfig } from '../../glassmorphism';
 
@@ -44,7 +46,7 @@ export const KuduDialogData = new InjectionToken<any>('kudu-ui/dialog/data');
 @Injectable()
 export class KuduDialogService {
   private injector = inject(Injector);
-  private portalsService = inject(kuduDialogPortals);
+  private portalsService = inject(KuduPortalsService);
 
   private portalRef: KuduPortalRef | null = null;
   private dialogRef: KuduDialogRef<any> | null = null;

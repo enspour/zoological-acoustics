@@ -1,16 +1,19 @@
-@if (content()) {
-  <button class="content" [innerHTML]="content()" (click)="onClick()"></button>
-} @else {
-  <button class="content" (click)="onClick()">{{ placeholder() }}</button>
-}
+<button
+  class="content"
+  kuduOverlayOrigin
+  #origin="kuduOverlayOrigin"
+  [innerHTML]="content()"
+  (click)="onClick()"
+></button>
 
-@if (isOpen()) {
-  <kudu-dropdown
-    class="options"
-    [class.options--top]="optionsPosition() === 'top'"
-    [class.options--bottom]="optionsPosition() === 'bottom'"
-    [(position)]="optionsPosition"
-  >
+<kudu-overlay
+  [(isOpen)]="isOpen"
+  [origin]="origin"
+  [config]="config"
+  (positionXChange)="positionX.set($event)"
+  (positionYChange)="positionY.set($event)"
+>
+  <div [class]="['options', size(), positionX(), positionY()]">
     <ng-content />
-  </kudu-dropdown>
-}
+  </div>
+</kudu-overlay>

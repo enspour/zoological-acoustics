@@ -1,0 +1,11 @@
+@if (isOpen()) {
+  <kudu-overlay-content
+    *kuduTeleport="'overlay'"
+    [positionX]="config().positionX"
+    [positionY]="config().positionY"
+    (positionXChange)="positionXChange.emit($event)"
+    (positionYChange)="positionYChange.emit($event)"
+  >
+    <ng-content />
+  </kudu-overlay-content>
+}

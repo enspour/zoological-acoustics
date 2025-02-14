@@ -6,7 +6,7 @@ export interface KuduPortalRef {
   close: () => void;
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class KuduPortalsService {
   private _portals = signal<KuduPortal[]>([]);
   public portals = this._portals.asReadonly();

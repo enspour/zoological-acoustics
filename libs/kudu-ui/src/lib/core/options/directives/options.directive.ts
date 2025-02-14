@@ -4,40 +4,19 @@ import {
   contentChildren,
   Directive,
   effect,
-  inject,
-  InjectionToken,
   input,
   model,
-  ModelSignal,
   output,
 } from '@angular/core';
 
 import { KuduOptionComponent } from '../components/option/option.component';
 
 import { outputFromObservable, toObservable } from '@angular/core/rxjs-interop';
-import { kuduSize } from '../../size';
-
-export interface KuduOptions<T> {
-  value: ModelSignal<T | T[] | null>;
-
-  selectOption(value: T): void;
-  isSelectedOption(value: T): boolean;
-  filterByInnerText(text: string): void;
-}
-
-export const KuduOptions = new InjectionToken<KuduOptions<unknown>>(
-  'kudu-ui/options',
-);
 
 @Directive({
   selector: '[kuduOptions]',
-  providers: [{ provide: KuduOptions, useExisting: KuduOptionsDirective }],
 })
-export class KuduOptionsDirective<T>
-  implements KuduOptions<T>, AfterContentInit
-{
-  public size = inject(kuduSize);
-
+export class KuduOptionsDirective<T> implements AfterContentInit {
   public options = contentChildren(KuduOptionComponent);
 
   public value = model<T | T[] | null>(null);

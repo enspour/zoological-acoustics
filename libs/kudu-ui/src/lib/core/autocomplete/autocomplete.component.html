@@ -1,12 +1,19 @@
-<input class="text" [(ngModel)]="text" [placeholder]="placeholder()" />
+<input
+  class="text"
+  kuduOverlayOrigin
+  #origin="kuduOverlayOrigin"
+  [(ngModel)]="text"
+  [placeholder]="placeholder()"
+/>
 
-@if (isOpen()) {
-  <kudu-dropdown
-    class="options"
-    [class.options--top]="optionsPosition() === 'top'"
-    [class.options--bottom]="optionsPosition() === 'bottom'"
-    [(position)]="optionsPosition"
-  >
+<kudu-overlay
+  [(isOpen)]="isOpen"
+  [origin]="origin"
+  [config]="config"
+  (positionXChange)="positionX.set($event)"
+  (positionYChange)="positionY.set($event)"
+>
+  <div [class]="['options', size(), positionX(), positionY()]">
     <ng-content />
-  </kudu-dropdown>
-}
+  </div>
+</kudu-overlay>

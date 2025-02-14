@@ -1,27 +1,6 @@
 @use '../../../../mixins/layout.mixin.scss';
 
-:host.sm {
-  .button {
-    @include layout.sm;
-    height: 26px;
-  }
-}
-
-:host.md {
-  .button {
-    @include layout.md;
-    height: 30px;
-  }
-}
-
-:host.lg {
-  .button {
-    @include layout.lg;
-    height: 34px;
-  }
-}
-
-.button {
+:host {
   width: 100%;
   display: flex;
   align-items: center;
@@ -31,4 +10,19 @@
   &:hover {
     background-color: #eeeeee;
   }
+}
+
+:host.sm {
+  @include layout.sm;
+  height: 26px;
+}
+
+:host.md {
+  @include layout.md;
+  height: 30px;
+}
+
+:host.lg {
+  @include layout.lg;
+  height: 34px;
 }
