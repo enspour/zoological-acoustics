@@ -5,12 +5,16 @@ import {
   KuduDrop,
   KuduDropContainerDirective,
 } from '@kudu-dnd';
+import { KuduFilterPipe } from '@kudu-ng-utils';
 
 import { KuduButtonComponent, KuduIconComponent } from '@kudu-ui';
 
-import { Task } from '@kudu/domain';
+import { Task, TaskColumn } from '@kudu/domain';
 
-import { KanbanBoardService, KanbanColumn } from '@kudu/mfr-data-access-kanban';
+import {
+  ProjectTaskColumnsService,
+  ProjectTasksService,
+} from '@kudu/mfr-data-access-project';
 
 import { BrowseTaskComponent } from '@kudu/mfr-feature-browse-task';
 import { ExplorerService } from '@kudu/mfr-feature-explorer';
@@ -25,6 +29,7 @@ import { KanbanTaskComponent } from '@kudu/mfr-ui-kanban-task';
     KuduIconComponent,
     KuduDragDirective,
     KuduDropContainerDirective,
+    KuduFilterPipe,
     KanbanColumnComponent,
     KanbanTaskComponent,
   ],
@@ -34,9 +39,11 @@ import { KanbanTaskComponent } from '@kudu/mfr-ui-kanban-task';
 })
 export class KanbanBoardComponent {
   private explorerService = inject(ExplorerService);
-  private kanbanBoardService = inject(KanbanBoardService);
+  private projectTasksService = inject(ProjectTasksService);
+  private projectTaskColumnsService = inject(ProjectTaskColumnsService);
 
-  public columns = this.kanbanBoardService.columns;
+  public tasks = this.projectTasksService.tasks;
+  public columns = this.projectTaskColumnsService.columns;
 
   public onTaskClick(task: Task) {
     this.explorerService.open({
@@ -51,20 +58,24 @@ export class KanbanBoardComponent {
     console.log('column create');
   }
 
-  public onTaskCreate(column: KanbanColumn) {
+  public onTaskCreate(column: TaskColumn) {
     console.log(column);
   }
 
   public onDropColumn(event: KuduDrop) {
-    this.kanbanBoardService.moveColumn(event.prevIndex, event.nextIndex);
+    // this.kanbanBoardService.moveColumn(event.prevIndex, event.nextIndex);
   }
 
-  public onDropTask(event: KuduDrop<Task, KanbanColumn, KanbanColumn>) {
-    this.kanbanBoardService.moveTask(
-      event.prevContainer,
-      event.prevIndex,
-      event.nextContainer,
-      event.nextIndex,
-    );
+  public onDropTask(event: KuduDrop<Task, TaskColumn, TaskColumn>) {
+    // this.kanbanBoardService.moveTask(
+    //   event.prevContainer,
+    //   event.prevIndex,
+    //   event.nextContainer,
+    //   event.nextIndex,
+    // );
+  }
+
+  public filterFn(task: Task, _: number, column: TaskColumn) {
+    return task.columnUuid === column.uuid;
   }
 }

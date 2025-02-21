@@ -10,10 +10,10 @@ export const countBy = <T, K extends string>(
         acc[key] = 0;
       }
 
-      acc[key] += 1;
+      acc[key]! += 1;
 
       return acc;
     },
-    {} as Record<K, number>,
+    {} as Partial<Record<K, number>>,
   );
 };

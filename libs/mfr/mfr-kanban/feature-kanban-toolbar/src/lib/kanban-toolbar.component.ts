@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { KuduIconComponent } from '@kudu-ui';
 
-import { KanbanBoardsService } from '@kudu/mfr-data-access-kanban';
+import { ProjectTaskBoardsService } from '@kudu/mfr-data-access-project';
 
 import { KanbanBoardTabsComponent } from '@kudu/mfr-ui-kanban-board-tabs';
 
@@ -14,7 +14,7 @@ import { KanbanBoardTabsComponent } from '@kudu/mfr-ui-kanban-board-tabs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KanbanToolbarComponent {
-  public boardsService = inject(KanbanBoardsService);
+  private projectTaskBoardsService = inject(ProjectTaskBoardsService);
 
-  public boards = this.boardsService.boards;
+  public boards = this.projectTaskBoardsService.boards;
 }

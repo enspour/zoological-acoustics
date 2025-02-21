@@ -1,0 +1,9 @@
+{
+  "name": "msrv-feature-tasks",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/msrv/msrv-tasks/feature-tasks/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project feature-tasks --web",
+  "targets": {}
+}

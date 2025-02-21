@@ -24,7 +24,9 @@
         [kuduDropContainerData]="column"
         (byDrop)="onDropTask($event)"
       >
-        @for (task of column.tasks; track task.uuid) {
+        @let tasks = this.tasks() || [] | filter: filterFn : column;
+
+        @for (task of tasks; track task.uuid) {
           <lib-kanban-task
             [task]="task"
             (click)="onTaskClick(task)"

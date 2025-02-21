@@ -38,7 +38,7 @@ export class MonthsComponent {
         value: this.isShort()
           ? `${MONTH_SHORT_NAMES[+value.slice(4)]}`
           : `${MONTH_FULL_NAMES[+value.slice(4)]}`,
-        count,
+        count: count || 0,
       }),
     );
   }

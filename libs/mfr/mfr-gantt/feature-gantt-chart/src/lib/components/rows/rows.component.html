@@ -1,5 +1,9 @@
 <div class="rows">
   @for (row of rows(); track trackByFn($index, row)) {
+    @if (row.type === 'board') {
+      <lib-row-board [row]="row" />
+    }
+
     @if (row.type === 'task') {
       <lib-row-task [row]="row" />
     }

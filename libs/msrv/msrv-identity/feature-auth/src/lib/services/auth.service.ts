@@ -1,12 +1,17 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 
-import { BadRequestError, CreatableUser } from '@kudu/domain';
+import {
+  BadRequestError,
+  CreatableUser,
+  NotFoundError,
+  RefreshTokenPayload,
+} from '@kudu/domain';
+
 import { UserCredentialsService, UsersService } from '@kudu/msrv-feature-users';
+
 import { comparePassword, hashPassword } from '@kudu/msrv-util-password';
 
 import { AuthTokensService } from './auth-tokens.service';
-
-import { RefreshTokenPayload } from '../interfaces';
 
 @Injectable()
 export class AuthService {
@@ -48,12 +53,9 @@ export class AuthService {
   public async signup(username: string, password: string, data: CreatableUser) {
     const hashedPassword = await hashPassword(password);
 
-    const user = await this.usersService.create({
-      ...data,
-      credentials: {
-        username,
-        hashedPassword,
-      },
+    const user = await this.usersService.create(data, {
+      username,
+      hashedPassword,
     });
 
     const accessToken = this.authTokensService.issueAccessToken(user);
@@ -75,7 +77,7 @@ export class AuthService {
     const user = await this.usersService.get(payload.sub);
 
     if (!user) {
-      throw new NotFoundException('Пользователь не найден!');
+      throw new NotFoundError('Пользователь не найден!');
     }
 
     const accessToken = this.authTokensService.issueAccessToken(user);

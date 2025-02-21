@@ -33,7 +33,7 @@ export class MonthsWithYearComponent {
     return Object.entries(countBy(dates, (date) => date)).map(
       ([value, count]) => ({
         value: `${MONTH_FULL_NAMES[+value.slice(4)]} ${value.slice(0, 4)}`,
-        count,
+        count: count || 0,
       }),
     );
   }

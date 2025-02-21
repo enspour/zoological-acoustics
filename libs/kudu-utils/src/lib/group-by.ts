@@ -14,6 +14,6 @@ export const groupBy = <T, K extends string>(
 
       return acc;
     },
-    {} as Record<K, T[]>,
+    {} as Partial<Record<K, T[]>>,
   );
 };

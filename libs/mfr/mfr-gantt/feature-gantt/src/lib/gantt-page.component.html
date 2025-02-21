@@ -2,8 +2,8 @@
 
 <div
   class="layout"
-  #layout="libGanttLayout"
-  libGanttLayout
+  #layout="libGanttLayoutRows"
+  libGanttLayoutRows
   #virtualization="kuduVirtualization"
   kuduVirtualization
   kuduVirtualizeByRange
@@ -12,7 +12,7 @@
 >
   <lib-gantt-sidebar [rows]="virtualization.elementsToRender()" />
   <lib-gantt-chart
-    libGanttChartLayout
+    libGanttLayoutColumns
     [rows]="virtualization.elementsToRender()"
   />
 </div>

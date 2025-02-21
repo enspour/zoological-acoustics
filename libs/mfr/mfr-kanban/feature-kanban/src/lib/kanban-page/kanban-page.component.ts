@@ -1,5 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 
+import { EmployeesService } from '@kudu/mfr-data-access-employees';
 import { provideKanbanDataAccess } from '@kudu/mfr-data-access-kanban';
 
 import { KanbanBoardComponent } from '@kudu/mfr-feature-kanban-board';
@@ -13,4 +19,10 @@ import { KanbanToolbarComponent } from '@kudu/mfr-feature-kanban-toolbar';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideKanbanDataAccess()],
 })
-export class KanbanPageComponent {}
+export class KanbanPageComponent implements OnInit {
+  private employeesService = inject(EmployeesService);
+
+  ngOnInit(): void {
+    this.employeesService.reload();
+  }
+}

@@ -1,6 +1,10 @@
 import { Injectable } from '@nestjs/common';
 
-import { CreatableProject, UpdatableProject } from '@kudu/domain';
+import {
+  CreatableProject,
+  NotFoundError,
+  UpdatableProject,
+} from '@kudu/domain';
 
 import { PostgresService } from '@kudu/msrv-data-access-postgres';
 
@@ -27,6 +31,15 @@ export class ProjectsService {
 
   public async update(data: UpdatableProject) {
     const manager = this.postgresService.Manager;
+
+    const project = await manager.findOne(ProjectEntity, {
+      where: { uuid: data.uuid },
+    });
+
+    if (!project) {
+      throw new NotFoundError('Проект не найден!');
+    }
+
     return manager.save(ProjectEntity, data);
   }
 
@@ -36,7 +49,7 @@ export class ProjectsService {
     const project = await manager.findOne(ProjectEntity, { where: { uuid } });
 
     if (!project) {
-      return null;
+      throw new NotFoundError('Проект не найден!');
     }
 
     manager.delete(ProjectEntity, uuid);

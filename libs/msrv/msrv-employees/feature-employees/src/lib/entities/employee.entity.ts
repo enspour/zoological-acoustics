@@ -17,9 +17,9 @@ export class EmployeeEntity implements Employee {
   })
   status!: EmployeeStatus;
 
-  @Column({ type: 'date', default: null })
-  dateOfEmployment!: Date | null;
+  @Column({ type: 'timestamptz', default: null })
+  dateOfEmployment!: string | null;
 
-  @Column({ type: 'date', default: null })
-  dateOfDismissal!: Date | null;
+  @Column({ type: 'timestamptz', default: null })
+  dateOfDismissal!: string | null;
 }

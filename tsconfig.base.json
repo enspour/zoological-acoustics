@@ -153,6 +153,9 @@
       "@kudu/mfr-util-gantt-chart": [
         "libs/mfr/mfr-gantt/util-gantt-chart/src/index.ts"
       ],
+      "@kudu/mfr-feature-gantt-layout": [
+        "libs/mfr/mfr-gantt/feature-gantt-layout/src/index.ts"
+      ],
       "@kudu/mfr-util-http": ["libs/mfr/core/util-http/src/index.ts"],
       "@kudu/mfr-util-jwt": ["libs/mfr/core/util-jwt/src/index.ts"],
       "@kudu/mfr-util-local-storage": [
@@ -170,6 +173,9 @@
       ],
       "@kudu/msrv-feature-projects": [
         "libs/msrv/msrv-projects/feature-projects/src/index.ts"
+      ],
+      "@kudu/msrv-feature-tasks": [
+        "libs/msrv/msrv-tasks/feature-tasks/src/index.ts"
       ],
       "@kudu/msrv-feature-user-duplication": [
         "libs/msrv/core/feature-user-duplication/src/index.ts"
@@ -190,7 +196,8 @@
         "libs/msrv/core/util-event-bus/src/index.ts"
       ],
       "@kudu/msrv-util-jwt": ["libs/msrv/core/util-jwt/src/index.ts"],
-      "@kudu/msrv-util-password": ["libs/msrv/core/util-password/src/index.ts"]
+      "@kudu/msrv-util-password": ["libs/msrv/core/util-password/src/index.ts"],
+      "@kudu/msrv-util-token": ["libs/msrv/core/util-token/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

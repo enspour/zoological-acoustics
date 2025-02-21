@@ -1,18 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+
+import { PostgresService } from '@kudu/msrv-data-access-postgres';
 
 import { UserCredentialsEntity } from '../entity';
 
 @Injectable()
 export class UserCredentialsService {
-  constructor(
-    @InjectRepository(UserCredentialsEntity)
-    private repository: Repository<UserCredentialsEntity>,
-  ) {}
+  constructor(private postgresService: PostgresService) {}
 
   public async getByUsername(username: string) {
-    return await this.repository.findOne({
+    const manager = this.postgresService.Manager;
+    return await manager.findOne(UserCredentialsEntity, {
       where: { username },
       relations: { user: true },
     });

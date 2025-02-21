@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import {
-  GanttChartLayoutDirective,
   GanttTimelineService,
   GanttToolbarService,
 } from '@kudu/mfr-data-access-gantt';
 
 import { GanttTimelineComponent } from '@kudu/mfr-ui-gantt-timeline';
+
+import { GanttLayoutColumnsDirective } from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
 
 @Component({
   selector: 'lib-timeline',
@@ -16,7 +17,7 @@ import { GanttTimelineComponent } from '@kudu/mfr-ui-gantt-timeline';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TimelineComponent {
-  private ganttChartLayoutDirective = inject(GanttChartLayoutDirective);
+  private ganttLayoutColumnsDirective = inject(GanttLayoutColumnsDirective);
   private ganttToolbarService = inject(GanttToolbarService);
   private ganttTimelineService = inject(GanttTimelineService);
 
@@ -24,5 +25,5 @@ export class TimelineComponent {
 
   public dates = this.ganttTimelineService.dates;
 
-  public columnWidth = this.ganttChartLayoutDirective.columnWidth;
+  public columnWidth = this.ganttLayoutColumnsDirective.columnWidth;
 }

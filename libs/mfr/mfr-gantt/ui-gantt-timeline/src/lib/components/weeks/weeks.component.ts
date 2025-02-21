@@ -36,7 +36,7 @@ export class WeeksComponent {
     return Object.entries(countBy(dates, (date) => date)).map(
       ([value, count]) => ({
         value: value.slice(4),
-        count,
+        count: count || 0,
       }),
     );
   }

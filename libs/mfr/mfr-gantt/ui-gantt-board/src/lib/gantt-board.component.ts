@@ -59,7 +59,7 @@ export class GanttBoardComponent {
     });
 
     return Object.values(countBy(dates, (date) => date)).map((count) => ({
-      width: this.columnWidth() * count,
+      width: this.columnWidth() * (count || 0),
     }));
   }
 
@@ -69,7 +69,7 @@ export class GanttBoardComponent {
     );
 
     return Object.values(countBy(dates, (date) => date)).map((count) => ({
-      width: this.columnWidth() * count,
+      width: this.columnWidth() * (count || 0),
     }));
   }
 
@@ -77,7 +77,7 @@ export class GanttBoardComponent {
     const dates = this.dates().map((date) => date.getYear());
 
     return Object.values(countBy(dates, (date) => `${date}`)).map((count) => ({
-      width: this.columnWidth() * count,
+      width: this.columnWidth() * (count || 0),
     }));
   }
 }

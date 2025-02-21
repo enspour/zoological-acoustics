@@ -1,4 +1,10 @@
-import { Employee, Task } from '@kudu/domain';
+import { Employee, Task, TaskBoard } from '@kudu/domain';
+
+export interface GanttRowBoard {
+  type: 'board';
+  board: TaskBoard;
+  index: number;
+}
 
 export interface GanttRowTask {
   type: 'task';
@@ -15,4 +21,4 @@ export interface GanttRowExecutor {
   isLast: boolean;
 }
 
-export type GanttRow = GanttRowTask | GanttRowExecutor;
+export type GanttRow = GanttRowBoard | GanttRowTask | GanttRowExecutor;

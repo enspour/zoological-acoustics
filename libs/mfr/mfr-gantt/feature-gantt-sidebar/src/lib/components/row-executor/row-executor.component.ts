@@ -6,13 +6,12 @@ import {
   input,
 } from '@angular/core';
 
-import {
-  GanttLayoutDirective,
-  GanttRowExecutor,
-} from '@kudu/mfr-data-access-gantt';
+import { GanttRowExecutor } from '@kudu/mfr-data-access-gantt';
 
 import { BrowseEmployeeComponent } from '@kudu/mfr-feature-browse-employee';
 import { ExplorerService } from '@kudu/mfr-feature-explorer';
+
+import { GanttLayoutRowsDirective } from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
 
 @Component({
   selector: 'lib-row-executor',
@@ -28,11 +27,11 @@ import { ExplorerService } from '@kudu/mfr-feature-explorer';
 })
 export class RowExecutorComponent {
   private explorerService = inject(ExplorerService);
-  private ganttLayoutDirective = inject(GanttLayoutDirective);
+  private ganttLayoutRowsDirective = inject(GanttLayoutRowsDirective);
 
   public row = input.required<GanttRowExecutor>();
-  public rowCount = this.ganttLayoutDirective.rowCount;
-  public rowHeight = this.ganttLayoutDirective.rowHeight;
+  public rowCount = this.ganttLayoutRowsDirective.rowCount;
+  public rowHeight = this.ganttLayoutRowsDirective.rowHeight;
 
   @HostListener('click')
   public onRowClick() {

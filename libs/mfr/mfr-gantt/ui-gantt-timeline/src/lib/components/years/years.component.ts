@@ -29,7 +29,7 @@ export class YearsComponent {
     return Object.entries(countBy(dates, (date) => `${date}`)).map(
       ([value, count]) => ({
         value,
-        count,
+        count: count || 0,
       }),
     );
   }

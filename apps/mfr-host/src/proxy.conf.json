@@ -10,5 +10,9 @@
   "/api/v1/projects": {
     "target": "http://localhost:3002",
     "secure": false
+  },
+  "/api/v1/tasks": {
+    "target": "http://localhost:3003",
+    "secure": false
   }
 }

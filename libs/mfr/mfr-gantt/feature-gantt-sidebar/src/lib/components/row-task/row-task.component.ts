@@ -6,13 +6,12 @@ import {
   input,
 } from '@angular/core';
 
-import {
-  GanttLayoutDirective,
-  GanttRowTask,
-} from '@kudu/mfr-data-access-gantt';
+import { GanttRowTask } from '@kudu/mfr-data-access-gantt';
 
 import { BrowseTaskComponent } from '@kudu/mfr-feature-browse-task';
 import { ExplorerService } from '@kudu/mfr-feature-explorer';
+
+import { GanttLayoutRowsDirective } from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
 
 @Component({
   selector: 'lib-row-task',
@@ -27,11 +26,11 @@ import { ExplorerService } from '@kudu/mfr-feature-explorer';
 })
 export class RowTaskComponent {
   private explorerService = inject(ExplorerService);
-  private ganttLayoutDirective = inject(GanttLayoutDirective);
+  private ganttLayoutRowsDirective = inject(GanttLayoutRowsDirective);
 
   public row = input.required<GanttRowTask>();
-  public rowCount = this.ganttLayoutDirective.rowCount;
-  public rowHeight = this.ganttLayoutDirective.rowHeight;
+  public rowCount = this.ganttLayoutRowsDirective.rowCount;
+  public rowHeight = this.ganttLayoutRowsDirective.rowHeight;
 
   @HostListener('click')
   public onTaskClick() {

@@ -1,0 +1,26 @@
+{
+  "name": "msrv-tasks",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/msrv-tasks/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "msrv-tasks:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "msrv-tasks:build:development"
+        },
+        "production": {
+          "buildTarget": "msrv-tasks:build:production"
+        }
+      }
+    }
+  }
+}

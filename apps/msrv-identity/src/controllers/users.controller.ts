@@ -54,14 +54,7 @@ export class UsersController {
     @Param('uuid', new ParseUUIDPipe()) uuid: string,
     @Body() dto: UpdateUserDto,
   ) {
-    const found = await this.usersService.get(uuid);
-
-    if (!found) {
-      throw new NotFoundException('Пользователь не найден!');
-    }
-
     const user = await this.usersService.update({ uuid, ...dto });
-
     return { statusCode: 200, data: { user } };
   }
 
@@ -71,14 +64,7 @@ export class UsersController {
   @ApiResponse({ status: HttpStatus.OK, description: 'Success' })
   @ApiResponse({ status: HttpStatus.NOT_FOUND, description: 'Not found' })
   public async remove(@Param('uuid', new ParseUUIDPipe()) uuid: string) {
-    const user = await this.usersService.get(uuid);
-
-    if (!user) {
-      throw new NotFoundException('Пользователь не найден!');
-    }
-
-    await this.usersService.remove(uuid);
-
+    const user = await this.usersService.remove(uuid);
     return { statusCode: 200, data: { user } };
   }
 }

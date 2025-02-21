@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { KuduIconComponent } from '@kudu-ui';
 
-import { KanbanBoard } from '@kudu/mfr-data-access-kanban';
+import { TaskBoard } from '@kudu/domain';
 
 @Component({
   selector: 'lib-kanban-board-tab',
@@ -15,7 +15,7 @@ import { KanbanBoard } from '@kudu/mfr-data-access-kanban';
   },
 })
 export class KanbanBoardTabComponent {
-  public board = input.required<KanbanBoard>();
+  public board = input.required<TaskBoard>();
 
   public isActive = input(false);
 }

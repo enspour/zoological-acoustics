@@ -7,10 +7,9 @@ import {
 
 import { DateTime, DateTimePeriod } from '@kudu-date';
 
-import {
-  GanttChartLayoutDirective,
-  GanttTimelineService,
-} from '@kudu/mfr-data-access-gantt';
+import { GanttTimelineService } from '@kudu/mfr-data-access-gantt';
+
+import { GanttLayoutColumnsDirective } from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
 
 import { getOffset } from '../../utils';
 
@@ -26,7 +25,7 @@ import { getOffset } from '../../utils';
   },
 })
 export class TodayMarkerComponent {
-  private ganttChartLayoutDirective = inject(GanttChartLayoutDirective);
+  private ganttLayoutColumnsDirective = inject(GanttLayoutColumnsDirective);
   private ganttTimelineService = inject(GanttTimelineService);
 
   public today = DateTime.now();
@@ -43,7 +42,7 @@ export class TodayMarkerComponent {
 
   public getOffset() {
     const { startDate } = this.ganttTimelineService.period();
-    const columnWidth = this.ganttChartLayoutDirective.columnWidth();
+    const columnWidth = this.ganttLayoutColumnsDirective.columnWidth();
 
     return getOffset(startDate, this.today, columnWidth);
   }

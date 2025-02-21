@@ -7,7 +7,7 @@ import {
 
 import { KuduDragDirective, KuduDropContainerDirective } from '@kudu-dnd';
 
-import { KanbanBoard } from '@kudu/mfr-data-access-kanban';
+import { TaskBoard } from '@kudu/domain';
 
 import { KanbanBoardTabComponent } from './components/kanban-board-tab/kanban-board-tab.component';
 
@@ -23,11 +23,11 @@ import { KanbanBoardTabComponent } from './components/kanban-board-tab/kanban-bo
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KanbanBoardTabsComponent {
-  public boards = input.required<KanbanBoard[]>();
+  public boards = input.required<TaskBoard[]>();
 
-  public selected = model.required<KanbanBoard>();
+  public selected = model.required<TaskBoard>();
 
-  public onSelectTab(board: KanbanBoard) {
+  public onSelectTab(board: TaskBoard) {
     this.selected.set(board);
   }
 }

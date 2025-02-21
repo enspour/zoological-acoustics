@@ -9,14 +9,18 @@ import {
   ParseUUIDPipe,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 
 import { ProjectsService } from '@kudu/msrv-feature-projects';
 
+import { AuthGuard } from '@kudu/msrv-util-auth-guard';
+
 import { CreateProjectDto, UpdateProjectDto } from '../dtos';
 
 @Controller('projects')
+@UseGuards(AuthGuard)
 export class ProjectsController {
   constructor(private projectsService: ProjectsService) {}
 
@@ -44,7 +48,7 @@ export class ProjectsController {
   }
 
   @Post()
-  @ApiOperation({ summary: 'Create Project By UUID' })
+  @ApiOperation({ summary: 'Create Project' })
   @ApiBody({ type: CreateProjectDto })
   @ApiResponse({ status: HttpStatus.OK, description: 'Success' })
   public async create(@Body() dto: CreateProjectDto) {

@@ -3,7 +3,7 @@ import {
   Component,
   inject,
   input,
-  resource,
+  OnChanges,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -18,19 +18,16 @@ import { HeaderComponent } from './components/header/header.component';
   styleUrl: './project-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectPageComponent {
+export class ProjectPageComponent implements OnChanges {
   private projectService = inject(ProjectService);
 
   public uuid = input.required<string>();
 
-  private resource = resource({
-    request: () => this.uuid(),
-    loader: async ({ request }) => {
-      return await this.projectService.getByUuid(request);
-    },
-  });
+  public project = this.projectService.project;
+  public error = this.projectService.error;
+  public isLoading = this.projectService.isLoading;
 
-  public project = this.resource.value;
-  public error = this.resource.error;
-  public isLoading = this.resource.isLoading;
+  ngOnChanges(): void {
+    this.projectService.setProject(this.uuid());
+  }
 }

@@ -16,4 +16,11 @@ module.exports = [
       parser: require('jsonc-eslint-parser'),
     },
   },
+  {
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    // Override or add rules here
+    rules: {
+      '@typescript-eslint/no-non-null-assertion': 'off',
+    },
+  },
 ];

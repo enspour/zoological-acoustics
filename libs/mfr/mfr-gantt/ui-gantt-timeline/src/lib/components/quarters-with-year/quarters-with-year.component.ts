@@ -33,7 +33,7 @@ export class QuartersWithYearsComponent {
     return Object.entries(countBy(dates, (date) => date)).map(
       ([value, count]) => ({
         value: `${QUARTER_FULL_NAMES[+value.slice(4) - 1]}, ${value.slice(0, 4)}`,
-        count,
+        count: count || 0,
       }),
     );
   }

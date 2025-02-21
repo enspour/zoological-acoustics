@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
-import { User } from '@kudu/domain';
-import { decodeToken, signToken, verifyToken } from '@kudu/msrv-util-jwt';
+import { AccessTokenPayload, RefreshTokenPayload, User } from '@kudu/domain';
 
-import { AccessTokenPayload, RefreshTokenPayload } from '../interfaces';
+import { decodeToken, signToken, verifyToken } from '@kudu/msrv-util-jwt';
 
 @Injectable()
 export class AuthTokensService {

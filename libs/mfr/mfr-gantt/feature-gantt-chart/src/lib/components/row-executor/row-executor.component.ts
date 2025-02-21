@@ -8,8 +8,6 @@ import {
 import { Task } from '@kudu/domain';
 
 import {
-  GanttChartLayoutDirective,
-  GanttLayoutDirective,
   GanttRowExecutor,
   GanttTimelineService,
 } from '@kudu/mfr-data-access-gantt';
@@ -18,6 +16,11 @@ import { BrowseTaskComponent } from '@kudu/mfr-feature-browse-task';
 import { ExplorerService } from '@kudu/mfr-feature-explorer';
 
 import { GanttTaskComponent } from '@kudu/mfr-ui-gantt-task';
+
+import {
+  GanttLayoutColumnsDirective,
+  GanttLayoutRowsDirective,
+} from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
 
 import { CalculateTaskPropsPipe } from '../../pipes/calculate-task-props.pipe';
 
@@ -35,16 +38,16 @@ import { CalculateTaskPropsPipe } from '../../pipes/calculate-task-props.pipe';
 })
 export class RowExecutorComponent {
   private explorerService = inject(ExplorerService);
-  private ganttLayoutDirective = inject(GanttLayoutDirective);
-  private ganttChartLayoutDirective = inject(GanttChartLayoutDirective);
+  private ganttLayoutRowsDirective = inject(GanttLayoutRowsDirective);
+  private ganttLayoutColumnsDirective = inject(GanttLayoutColumnsDirective);
   private ganttTimelineService = inject(GanttTimelineService);
 
   public period = this.ganttTimelineService.period;
 
   public row = input.required<GanttRowExecutor>();
-  public rowHeight = this.ganttLayoutDirective.rowHeight;
+  public rowHeight = this.ganttLayoutRowsDirective.rowHeight;
 
-  public columnWidth = this.ganttChartLayoutDirective.columnWidth;
+  public columnWidth = this.ganttLayoutColumnsDirective.columnWidth;
 
   public onTaskClick(task: Task) {
     this.explorerService.open({

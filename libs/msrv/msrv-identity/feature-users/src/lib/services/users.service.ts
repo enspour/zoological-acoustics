@@ -1,13 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 
 import {
   CreatableUser,
   CreatableUserCredentials,
+  NotFoundError,
   UpdatableUser,
 } from '@kudu/domain';
+
 import { PostgresService } from '@kudu/msrv-data-access-postgres';
+
 import { UserEventsService } from '@kudu/msrv-feature-user-events';
 
 import { UserCredentialsEntity, UserEntity } from '../entity';
@@ -15,40 +16,46 @@ import { UserCredentialsEntity, UserEntity } from '../entity';
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(UserEntity) private repository: Repository<UserEntity>,
     private postgresService: PostgresService,
     private userEventsService: UserEventsService,
   ) {}
 
   public async get(uuid: string) {
-    return await this.repository.findOne({
-      where: { uuid },
-    });
+    const manager = this.postgresService.Manager;
+    return await manager.findOne(UserEntity, { where: { uuid } });
   }
 
   public async create(
-    data: CreatableUser & { credentials: CreatableUserCredentials },
+    data: CreatableUser,
+    credentials: CreatableUserCredentials,
   ) {
-    const manager = this.postgresService.Manager;
+    return await this.postgresService.startTransaction(async () => {
+      const manager = this.postgresService.Manager;
 
-    const entity = manager.create(UserEntity, {
-      ...data,
-      credentials: manager.create(UserCredentialsEntity, {
-        ...data.credentials,
-      }),
+      const user = await manager.save(UserEntity, data);
+
+      await manager.save(UserCredentialsEntity, {
+        ...credentials,
+        user,
+      });
+
+      this.userEventsService.notifyUserCreated(user);
+
+      return user;
     });
-
-    entity.credentials.user = entity;
-
-    const { credentials, ...user } = await manager.save(UserEntity, entity);
-
-    this.userEventsService.notifyUserCreated(user);
-
-    return user;
   }
 
   public async update(data: UpdatableUser) {
     const manager = this.postgresService.Manager;
+
+    const found = await manager.findOne(UserEntity, {
+      where: { uuid: data.uuid },
+    });
+
+    if (!found) {
+      throw new NotFoundError('Пользователь не найден!');
+    }
+
     const user = await manager.save(UserEntity, data);
 
     this.userEventsService.notifyUserUpdated(user);
@@ -57,13 +64,16 @@ export class UsersService {
   }
 
   public async remove(uuid: string) {
-    const user = await this.get(uuid);
+    const manager = this.postgresService.Manager;
+
+    const user = await manager.findOne(UserEntity, {
+      where: { uuid },
+    });
 
     if (!user) {
-      return null;
+      throw new NotFoundError('Пользователь не найден!');
     }
 
-    const manager = this.postgresService.Manager;
     await manager.delete(UserEntity, uuid);
 
     this.userEventsService.notifyUserRemoved(user);

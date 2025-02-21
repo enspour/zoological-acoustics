@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { KuduIconComponent } from '@kudu-ui';
 
-import { KanbanColumn } from '@kudu/mfr-data-access-kanban';
+import { TaskColumn } from '@kudu/domain';
 
 @Component({
   selector: 'lib-kanban-column',
@@ -12,5 +12,5 @@ import { KanbanColumn } from '@kudu/mfr-data-access-kanban';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KanbanColumnComponent {
-  public column = input.required<KanbanColumn>();
+  public column = input.required<TaskColumn>();
 }

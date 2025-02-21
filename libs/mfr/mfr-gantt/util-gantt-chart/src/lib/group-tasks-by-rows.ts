@@ -3,24 +3,18 @@ import { Task } from '@kudu/domain';
 import { sortTasks } from '@kudu/mfr-util-tasks';
 
 export const groupTasksByRows = (tasks: Task[]): Task[][] => {
-  tasks = sortTasks(tasks, 'startDate', 'ASC');
+  const sortedTasks = sortTasks(tasks, 'startDate', 'ASC');
 
   const groups: Task[][] = [];
 
-  for (const task of tasks) {
-    let isAddedToGroup = false;
+  for (const task of sortedTasks) {
+    const group = groups.find(
+      (group) => task.startDate > group[group.length - 1].endDate,
+    );
 
-    for (const group of groups) {
-      const lastTask = group[group.length - 1];
-
-      if (task.startDate > lastTask.endDate) {
-        group.push(task);
-        isAddedToGroup = true;
-        break;
-      }
-    }
-
-    if (!isAddedToGroup) {
+    if (group) {
+      group.push(task);
+    } else {
       groups.push([task]);
     }
   }
