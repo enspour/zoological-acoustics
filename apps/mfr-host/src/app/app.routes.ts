@@ -26,16 +26,19 @@ const IntegrationsPage = () =>
 export const appRoutes: Route[] = [
   {
     path: 'login',
+    title: 'Kudu | Login',
     canActivate: [UnAuthGuard],
     loadComponent: LoginPage,
   },
   {
     path: 'signup',
+    title: 'Kudu | Signup',
     canActivate: [UnAuthGuard],
     loadComponent: SignupPage,
   },
   {
     path: '',
+    title: 'Kudu',
     canActivate: [AuthGuard],
     loadComponent: AuthLayout,
     children: [

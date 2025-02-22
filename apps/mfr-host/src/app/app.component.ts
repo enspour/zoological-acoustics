@@ -16,6 +16,4 @@ import {
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  public title = 'mfr-host';
-}
+export class AppComponent {}

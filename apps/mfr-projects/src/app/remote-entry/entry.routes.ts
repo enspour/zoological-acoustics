@@ -20,18 +20,22 @@ export const remoteRoutes: Route[] = [
     children: [
       {
         path: '',
+        title: 'Kudu | Проекты',
         loadComponent: ProjectsPage,
       },
       {
         path: ':uuid',
+        title: 'Kudu | Проект',
         loadComponent: ProjectPage,
         children: [
           {
             path: 'gantt',
+            title: 'Kudu | Диаграмма',
             loadComponent: GanttPage,
           },
           {
             path: 'kanban',
+            title: 'Kudu | Доски',
             loadComponent: KanbanPage,
           },
         ],

@@ -11,6 +11,7 @@ export const remoteRoutes: Route[] = [
     children: [
       {
         path: '',
+        title: 'Kudu | Сотрудники',
         loadComponent: EmployeesPage,
       },
     ],
