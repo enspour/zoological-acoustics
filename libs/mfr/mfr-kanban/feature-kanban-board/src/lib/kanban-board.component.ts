@@ -1,15 +1,17 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-
 import {
-  KuduDragDirective,
-  KuduDrop,
-  KuduDropContainerDirective,
-} from '@kudu-dnd';
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+} from '@angular/core';
+
+import { KuduDragDirective, KuduDropContainerDirective } from '@kudu-dnd';
+
 import { KuduFilterPipe } from '@kudu-ng-utils';
 
 import { KuduButtonComponent, KuduIconComponent } from '@kudu-ui';
 
-import { Task, TaskColumn } from '@kudu/domain';
+import { Task, TaskBoard, TaskColumn } from '@kudu/domain';
 
 import {
   ProjectTaskColumnsService,
@@ -20,6 +22,7 @@ import { BrowseTaskComponent } from '@kudu/mfr-feature-browse-task';
 import { ExplorerService } from '@kudu/mfr-feature-explorer';
 
 import { KanbanColumnComponent } from '@kudu/mfr-ui-kanban-column';
+import { KanbanColumnCreationComponent } from '@kudu/mfr-ui-kanban-column-creation';
 import { KanbanTaskComponent } from '@kudu/mfr-ui-kanban-task';
 
 @Component({
@@ -31,6 +34,7 @@ import { KanbanTaskComponent } from '@kudu/mfr-ui-kanban-task';
     KuduDropContainerDirective,
     KuduFilterPipe,
     KanbanColumnComponent,
+    KanbanColumnCreationComponent,
     KanbanTaskComponent,
   ],
   templateUrl: './kanban-board.component.html',
@@ -41,6 +45,8 @@ export class KanbanBoardComponent {
   private explorerService = inject(ExplorerService);
   private projectTasksService = inject(ProjectTasksService);
   private projectTaskColumnsService = inject(ProjectTaskColumnsService);
+
+  public board = input.required<TaskBoard>();
 
   public tasks = this.projectTasksService.tasks;
   public columns = this.projectTaskColumnsService.columns;
@@ -54,28 +60,36 @@ export class KanbanBoardComponent {
     });
   }
 
-  public onColumnCreate() {
-    console.log('column create');
+  public async onColumnCreate(title: string) {
+    const board = this.board();
+
+    if (!board) {
+      return;
+    }
+
+    await this.projectTaskColumnsService.createColumn({
+      title,
+      boardUuid: board.uuid,
+    });
   }
 
-  public onTaskCreate(column: TaskColumn) {
-    console.log(column);
+  public onTaskCreate() {
+    console.log('task create');
   }
 
-  public onDropColumn(event: KuduDrop) {
-    // this.kanbanBoardService.moveColumn(event.prevIndex, event.nextIndex);
+  public onDropColumn() {
+    console.log('swap columns');
   }
 
-  public onDropTask(event: KuduDrop<Task, TaskColumn, TaskColumn>) {
-    // this.kanbanBoardService.moveTask(
-    //   event.prevContainer,
-    //   event.prevIndex,
-    //   event.nextContainer,
-    //   event.nextIndex,
-    // );
+  public onDropTask() {
+    console.log('swap tasks');
   }
 
-  public filterFn(task: Task, _: number, column: TaskColumn) {
+  public filterByBoardFn(columns: TaskColumn, _: number, board: TaskBoard) {
+    return columns.boardUuid === board.uuid;
+  }
+
+  public filterByColumnFn(task: Task, _: number, column: TaskColumn) {
     return task.columnUuid === column.uuid;
   }
 }

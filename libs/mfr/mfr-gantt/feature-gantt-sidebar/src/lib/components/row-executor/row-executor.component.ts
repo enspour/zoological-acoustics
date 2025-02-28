@@ -11,7 +11,7 @@ import { GanttRowExecutor } from '@kudu/mfr-data-access-gantt';
 import { BrowseEmployeeComponent } from '@kudu/mfr-feature-browse-employee';
 import { ExplorerService } from '@kudu/mfr-feature-explorer';
 
-import { GanttLayoutRowsDirective } from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
+import { GanttLayoutRowsDirective } from '@kudu/mfr-feature-gantt-layout';
 
 @Component({
   selector: 'lib-row-executor',

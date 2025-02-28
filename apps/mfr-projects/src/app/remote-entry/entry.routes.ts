@@ -1,6 +1,8 @@
 import { Route } from '@angular/router';
 import { RemoteEntryComponent } from './entry.component';
 
+import { kanbanBoardRedirectGuard } from '@kudu/mfr-util-kanban-last-board';
+
 const ProjectsPage = () =>
   import('@kudu/mfr-feature-projects').then((c) => c.ProjectsPageComponent);
 
@@ -24,7 +26,7 @@ export const remoteRoutes: Route[] = [
         loadComponent: ProjectsPage,
       },
       {
-        path: ':uuid',
+        path: ':projectUuid',
         title: 'Kudu | Проект',
         loadComponent: ProjectPage,
         children: [
@@ -35,6 +37,12 @@ export const remoteRoutes: Route[] = [
           },
           {
             path: 'kanban',
+            title: 'Kudu | Доски',
+            loadComponent: KanbanPage,
+            canActivate: [kanbanBoardRedirectGuard],
+          },
+          {
+            path: 'kanban/board/:boardUuid',
             title: 'Kudu | Доски',
             loadComponent: KanbanPage,
           },

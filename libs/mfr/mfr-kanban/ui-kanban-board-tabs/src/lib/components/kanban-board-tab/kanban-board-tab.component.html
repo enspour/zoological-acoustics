@@ -1,2 +1,17 @@
-<div class="title">{{ board().title }}</div>
-<kudu-icon class="icon" icon="dots" />
+<a
+  class="tab"
+  [routerLink]="'../../board/' + board().uuid"
+  routerLinkActive="tab--active"
+  [routerLinkActiveOptions]="{ exact: true }"
+>
+  <div class="title">{{ board().title }}</div>
+
+  <lib-task-board-more
+    #more
+    class="more"
+    [class.more--opened]="more.isOpen()"
+    [board]="board()"
+    (byRename)="onRename()"
+    (byDelete)="onDelete()"
+  />
+</a>

@@ -1,9 +1,7 @@
 <header class="header">
   <div class="header__title">{{ column().title }}</div>
 
-  <div>
-    <kudu-icon icon="dots" />
-  </div>
+  <lib-task-column-more [column]="column()" />
 </header>
 
 <div class="content">

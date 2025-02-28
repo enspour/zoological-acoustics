@@ -51,8 +51,11 @@ export class GanttRowsService {
       this.appendBoard(rows, { board });
 
       const tasks = tasksByBoard[board.uuid] || [];
-      this.appendBoardTasks(rows, { tasks });
+      this.appendTasks(rows, { tasks });
+      this.appendTaskCreation(rows, { board });
     }
+
+    this.appendBoardCreation(rows);
 
     return rows;
   }
@@ -78,6 +81,8 @@ export class GanttRowsService {
       }
     }
 
+    this.appendBoardCreation(rows);
+
     return rows;
   }
 
@@ -89,14 +94,11 @@ export class GanttRowsService {
     });
   }
 
-  private appendBoardTasks(rows: GanttRow[], context: { tasks: Task[] }) {
-    for (const task of context.tasks) {
-      rows.push({
-        type: 'task',
-        task,
-        index: rows.length,
-      });
-    }
+  private appendBoardCreation(rows: GanttRow[]) {
+    rows.push({
+      type: 'board-creation',
+      index: rows.length,
+    });
   }
 
   private appendEmployee(
@@ -113,5 +115,23 @@ export class GanttRowsService {
         isLast: i === context.tasksByRows.length - 1,
       });
     }
+  }
+
+  private appendTasks(rows: GanttRow[], context: { tasks: Task[] }) {
+    for (const task of context.tasks) {
+      rows.push({
+        type: 'task',
+        task,
+        index: rows.length,
+      });
+    }
+  }
+
+  private appendTaskCreation(rows: GanttRow[], context: { board: TaskBoard }) {
+    rows.push({
+      type: 'task-creation',
+      board: context.board,
+      index: rows.length,
+    });
   }
 }

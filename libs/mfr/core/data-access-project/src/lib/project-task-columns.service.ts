@@ -1,6 +1,8 @@
 import { computed, inject, Injectable, resource } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
+import { CreatableTaskColumn } from '@kudu/domain';
+
 import { ProjectTaskColumnsApi } from './project-task-columns.api';
 import { ProjectService } from './project.service';
 
@@ -26,4 +28,9 @@ export class ProjectTaskColumnsService {
   public columns = this.resource.value;
   public error = this.resource.error;
   public isLoading = this.resource.isLoading;
+
+  public async createColumn(column: CreatableTaskColumn) {
+    const request = this.projectTaskColumnsApi.createColumn(column);
+    return await lastValueFrom(request);
+  }
 }

@@ -7,7 +7,7 @@ import {
 
 import { GanttTimelineComponent } from '@kudu/mfr-ui-gantt-timeline';
 
-import { GanttLayoutColumnsDirective } from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
+import { GanttLayoutColumnsDirective } from '@kudu/mfr-feature-gantt-layout';
 
 @Component({
   selector: 'lib-timeline',

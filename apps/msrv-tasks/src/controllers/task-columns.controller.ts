@@ -53,7 +53,7 @@ export class TaskColumnsController {
     return { statusCode: 200, data: { column } };
   }
 
-  @Delete('uuid')
+  @Delete(':uuid')
   @ApiOperation({ summary: 'Delete task column By UUID' })
   @ApiParam({ name: 'uuid', description: 'UUID', required: true })
   @ApiResponse({ status: HttpStatus.OK, description: 'Success' })

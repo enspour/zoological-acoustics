@@ -8,4 +8,32 @@
   border-bottom: 1px solid #f5f5f5;
   white-space: nowrap;
   cursor: pointer;
+
+  &:hover {
+    .more {
+      display: block;
+    }
+  }
+}
+
+:host(.editable) {
+  .more {
+    display: none;
+  }
+}
+
+.title {
+  padding: 0 5px;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.more {
+  margin-left: auto;
+  display: none;
+}
+
+.more--opened {
+  display: block;
 }

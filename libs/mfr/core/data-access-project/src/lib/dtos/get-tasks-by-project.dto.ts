@@ -1,6 +1,6 @@
 import { Task } from '@kudu/domain';
 
-export interface GetTasksByProjectDto {
+export interface GetTasksByProjectResponseDto {
   statusCode: number;
   data: { tasks: Task[] };
 }

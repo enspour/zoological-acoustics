@@ -21,13 +21,13 @@ import { HeaderComponent } from './components/header/header.component';
 export class ProjectPageComponent implements OnChanges {
   private projectService = inject(ProjectService);
 
-  public uuid = input.required<string>();
+  public projectUuid = input.required<string>();
 
   public project = this.projectService.project;
   public error = this.projectService.error;
   public isLoading = this.projectService.isLoading;
 
   ngOnChanges(): void {
-    this.projectService.setProject(this.uuid());
+    this.projectService.setProject(this.projectUuid());
   }
 }

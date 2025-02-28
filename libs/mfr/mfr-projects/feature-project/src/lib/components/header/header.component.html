@@ -1,16 +1,25 @@
-<div class="head">
-  <div class="head__section">
-    <kudu-icon icon="star" [iconSize]="16" />
-    <div>{{ project()?.name }}</div>
+@let project = this.project();
+
+@if (project) {
+  <div class="head">
+    <div class="head__section">
+      <kudu-icon icon="star" [iconSize]="16" />
+      <div>{{ project.name }}</div>
+    </div>
+
+    <div class="head__section">
+      <kudu-icon
+        class="head__icon"
+        icon="settings"
+        (click)="onOpenSettings()"
+      />
+
+      <lib-project-more [project]="project" />
+    </div>
   </div>
 
-  <div class="head__section">
-    <kudu-icon class="head__icon" icon="settings" (click)="onOpenSettings()" />
-    <lib-header-more />
-  </div>
-</div>
-
-<lib-tabs class="tabs">
-  <lib-tab-link href="./gantt"> Диаграмма </lib-tab-link>
-  <lib-tab-link href="./kanban"> Доски </lib-tab-link>
-</lib-tabs>
+  <lib-tabs class="tabs">
+    <lib-tab-link href="./gantt"> Диаграмма </lib-tab-link>
+    <lib-tab-link href="./kanban"> Доски </lib-tab-link>
+  </lib-tabs>
+}

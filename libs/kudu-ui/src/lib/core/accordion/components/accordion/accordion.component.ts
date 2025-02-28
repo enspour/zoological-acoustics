@@ -1,9 +1,9 @@
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   computed,
   contentChildren,
+  effect,
   HostBinding,
   inject,
   input,
@@ -20,7 +20,7 @@ import { KuduAccordionItemComponent } from '../accordion-item/accordion-item.com
   styleUrl: './accordion.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KuduAccordionComponent implements AfterContentInit {
+export class KuduAccordionComponent {
   public size = inject(kuduSize);
 
   private items = contentChildren(KuduAccordionItemComponent);
@@ -29,20 +29,26 @@ export class KuduAccordionComponent implements AfterContentInit {
 
   private opened = computed(() => this.items().filter((item) => item.isOpen()));
 
-  ngAfterContentInit(): void {
-    this.items().forEach((item) => {
-      item.byClick.subscribe(() => {
-        if (!this.multiple()) {
-          this.opened().forEach((opened) => opened !== item && opened.close());
-        }
+  constructor() {
+    effect((onCleanup) => {
+      const subscriptions = this.items().map((item) =>
+        item.byClick.subscribe(() => this.toggle(item)),
+      );
 
-        item.toggle();
-      });
+      onCleanup(() => subscriptions.forEach((s) => s.unsubscribe()));
     });
   }
 
   @HostBinding('class')
   public get Classes() {
     return `${this.size()}`;
+  }
+
+  public toggle(item: KuduAccordionItemComponent) {
+    if (!this.multiple()) {
+      this.opened().forEach((opened) => opened !== item && opened.close());
+    }
+
+    item.toggle();
   }
 }

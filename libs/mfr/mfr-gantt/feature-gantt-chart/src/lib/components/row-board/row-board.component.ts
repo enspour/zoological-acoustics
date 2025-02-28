@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 
 import { GanttRowBoard } from '@kudu/mfr-data-access-gantt';
-import { GanttLayoutRowsDirective } from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
+import { GanttLayoutRowsDirective } from '@kudu/mfr-feature-gantt-layout';
 
 @Component({
   selector: 'lib-row-board',

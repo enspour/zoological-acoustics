@@ -7,7 +7,7 @@ import {
 
 import { GanttBoardComponent } from '@kudu/mfr-ui-gantt-board';
 
-import { GanttLayoutColumnsDirective } from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
+import { GanttLayoutColumnsDirective } from '@kudu/mfr-feature-gantt-layout';
 
 @Component({
   selector: 'lib-board',

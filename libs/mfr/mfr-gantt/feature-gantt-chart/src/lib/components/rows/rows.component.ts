@@ -7,15 +7,23 @@ import { GanttChartComponent } from '../../gantt-chart.component';
 import {
   GanttLayoutColumnsDirective,
   GanttLayoutRowsDirective,
-} from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
+} from '@kudu/mfr-feature-gantt-layout';
 
+import { RowBoardCreationComponent } from '../row-board-creation/row-board-creation.component';
 import { RowBoardComponent } from '../row-board/row-board.component';
 import { RowExecutorComponent } from '../row-executor/row-executor.component';
+import { RowTaskCreationComponent } from '../row-task-creation/row-task-creation.component';
 import { RowTaskComponent } from '../row-task/row-task.component';
 
 @Component({
   selector: 'lib-rows',
-  imports: [RowTaskComponent, RowExecutorComponent, RowBoardComponent],
+  imports: [
+    RowTaskComponent,
+    RowTaskCreationComponent,
+    RowExecutorComponent,
+    RowBoardComponent,
+    RowBoardCreationComponent,
+  ],
   templateUrl: './rows.component.html',
   styleUrl: './rows.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

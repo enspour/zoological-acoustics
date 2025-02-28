@@ -2,10 +2,15 @@
 
 <lib-kanban-board-tabs
   class="boards"
-  [boards]="boards"
-  [selected]="boards[0]"
-/>
-
-<div class="fixed">
-  <kudu-icon class="icon" icon="plus" [iconSize]="16" />
-</div>
+  kuduDropContainer
+  [kuduDropContainerTypes]="['board']"
+>
+  @for (board of boards; track board.uuid) {
+    <lib-kanban-board-tab
+      [board]="board"
+      kuduDrag
+      kuduDragType="board"
+      [kuduDragData]="board"
+    />
+  }
+</lib-kanban-board-tabs>

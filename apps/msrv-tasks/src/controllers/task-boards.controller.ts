@@ -42,7 +42,7 @@ export class TaskBoardsController {
     return { statusCode: 200, data: { board } };
   }
 
-  @Delete('uuid')
+  @Delete(':uuid')
   @ApiOperation({ summary: 'Delete task board By UUID' })
   @ApiParam({ name: 'uuid', description: 'UUID', required: true })
   @ApiResponse({ status: HttpStatus.OK, description: 'Success' })

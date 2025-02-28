@@ -1,0 +1,27 @@
+:host {
+  height: 28px;
+  width: max-content;
+  display: flex;
+  border-bottom: 2px solid #eeeeee;
+  scrollbar-width: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.helper {
+  flex-shrink: 0;
+  align-self: flex-end;
+  height: 28px;
+  width: 40px;
+  position: sticky;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  z-index: 200;
+}
+
+.helper__icon {
+  cursor: pointer;
+}

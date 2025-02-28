@@ -54,7 +54,7 @@ export class EmployeesPageComponent implements OnInit {
   public searchTerm = input<string>();
 
   ngOnInit(): void {
-    this.employeesService.reload();
+    this.employeesService.init();
   }
 
   public onSearchTermChange(searchTerm: string) {

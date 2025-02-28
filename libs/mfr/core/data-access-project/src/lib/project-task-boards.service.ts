@@ -1,6 +1,8 @@
 import { computed, inject, Injectable, resource } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
+import { CreatableTaskBoard, TaskBoard } from '@kudu/domain';
+
 import { ProjectTaskBoardsApi } from './project-task-boards.api';
 import { ProjectService } from './project.service';
 
@@ -26,4 +28,14 @@ export class ProjectTaskBoardsService {
   public boards = this.resource.value;
   public error = this.resource.error;
   public isLoading = this.resource.isLoading;
+
+  public async createBoard(data: CreatableTaskBoard) {
+    const request = this.projectTaskBoardsApi.createBoard(data);
+    return await lastValueFrom(request);
+  }
+
+  public async deleteBoard(board: TaskBoard) {
+    const request = this.projectTaskBoardsApi.deleteBoard(board.uuid);
+    return await lastValueFrom(request);
+  }
 }

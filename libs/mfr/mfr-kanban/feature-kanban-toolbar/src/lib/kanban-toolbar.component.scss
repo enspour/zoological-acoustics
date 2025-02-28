@@ -1,35 +1,11 @@
 :host {
-  padding-left: 20px;
   height: 40px;
   min-height: 40px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 6px;
-  border-bottom: 2px solid #eeeeee;
-  scrollbar-width: none;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-.fixed {
-  flex-shrink: 0;
-  align-self: flex-end;
-  height: 28px;
-  width: 40px;
-  position: sticky;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  z-index: 200;
 }
 
 .boards {
-  align-self: flex-end;
-  border: none;
-}
-
-.icon {
-  cursor: pointer;
+  flex: 1;
 }

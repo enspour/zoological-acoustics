@@ -1,2 +1,6 @@
-<lib-kanban-toolbar />
-<lib-kanban-board />
+@let board = this.board();
+
+@if (board) {
+  <lib-kanban-toolbar />
+  <lib-kanban-board [board]="board" />
+}

@@ -1,9 +1,10 @@
-:host {
+.tab {
   position: relative;
   padding: 0 12px;
   height: 100%;
   width: fit-content;
   font-size: 14px;
+  white-space: nowrap;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,24 +17,24 @@
     background-color: var(--bg);
   }
 
-  &.active {
+  &.tab--active {
     --bg: #eeeeee;
 
     background-color: var(--bg);
-    z-index: 10;
+    z-index: 2;
   }
 
   &:hover,
-  &.active {
+  &.tab--active {
     &::before {
       content: '';
       position: absolute;
-      left: -100%;
+      left: -20px;
       bottom: 0;
       height: 96%;
-      width: 100%;
+      width: 20px;
       display: block;
-      border-radius: 0 0 10px 0;
+      border-radius: 0 0 50% 0;
       box-shadow: 7px 7px 0 -2px var(--bg);
       z-index: 1;
       pointer-events: none;
@@ -42,35 +43,40 @@
     &::after {
       content: '';
       position: absolute;
-      right: -100%;
+      left: 100%;
       bottom: 0;
       height: 96%;
-      width: 100%;
+      width: 20px;
       display: block;
-      border-radius: 0 0 0 10px;
+      border-radius: 0 0 0 50%;
       box-shadow: -7px 7px 0 -2px var(--bg);
       z-index: 1;
       pointer-events: none;
     }
 
-    .icon {
+    .tab__more {
       visibility: visible;
       opacity: 1;
     }
   }
 
-  &:not(:hover):not(.active):not(:last-child) {
+  &:not(:hover):not(.tab--active) {
     box-shadow: 8px 0px 0 -7px #ddefff;
   }
 }
 
-.title {
+.tab__title {
   white-space: nowrap;
   overflow: hidden;
 }
 
-.icon {
+.tab__more {
   flex-shrink: 0;
   visibility: hidden;
   opacity: 0;
+}
+
+.tab__more--opened {
+  visibility: visible;
+  opacity: 1;
 }

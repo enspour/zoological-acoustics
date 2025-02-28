@@ -1,14 +1,21 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-
-import { KuduIconComponent } from '@kudu-ui';
+import { KuduDragDirective, KuduDropContainerDirective } from '@kudu-dnd';
 
 import { ProjectTaskBoardsService } from '@kudu/mfr-data-access-project';
 
-import { KanbanBoardTabsComponent } from '@kudu/mfr-ui-kanban-board-tabs';
+import {
+  KanbanBoardTabComponent,
+  KanbanBoardTabsComponent,
+} from '@kudu/mfr-ui-kanban-board-tabs';
 
 @Component({
   selector: 'lib-kanban-toolbar',
-  imports: [KuduIconComponent, KanbanBoardTabsComponent],
+  imports: [
+    KanbanBoardTabsComponent,
+    KanbanBoardTabComponent,
+    KuduDropContainerDirective,
+    KuduDragDirective,
+  ],
   templateUrl: './kanban-toolbar.component.html',
   styleUrl: './kanban-toolbar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

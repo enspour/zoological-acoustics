@@ -17,13 +17,12 @@ import {
 } from '@kudu/mfr-data-access-gantt';
 
 import { GanttChartComponent } from '@kudu/mfr-feature-gantt-chart';
-import { GanttSidebarComponent } from '@kudu/mfr-feature-gantt-sidebar';
-import { GanttToolbarComponent } from '@kudu/mfr-feature-gantt-toolbar';
-
 import {
   GanttLayoutColumnsDirective,
   GanttLayoutRowsDirective,
-} from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
+} from '@kudu/mfr-feature-gantt-layout';
+import { GanttSidebarComponent } from '@kudu/mfr-feature-gantt-sidebar';
+import { GanttToolbarComponent } from '@kudu/mfr-feature-gantt-toolbar';
 
 @Component({
   selector: 'lib-gantt-page',
@@ -48,6 +47,6 @@ export class GanttPageComponent implements OnInit {
   public rows = this.ganttRowsService.rows;
 
   ngOnInit(): void {
-    this.employeesService.reload();
+    this.employeesService.init();
   }
 }

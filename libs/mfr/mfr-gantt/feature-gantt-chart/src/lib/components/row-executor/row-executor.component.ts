@@ -20,7 +20,7 @@ import { GanttTaskComponent } from '@kudu/mfr-ui-gantt-task';
 import {
   GanttLayoutColumnsDirective,
   GanttLayoutRowsDirective,
-} from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
+} from '@kudu/mfr-feature-gantt-layout';
 
 import { CalculateTaskPropsPipe } from '../../pipes/calculate-task-props.pipe';
 

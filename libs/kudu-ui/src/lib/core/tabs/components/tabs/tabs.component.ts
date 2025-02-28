@@ -1,6 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   computed,
@@ -25,7 +24,7 @@ export type KuduTabsOrientation = 'vertical' | 'horizontal';
   styleUrl: './tabs.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KuduTabsComponent implements AfterContentInit {
+export class KuduTabsComponent {
   public size = inject(kuduSize);
 
   private tabs = contentChildren(KuduTabComponent);
@@ -42,6 +41,14 @@ export class KuduTabsComponent implements AfterContentInit {
   });
 
   constructor() {
+    effect((onCleanup) => {
+      const subscriptions = this.tabs().map((tab, index) =>
+        tab.byClick.subscribe(() => this.currentIndex.set(index)),
+      );
+
+      onCleanup(() => subscriptions.forEach((s) => s.unsubscribe()));
+    });
+
     effect(() => {
       this.tabs()[this.previousIndex()].isActive.set(false);
       this.tabs()[this.currentIndex()].isActive.set(true);
@@ -51,11 +58,5 @@ export class KuduTabsComponent implements AfterContentInit {
   @HostBinding('class')
   public get Classes() {
     return `${this.size()} ${this.orientation()}`;
-  }
-
-  ngAfterContentInit(): void {
-    this.tabs().forEach((tab, index) => {
-      tab.byClick.subscribe(() => this.currentIndex.set(index));
-    });
   }
 }

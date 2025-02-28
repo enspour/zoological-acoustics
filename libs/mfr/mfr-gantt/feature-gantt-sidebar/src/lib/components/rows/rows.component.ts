@@ -2,16 +2,24 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { GanttRow } from '@kudu/mfr-data-access-gantt';
 
-import { GanttLayoutRowsDirective } from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
+import { GanttLayoutRowsDirective } from '@kudu/mfr-feature-gantt-layout';
 
 import { GanttSidebarComponent } from '../../gantt-sidebar.component';
+import { RowBoardCreationComponent } from '../row-board-creation/row-board-creation.component';
 import { RowBoardComponent } from '../row-board/row-board.component';
 import { RowExecutorComponent } from '../row-executor/row-executor.component';
+import { RowTaskCreationComponent } from '../row-task-creation/row-task-creation.component';
 import { RowTaskComponent } from '../row-task/row-task.component';
 
 @Component({
   selector: 'lib-rows',
-  imports: [RowTaskComponent, RowExecutorComponent, RowBoardComponent],
+  imports: [
+    RowTaskComponent,
+    RowTaskCreationComponent,
+    RowExecutorComponent,
+    RowBoardComponent,
+    RowBoardCreationComponent,
+  ],
   templateUrl: './rows.component.html',
   styleUrl: './rows.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

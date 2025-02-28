@@ -1,0 +1,10 @@
+<lib-renameable
+  placeholder="Название"
+  [(isEdit)]="isEdit"
+  (byEdit)="onCreate($event)"
+>
+  <button class="creation" (click)="onToggleEdit()">
+    <kudu-icon icon="plus" [iconSize]="14" />
+    <div class="creation__title">Добавить доску</div>
+  </button>
+</lib-renameable>

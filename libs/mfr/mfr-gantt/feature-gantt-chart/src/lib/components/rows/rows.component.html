@@ -4,8 +4,16 @@
       <lib-row-board [row]="row" />
     }
 
+    @if (row.type === 'board-creation') {
+      <lib-row-board-creation [row]="row" />
+    }
+
     @if (row.type === 'task') {
       <lib-row-task [row]="row" />
+    }
+
+    @if (row.type === 'task-creation') {
+      <lib-row-task-creation [row]="row" />
     }
 
     @if (row.type === 'executor') {

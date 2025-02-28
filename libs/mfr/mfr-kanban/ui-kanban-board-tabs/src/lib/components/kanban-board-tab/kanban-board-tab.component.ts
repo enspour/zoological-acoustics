@@ -1,21 +1,43 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-
-import { KuduIconComponent } from '@kudu-ui';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  inject,
+  input,
+  output,
+} from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { TaskBoard } from '@kudu/domain';
 
+import { ProjectTaskBoardsService } from '@kudu/mfr-data-access-project';
+
+import { TaskBoardMoreComponent } from '@kudu/mfr-ui-task-board';
+
 @Component({
   selector: 'lib-kanban-board-tab',
-  imports: [KuduIconComponent],
+  imports: [RouterLink, RouterLinkActive, TaskBoardMoreComponent],
   templateUrl: './kanban-board-tab.component.html',
   styleUrl: './kanban-board-tab.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    '[class.active]': 'isActive()',
-  },
 })
 export class KanbanBoardTabComponent {
+  private projectTaskBoardsService = inject(ProjectTaskBoardsService);
+
   public board = input.required<TaskBoard>();
 
-  public isActive = input(false);
+  public byClick = output<Event>();
+
+  @HostListener('click', ['$event'])
+  public onClick(event: Event) {
+    this.byClick.emit(event);
+  }
+
+  public onRename() {
+    console.log(this.board());
+  }
+
+  public async onDelete() {
+    await this.projectTaskBoardsService.deleteBoard(this.board());
+  }
 }

@@ -24,6 +24,5 @@ export class MenuComponent {
     { title: 'Главная', icon: 'home', href: '/' },
     { title: 'Проекты', icon: 'case', href: '/projects' },
     { title: 'Сотрудники', icon: 'users', href: '/employees' },
-    { title: 'Интеграции', icon: 'replace', href: '/integrations' },
   ];
 }

@@ -1,0 +1,19 @@
+@if (!isCreation()) {
+  <button class="btn" kudu-button (click)="onStart()">
+    <kudu-icon icon="plus" [iconSize]="16" />
+    <div>Добавить колонку</div>
+  </button>
+} @else {
+  <div class="column">
+    <header class="column__header">
+      <input
+        #input
+        class="column__header-title"
+        placeholder="Название"
+        kuduAutofocus
+        (blur)="onClose()"
+        (keydown.enter)="onCreate(input.value)"
+      />
+    </header>
+  </div>
+}

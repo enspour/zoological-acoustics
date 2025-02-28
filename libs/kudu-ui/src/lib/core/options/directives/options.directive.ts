@@ -1,5 +1,4 @@
 import {
-  AfterContentInit,
   computed,
   contentChildren,
   Directive,
@@ -16,7 +15,7 @@ import { outputFromObservable, toObservable } from '@angular/core/rxjs-interop';
 @Directive({
   selector: '[kuduOptions]',
 })
-export class KuduOptionsDirective<T> implements AfterContentInit {
+export class KuduOptionsDirective<T> {
   public options = contentChildren(KuduOptionComponent);
 
   public value = model<T | T[] | null>(null);
@@ -36,14 +35,16 @@ export class KuduOptionsDirective<T> implements AfterContentInit {
         option.isSelected.set(isSelected);
       }
     });
-  }
 
-  ngAfterContentInit(): void {
-    this.options().forEach((option) => {
-      option.byClick.subscribe(() => {
-        this.selectOption(option.value());
-        this.byOptionClick.emit(option);
-      });
+    effect((onCleanup) => {
+      const subscriptions = this.options().map((option) =>
+        option.byClick.subscribe(() => {
+          this.selectOption(option.value());
+          this.byOptionClick.emit(option);
+        }),
+      );
+
+      onCleanup(() => subscriptions.forEach((s) => s.unsubscribe()));
     });
   }
 

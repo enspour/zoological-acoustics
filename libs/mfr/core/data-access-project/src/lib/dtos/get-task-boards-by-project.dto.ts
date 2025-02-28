@@ -1,6 +1,6 @@
 import { TaskBoard } from '@kudu/domain';
 
-export interface GetTaskBoardsByProjectDto {
+export interface GetTaskBoardsByProjectResponseDto {
   statusCode: number;
   data: { boards: TaskBoard[] };
 }

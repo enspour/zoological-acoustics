@@ -72,6 +72,9 @@
       "@kudu/mfr-feature-gantt-chart": [
         "libs/mfr/mfr-gantt/feature-gantt-chart/src/index.ts"
       ],
+      "@kudu/mfr-feature-gantt-layout": [
+        "libs/mfr/mfr-gantt/feature-gantt-layout/src/index.ts"
+      ],
       "@kudu/mfr-feature-gantt-sidebar": [
         "libs/mfr/mfr-gantt/feature-gantt-sidebar/src/index.ts"
       ],
@@ -79,12 +82,6 @@
         "libs/mfr/mfr-gantt/feature-gantt-toolbar/src/index.ts"
       ],
       "@kudu/mfr-feature-home": ["libs/mfr/mfr-host/feature-home/src/index.ts"],
-      "@kudu/mfr-feature-integration": [
-        "libs/mfr/mfr-integrations/feature-integration/src/index.ts"
-      ],
-      "@kudu/mfr-feature-integrations": [
-        "libs/mfr/mfr-integrations/feature-integrations/src/index.ts"
-      ],
       "@kudu/mfr-feature-invite-employee": [
         "libs/mfr/mfr-employees/feature-invite-employee/src/index.ts"
       ],
@@ -115,9 +112,6 @@
       "@kudu/mfr-feature-signup": [
         "libs/mfr/mfr-host/feature-signup/src/index.ts"
       ],
-      "@kudu/mfr-integrations/Routes": [
-        "apps/mfr-integrations/src/app/remote-entry/entry.routes.ts"
-      ],
       "@kudu/mfr-projects/Routes": [
         "apps/mfr-projects/src/app/remote-entry/entry.routes.ts"
       ],
@@ -137,12 +131,17 @@
       "@kudu/mfr-ui-kanban-column": [
         "libs/mfr/mfr-kanban/ui-kanban-column/src/index.ts"
       ],
+      "@kudu/mfr-ui-kanban-column-creation": [
+        "libs/mfr/mfr-kanban/ui-kanban-column-creation/src/index.ts"
+      ],
       "@kudu/mfr-ui-kanban-task": [
         "libs/mfr/mfr-kanban/ui-kanban-task/src/index.ts"
       ],
       "@kudu/mfr-ui-kit": ["libs/mfr/core/ui-kit/src/index.ts"],
       "@kudu/mfr-ui-modals": ["libs/mfr/core/ui-modals/src/index.ts"],
       "@kudu/mfr-ui-project": ["libs/mfr/core/ui-project/src/index.ts"],
+      "@kudu/mfr-ui-task-board": ["libs/mfr/core/ui-task-board/src/index.ts"],
+      "@kudu/mfr-ui-task-column": ["libs/mfr/core/ui-task-column/src/index.ts"],
       "@kudu/mfr-util-auth-guard": [
         "libs/mfr/core/util-auth-guard/src/index.ts"
       ],
@@ -153,11 +152,11 @@
       "@kudu/mfr-util-gantt-chart": [
         "libs/mfr/mfr-gantt/util-gantt-chart/src/index.ts"
       ],
-      "@kudu/mfr-feature-gantt-layout": [
-        "libs/mfr/mfr-gantt/feature-gantt-layout/src/index.ts"
-      ],
       "@kudu/mfr-util-http": ["libs/mfr/core/util-http/src/index.ts"],
       "@kudu/mfr-util-jwt": ["libs/mfr/core/util-jwt/src/index.ts"],
+      "@kudu/mfr-util-kanban-last-board": [
+        "libs/mfr/mfr-kanban/util-kanban-last-board/src/index.ts"
+      ],
       "@kudu/mfr-util-local-storage": [
         "libs/mfr/core/util-local-storage/src/index.ts"
       ],

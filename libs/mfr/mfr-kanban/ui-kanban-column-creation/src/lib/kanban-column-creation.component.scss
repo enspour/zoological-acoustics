@@ -1,0 +1,31 @@
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.column {
+  padding-top: 10px;
+  min-width: 300px;
+  max-width: 300px;
+  height: fit-content;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background-color: #7b869e;
+  overflow: hidden;
+}
+
+.column__header {
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(#ffffff, 0.8);
+  border-radius: 12px 12px 0 0;
+}
+
+.column__header-title {
+  font-size: 18px;
+  font-weight: 500;
+}

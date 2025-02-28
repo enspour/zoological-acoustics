@@ -6,9 +6,20 @@ export interface GanttRowBoard {
   index: number;
 }
 
+export interface GanttRowBoardCreation {
+  type: 'board-creation';
+  index: number;
+}
+
 export interface GanttRowTask {
   type: 'task';
   task: Task;
+  index: number;
+}
+
+export interface GanttRowTaskCreation {
+  type: 'task-creation';
+  board: TaskBoard;
   index: number;
 }
 
@@ -21,4 +32,9 @@ export interface GanttRowExecutor {
   isLast: boolean;
 }
 
-export type GanttRow = GanttRowBoard | GanttRowTask | GanttRowExecutor;
+export type GanttRow =
+  | GanttRowBoard
+  | GanttRowBoardCreation
+  | GanttRowTask
+  | GanttRowTaskCreation
+  | GanttRowExecutor;

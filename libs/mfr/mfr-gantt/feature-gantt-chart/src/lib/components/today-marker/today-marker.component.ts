@@ -9,7 +9,7 @@ import { DateTime, DateTimePeriod } from '@kudu-date';
 
 import { GanttTimelineService } from '@kudu/mfr-data-access-gantt';
 
-import { GanttLayoutColumnsDirective } from 'libs/mfr/mfr-gantt/feature-gantt-layout/src';
+import { GanttLayoutColumnsDirective } from '@kudu/mfr-feature-gantt-layout';
 
 import { getOffset } from '../../utils';
 

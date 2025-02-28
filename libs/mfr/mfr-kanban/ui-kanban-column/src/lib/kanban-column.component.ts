@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
-import { KuduIconComponent } from '@kudu-ui';
-
 import { TaskColumn } from '@kudu/domain';
+
+import { TaskColumnMoreComponent } from '@kudu/mfr-ui-task-column';
 
 @Component({
   selector: 'lib-kanban-column',
-  imports: [KuduIconComponent],
+  imports: [TaskColumnMoreComponent],
   templateUrl: './kanban-column.component.html',
   styleUrl: './kanban-column.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

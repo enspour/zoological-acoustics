@@ -1,6 +1,8 @@
 import { computed, inject, Injectable, resource } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
+import { CreatableTask } from '@kudu/domain';
+
 import { ProjectTasksApi } from './project-tasks.api';
 import { ProjectService } from './project.service';
 
@@ -26,4 +28,9 @@ export class ProjectTasksService {
   public tasks = this.resource.value;
   public error = this.resource.error;
   public isLoading = this.resource.isLoading;
+
+  public async createTask(data: CreatableTask) {
+    const request = this.projectTasksApi.createTask(data);
+    return await lastValueFrom(request);
+  }
 }
