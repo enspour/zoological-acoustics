@@ -6,9 +6,11 @@ import {
   signal,
 } from '@angular/core';
 
+import { KuduIconComponent } from '@kudu-ui';
+
 import { TaskBoard } from '@kudu/domain';
 
-import { GanttRowBoard } from '@kudu/mfr-data-access-gantt';
+import { GanttRowBoard, GanttStashService } from '@kudu/mfr-data-access-gantt';
 import { ProjectTaskBoardsService } from '@kudu/mfr-data-access-project';
 
 import { GanttLayoutRowsDirective } from '@kudu/mfr-feature-gantt-layout';
@@ -18,7 +20,7 @@ import { TaskBoardMoreComponent } from '@kudu/mfr-ui-task-board';
 
 @Component({
   selector: 'lib-row-board',
-  imports: [RenameableComponent, TaskBoardMoreComponent],
+  imports: [KuduIconComponent, RenameableComponent, TaskBoardMoreComponent],
   templateUrl: './row-board.component.html',
   styleUrl: './row-board.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,6 +32,7 @@ import { TaskBoardMoreComponent } from '@kudu/mfr-ui-task-board';
 })
 export class RowBoardComponent {
   private ganttLayoutRowsDirective = inject(GanttLayoutRowsDirective);
+  private ganttStashService = inject(GanttStashService);
   private projectTaskBoardsService = inject(ProjectTaskBoardsService);
 
   public row = input.required<GanttRowBoard>();
@@ -37,6 +40,10 @@ export class RowBoardComponent {
   public rowHeight = this.ganttLayoutRowsDirective.rowHeight;
 
   public isEdit = signal(false);
+
+  public onToggle() {
+    this.ganttStashService.toggle(this.row().board.uuid);
+  }
 
   public onRename() {
     this.isEdit.set(true);

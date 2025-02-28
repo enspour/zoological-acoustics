@@ -4,6 +4,7 @@ export interface GanttRowBoard {
   type: 'board';
   board: TaskBoard;
   index: number;
+  isOpen: boolean;
 }
 
 export interface GanttRowBoardCreation {

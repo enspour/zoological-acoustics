@@ -11,6 +11,7 @@ import {
 import { groupTasksByRows } from '@kudu/mfr-util-gantt-chart';
 import { groupTasks } from '@kudu/mfr-util-tasks';
 
+import { GanttStashService } from './gantt-stash.service';
 import { GanttToolbarService } from './gantt-toolbar.service';
 
 import { GanttRow } from './interfaces';
@@ -20,7 +21,7 @@ export class GanttRowsService {
   private employeesService = inject(EmployeesService);
   private projectTaskBoardsService = inject(ProjectTaskBoardsService);
   private projectTasksService = inject(ProjectTasksService);
-
+  private ganttStashService = inject(GanttStashService);
   private ganttToolbarService = inject(GanttToolbarService);
 
   public rows = computed<GanttRow[]>(() => this.getRows());
@@ -48,7 +49,13 @@ export class GanttRowsService {
     const rows: GanttRow[] = [];
 
     for (const board of boards) {
-      this.appendBoard(rows, { board });
+      const isOpen = this.ganttStashService.isOpen(board.uuid);
+
+      this.appendBoard(rows, { board, isOpen });
+
+      if (!isOpen) {
+        continue;
+      }
 
       const tasks = tasksByBoard[board.uuid] || [];
       this.appendTasks(rows, { tasks });
@@ -71,7 +78,13 @@ export class GanttRowsService {
     const rows: GanttRow[] = [];
 
     for (const board of boards) {
-      this.appendBoard(rows, { board });
+      const isOpen = this.ganttStashService.isOpen(board.uuid);
+
+      this.appendBoard(rows, { board, isOpen });
+
+      if (!isOpen) {
+        continue;
+      }
 
       for (const employee of employees) {
         const tasksByExecutor = tasksByExecutors[employee.uuid] || [];
@@ -86,11 +99,15 @@ export class GanttRowsService {
     return rows;
   }
 
-  private appendBoard(rows: GanttRow[], context: { board: TaskBoard }) {
+  private appendBoard(
+    rows: GanttRow[],
+    context: { board: TaskBoard; isOpen: boolean },
+  ) {
     rows.push({
       type: 'board',
       board: context.board,
       index: rows.length,
+      isOpen: context.isOpen,
     });
   }
 

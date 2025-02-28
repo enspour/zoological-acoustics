@@ -1,3 +1,11 @@
+<button (click)="onToggle()">
+  @if (row().isOpen) {
+    <kudu-icon icon="chevron-up" />
+  } @else {
+    <kudu-icon icon="chevron-down" />
+  }
+</button>
+
 <lib-renameable [value]="row().board.title" [(isEdit)]="isEdit">
   <div class="title">{{ row().board.title }}</div>
 </lib-renameable>
