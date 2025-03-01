@@ -1,4 +1,12 @@
 :host {
   outline: none;
   border: none;
+  overflow-wrap: anywhere;
+}
+
+:host:empty:before {
+  content: attr(placeholder);
+  color: #555;
+  display: block;
+  pointer-events: none;
 }

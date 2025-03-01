@@ -6,6 +6,28 @@
   gap: 6px;
 }
 
-.boards {
+.tabs {
   flex: 1;
+}
+
+.tabs__container {
+  display: contents;
+}
+
+.tabs__helper {
+  flex-shrink: 0;
+  align-self: flex-end;
+  height: 28px;
+  width: 40px;
+  position: sticky;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  z-index: 200;
+}
+
+.tabs__helper-icon {
+  cursor: pointer;
 }

@@ -13,5 +13,10 @@
     "jest.config.ts",
     "src/**/*.test.ts"
   ],
-  "include": ["src/**/*.ts"]
+  "include": [
+    "src/**/*.ts",
+    "../data-access-task-boards/src/lib/dtos/delete-task-board.dto.ts",
+    "../data-access-task-boards/src/lib/dtos/create-task-board.dto.ts",
+    "../data-access-task-boards/src/lib/dtos/get-task-boards-by-project.dto.ts"
+  ]
 }

@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 
 import { TaskColumn } from '@kudu/domain';
 
@@ -13,4 +18,10 @@ import { TaskColumnMoreComponent } from '@kudu/mfr-ui-task-column';
 })
 export class KanbanColumnComponent {
   public column = input.required<TaskColumn>();
+
+  public byDelete = output<TaskColumn>();
+
+  public onDelete() {
+    this.byDelete.emit(this.column());
+  }
 }

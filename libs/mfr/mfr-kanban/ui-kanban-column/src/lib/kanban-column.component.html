@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header__title">{{ column().title }}</div>
 
-  <lib-task-column-more [column]="column()" />
+  <lib-task-column-more [column]="column()" (byDelete)="onDelete()" />
 </header>
 
 <div class="content">

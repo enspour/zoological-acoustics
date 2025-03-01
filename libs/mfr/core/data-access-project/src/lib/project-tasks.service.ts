@@ -1,15 +1,13 @@
 import { computed, inject, Injectable, resource } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
 
-import { CreatableTask } from '@kudu/domain';
+import { TasksService } from '@kudu/mfr-data-access-tasks';
 
-import { ProjectTasksApi } from './project-tasks.api';
 import { ProjectService } from './project.service';
 
 @Injectable()
 export class ProjectTasksService {
-  private projectTasksApi = inject(ProjectTasksApi);
   private projectService = inject(ProjectService);
+  private tasksService = inject(TasksService);
 
   private uuids = computed(() => this.projectService.project()?.uuid);
 
@@ -20,17 +18,11 @@ export class ProjectTasksService {
         return [];
       }
 
-      const response = this.projectTasksApi.getByProject(request);
-      return lastValueFrom(response);
+      return await this.tasksService.getByProject(request);
     },
   });
 
   public tasks = this.resource.value;
   public error = this.resource.error;
   public isLoading = this.resource.isLoading;
-
-  public async createTask(data: CreatableTask) {
-    const request = this.projectTasksApi.createTask(data);
-    return await lastValueFrom(request);
-  }
 }

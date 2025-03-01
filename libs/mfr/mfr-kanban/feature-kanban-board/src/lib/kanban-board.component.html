@@ -5,7 +5,7 @@
   kuduDropContainer
   [kuduDropContainerTypes]="['column']"
   [kuduDropContainerData]="columns"
-  (byDrop)="onDropColumn()"
+  (byDrop)="onColumnDrop()"
 >
   @for (column of columns; track column.uuid) {
     <lib-kanban-column
@@ -13,18 +13,21 @@
       kuduDrag
       kuduDragType="column"
       [kuduDragData]="column"
+      (byDelete)="onColumnDelete($event)"
     >
-      <button kudu-button class="task__creation" (click)="onTaskCreate()">
-        <kudu-icon icon="plus" [iconSize]="16" />
-        <div>Добавить задачу</div>
-      </button>
+      <lib-kanban-task-creation
+        #creation
+        class="task__creation"
+        [class.task__creation--creating]="creation.isCreating()"
+        (byCreate)="onTaskCreate($event, column)"
+      />
 
       <div
         class="tasks"
         kuduDropContainer
         [kuduDropContainerTypes]="['task']"
         [kuduDropContainerData]="column"
-        (byDrop)="onDropTask()"
+        (byDrop)="onTaskDrop()"
       >
         @let tasks = this.tasks() || [] | filter: filterByColumnFn : column;
 
@@ -35,6 +38,7 @@
             kuduDrag
             kuduDragType="task"
             [kuduDragData]="task"
+            (byDelete)="onTaskDelete($event)"
           />
         }
       </div>

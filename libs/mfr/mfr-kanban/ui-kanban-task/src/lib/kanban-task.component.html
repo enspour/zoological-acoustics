@@ -4,4 +4,4 @@
   {{ task().title }}
 </div>
 
-<kudu-icon icon="dots" />
+<lib-task-more [task]="task()" (byDelete)="onDelete()" />

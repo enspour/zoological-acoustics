@@ -6,11 +6,12 @@ import { CreatableTaskColumn } from '@kudu/domain';
 
 import {
   CreateTaskColumnResponseDto,
+  DeleteTaskColumnResponseDto,
   GetTaskColumnsByProjectResponseDto,
 } from './dtos';
 
 @Injectable()
-export class ProjectTaskColumnsApi {
+export class TaskColumnsApi {
   constructor(private http: HttpClient) {}
 
   public getColumnsByProject(uuid: string) {
@@ -24,6 +25,13 @@ export class ProjectTaskColumnsApi {
     const url = 'api/v1/tasks/columns';
     return this.http
       .post<CreateTaskColumnResponseDto>(url, data)
+      .pipe(map((response) => response.data.column));
+  }
+
+  public deleteColumn(uuid: string) {
+    const url = `api/v1/tasks/columns/${uuid}`;
+    return this.http
+      .delete<DeleteTaskColumnResponseDto>(url)
       .pipe(map((response) => response.data.column));
   }
 }

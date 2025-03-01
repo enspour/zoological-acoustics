@@ -42,6 +42,15 @@
       "@kudu/mfr-data-access-projects": [
         "libs/mfr/core/data-access-projects/src/index.ts"
       ],
+      "@kudu/mfr-data-access-task-boards": [
+        "libs/mfr/core/data-access-task-boards/src/index.ts"
+      ],
+      "@kudu/mfr-data-access-task-columns": [
+        "libs/mfr/core/data-access-task-columns/src/index.ts"
+      ],
+      "@kudu/mfr-data-access-tasks": [
+        "libs/mfr/core/data-access-tasks/src/index.ts"
+      ],
       "@kudu/mfr-data-access-user": [
         "libs/mfr/core/data-access-user/src/index.ts"
       ],
@@ -137,9 +146,13 @@
       "@kudu/mfr-ui-kanban-task": [
         "libs/mfr/mfr-kanban/ui-kanban-task/src/index.ts"
       ],
+      "@kudu/mfr-ui-kanban-task-creation": [
+        "libs/mfr/mfr-kanban/ui-kanban-task-creation/src/index.ts"
+      ],
       "@kudu/mfr-ui-kit": ["libs/mfr/core/ui-kit/src/index.ts"],
       "@kudu/mfr-ui-modals": ["libs/mfr/core/ui-modals/src/index.ts"],
       "@kudu/mfr-ui-project": ["libs/mfr/core/ui-project/src/index.ts"],
+      "@kudu/mfr-ui-task": ["libs/mfr/core/ui-task/src/index.ts"],
       "@kudu/mfr-ui-task-board": ["libs/mfr/core/ui-task-board/src/index.ts"],
       "@kudu/mfr-ui-task-column": ["libs/mfr/core/ui-task-column/src/index.ts"],
       "@kudu/mfr-util-auth-guard": [

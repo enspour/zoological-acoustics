@@ -1,10 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  effect,
   inject,
   input,
   model,
+  output,
   signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -65,11 +65,7 @@ export class EmployeePickerComponent {
   public positionX = signal<KuduOverlayPositionX>('right');
   public positionY = signal<KuduOverlayPositionY>('under');
 
-  constructor() {
-    effect(() => {
-      console.log(`${this.positionX()} ${this.positionY()}`);
-    });
-  }
+  public byClose = output<Employee[]>();
 
   public onToggle() {
     this.isOpen.update((isOpen) => !isOpen);

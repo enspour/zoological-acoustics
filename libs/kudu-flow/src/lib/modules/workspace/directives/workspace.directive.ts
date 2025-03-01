@@ -13,18 +13,18 @@ import {
 } from '../constants/workspace.constants';
 
 import { Point } from '../../../interfaces';
-import { KuduFlowWorkspaceScale, KuduFlowWorkspaceScroll } from '../interfaces';
+import { KuduWorkspaceScale, KuduWorkspaceScroll } from '../interfaces';
 
 @Directive()
-export class KuduFlowWorkspaceDirective {
+export class KuduWorkspaceDirective {
   private document = inject(DOCUMENT);
   private elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
 
   private scalableRef =
     viewChild.required<ElementRef<HTMLDivElement>>('scalable');
 
-  public scroll = model<KuduFlowWorkspaceScroll>({ x: 0, y: 0 });
-  public scale = model<KuduFlowWorkspaceScale>(1);
+  public scroll = model<KuduWorkspaceScroll>({ x: 0, y: 0 });
+  public scale = model<KuduWorkspaceScale>(1);
 
   public layout = toSignal(
     resizeObservable(this.elementRef).pipe(
@@ -32,11 +32,11 @@ export class KuduFlowWorkspaceDirective {
     ),
   );
 
-  public setScroll(scroll: KuduFlowWorkspaceScroll) {
+  public setScroll(scroll: KuduWorkspaceScroll) {
     this.scroll.set(scroll);
   }
 
-  public setScale(scale: KuduFlowWorkspaceScale) {
+  public setScale(scale: KuduWorkspaceScale) {
     this.scale.set(scale);
   }
 

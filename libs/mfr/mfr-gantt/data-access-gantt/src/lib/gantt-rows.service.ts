@@ -44,7 +44,7 @@ export class GanttRowsService {
     const boards = this.projectTaskBoardsService.boards() || [];
 
     const tasks = this.projectTasksService.tasks() || [];
-    const tasksByBoard = groupTasks(tasks, 'boardUuid');
+    const tasksByBoard = groupTasks(tasks, 'board');
 
     const rows: GanttRow[] = [];
 
@@ -73,7 +73,7 @@ export class GanttRowsService {
     const employees = this.employeesService.employees() || [];
 
     const tasks = this.projectTasksService.tasks() || [];
-    const tasksByExecutors = groupTasks(tasks, 'executorUuids');
+    const tasksByBoardsAndExecutors = groupTasks(tasks, 'board:executor');
 
     const rows: GanttRow[] = [];
 
@@ -86,8 +86,15 @@ export class GanttRowsService {
         continue;
       }
 
+      const key = `${board.uuid}`;
+      const tasksByExecutor = tasksByBoardsAndExecutors[key] || [];
+      const tasksByRows = groupTasksByRows(tasksByExecutor);
+
+      this.appendTasksUnassigned(rows, { tasksByRows });
+
       for (const employee of employees) {
-        const tasksByExecutor = tasksByExecutors[employee.uuid] || [];
+        const key = `${board.uuid}:${employee.uuid}`;
+        const tasksByExecutor = tasksByBoardsAndExecutors[key] || [];
         const tasksByRows = groupTasksByRows(tasksByExecutor);
 
         this.appendEmployee(rows, { employee, tasksByRows });
@@ -150,5 +157,20 @@ export class GanttRowsService {
       board: context.board,
       index: rows.length,
     });
+  }
+
+  private appendTasksUnassigned(
+    rows: GanttRow[],
+    context: { tasksByRows: Task[][] },
+  ) {
+    for (let i = 0; i < context.tasksByRows.length; i++) {
+      rows.push({
+        type: 'tasks-unassigned',
+        tasks: context.tasksByRows[i],
+        index: rows.length,
+        isFirst: i === 0,
+        isLast: i === context.tasksByRows.length - 1,
+      });
+    }
   }
 }

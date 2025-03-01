@@ -12,17 +12,16 @@
 }
 
 .task__creation {
-  flex-shrink: 0;
-  margin-bottom: 6px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  color: #005aaa;
-  background-color: transparent !important;
+  padding: 6px 10px;
+}
+
+.task__creation--creating {
+  padding-bottom: 0;
 }
 
 .tasks {
   padding: 10px;
+  padding-top: 6px;
   display: flex;
   flex-direction: column;
   gap: 6px;

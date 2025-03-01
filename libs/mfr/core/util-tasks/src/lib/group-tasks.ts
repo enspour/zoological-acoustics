@@ -1,17 +1,59 @@
 import { groupBy } from '@kudu-utils';
+
 import { Task } from '@kudu/domain';
 
-type GroupableTaskFields = keyof Pick<Task, 'boardUuid' | 'executorUuids'>;
+type GroupableTaskFields = 'executor' | 'board' | 'board:executor';
 
 const groupTasksByExecutors = (tasks: Task[]) => {
   return tasks.reduce(
     (acc, task) => {
-      for (const uuid of task.executorUuids) {
-        if (!(uuid in acc)) {
-          acc[uuid] = [];
+      if (task.executorUuids.length === 0) {
+        const key = '';
+
+        if (!(key in acc)) {
+          acc[key] = [];
         }
 
-        acc[uuid]!.push(task);
+        acc[key]!.push(task);
+      }
+
+      for (const executorUuid of task.executorUuids) {
+        const key = `${executorUuid}`;
+
+        if (!(key in acc)) {
+          acc[key] = [];
+        }
+
+        acc[key]!.push(task);
+      }
+
+      return acc;
+    },
+    {} as Partial<Record<string, Task[]>>,
+  );
+};
+
+const groupTasksByBoardsAndExecutors = (tasks: Task[]) => {
+  return tasks.reduce(
+    (acc, task) => {
+      if (task.executorUuids.length === 0) {
+        const key = `${task.boardUuid}`;
+
+        if (!(key in acc)) {
+          acc[key] = [];
+        }
+
+        acc[key]!.push(task);
+      }
+
+      for (const executorUuid of task.executorUuids) {
+        const key = `${task.boardUuid}:${executorUuid}`;
+
+        if (!(key in acc)) {
+          acc[key] = [];
+        }
+
+        acc[key]!.push(task);
       }
 
       return acc;
@@ -22,9 +64,11 @@ const groupTasksByExecutors = (tasks: Task[]) => {
 
 export const groupTasks = (tasks: Task[], field: GroupableTaskFields) => {
   switch (field) {
-    case 'executorUuids':
+    case 'executor':
       return groupTasksByExecutors(tasks);
-    case 'boardUuid':
+    case 'board':
       return groupBy(tasks, (task) => task.boardUuid);
+    case 'board:executor':
+      return groupTasksByBoardsAndExecutors(tasks);
   }
 };

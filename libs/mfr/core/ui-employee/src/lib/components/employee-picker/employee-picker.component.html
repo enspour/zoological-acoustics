@@ -25,6 +25,7 @@
   [config]="config"
   (positionXChange)="positionX.set($event)"
   (positionYChange)="positionY.set($event)"
+  (isOpenChange)="!$event && byClose.emit(value())"
 >
   <div class="picker">
     <div class="picker__header">

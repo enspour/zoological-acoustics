@@ -6,16 +6,16 @@ import {
   input,
 } from '@angular/core';
 
-import { KuduFlowWorkspaceDirective } from '../../workspace';
+import { KuduWorkspaceDirective } from '../../workspace';
 
 @Component({
-  selector: 'kudu-flow-dots-board',
+  selector: 'kudu-dots-board',
   templateUrl: './dots-board.component.html',
   styleUrls: ['./dots-board.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KuduFlowDotsBoardComponent {
-  private workspaceDirective = inject(KuduFlowWorkspaceDirective);
+export class KuduDotsBoardComponent {
+  private workspaceDirective = inject(KuduWorkspaceDirective);
 
   public size = input(10);
 

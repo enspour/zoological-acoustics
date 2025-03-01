@@ -10,7 +10,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { TaskBoard } from '@kudu/domain';
 
-import { ProjectTaskBoardsService } from '@kudu/mfr-data-access-project';
+import { TaskBoardsService } from '@kudu/mfr-data-access-task-boards';
 
 import { TaskBoardMoreComponent } from '@kudu/mfr-ui-task-board';
 
@@ -22,7 +22,7 @@ import { TaskBoardMoreComponent } from '@kudu/mfr-ui-task-board';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KanbanBoardTabComponent {
-  private projectTaskBoardsService = inject(ProjectTaskBoardsService);
+  private taskBoardsService = inject(TaskBoardsService);
 
   public board = input.required<TaskBoard>();
 
@@ -38,6 +38,6 @@ export class KanbanBoardTabComponent {
   }
 
   public async onDelete() {
-    await this.projectTaskBoardsService.deleteBoard(this.board());
+    await this.taskBoardsService.deleteBoard(this.board());
   }
 }

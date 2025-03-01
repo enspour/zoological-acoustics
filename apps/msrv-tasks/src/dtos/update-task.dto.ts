@@ -23,10 +23,6 @@ export class UpdateTaskDto implements Omit<UpdatableTask, 'uuid'> {
   @IsUUID()
   columnUuid!: string;
 
-  @ApiProperty({ description: 'Project uuid', nullable: false })
-  @IsUUID()
-  projectUuid!: string;
-
   @ApiProperty({ description: 'Executor uuids', nullable: false })
   @IsUUID('4', { each: true })
   executorUuids!: string[];

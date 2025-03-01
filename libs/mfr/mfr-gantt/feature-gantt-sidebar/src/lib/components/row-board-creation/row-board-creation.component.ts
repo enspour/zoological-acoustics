@@ -9,10 +9,8 @@ import {
 import { KuduIconComponent } from '@kudu-ui';
 
 import { GanttRowBoardCreation } from '@kudu/mfr-data-access-gantt';
-import {
-  ProjectService,
-  ProjectTaskBoardsService,
-} from '@kudu/mfr-data-access-project';
+import { ProjectService } from '@kudu/mfr-data-access-project';
+import { TaskBoardsService } from '@kudu/mfr-data-access-task-boards';
 
 import { GanttLayoutRowsDirective } from '@kudu/mfr-feature-gantt-layout';
 
@@ -32,7 +30,7 @@ import { RenameableComponent } from '@kudu/mfr-ui-kit';
 export class RowBoardCreationComponent {
   private ganttLayoutRowsDirective = inject(GanttLayoutRowsDirective);
   private projectService = inject(ProjectService);
-  private projectTaskBoardsService = inject(ProjectTaskBoardsService);
+  private taskBoardsService = inject(TaskBoardsService);
 
   public row = input.required<GanttRowBoardCreation>();
 
@@ -51,6 +49,6 @@ export class RowBoardCreationComponent {
       return;
     }
 
-    await this.projectTaskBoardsService.createBoard({ title, projectUuid });
+    await this.taskBoardsService.createBoard({ title, projectUuid });
   }
 }

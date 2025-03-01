@@ -19,20 +19,20 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KanbanColumnCreationComponent {
-  public isCreation = signal(false);
+  public isCreating = signal(false);
 
   public byCreate = output<string>();
 
   public onStart() {
-    this.isCreation.set(true);
+    this.isCreating.set(true);
   }
 
   public onClose() {
-    this.isCreation.set(false);
+    this.isCreating.set(false);
   }
 
   public onCreate(title: string) {
     this.byCreate.emit(title);
-    this.isCreation.set(false);
+    this.isCreating.set(false);
   }
 }

@@ -10,8 +10,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Subject, takeUntil } from 'rxjs';
 
 import {
-  KuduFlowWorkspaceDirective,
-  KuduFlowWorkspaceEventsDirective,
+  KuduWorkspaceDirective,
+  KuduWorkspaceEventsDirective,
 } from './directives';
 
 import { Point } from '../../interfaces';
@@ -23,16 +23,16 @@ import { getWheelDirection } from './utils';
   templateUrl: './workspace.component.html',
   styleUrl: './workspace.component.scss',
   hostDirectives: [
-    { directive: KuduFlowWorkspaceDirective, inputs: ['scroll', 'scale'] },
-    KuduFlowWorkspaceEventsDirective,
+    { directive: KuduWorkspaceDirective, inputs: ['scroll', 'scale'] },
+    KuduWorkspaceEventsDirective,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KuduFlowWorkspaceComponent implements OnDestroy {
+export class KuduWorkspaceComponent implements OnDestroy {
   private document = inject(DOCUMENT);
 
-  private workspaceDirective = inject(KuduFlowWorkspaceDirective);
-  private workspaceEventsDirective = inject(KuduFlowWorkspaceEventsDirective);
+  private workspaceDirective = inject(KuduWorkspaceDirective);
+  private workspaceEventsDirective = inject(KuduWorkspaceEventsDirective);
 
   protected scroll = this.workspaceDirective.scroll;
   protected scale = this.workspaceDirective.scale;

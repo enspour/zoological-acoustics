@@ -1,4 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+
+import { KuduIconComponent } from '@kudu-ui';
+
 import { KuduDragDirective, KuduDropContainerDirective } from '@kudu-dnd';
 
 import { ProjectTaskBoardsService } from '@kudu/mfr-data-access-project';
@@ -11,10 +14,11 @@ import {
 @Component({
   selector: 'lib-kanban-toolbar',
   imports: [
-    KanbanBoardTabsComponent,
-    KanbanBoardTabComponent,
+    KuduIconComponent,
     KuduDropContainerDirective,
     KuduDragDirective,
+    KanbanBoardTabsComponent,
+    KanbanBoardTabComponent,
   ],
   templateUrl: './kanban-toolbar.component.html',
   styleUrl: './kanban-toolbar.component.scss',

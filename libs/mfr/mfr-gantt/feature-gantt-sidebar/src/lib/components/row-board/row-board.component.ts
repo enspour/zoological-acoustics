@@ -11,7 +11,7 @@ import { KuduIconComponent } from '@kudu-ui';
 import { TaskBoard } from '@kudu/domain';
 
 import { GanttRowBoard, GanttStashService } from '@kudu/mfr-data-access-gantt';
-import { ProjectTaskBoardsService } from '@kudu/mfr-data-access-project';
+import { TaskBoardsService } from '@kudu/mfr-data-access-task-boards';
 
 import { GanttLayoutRowsDirective } from '@kudu/mfr-feature-gantt-layout';
 
@@ -33,7 +33,7 @@ import { TaskBoardMoreComponent } from '@kudu/mfr-ui-task-board';
 export class RowBoardComponent {
   private ganttLayoutRowsDirective = inject(GanttLayoutRowsDirective);
   private ganttStashService = inject(GanttStashService);
-  private projectTaskBoardsService = inject(ProjectTaskBoardsService);
+  private taskBoardsService = inject(TaskBoardsService);
 
   public row = input.required<GanttRowBoard>();
 
@@ -50,6 +50,6 @@ export class RowBoardComponent {
   }
 
   public async onDelete(board: TaskBoard) {
-    await this.projectTaskBoardsService.deleteBoard(board);
+    await this.taskBoardsService.deleteBoard(board);
   }
 }

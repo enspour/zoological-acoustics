@@ -10,12 +10,14 @@ import { RowBoardComponent } from '../row-board/row-board.component';
 import { RowExecutorComponent } from '../row-executor/row-executor.component';
 import { RowTaskCreationComponent } from '../row-task-creation/row-task-creation.component';
 import { RowTaskComponent } from '../row-task/row-task.component';
+import { RowTasksUnassignedComponent } from '../row-tasks-unassigned/row-tasks-unassigned.component';
 
 @Component({
   selector: 'lib-rows',
   imports: [
     RowTaskComponent,
     RowTaskCreationComponent,
+    RowTasksUnassignedComponent,
     RowExecutorComponent,
     RowBoardComponent,
     RowBoardCreationComponent,

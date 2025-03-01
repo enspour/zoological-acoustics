@@ -16,6 +16,10 @@
       <lib-row-task-creation [row]="row" />
     }
 
+    @if (row.type === 'tasks-unassigned') {
+      <lib-row-tasks-unassigned [row]="row" />
+    }
+
     @if (row.type === 'executor') {
       <lib-row-executor [row]="row" />
     }

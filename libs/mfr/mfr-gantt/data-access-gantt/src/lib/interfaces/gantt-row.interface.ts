@@ -24,6 +24,14 @@ export interface GanttRowTaskCreation {
   index: number;
 }
 
+export interface GanttRowTasksUnassigned {
+  type: 'tasks-unassigned';
+  tasks: Task[];
+  index: number;
+  isFirst: boolean;
+  isLast: boolean;
+}
+
 export interface GanttRowExecutor {
   type: 'executor';
   executor: Employee;
@@ -38,4 +46,5 @@ export type GanttRow =
   | GanttRowBoardCreation
   | GanttRowTask
   | GanttRowTaskCreation
+  | GanttRowTasksUnassigned
   | GanttRowExecutor;

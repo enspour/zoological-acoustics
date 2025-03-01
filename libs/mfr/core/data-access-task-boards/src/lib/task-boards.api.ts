@@ -11,7 +11,7 @@ import {
 } from './dtos';
 
 @Injectable()
-export class ProjectTaskBoardsApi {
+export class TaskBoardsApi {
   constructor(private http: HttpClient) {}
 
   public getBoardsByProject(uuid: string) {
