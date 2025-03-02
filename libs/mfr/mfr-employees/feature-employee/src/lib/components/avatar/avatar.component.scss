@@ -1,0 +1,38 @@
+:host {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999999;
+  background-color: #f4f4f4;
+  border: 1px solid #dedede;
+  border-radius: 20px;
+  overflow: hidden;
+
+  &:hover {
+    .actions {
+      display: flex;
+    }
+  }
+}
+
+.title {
+  font-size: 34px;
+  font-weight: 500;
+}
+
+.actions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  background-color: rgba(#000000, 0.1);
+  cursor: pointer;
+}

@@ -53,15 +53,6 @@ export class KanbanBoardComponent {
   public tasks = this.projectTasksService.tasks;
   public columns = this.projectTaskColumnsService.columns;
 
-  public onTaskClick(task: Task) {
-    this.explorerService.open({
-      component: BrowseTaskComponent,
-      inputs: {
-        task,
-      },
-    });
-  }
-
   public async onColumnCreate(title: string) {
     const board = this.board();
 
@@ -81,6 +72,15 @@ export class KanbanBoardComponent {
 
   public async onColumnDrop() {
     console.log('swap columns');
+  }
+
+  public onTaskClick(task: Task) {
+    this.explorerService.open({
+      component: BrowseTaskComponent,
+      inputs: {
+        task,
+      },
+    });
   }
 
   public async onTaskCreate(title: string, column: TaskColumn) {

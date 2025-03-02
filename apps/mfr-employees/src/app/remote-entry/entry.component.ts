@@ -4,8 +4,13 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-mfr-employees-entry',
   imports: [RouterOutlet],
-  templateUrl: './entry.component.html',
-  styleUrl: './entry.component.scss',
+  template: `<router-outlet />`,
+  styles: `
+    :host {
+      flex: 1;
+      min-width: 0;
+    }
+  `,
   providers: [],
 })
 export class RemoteEntryComponent {}

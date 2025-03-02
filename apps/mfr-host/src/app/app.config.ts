@@ -13,6 +13,7 @@ import {
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 import { provideAuthDataAccess } from '@kudu/mfr-data-access-auth';
+import { provideEmployeeDataAccess } from '@kudu/mfr-data-access-employee';
 import { provideEmployeesDataAccess } from '@kudu/mfr-data-access-employees';
 import { provideProjectDataAccess } from '@kudu/mfr-data-access-project';
 import { provideProjectsDataAccess } from '@kudu/mfr-data-access-projects';
@@ -38,6 +39,7 @@ export const appConfig: ApplicationConfig = {
     provideAuthDataAccess(),
     provideUserDataAccess(),
     provideEmployeesDataAccess(),
+    provideEmployeeDataAccess(),
     provideProjectsDataAccess(),
     provideProjectDataAccess(),
     provideTasksDataAccess(),

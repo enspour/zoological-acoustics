@@ -27,6 +27,9 @@
       "@kudu/mfr-data-access-auth": [
         "libs/mfr/core/data-access-auth/src/index.ts"
       ],
+      "@kudu/mfr-data-access-employee": [
+        "libs/mfr/core/data-access-employee/src/index.ts"
+      ],
       "@kudu/mfr-data-access-employees": [
         "libs/mfr/core/data-access-employees/src/index.ts"
       ],
@@ -68,6 +71,15 @@
       ],
       "@kudu/mfr-feature-create-project": [
         "libs/mfr/mfr-projects/feature-create-project/src/index.ts"
+      ],
+      "@kudu/mfr-feature-employee": [
+        "libs/mfr/mfr-employees/feature-employee/src/index.ts"
+      ],
+      "@kudu/mfr-feature-employee-contacts": [
+        "libs/mfr/mfr-employees/feature-employee-contacts/src/index.ts"
+      ],
+      "@kudu/mfr-feature-employee-overview": [
+        "libs/mfr/mfr-employees/feature-employee-overview/src/index.ts"
       ],
       "@kudu/mfr-feature-employees": [
         "libs/mfr/mfr-employees/feature-employees/src/index.ts"

@@ -1,3 +1,11 @@
 <div class="title">
   {{ row().task.title }}
 </div>
+
+<lib-task-more
+  #more
+  class="more"
+  [class.more--opened]="more.isOpen()"
+  [task]="row().task"
+  (byDelete)="onDelete()"
+/>

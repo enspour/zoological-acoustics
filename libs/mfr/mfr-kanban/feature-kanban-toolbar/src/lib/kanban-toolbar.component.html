@@ -1,20 +1,18 @@
 @let boards = this.boards() || [];
 
-<lib-kanban-board-tabs class="tabs">
-  <div
-    class="tabs__container"
-    kuduDropContainer
-    [kuduDropContainerTypes]="['board']"
-  >
-    @for (board of boards; track board.uuid) {
-      <lib-kanban-board-tab
-        [board]="board"
-        kuduDrag
-        kuduDragType="board"
-        [kuduDragData]="board"
-      />
-    }
-  </div>
+<lib-kanban-board-tabs
+  class="tabs"
+  kuduDropContainer
+  [kuduDropContainerTypes]="['board']"
+>
+  @for (board of boards; track board.uuid) {
+    <lib-kanban-board-tab
+      [board]="board"
+      kuduDrag
+      kuduDragType="board"
+      [kuduDragData]="board"
+    />
+  }
 
   <div class="tabs__helper">
     <kudu-icon class="tabs__helper-icon" icon="plus" [iconSize]="16" />

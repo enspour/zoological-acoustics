@@ -1,0 +1,10 @@
+<div class="head">
+  <div class="head__section">
+    {{ employee()?.name }}
+  </div>
+</div>
+
+<lib-tabs class="tabs">
+  <lib-tab-link href="./" [exact]="true">Обзор</lib-tab-link>
+  <lib-tab-link href="./contacts">Контакты</lib-tab-link>
+</lib-tabs>

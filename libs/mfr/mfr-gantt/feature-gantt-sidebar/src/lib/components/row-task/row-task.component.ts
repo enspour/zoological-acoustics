@@ -7,15 +7,17 @@ import {
 } from '@angular/core';
 
 import { GanttRowTask } from '@kudu/mfr-data-access-gantt';
+import { TasksService } from '@kudu/mfr-data-access-tasks';
 
 import { BrowseTaskComponent } from '@kudu/mfr-feature-browse-task';
 import { ExplorerService } from '@kudu/mfr-feature-explorer';
-
 import { GanttLayoutRowsDirective } from '@kudu/mfr-feature-gantt-layout';
+
+import { TaskMoreComponent } from '@kudu/mfr-ui-task';
 
 @Component({
   selector: 'lib-row-task',
-  imports: [],
+  imports: [TaskMoreComponent],
   templateUrl: './row-task.component.html',
   styleUrl: './row-task.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,6 +29,7 @@ import { GanttLayoutRowsDirective } from '@kudu/mfr-feature-gantt-layout';
 export class RowTaskComponent {
   private explorerService = inject(ExplorerService);
   private ganttLayoutRowsDirective = inject(GanttLayoutRowsDirective);
+  private tasksService = inject(TasksService);
 
   public row = input.required<GanttRowTask>();
   public rowCount = this.ganttLayoutRowsDirective.rowCount;
@@ -40,5 +43,9 @@ export class RowTaskComponent {
         task: this.row().task,
       },
     });
+  }
+
+  public async onDelete() {
+    await this.tasksService.deleteTask(this.row().task);
   }
 }

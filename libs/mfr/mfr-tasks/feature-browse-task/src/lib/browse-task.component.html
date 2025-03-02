@@ -1,5 +1,14 @@
 <div class="header">
+  <kudu-icon icon="circle-check" />
   <div class="header__title">{{ task().title }}</div>
+
+  <lib-task-more
+    #more
+    class="more"
+    [class.more--opened]="more.isOpen()"
+    [task]="task()"
+    (byDelete)="onDelete()"
+  />
 </div>
 
 <kudu-tabs class="tabs" [(currentIndex)]="currentIndex">

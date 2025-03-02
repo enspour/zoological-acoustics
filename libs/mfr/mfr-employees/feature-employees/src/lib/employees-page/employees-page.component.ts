@@ -22,8 +22,6 @@ import { Employee } from '@kudu/domain';
 
 import { EmployeesService } from '@kudu/mfr-data-access-employees';
 
-import { BrowseEmployeeComponent } from '@kudu/mfr-feature-browse-employee';
-import { ExplorerService } from '@kudu/mfr-feature-explorer';
 import { InviteEmployeeModalComponent } from '@kudu/mfr-feature-invite-employee';
 
 import { EmployeeTableComponent } from '@kudu/mfr-ui-employee';
@@ -46,7 +44,6 @@ import { EmployeeTableComponent } from '@kudu/mfr-ui-employee';
 export class EmployeesPageComponent implements OnInit {
   private router = inject(Router);
   private dialogService = inject(KuduDialogService);
-  private explorerService = inject(ExplorerService);
   private employeesService = inject(EmployeesService);
 
   public employees = this.employeesService.employees;
@@ -68,12 +65,7 @@ export class EmployeesPageComponent implements OnInit {
   }
 
   public onEmployeeClick(employee: Employee) {
-    this.explorerService.open({
-      component: BrowseEmployeeComponent,
-      inputs: {
-        employee,
-      },
-    });
+    this.router.navigateByUrl(`/employees/${employee.uuid}`);
   }
 
   public filterFn(value: Employee, _: number, search: string) {
