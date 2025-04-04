@@ -2,10 +2,12 @@ import {
   ChangeDetectionStrategy,
   Component,
   input,
+  model,
   output,
 } from '@angular/core';
 
 import {
+  KuduSortConfig,
   KuduSortDirective,
   KuduSortPipe,
   KuduTableComponent,
@@ -32,6 +34,8 @@ import { Employee } from '@kudu/domain';
 })
 export class EmployeeTableComponent {
   public employees = input.required<Employee[]>();
+
+  public sortConfig = model<KuduSortConfig>();
 
   public byEmployeeClick = output<Employee>();
 

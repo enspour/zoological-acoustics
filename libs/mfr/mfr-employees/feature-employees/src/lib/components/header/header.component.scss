@@ -1,9 +1,4 @@
 :host {
-  display: flex;
-  flex-direction: column;
-}
-
-.header {
   padding: 10px 20px;
   display: flex;
   align-items: center;
@@ -21,4 +16,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.header__search-icon {
+  color: #191919;
 }

@@ -1,9 +1,9 @@
-<table kudu-table kuduSort #sortRef="kuduSort">
+<table kudu-table kuduSort #sortRef="kuduSort" [(kuduSortConfig)]="sortConfig">
   <thead>
     <tr>
       <th kudu-th kuduThSort="name">Название</th>
       <th kudu-th [style.width.px]="52">
-        <kudu-icon icon="table-options" />
+        <kudu-icon icon="table-options" kuduTooltip="Опции" />
       </th>
     </tr>
   </thead>

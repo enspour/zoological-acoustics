@@ -3,17 +3,11 @@ import {
   Component,
   inject,
   input,
+  linkedSignal,
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import {
-  KuduButtonComponent,
-  KuduDialogService,
-  KuduIconComponent,
-  KuduInputComponent,
-  KuduInputContainerComponent,
-} from '@kudu-ui';
+import { KuduSortConfig } from '@kudu-ui';
 
 import { KuduFilterPipe } from '@kudu-ng-utils';
 
@@ -21,46 +15,47 @@ import { Employee } from '@kudu/domain';
 
 import { EmployeesService } from '@kudu/mfr-data-access-employees';
 
-import { InviteEmployeeModalComponent } from '@kudu/mfr-feature-invite-employee';
-
 import { EmployeeTableComponent } from '@kudu/mfr-ui-employee';
+
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'lib-employees-page',
-  imports: [
-    FormsModule,
-    KuduInputComponent,
-    KuduInputContainerComponent,
-    KuduIconComponent,
-    KuduButtonComponent,
-    KuduFilterPipe,
-    EmployeeTableComponent,
-  ],
+  imports: [KuduFilterPipe, EmployeeTableComponent, HeaderComponent],
   templateUrl: './employees-page.component.html',
   styleUrl: './employees-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeesPageComponent {
   private router = inject(Router);
-  private dialogService = inject(KuduDialogService);
+  private route = inject(ActivatedRoute);
   private employeesService = inject(EmployeesService);
 
   public employees = this.employeesService.employees;
 
   public searchTerm = input<string>();
 
-  public onSearchTermChange(searchTerm: string) {
-    this.router.navigateByUrl(`/employees?searchTerm=${searchTerm}`);
-  }
+  public sortBy = input<KuduSortConfig['by']>();
+  public sortOrder = input<KuduSortConfig['order']>();
 
-  public onInvite() {
-    this.dialogService.open(InviteEmployeeModalComponent, {
-      hasBackdrop: true,
-    });
-  }
+  public sortConfig = linkedSignal(() => {
+    const sortBy = this.sortBy();
+    const sortOrder = this.sortOrder();
+    return sortBy && sortOrder ? { by: sortBy, order: sortOrder } : undefined;
+  });
 
   public onEmployeeClick(employee: Employee) {
     this.router.navigateByUrl(`/employees/${employee.uuid}`);
+  }
+
+  public onSortConfigChange(config?: KuduSortConfig) {
+    const queryParams = {
+      ...this.route.snapshot.queryParams,
+      sortBy: config?.by,
+      sortOrder: config?.order,
+    };
+
+    this.router.navigate([`/employees`], { queryParams });
   }
 
   public filterFn(value: Employee, _: number, search: string) {

@@ -1,8 +1,8 @@
-<table kudu-table kuduSort #sortRef="kuduSort">
+<table kudu-table kuduSort #sortRef="kuduSort" [(kuduSortConfig)]="sortConfig">
   <thead>
     <tr>
       <th kudu-th kuduThSort="name">Название</th>
-      <th kudu-th>Статус</th>
+      <th kudu-th kuduThSort="status">Статус</th>
     </tr>
   </thead>
   <tbody>

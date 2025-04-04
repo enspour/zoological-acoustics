@@ -2,17 +2,20 @@ import {
   ChangeDetectionStrategy,
   Component,
   input,
+  model,
   output,
 } from '@angular/core';
 
 import {
   KuduIconComponent,
+  KuduSortConfig,
   KuduSortDirective,
   KuduSortPipe,
   KuduTableComponent,
   KuduTableDataCellComponent,
   KuduTableHeaderComponent,
   KuduTableHeaderSortDirective,
+  KuduTooltipDirective,
 } from '@kudu-ui';
 
 import { Project } from '@kudu/domain';
@@ -27,6 +30,7 @@ import { Project } from '@kudu/domain';
     KuduSortDirective,
     KuduSortPipe,
     KuduIconComponent,
+    KuduTooltipDirective,
   ],
   templateUrl: './project-table.component.html',
   styleUrl: './project-table.component.scss',
@@ -34,6 +38,8 @@ import { Project } from '@kudu/domain';
 })
 export class ProjectTableComponent {
   public projects = input.required<Project[]>();
+
+  public sortConfig = model<KuduSortConfig>();
 
   public byProjectClick = output<Project>();
 

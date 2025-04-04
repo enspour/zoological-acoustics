@@ -1,1 +1,1 @@
-export * from './lib/employees-page/employees-page.component';
+export * from './lib/employees-page.component';

@@ -23,5 +23,6 @@ export * from './sort';
 export * from './switch';
 export * from './table';
 export * from './tabs';
+export * from './tooltip';
 export * from './virtual-scroll';
 export * from './virtualization';
