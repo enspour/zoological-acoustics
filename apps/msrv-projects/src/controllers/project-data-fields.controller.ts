@@ -1,9 +1,19 @@
-import { Body, Controller, Get, HttpStatus, Post } from '@nestjs/common';
-import { ApiBody, ApiOperation, ApiResponse } from '@nestjs/swagger';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpStatus,
+  Param,
+  ParseUUIDPipe,
+  Post,
+  Put,
+} from '@nestjs/common';
+import { ApiBody, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 
 import { ProjectDataFieldsService } from '@kudu/msrv-feature-project-data-fields';
 
-import { CreateProjectDataFieldDto } from '../dtos';
+import { CreateProjectDataFieldDto, UpdateProjectDataFieldDto } from '../dtos';
 
 @Controller('data-fields')
 export class ProjectDataFieldsController {
@@ -23,6 +33,28 @@ export class ProjectDataFieldsController {
   @ApiResponse({ status: HttpStatus.OK, description: 'Success' })
   public async create(@Body() dto: CreateProjectDataFieldDto) {
     const field = await this.projectDataFieldsService.create(dto);
+    return { statusCode: 200, data: { field } };
+  }
+
+  @Put(':uuid')
+  @ApiOperation({ summary: 'Update Project Data Field' })
+  @ApiParam({ name: 'uuid', description: 'UUID', required: true })
+  @ApiBody({ type: UpdateProjectDataFieldDto })
+  @ApiResponse({ status: HttpStatus.OK, description: 'Success' })
+  public async update(
+    @Param('uuid', new ParseUUIDPipe()) uuid: string,
+    @Body() dto: UpdateProjectDataFieldDto,
+  ) {
+    const field = await this.projectDataFieldsService.update({ uuid, ...dto });
+    return { statusCode: 200, data: { field } };
+  }
+
+  @Delete(':uuid')
+  @ApiOperation({ summary: 'Delete Project Data Field' })
+  @ApiParam({ name: 'uuid', description: 'UUID', required: true })
+  @ApiResponse({ status: HttpStatus.OK, description: 'Success' })
+  public async delete(@Param('uuid', new ParseUUIDPipe()) uuid: string) {
+    const field = await this.projectDataFieldsService.delete(uuid);
     return { statusCode: 200, data: { field } };
   }
 }

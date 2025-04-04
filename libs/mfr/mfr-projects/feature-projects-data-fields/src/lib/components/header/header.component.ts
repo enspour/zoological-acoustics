@@ -5,7 +5,7 @@ import {
   input,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import {
   KuduButtonComponent,
@@ -32,14 +32,14 @@ import { CreateProjectDataFieldModalComponent } from '@kudu/mfr-feature-create-p
 })
 export class HeaderComponent {
   private router = inject(Router);
+  private route = inject(ActivatedRoute);
   private dialogService = inject(KuduDialogService);
 
   public searchTerm = input.required<string>();
 
   public onSearchTermChange(searchTerm: string) {
-    this.router.navigateByUrl(
-      `/projects/settings/data-fields?searchTerm=${searchTerm}`,
-    );
+    const queryParams = { ...this.route.snapshot.queryParams, searchTerm };
+    this.router.navigate([`/projects/settings/data-fields`], { queryParams });
   }
 
   public onCreateDataField() {

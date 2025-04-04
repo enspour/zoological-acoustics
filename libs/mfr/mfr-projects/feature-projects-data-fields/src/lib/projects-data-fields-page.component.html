@@ -5,4 +5,6 @@
 <lib-project-data-field-table
   [dataFields]="dataFields | filter: filterFn : searchTerm() || ''"
   (byClick)="onDataFieldClick($event)"
+  [sortConfig]="sortConfig()"
+  (sortConfigChange)="onSortConfigChange($event)"
 />

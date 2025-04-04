@@ -1,1 +1,14 @@
-<lib-header [field]="field" />
+<lib-header />
+
+<form [formGroup]="form">
+  <kudu-input-container>
+    <input
+      kudu-input
+      placeholder="Название поля"
+      formControlName="name"
+      kuduAutofocus
+    />
+  </kudu-input-container>
+</form>
+
+<lib-footer />

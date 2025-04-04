@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn--delete {
+  color: #ff0000;
+
+  &:hover {
+    color: #ffffff;
+    background-color: #ff0000;
+  }
+}

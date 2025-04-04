@@ -17,4 +17,4 @@ export type ProjectDataFieldWithValues = ProjectDataField & {
 };
 
 export type CreatableProjectDataField = Omit<ProjectDataField, 'uuid'>;
-export type UpdatableProjectDataField = ProjectDataField;
+export type UpdatableProjectDataField = Omit<ProjectDataField, 'type'>;

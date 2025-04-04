@@ -1,7 +1,11 @@
 import { inject, Injectable, resource } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
-import { CreatableProjectDataField } from '@kudu/domain';
+import {
+  CreatableProjectDataField,
+  ProjectDataField,
+  UpdatableProjectDataField,
+} from '@kudu/domain';
 
 import { ProjectDataFieldsApi } from './project-data-fields.api';
 
@@ -26,6 +30,16 @@ export class ProjectDataFieldsService {
 
   public async create(data: CreatableProjectDataField) {
     const request = this.projectDataFieldsApi.create(data);
+    return await lastValueFrom(request);
+  }
+
+  public async update(data: UpdatableProjectDataField) {
+    const request = this.projectDataFieldsApi.update(data);
+    return await lastValueFrom(request);
+  }
+
+  public async delete(field: ProjectDataField) {
+    const request = this.projectDataFieldsApi.delete(field.uuid);
     return await lastValueFrom(request);
   }
 }

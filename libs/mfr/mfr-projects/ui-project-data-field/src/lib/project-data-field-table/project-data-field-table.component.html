@@ -1,8 +1,9 @@
-<table kudu-table kuduSort #sortRef="kuduSort">
+<table kudu-table kuduSort #sortRef="kuduSort" [(kuduSortConfig)]="sortConfig">
   <thead>
     <tr>
       <th kudu-th kuduThSort="name">Название</th>
       <th kudu-th kuduThSort="type">Тип</th>
+      <th kudu-th [style.width.px]="52"></th>
     </tr>
   </thead>
 
@@ -14,6 +15,14 @@
         <td kudu-td>{{ dataField.name }}</td>
         <td kudu-td>
           <kudu-chip>{{ dataField.type | getTypeAlias }}</kudu-chip>
+        </td>
+
+        <td kudu-td>
+          <kudu-icon
+            icon="trash"
+            class="control"
+            (click)="$event.stopPropagation(); onDelete(dataField)"
+          />
         </td>
       </tr>
     }

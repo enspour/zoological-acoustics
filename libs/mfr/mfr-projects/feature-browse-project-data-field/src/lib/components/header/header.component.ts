@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  input,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import {
   KuduChipComponent,
@@ -12,9 +7,9 @@ import {
   KuduSizeDirective,
 } from '@kudu-ui';
 
-import { ProjectDataField } from '@kudu/domain';
-
 import { GetTypeAliasPipe } from '@kudu/mfr-util-project-data-field';
+
+import { BrowseProjectDataFieldModalComponent } from '../../browse-project-data-field-modal.component';
 
 @Component({
   selector: 'lib-header',
@@ -29,9 +24,10 @@ import { GetTypeAliasPipe } from '@kudu/mfr-util-project-data-field';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
+  private modal = inject(BrowseProjectDataFieldModalComponent);
   private dialogRef = inject(KuduDialogRef);
 
-  public field = input.required<ProjectDataField>();
+  public field = this.modal.field;
 
   public onClose() {
     this.dialogRef.close();
