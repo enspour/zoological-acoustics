@@ -34,7 +34,7 @@ import { kuduSize } from '../size';
     {
       directive: KuduOptionsDirective,
       inputs: ['value', 'multiple'],
-      outputs: ['valueChange', 'byOptionClick'],
+      outputs: ['valueChange'],
     },
   ],
 })
@@ -61,7 +61,7 @@ export class KuduAutocompleteComponent {
   public positionY = signal<KuduOverlayPositionY>('under');
 
   constructor() {
-    effect(() => this.options.filterByInnerText(this.text()));
+    effect(() => this.options.filterByText(this.text()));
   }
 
   @HostBinding('class')

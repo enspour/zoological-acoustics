@@ -17,6 +17,7 @@ import { provideEmployeeDataAccess } from '@kudu/mfr-data-access-employee';
 import { provideEmployeesDataAccess } from '@kudu/mfr-data-access-employees';
 import { provideProjectDataAccess } from '@kudu/mfr-data-access-project';
 import { provideProjectsDataAccess } from '@kudu/mfr-data-access-projects';
+import { provideProjectDataFieldsDataAccess } from '@kudu/mfr-data-access-projects-data-fields';
 import { provideTaskBoardsDataAccess } from '@kudu/mfr-data-access-task-boards';
 import { provideTaskColumnsDataAccess } from '@kudu/mfr-data-access-task-columns';
 import { provideTasksDataAccess } from '@kudu/mfr-data-access-tasks';
@@ -42,6 +43,7 @@ export const appConfig: ApplicationConfig = {
     provideEmployeeDataAccess(),
     provideProjectsDataAccess(),
     provideProjectDataAccess(),
+    provideProjectDataFieldsDataAccess(),
     provideTasksDataAccess(),
     provideTaskColumnsDataAccess(),
     provideTaskBoardsDataAccess(),

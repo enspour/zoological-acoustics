@@ -9,8 +9,8 @@
 }
 
 :host.vertical .tabs {
+  height: 100%;
   flex-direction: column;
-  height: fit-content;
 }
 
 :host.sm .tabs {
@@ -36,6 +36,7 @@
 
 .tabs {
   height: fit-content;
+  min-width: fit-content;
   display: flex;
   align-items: center;
   background-color: #f5f5f5;

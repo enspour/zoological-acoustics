@@ -1,0 +1,8 @@
+<lib-header [searchTerm]="searchTerm() || ''" />
+
+@let dataFields = this.dataFields() || [];
+
+<lib-project-data-field-table
+  [dataFields]="dataFields | filter: filterFn : searchTerm() || ''"
+  (byClick)="onDataFieldClick($event)"
+/>

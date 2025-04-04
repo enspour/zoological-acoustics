@@ -45,6 +45,9 @@
       "@kudu/mfr-data-access-projects": [
         "libs/mfr/core/data-access-projects/src/index.ts"
       ],
+      "@kudu/mfr-data-access-projects-data-fields": [
+        "libs/mfr/core/data-access-projects-data-fields/src/index.ts"
+      ],
       "@kudu/mfr-data-access-task-boards": [
         "libs/mfr/core/data-access-task-boards/src/index.ts"
       ],
@@ -66,11 +69,17 @@
       "@kudu/mfr-feature-browse-employee": [
         "libs/mfr/mfr-employees/feature-browse-employee/src/index.ts"
       ],
+      "@kudu/mfr-feature-browse-project-data-field": [
+        "libs/mfr/mfr-projects/feature-browse-project-data-field/src/index.ts"
+      ],
       "@kudu/mfr-feature-browse-task": [
         "libs/mfr/mfr-tasks/feature-browse-task/src/index.ts"
       ],
       "@kudu/mfr-feature-create-project": [
         "libs/mfr/mfr-projects/feature-create-project/src/index.ts"
+      ],
+      "@kudu/mfr-feature-create-project-data-field": [
+        "libs/mfr/mfr-projects/feature-create-project-data-field/src/index.ts"
       ],
       "@kudu/mfr-feature-employee": [
         "libs/mfr/mfr-employees/feature-employee/src/index.ts"
@@ -127,6 +136,12 @@
       "@kudu/mfr-feature-projects": [
         "libs/mfr/mfr-projects/feature-projects/src/index.ts"
       ],
+      "@kudu/mfr-feature-projects-data-fields": [
+        "libs/mfr/mfr-projects/feature-projects-data-fields/src/index.ts"
+      ],
+      "@kudu/mfr-feature-projects-settings": [
+        "libs/mfr/mfr-projects/feature-projects-settings/src/index.ts"
+      ],
       "@kudu/mfr-feature-sidebar": [
         "libs/mfr/mfr-host/feature-sidebar/src/index.ts"
       ],
@@ -164,6 +179,9 @@
       "@kudu/mfr-ui-kit": ["libs/mfr/core/ui-kit/src/index.ts"],
       "@kudu/mfr-ui-modals": ["libs/mfr/core/ui-modals/src/index.ts"],
       "@kudu/mfr-ui-project": ["libs/mfr/core/ui-project/src/index.ts"],
+      "@kudu/mfr-ui-project-data-field": [
+        "libs/mfr/mfr-projects/ui-project-data-field/src/index.ts"
+      ],
       "@kudu/mfr-ui-task": ["libs/mfr/core/ui-task/src/index.ts"],
       "@kudu/mfr-ui-task-board": ["libs/mfr/core/ui-task-board/src/index.ts"],
       "@kudu/mfr-ui-task-column": ["libs/mfr/core/ui-task-column/src/index.ts"],
@@ -185,15 +203,24 @@
       "@kudu/mfr-util-local-storage": [
         "libs/mfr/core/util-local-storage/src/index.ts"
       ],
+      "@kudu/mfr-util-project-data-field": [
+        "libs/mfr/mfr-projects/util-project-data-field/src/index.ts"
+      ],
       "@kudu/mfr-util-tasks": ["libs/mfr/core/util-tasks/src/index.ts"],
       "@kudu/msrv-data-access-postgres": [
         "libs/msrv/core/data-access-postgres/src/index.ts"
+      ],
+      "@kudu/msrv-data-access-project-entities": [
+        "libs/msrv/msrv-projects/data-access-project-entities/src/index.ts"
       ],
       "@kudu/msrv-feature-auth": [
         "libs/msrv/msrv-identity/feature-auth/src/index.ts"
       ],
       "@kudu/msrv-feature-employees": [
         "libs/msrv/msrv-employees/feature-employees/src/index.ts"
+      ],
+      "@kudu/msrv-feature-project-data-fields": [
+        "libs/msrv/msrv-projects/feature-project-data-fields/src/index.ts"
       ],
       "@kudu/msrv-feature-projects": [
         "libs/msrv/msrv-projects/feature-projects/src/index.ts"

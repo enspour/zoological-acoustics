@@ -1,16 +1,10 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import {
   KuduVirtualizationDirective,
   KuduVirtualizeByRangeDirective,
 } from '@kudu-ui';
 
-import { EmployeesService } from '@kudu/mfr-data-access-employees';
 import {
   GanttRowsService,
   provideGanttDataAccess,
@@ -40,13 +34,8 @@ import { GanttToolbarComponent } from '@kudu/mfr-feature-gantt-toolbar';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideGanttDataAccess()],
 })
-export class GanttPageComponent implements OnInit {
-  private employeesService = inject(EmployeesService);
+export class GanttPageComponent {
   private ganttRowsService = inject(GanttRowsService);
 
   public rows = this.ganttRowsService.rows;
-
-  ngOnInit(): void {
-    this.employeesService.init();
-  }
 }

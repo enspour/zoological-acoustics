@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 
 import {
+  KuduIconComponent,
   KuduSortDirective,
   KuduSortPipe,
   KuduTableComponent,
@@ -25,6 +26,7 @@ import { Project } from '@kudu/domain';
     KuduTableHeaderSortDirective,
     KuduSortDirective,
     KuduSortPipe,
+    KuduIconComponent,
   ],
   templateUrl: './project-table.component.html',
   styleUrl: './project-table.component.scss',

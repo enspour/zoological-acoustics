@@ -1,90 +1,101 @@
 import {
+  AfterContentInit,
   computed,
   contentChildren,
   Directive,
   effect,
+  inject,
+  Injector,
   input,
   model,
-  output,
+  runInInjectionContext,
 } from '@angular/core';
 
 import { KuduOptionComponent } from '../components/option/option.component';
 
 import { outputFromObservable, toObservable } from '@angular/core/rxjs-interop';
 
+type Value<T, M extends boolean = false> = M extends any
+  ? T
+  : M extends true
+    ? T[]
+    : T;
+
 @Directive({
   selector: '[kuduOptions]',
 })
-export class KuduOptionsDirective<T> {
-  public options = contentChildren(KuduOptionComponent);
+export class KuduOptionsDirective<T, M extends boolean = false>
+  implements AfterContentInit
+{
+  private injector = inject(Injector);
 
-  public value = model<T | T[] | null>(null);
-  public multiple = input<boolean>(false);
+  public options = contentChildren(KuduOptionComponent<T>);
 
-  public selected = computed(() =>
-    this.options().filter((o) => o.isSelected()),
-  );
+  public value = model<Value<T, M>>();
+  public multiple = input<M>(false as M);
 
-  public bySelectedChange = outputFromObservable(toObservable(this.selected));
-  public byOptionClick = output<KuduOptionComponent<T>>();
+  public selection = computed(() => this.Selection);
+  public bySelectionChange = outputFromObservable(toObservable(this.selection));
 
-  constructor() {
-    effect(() => {
-      for (const option of this.options()) {
-        const isSelected = this.isSelectedOption(option.value());
-        option.isSelected.set(isSelected);
-      }
-    });
+  ngAfterContentInit(): void {
+    runInInjectionContext(this.injector, () => {
+      effect(() => {
+        for (const option of this.options()) {
+          const isSelected = this.isSelectedByValue(option.value());
+          option.isSelected.set(isSelected);
+        }
+      });
 
-    effect((onCleanup) => {
-      const subscriptions = this.options().map((option) =>
-        option.byClick.subscribe(() => {
-          this.selectOption(option.value());
-          this.byOptionClick.emit(option);
-        }),
-      );
+      effect((onCleanup) => {
+        const subscriptions = this.options().map((option) =>
+          option.byClick.subscribe(() => this.selectByValue(option.value())),
+        );
 
-      onCleanup(() => subscriptions.forEach((s) => s.unsubscribe()));
+        onCleanup(() => subscriptions.forEach((s) => s.unsubscribe()));
+      });
     });
   }
 
-  public selectOption(value: T) {
-    if (this.multiple()) {
-      const values = this.value();
+  public get Selection() {
+    return this.options().filter((o) => o.isSelected());
+  }
 
-      if (!Array.isArray(values)) {
-        return this.value.set([value]);
+  public selectByValue(value: T) {
+    if (this.multiple()) {
+      const current = this.value();
+
+      if (!Array.isArray(current)) {
+        return this.value.set([value] as Value<T, M>);
       }
 
-      const index = values.findIndex((v) => v === value);
+      const index = current.findIndex((v) => v === value);
       if (index === -1) {
-        return this.value.set([...values, value]);
+        return this.value.set([...current, value] as Value<T, M>);
       }
 
       return this.value.set([
-        ...values.slice(0, index),
-        ...values.slice(index + 1),
-      ]);
+        ...current.slice(0, index),
+        ...current.slice(index + 1),
+      ] as Value<T, M>);
     }
 
-    return this.value.set(value);
+    return this.value.set(value as Value<T, M>);
   }
 
-  public isSelectedOption(value: T) {
+  public isSelectedByValue(value: T) {
+    const current = this.value();
+    if (current === undefined) {
+      return false;
+    }
+
     if (this.multiple()) {
-      const values = this.value();
-
-      if (!Array.isArray(values)) {
-        return false;
-      }
-
-      return values.some((v) => v === value);
+      return Array.isArray(current) ? current.some((v) => v === value) : false;
     }
 
-    return this.value() === value;
+    return current === value;
   }
 
-  public filterByInnerText(text: string) {
+  public filterByText(text: string) {
     const value = text.toLowerCase();
 
     for (const option of this.options()) {

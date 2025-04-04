@@ -13,13 +13,17 @@ export class PostgresService {
   ) {}
 
   public get Manager() {
+    return this.dataSource.manager;
+  }
+
+  public get ManagerInTransaction() {
     const store = this.transactionStorage.getStore();
 
     if (store) {
       return store.runner.manager;
     }
 
-    return this.dataSource.manager;
+    return this.Manager;
   }
 
   public startTransaction<T>(callback: () => T | Promise<T>) {

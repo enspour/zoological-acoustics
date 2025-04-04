@@ -48,7 +48,7 @@ export class TasksService {
       throw new UnauthorizedError();
     }
 
-    const manager = this.postgresService.Manager;
+    const manager = this.postgresService.ManagerInTransaction;
     return await manager.save(TaskEntity, {
       ...data,
       creatorUuid: token.sub,
@@ -56,7 +56,7 @@ export class TasksService {
   }
 
   public async update(data: UpdatableTask) {
-    const manager = this.postgresService.Manager;
+    const manager = this.postgresService.ManagerInTransaction;
 
     const found = await manager.findOne(TaskEntity, {
       where: { uuid: data.uuid },
@@ -70,14 +70,15 @@ export class TasksService {
   }
 
   public async delete(uuid: string) {
-    const manager = this.postgresService.Manager;
-
-    const found = await manager.findOne(TaskEntity, { where: { uuid } });
+    const found = await this.postgresService.Manager.findOne(TaskEntity, {
+      where: { uuid },
+    });
 
     if (!found) {
       throw new NotFoundError('Задача не найдена!');
     }
 
+    const manager = this.postgresService.ManagerInTransaction;
     await manager.delete(TaskEntity, uuid);
 
     return found;

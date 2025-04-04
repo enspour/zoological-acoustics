@@ -34,11 +34,11 @@ import { kuduSize } from '../size';
     {
       directive: KuduOptionsDirective,
       inputs: ['value', 'multiple'],
-      outputs: ['valueChange', 'byOptionClick', 'bySelectedChange'],
+      outputs: ['valueChange', 'bySelectionChange'],
     },
   ],
 })
-export class KuduSelectComponent implements OnInit {
+export class KuduSelectComponent<T> implements OnInit {
   private domSanitizer = inject(DomSanitizer);
 
   public size = inject(kuduSize);
@@ -78,17 +78,17 @@ export class KuduSelectComponent implements OnInit {
     this.isOpen.update((isOpen) => !isOpen);
   }
 
-  @HostListener('bySelectedChange', ['$event'])
-  public onOptionChange(selected: KuduOptionComponent<unknown>[]) {
-    if (selected.length === 0) {
+  @HostListener('bySelectionChange', ['$event'])
+  public onOptionChange(selection: KuduOptionComponent<T>[]) {
+    if (selection.length === 0) {
       return this.setContentToPlaceholder();
     }
 
-    if (selected.length === 1) {
-      return this.setContentToSelected(selected[0]);
+    if (selection.length === 1) {
+      return this.setContentToSelected(selection[0]);
     }
 
-    this.content.set(`Выбрано: ${selected.length}`);
+    this.content.set(`Выбрано: ${selection.length}`);
   }
 
   private setContentToPlaceholder() {
@@ -96,7 +96,7 @@ export class KuduSelectComponent implements OnInit {
     this.content.set(this.domSanitizer.bypassSecurityTrustHtml(content));
   }
 
-  private setContentToSelected(selected: KuduOptionComponent<unknown>) {
+  private setContentToSelected(selected: KuduOptionComponent<T>) {
     const content = selected.elementRef.nativeElement.innerHTML;
     return this.content.set(this.domSanitizer.bypassSecurityTrustHtml(content));
   }

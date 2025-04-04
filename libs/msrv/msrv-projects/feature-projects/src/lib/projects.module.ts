@@ -3,7 +3,7 @@ import { Module } from '@nestjs/common';
 
 import { ProjectsService } from './services/projects.service';
 
-import { ProjectEntity } from './entities';
+import { ProjectEntity } from '@kudu/msrv-data-access-project-entities';
 
 @Module({
   imports: [PostgresModule.forFeature([ProjectEntity])],

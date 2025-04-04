@@ -7,8 +7,7 @@ import {
 } from '@kudu/domain';
 
 import { PostgresService } from '@kudu/msrv-data-access-postgres';
-
-import { ProjectEntity } from '../entities';
+import { ProjectEntity } from '@kudu/msrv-data-access-project-entities';
 
 @Injectable()
 export class ProjectsService {
@@ -16,21 +15,27 @@ export class ProjectsService {
 
   public async getAll() {
     const manager = this.postgresService.Manager;
-    return manager.find(ProjectEntity);
+    return await manager.find(ProjectEntity, {
+      relations: {
+        dfs: {
+          value: true,
+        },
+      },
+    });
   }
 
   public async getByUuid(uuid: string) {
     const manager = this.postgresService.Manager;
-    return manager.findOne(ProjectEntity, { where: { uuid } });
+    return await manager.findOne(ProjectEntity, { where: { uuid } });
   }
 
   public async create(data: CreatableProject) {
-    const manager = this.postgresService.Manager;
-    return manager.save(ProjectEntity, data);
+    const manager = this.postgresService.ManagerInTransaction;
+    return await manager.save(ProjectEntity, data);
   }
 
   public async update(data: UpdatableProject) {
-    const manager = this.postgresService.Manager;
+    const manager = this.postgresService.ManagerInTransaction;
 
     const project = await manager.findOne(ProjectEntity, {
       where: { uuid: data.uuid },
@@ -40,19 +45,20 @@ export class ProjectsService {
       throw new NotFoundError('Проект не найден!');
     }
 
-    return manager.save(ProjectEntity, data);
+    return await manager.save(ProjectEntity, data);
   }
 
   public async delete(uuid: string) {
-    const manager = this.postgresService.Manager;
-
-    const project = await manager.findOne(ProjectEntity, { where: { uuid } });
+    const project = await this.postgresService.Manager.findOne(ProjectEntity, {
+      where: { uuid },
+    });
 
     if (!project) {
       throw new NotFoundError('Проект не найден!');
     }
 
-    manager.delete(ProjectEntity, uuid);
+    const manager = this.postgresService.ManagerInTransaction;
+    await manager.delete(ProjectEntity, uuid);
 
     return project;
   }

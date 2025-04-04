@@ -4,10 +4,8 @@ import {
   computed,
   inject,
   input,
-  OnInit,
 } from '@angular/core';
 
-import { EmployeesService } from '@kudu/mfr-data-access-employees';
 import { provideKanbanDataAccess } from '@kudu/mfr-data-access-kanban';
 import { ProjectTaskBoardsService } from '@kudu/mfr-data-access-project';
 
@@ -25,16 +23,11 @@ import { KanbanBoardSaverDirective } from '@kudu/mfr-util-kanban-last-board';
   providers: [provideKanbanDataAccess()],
   hostDirectives: [KanbanBoardSaverDirective],
 })
-export class KanbanPageComponent implements OnInit {
-  private employeesService = inject(EmployeesService);
+export class KanbanPageComponent {
   private projectTaskBoardsService = inject(ProjectTaskBoardsService);
 
   public boardUuid = input<string>();
   public board = computed(() => this.getBoard());
-
-  ngOnInit(): void {
-    this.employeesService.init();
-  }
 
   private getBoard() {
     const boards = this.projectTaskBoardsService.boards() || [];

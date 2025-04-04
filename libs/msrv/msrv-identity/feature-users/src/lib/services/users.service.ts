@@ -11,13 +11,16 @@ import { PostgresService } from '@kudu/msrv-data-access-postgres';
 
 import { UserEventsService } from '@kudu/msrv-feature-user-events';
 
-import { UserCredentialsEntity, UserEntity } from '../entity';
+import { UserCredentialsService } from './user-credentials.service';
+
+import { UserEntity } from '../entity';
 
 @Injectable()
 export class UsersService {
   constructor(
     private postgresService: PostgresService,
     private userEventsService: UserEventsService,
+    private userCredentialsService: UserCredentialsService,
   ) {}
 
   public async get(uuid: string) {
@@ -30,14 +33,10 @@ export class UsersService {
     credentials: CreatableUserCredentials,
   ) {
     return await this.postgresService.startTransaction(async () => {
-      const manager = this.postgresService.Manager;
+      const manager = this.postgresService.ManagerInTransaction;
 
       const user = await manager.save(UserEntity, data);
-
-      await manager.save(UserCredentialsEntity, {
-        ...credentials,
-        user,
-      });
+      await this.userCredentialsService.create(credentials, user);
 
       this.userEventsService.notifyUserCreated(user);
 
@@ -46,7 +45,7 @@ export class UsersService {
   }
 
   public async update(data: UpdatableUser) {
-    const manager = this.postgresService.Manager;
+    const manager = this.postgresService.ManagerInTransaction;
 
     const found = await manager.findOne(UserEntity, {
       where: { uuid: data.uuid },
@@ -64,9 +63,7 @@ export class UsersService {
   }
 
   public async remove(uuid: string) {
-    const manager = this.postgresService.Manager;
-
-    const user = await manager.findOne(UserEntity, {
+    const user = await this.postgresService.Manager.findOne(UserEntity, {
       where: { uuid },
     });
 
@@ -74,6 +71,7 @@ export class UsersService {
       throw new NotFoundError('Пользователь не найден!');
     }
 
+    const manager = this.postgresService.ManagerInTransaction;
     await manager.delete(UserEntity, uuid);
 
     this.userEventsService.notifyUserRemoved(user);

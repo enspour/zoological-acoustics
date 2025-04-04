@@ -29,19 +29,20 @@ export class TaskColumnsService {
   }
 
   public async create(data: CreatableTaskColumn) {
-    const manager = this.postgresService.Manager;
+    const manager = this.postgresService.ManagerInTransaction;
     return await manager.save(TaskColumnEntity, data);
   }
 
   public async delete(uuid: string) {
-    const manager = this.postgresService.Manager;
-
-    const found = await manager.findOne(TaskColumnEntity, { where: { uuid } });
+    const found = await this.postgresService.Manager.findOne(TaskColumnEntity, {
+      where: { uuid },
+    });
 
     if (!found) {
       throw new NotFoundError('Задача не найдена!');
     }
 
+    const manager = this.postgresService.ManagerInTransaction;
     await manager.delete(TaskColumnEntity, uuid);
 
     return found;

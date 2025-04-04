@@ -2,6 +2,9 @@
   <thead>
     <tr>
       <th kudu-th kuduThSort="name">Название</th>
+      <th kudu-th [style.width.px]="52">
+        <kudu-icon icon="table-options" />
+      </th>
     </tr>
   </thead>
 
@@ -11,6 +14,7 @@
     @for (project of projects; track project.uuid) {
       <tr (click)="onClick(project)">
         <td kudu-td>{{ project.name }}</td>
+        <td kudu-td></td>
       </tr>
     }
   </tbody>

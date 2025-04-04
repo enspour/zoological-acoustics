@@ -10,19 +10,19 @@ export class EmployeesService {
   constructor(private postgresService: PostgresService) {}
 
   public async getAll() {
-    const manager = this.postgresService.Manager;
+    const manager = this.postgresService.ManagerInTransaction;
     return await manager.find(EmployeeEntity);
   }
 
   public async getByUuid(uuid: string) {
-    const manager = this.postgresService.Manager;
+    const manager = this.postgresService.ManagerInTransaction;
     return await manager.findOne(EmployeeEntity, {
       where: { uuid },
     });
   }
 
   public async update(data: UpdatableEmployee) {
-    const manager = this.postgresService.Manager;
+    const manager = this.postgresService.ManagerInTransaction;
     return await manager.save(EmployeeEntity, data);
   }
 }

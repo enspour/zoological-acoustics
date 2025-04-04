@@ -1,0 +1,21 @@
+<table kudu-table kuduSort #sortRef="kuduSort">
+  <thead>
+    <tr>
+      <th kudu-th kuduThSort="name">Название</th>
+      <th kudu-th kuduThSort="type">Тип</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @let dataFields = this.dataFields() | kuduSort: sortRef.config();
+
+    @for (dataField of dataFields; track dataField.uuid) {
+      <tr (click)="onClick(dataField)">
+        <td kudu-td>{{ dataField.name }}</td>
+        <td kudu-td>
+          <kudu-chip>{{ dataField.type | getTypeAlias }}</kudu-chip>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

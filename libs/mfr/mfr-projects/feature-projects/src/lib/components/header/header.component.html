@@ -1,0 +1,19 @@
+<button class="header__btn" kudu-button (click)="onCreateProject()">
+  <kudu-icon icon="plus" />
+  <span>Добавить проект</span>
+</button>
+
+<kudu-input-container class="header__search">
+  <kudu-icon icon="search" />
+
+  <input
+    kudu-input
+    placeholder="Поиск по проектам..."
+    [ngModel]="searchTerm()"
+    (ngModelChange)="onSearchTermChange($event)"
+  />
+</kudu-input-container>
+
+<a class="header__btn btn-settings" routerLink="settings/data-fields">
+  <kudu-icon icon="settings" />
+</a>

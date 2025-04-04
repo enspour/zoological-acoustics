@@ -3,7 +3,6 @@ import {
   Component,
   inject,
   input,
-  OnInit,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -41,7 +40,7 @@ import { EmployeeTableComponent } from '@kudu/mfr-ui-employee';
   styleUrl: './employees-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EmployeesPageComponent implements OnInit {
+export class EmployeesPageComponent {
   private router = inject(Router);
   private dialogService = inject(KuduDialogService);
   private employeesService = inject(EmployeesService);
@@ -49,10 +48,6 @@ export class EmployeesPageComponent implements OnInit {
   public employees = this.employeesService.employees;
 
   public searchTerm = input<string>();
-
-  ngOnInit(): void {
-    this.employeesService.init();
-  }
 
   public onSearchTermChange(searchTerm: string) {
     this.router.navigateByUrl(`/employees?searchTerm=${searchTerm}`);

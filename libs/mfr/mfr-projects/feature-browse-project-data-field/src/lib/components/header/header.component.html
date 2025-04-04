@@ -1,0 +1,9 @@
+<div class="header__title">
+  <span>{{ field().name }}</span>
+
+  <kudu-chip kuduSize="sm">
+    {{ field().type | getTypeAlias }}
+  </kudu-chip>
+</div>
+
+<kudu-icon class="header__icon" icon="close" (click)="onClose()" />

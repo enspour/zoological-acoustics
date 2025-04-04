@@ -1,4 +1,9 @@
-<button class="tab" [class.tab--active]="isActive()" (click)="onClick($event)">
+<button
+  class="tab"
+  [class.tab--active]="isActive()"
+  [class.tab--horizontal]="orientation() === 'horizontal'"
+  (click)="onClick($event)"
+>
   {{ name() }}
 </button>
 

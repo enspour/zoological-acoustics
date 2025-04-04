@@ -1,1 +1,1 @@
-export * from './lib/project-settings-modal.component';
+export * from './lib/project-settings-page.component';

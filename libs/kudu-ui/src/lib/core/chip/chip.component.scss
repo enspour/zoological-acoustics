@@ -1,0 +1,24 @@
+@use '../../mixins/layout.mixin.scss';
+
+:host {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #cccccc;
+}
+
+:host.sm {
+  @include layout.sm;
+  height: 22px;
+}
+
+:host.md {
+  @include layout.md;
+  height: 26px;
+}
+
+:host.lg {
+  @include layout.lg;
+  height: 30px;
+}

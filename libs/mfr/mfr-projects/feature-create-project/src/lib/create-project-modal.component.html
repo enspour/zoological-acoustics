@@ -3,11 +3,7 @@
   <kudu-icon class="header__icon" icon="close" (click)="onClose()" />
 </div>
 
-<form
-  class="form"
-  [formGroup]="form"
-  (submit)="$event.preventDefault(); onCreate()"
->
+<form class="form" [formGroup]="form">
   <kudu-input-container>
     <input
       kudu-input
@@ -17,7 +13,12 @@
     />
   </kudu-input-container>
 
-  <button class="form__btn" kudu-button type="submit" [disabled]="!form.valid">
+  <button
+    class="form__btn"
+    kudu-button
+    [disabled]="!form.valid"
+    (click)="onCreate()"
+  >
     Создать проект
   </button>
 </form>

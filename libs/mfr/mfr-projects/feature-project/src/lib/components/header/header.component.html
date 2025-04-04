@@ -8,12 +8,6 @@
     </div>
 
     <div class="head__section">
-      <kudu-icon
-        class="head__icon"
-        icon="settings"
-        (click)="onOpenSettings()"
-      />
-
       <lib-project-more [project]="project" />
     </div>
   </div>
@@ -21,5 +15,6 @@
   <lib-tabs class="tabs">
     <lib-tab-link href="./gantt"> Диаграмма </lib-tab-link>
     <lib-tab-link href="./kanban"> Доски </lib-tab-link>
+    <lib-tab-link href="./settings"> Настройки </lib-tab-link>
   </lib-tabs>
 }

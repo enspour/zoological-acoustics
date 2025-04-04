@@ -1,4 +1,4 @@
-import { inject, Injectable, resource, ResourceStatus } from '@angular/core';
+import { inject, Injectable, resource } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
 import { EmployeesApi } from './employees.api';
@@ -18,9 +18,7 @@ export class EmployeesService {
   public error = this.response.error;
   public isLoading = this.response.isLoading;
 
-  public init() {
-    if (this.response.status() === ResourceStatus.Idle) {
-      this.response.reload();
-    }
+  public reload() {
+    this.response.reload();
   }
 }

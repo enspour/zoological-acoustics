@@ -13,6 +13,7 @@ import {
 
 import { kuduSize } from '../../../size';
 import { kuduTabContent } from '../../directives/tab-content.directive';
+import { KuduTabsComponent } from '../tabs/tabs.component';
 
 @Component({
   selector: 'kudu-tab',
@@ -23,6 +24,9 @@ import { kuduTabContent } from '../../directives/tab-content.directive';
 })
 export class KuduTabComponent {
   private size = inject(kuduSize);
+  private tabs = inject(KuduTabsComponent);
+
+  public orientation = this.tabs.orientation;
 
   public explicitContent = contentChild(kuduTabContent, { read: TemplateRef });
   public implicitContent = viewChild(TemplateRef);
