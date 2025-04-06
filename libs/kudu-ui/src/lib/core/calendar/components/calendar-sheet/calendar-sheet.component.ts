@@ -4,58 +4,52 @@ import {
   computed,
   HostBinding,
   inject,
+  input,
   model,
+  output,
 } from '@angular/core';
 
-import {
-  DateTime,
-  DateTimePeriod,
-  DAY_SHORT_NAMES,
-  MONTH_FULL_NAMES,
-} from '@kudu-date';
+import { DateTime, DateTimePeriod, DAY_SHORT_NAMES } from '@kudu-date';
 
-import { kuduSize } from '../size';
+import { kuduSize } from '../../../size';
 
 import {
   KuduEqualsPipe,
   KuduGetDayPipe,
   KuduIsAvailablePipe,
   KuduIsTodayPipe,
-} from './pipes';
+} from '../../pipes';
 
 @Component({
-  selector: 'kudu-calendar',
-  standalone: true,
+  selector: 'kudu-calendar-sheet',
   imports: [
     KuduIsTodayPipe,
     KuduIsAvailablePipe,
     KuduGetDayPipe,
     KuduEqualsPipe,
   ],
-  templateUrl: './calendar.component.html',
-  styleUrl: './calendar.component.scss',
+  templateUrl: './calendar-sheet.component.html',
+  styleUrl: './calendar-sheet.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KuduCalendarComponent {
+export class CalendarSheetComponent {
   private size = inject(kuduSize);
 
-  public date = model<Date | number | string>(Date.now());
-  public dateTime = computed(() => new DateTime(this.date()));
+  public dateTime = model.required<DateTime>();
+  public dateSelected = input<DateTime>();
 
-  public month = computed(() => this.dateTime().getMonthString());
-  public year = computed(() => this.dateTime().getYear());
-
-  public months = MONTH_FULL_NAMES;
   public weeks = DAY_SHORT_NAMES;
   public dates = computed(() => this.generateDates(this.dateTime()));
+
+  public byDateClick = output<Date>();
 
   @HostBinding('class')
   public get Classes() {
     return this.size();
   }
 
-  public onSelectDate(date: DateTime) {
-    this.date.set(date.toDate());
+  public onDateClick(date: DateTime) {
+    this.byDateClick.emit(date.toDate());
   }
 
   private generateDates(date: DateTime) {

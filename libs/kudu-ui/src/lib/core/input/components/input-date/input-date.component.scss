@@ -1,0 +1,25 @@
+@use '../../../../mixins/font-size.mixin.scss' as font-size;
+
+:host {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-weight: 500;
+  color: #191919;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+:host.sm {
+  @include font-size.sm;
+}
+
+:host.md {
+  @include font-size.md;
+}
+
+:host.lg {
+  @include font-size.lg;
+}

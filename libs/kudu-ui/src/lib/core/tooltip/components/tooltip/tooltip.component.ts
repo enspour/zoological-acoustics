@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import {
   KuduOverlayComponent,
+  KuduOverlayConfig,
   KuduOverlayOriginDirective,
 } from '../../../overlay';
 
@@ -15,4 +16,13 @@ import {
 export class KuduTooltipComponent {
   public origin = input.required<KuduOverlayOriginDirective>();
   public tooltip = input.required<string>();
+
+  public config: KuduOverlayConfig = {
+    width: 'self-width',
+    positionX: 'center',
+    positionY: 'under',
+    lockX: false,
+    lockY: false,
+    gap: 4,
+  };
 }

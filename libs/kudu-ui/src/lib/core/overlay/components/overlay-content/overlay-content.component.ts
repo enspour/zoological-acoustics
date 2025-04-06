@@ -3,7 +3,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  HostListener,
   inject,
   model,
 } from '@angular/core';
@@ -53,26 +52,23 @@ export class KuduOverlayContentComponent {
   public positionX = model.required<KuduOverlayPositionX>();
   public positionY = model.required<KuduOverlayPositionY>();
 
-  @HostListener('byClickOutside')
-  public onClickOutside() {
-    this.overlay.isOpen.set(false);
-  }
-
   private getLayout(origin: DOMRect) {
     const { height, width } =
       this.elementRef.nativeElement.getBoundingClientRect();
 
-    let top = origin.bottom;
-    let left = origin.left;
-
-    this.updatePositionX(left, width);
-    this.updatePositionY(top, height);
+    this.updatePositionX(origin, width);
+    this.updatePositionY(origin, height);
 
     const positionX = this.positionX();
     const positionY = this.positionY();
 
+    let top = origin.bottom;
+    let left = origin.left;
+
+    const config = this.overlay.config();
+
     if (positionX === 'right') {
-      left = origin.left;
+      left = origin.right - width;
     }
 
     if (positionX === 'center') {
@@ -80,18 +76,16 @@ export class KuduOverlayContentComponent {
     }
 
     if (positionX === 'left') {
-      left = origin.right - width;
+      left = origin.left;
     }
 
     if (positionY === 'above') {
-      top = origin.top - height;
+      top = origin.top - height - config.gap;
     }
 
     if (positionY === 'under') {
-      top = origin.bottom;
+      top = origin.bottom + config.gap;
     }
-
-    const config = this.overlay.config();
 
     if (config.width === 'origin-width') {
       return { top, left, width: origin.width };
@@ -100,7 +94,7 @@ export class KuduOverlayContentComponent {
     return { top, left, width };
   }
 
-  private updatePositionX(left: number, width: number) {
+  private updatePositionX(origin: DOMRect, width: number) {
     if (this.overlay.config().lockX) {
       return;
     }
@@ -108,25 +102,25 @@ export class KuduOverlayContentComponent {
     const initialX = this.overlay.config().positionX;
 
     if (
-      (initialX === 'center' && this.isPlacedInCenter(left, width)) ||
-      (initialX === 'right' && this.isPlacedInRight(left, width)) ||
-      (initialX === 'left' && this.isPlacedInLeft(left, width))
+      (initialX === 'left' && this.isPlacedInLeft(origin, width)) ||
+      (initialX === 'center' && this.isPlacedInCenter(origin, width)) ||
+      (initialX === 'right' && this.isPlacedInRight(origin, width))
     ) {
       return this.positionX.set(initialX);
     }
 
-    if (this.isPlacedInCenter(left, width)) {
+    if (this.isPlacedInCenter(origin, width)) {
       return this.positionX.set('center');
     }
 
-    if (this.isPlacedInRight(left, width)) {
-      return this.positionX.set('right');
+    if (this.isPlacedInLeft(origin, width)) {
+      this.positionX.set('left');
     }
 
-    this.positionX.set('left');
+    return this.positionX.set('right');
   }
 
-  private updatePositionY(top: number, height: number) {
+  private updatePositionY(origin: DOMRect, height: number) {
     if (this.overlay.config().lockY) {
       return;
     }
@@ -134,39 +128,39 @@ export class KuduOverlayContentComponent {
     const initialY = this.overlay.config().positionY;
 
     if (
-      (initialY === 'above' && this.isPlacedInAbove(top, height)) ||
-      (initialY === 'under' && this.isPlacedInUnder(top, height))
+      (initialY === 'above' && this.isPlacedInAbove(origin, height)) ||
+      (initialY === 'under' && this.isPlacedInUnder(origin, height))
     ) {
       return this.positionY.set(initialY);
     }
 
-    if (this.isPlacedInAbove(top, height)) {
+    if (this.isPlacedInAbove(origin, height)) {
       return this.positionY.set('above');
     }
 
     this.positionY.set('under');
   }
 
-  private isPlacedInCenter(left: number, width: number) {
+  private isPlacedInCenter(origin: DOMRect, width: number) {
     const viewportWidth = this.document.defaultView?.innerWidth || 0;
-    return left + width / 2 <= viewportWidth;
+    return origin.left + origin.width / 2 + width / 2 <= viewportWidth;
   }
 
-  private isPlacedInRight(left: number, width: number) {
+  private isPlacedInRight(origin: DOMRect, width: number) {
+    return origin.right - width >= 0;
+  }
+
+  private isPlacedInLeft(origin: DOMRect, width: number) {
     const viewportWidth = this.document.defaultView?.innerWidth || 0;
-    return left + width <= viewportWidth;
+    return origin.left + width <= viewportWidth;
   }
 
-  private isPlacedInLeft(left: number, width: number) {
-    return left - width >= 0;
+  private isPlacedInAbove(origin: DOMRect, height: number) {
+    return origin.top - height >= 0;
   }
 
-  private isPlacedInAbove(top: number, height: number) {
-    return top - height >= 0;
-  }
-
-  private isPlacedInUnder(top: number, height: number) {
+  private isPlacedInUnder(origin: DOMRect, height: number) {
     const viewportHeight = this.document.defaultView?.innerHeight || 0;
-    return top + height <= viewportHeight;
+    return origin.top + height <= viewportHeight;
   }
 }

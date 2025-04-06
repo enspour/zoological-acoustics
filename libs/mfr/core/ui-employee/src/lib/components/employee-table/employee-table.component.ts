@@ -18,6 +18,8 @@ import {
 
 import { Employee } from '@kudu/domain';
 
+import { EmployeeAvatarComponent } from '../employee-avatar/employee-avatar.component';
+
 @Component({
   selector: 'lib-employee-table',
   imports: [
@@ -27,6 +29,7 @@ import { Employee } from '@kudu/domain';
     KuduTableHeaderSortDirective,
     KuduSortDirective,
     KuduSortPipe,
+    EmployeeAvatarComponent,
   ],
   templateUrl: './employee-table.component.html',
   styleUrl: './employee-table.component.scss',

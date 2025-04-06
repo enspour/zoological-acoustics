@@ -1,0 +1,21 @@
+:host {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn {
+  cursor: pointer;
+
+  &:hover {
+    color: #134b7c;
+  }
+}

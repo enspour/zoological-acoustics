@@ -1,0 +1,40 @@
+@use '../../../../mixins/layout.mixin.scss';
+
+:host {
+  width: var(--kudu-calendar-width);
+  display: block;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  overflow: hidden;
+}
+
+:host.sm {
+  --kudu-calendar-width: calc(7 * 32px);
+  --kudu-calendar-today-size: 3px;
+  --kudu-calendar-today-bottom: 3px;
+  @include layout.sm;
+  padding: 0;
+  font-size: 14px;
+}
+
+:host.md {
+  --kudu-calendar-width: calc(7 * 36px);
+  --kudu-calendar-today-size: 4px;
+  --kudu-calendar-today-bottom: 4px;
+  @include layout.md;
+  padding: 0;
+  font-size: 14px;
+}
+
+:host.lg {
+  --kudu-calendar-width: calc(7 * 40px);
+  --kudu-calendar-today-size: 5px;
+  --kudu-calendar-today-bottom: 6px;
+  @include layout.lg;
+  padding: 0;
+  font-size: 16px;
+}
+
+.spin {
+  border-bottom: 1px solid #dddddd;
+}

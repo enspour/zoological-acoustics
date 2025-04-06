@@ -12,6 +12,7 @@
   [config]="config"
   (positionXChange)="positionX.set($event)"
   (positionYChange)="positionY.set($event)"
+  (byClickOutside)="isOpen.set(false)"
 >
   <div [class]="['options', size(), positionX(), positionY()]">
     <ng-content />

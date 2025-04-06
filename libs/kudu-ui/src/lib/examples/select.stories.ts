@@ -7,7 +7,7 @@ import {
 
 import { KuduOptionComponent, KuduSelectComponent } from '../core';
 
-type Select = KuduSelectComponent & { multiple: boolean };
+type Select = KuduSelectComponent<unknown> & { multiple: boolean };
 
 const meta: Meta<Select> = {
   component: KuduSelectComponent,

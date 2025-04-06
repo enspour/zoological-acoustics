@@ -1,55 +1,17 @@
-:host.sm {
-  --kudu-calendar-width: calc(7 * 36px);
-  --kudu-calendar-today-size: 5px;
-  --kudu-calendar-today-bottom: 4px;
-  font-size: 14px;
-}
-
-:host.md {
-  --kudu-calendar-width: calc(7 * 40px);
-  --kudu-calendar-today-size: 6px;
-  --kudu-calendar-today-bottom: 5px;
-  font-size: 16px;
-}
-
-:host.lg {
-  --kudu-calendar-width: calc(7 * 46px);
-  --kudu-calendar-today-size: 7px;
-  --kudu-calendar-today-bottom: 6px;
-  font-size: 18px;
-}
-
 :host {
-  width: var(--kudu-calendar-width);
   display: block;
 }
 
-.controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+:host.sm {
+  padding: 4px 8px;
 }
 
-.control {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+:host.md {
+  padding: 6px 12px;
 }
 
-.year {
-  cursor: pointer;
-
-  &:hover {
-    color: rgb(80, 122, 159);
-  }
-}
-
-.month {
-  cursor: pointer;
-
-  &:hover {
-    color: rgb(80, 122, 159);
-  }
+:host.lg {
+  padding: 8px 16px;
 }
 
 .weeks {

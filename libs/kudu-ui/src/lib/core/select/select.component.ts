@@ -49,10 +49,11 @@ export class KuduSelectComponent<T> implements OnInit {
 
   public config: KuduOverlayConfig = {
     width: 'origin-width',
-    positionX: 'right',
+    positionX: 'left',
     positionY: 'under',
     lockX: true,
     lockY: false,
+    gap: 0,
   };
 
   public positionX = signal<KuduOverlayPositionX>('right');

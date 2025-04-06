@@ -6,6 +6,8 @@ import {
   inject,
 } from '@angular/core';
 
+import { KuduTooltipDirective } from '@kudu-ui';
+
 import { EmployeeAvatarComponent } from '@kudu/mfr-ui-employee';
 
 import { EmployeesService } from '@kudu/mfr-data-access-employees';
@@ -14,7 +16,7 @@ import { BrowseTaskComponent } from '../../browse-task.component';
 
 @Component({
   selector: 'lib-info-creator-section',
-  imports: [EmployeeAvatarComponent, DatePipe],
+  imports: [KuduTooltipDirective, EmployeeAvatarComponent, DatePipe],
   templateUrl: './info-creator-section.component.html',
   styleUrl: './info-creator-section.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

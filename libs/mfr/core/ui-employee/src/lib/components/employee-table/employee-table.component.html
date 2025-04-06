@@ -1,6 +1,7 @@
 <table kudu-table kuduSort #sortRef="kuduSort" [(kuduSortConfig)]="sortConfig">
   <thead>
     <tr>
+      <th kudu-th [style.width.px]="52"></th>
       <th kudu-th kuduThSort="name">Название</th>
       <th kudu-th kuduThSort="status">Статус</th>
     </tr>
@@ -10,6 +11,10 @@
 
     @for (employee of employees; track employee.uuid) {
       <tr (click)="onClick(employee)">
+        <td kudu-td>
+          <lib-employee-avatar class="employee__avatar" [avatar]="employee" />
+        </td>
+
         <td kudu-td>{{ employee.name }}</td>
         <td kudu-td>{{ employee.status }}</td>
       </tr>

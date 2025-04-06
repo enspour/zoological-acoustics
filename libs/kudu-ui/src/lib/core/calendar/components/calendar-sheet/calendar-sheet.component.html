@@ -1,0 +1,22 @@
+<div class="weeks">
+  @for (week of weeks; track $index) {
+    <div class="week">{{ week }}</div>
+  }
+</div>
+
+@let dateTime = this.dateTime();
+@let dateSelected = this.dateSelected();
+
+<div class="dates">
+  @for (date of dates(); track $index) {
+    <button
+      class="date"
+      [class.date--available]="date | isAvailable: dateTime"
+      [class.date--today]="date | isToday"
+      [class.date--selected]="dateSelected && (date | equals: dateSelected)"
+      (click)="onDateClick(date)"
+    >
+      {{ date | getDay }}
+    </button>
+  }
+</div>

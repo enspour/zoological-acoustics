@@ -8,7 +8,7 @@ import {
 
 import { kuduSize } from '../../../size';
 
-import { KuduInputKind } from '../../input.interface';
+import { KuduInputKind } from './input.interface';
 
 @Component({
   selector: 'input[kudu-input]',

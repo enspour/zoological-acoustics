@@ -1,0 +1,21 @@
+<div class="dates">
+  <div class="date">
+    <div class="date__title">Начало:</div>
+
+    <kudu-datepicker
+      [date]="task().startDate"
+      (dateChange)="onDeadlineChange({ startDate: $event })"
+      placeholder="Начало"
+    />
+  </div>
+
+  <div class="date">
+    <div class="date__title">Завершение:</div>
+
+    <kudu-datepicker
+      [date]="task().endDate"
+      (dateChange)="onDeadlineChange({ endDate: $event })"
+      placeholder="Завершение"
+    />
+  </div>
+</div>

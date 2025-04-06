@@ -1,5 +1,10 @@
 <div>Создатель:</div>
 
-<lib-employee-avatar class="employee" [avatar]="creator()!" [avatarSize]="24" />
+<lib-employee-avatar
+  class="employee"
+  [avatar]="creator()!"
+  [avatarSize]="24"
+  [kuduTooltip]="creator()!.name"
+/>
 
 <div class="date">{{ task().createdAt | date: ' h:mm, d MMMM y' }}</div>

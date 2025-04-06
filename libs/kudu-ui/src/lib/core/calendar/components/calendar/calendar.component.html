@@ -1,0 +1,28 @@
+@if (mode() === 'sheet') {
+  <kudu-calendar-spin
+    class="spin"
+    [(dateTime)]="dateTime"
+    (byMonthClick)="mode.set('months')"
+    (byYearClick)="mode.set('years')"
+  />
+
+  <kudu-calendar-sheet
+    [dateSelected]="dateSelected()"
+    [(dateTime)]="dateTime"
+    (byDateClick)="onDateClick($event)"
+  />
+}
+
+@if (mode() === 'months') {
+  <kudu-calendar-months
+    [(dateTime)]="dateTime"
+    (dateTimeChange)="mode.set('sheet')"
+  />
+}
+
+@if (mode() === 'years') {
+  <kudu-calendar-years
+    [(dateTime)]="dateTime"
+    (dateTimeChange)="mode.set('sheet')"
+  />
+}

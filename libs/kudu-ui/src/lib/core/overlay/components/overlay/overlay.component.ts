@@ -19,14 +19,16 @@ export interface KuduOverlayConfig {
   positionY: KuduOverlayPositionY;
   lockX: boolean;
   lockY: boolean;
+  gap: number;
 }
 
 const initialConfig: KuduOverlayConfig = {
   width: 'self-width',
-  positionX: 'right',
+  positionX: 'left',
   positionY: 'under',
   lockX: false,
   lockY: false,
+  gap: 0,
 };
 
 @Component({
@@ -44,4 +46,10 @@ export class KuduOverlayComponent {
 
   public positionXChange = output<KuduOverlayPositionX>();
   public positionYChange = output<KuduOverlayPositionY>();
+
+  public byClickOutside = output();
+
+  public onClickOutside() {
+    this.byClickOutside.emit();
+  }
 }

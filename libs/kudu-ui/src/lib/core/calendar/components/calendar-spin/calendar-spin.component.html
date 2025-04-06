@@ -1,0 +1,8 @@
+<kudu-icon class="btn" icon="chevron-left" (click)="onDecreaseMonth()" />
+
+<div class="date">
+  <button class="btn" (click)="onMonthClick()">{{ month() }}</button>
+  <button class="btn" (click)="onYearClick()">{{ year() }}</button>
+</div>
+
+<kudu-icon class="btn" icon="chevron-right" (click)="onIncreaseMonth()" />

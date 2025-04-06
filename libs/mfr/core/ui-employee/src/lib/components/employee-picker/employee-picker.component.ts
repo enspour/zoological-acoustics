@@ -56,10 +56,11 @@ export class EmployeePickerComponent {
 
   public config: KuduOverlayConfig = {
     width: 'self-width',
-    positionX: 'right',
+    positionX: 'left',
     positionY: 'under',
     lockX: false,
     lockY: false,
+    gap: 4,
   };
 
   public positionX = signal<KuduOverlayPositionX>('right');
@@ -68,7 +69,20 @@ export class EmployeePickerComponent {
   public byClose = output<Employee[]>();
 
   public onToggle() {
-    this.isOpen.update((isOpen) => !isOpen);
+    if (this.isOpen()) {
+      this.onClose();
+    } else {
+      this.onOpen();
+    }
+  }
+
+  public onClose() {
+    this.isOpen.set(false);
+    this.byClose.emit(this.value());
+  }
+
+  public onOpen() {
+    this.isOpen.set(true);
   }
 
   public onSelect(employee: Employee) {
