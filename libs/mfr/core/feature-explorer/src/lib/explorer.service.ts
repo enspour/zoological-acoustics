@@ -1,39 +1,36 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
-import { LocalStorageService } from '@kudu/mfr-util-local-storage';
-
-import { ExplorerConfig } from './explorer.interface';
-
-const LS_EXPLORER_WIDTH = '__v1/explorer/width';
+import { ExplorerConfig, ExplorerRef } from './explorer.interface';
 
 @Injectable()
 export class ExplorerService {
-  private localStorageService = inject(LocalStorageService);
-
-  private _isOpen = signal(false);
-  public isOpen = this._isOpen.asReadonly();
-
-  public config = signal<ExplorerConfig<any> | null>(null);
-
-  private _width = signal(this.getInitialWidth());
-  public width = this._width.asReadonly();
+  public instances = signal<ExplorerRef<unknown>[]>([]);
 
   public open<T>(config: ExplorerConfig<T>) {
-    this.config.set(config);
-    this._isOpen.set(true);
+    const instanceRef: ExplorerRef<T> = {
+      id: '',
+      config,
+      close: () => this.close(instanceRef),
+    };
+
+    const index = this.instances().findIndex((i) => i.id === '');
+
+    if (index !== -1) {
+      this.instances.update((instances) => instances.with(index, instanceRef));
+    } else {
+      this.instances.update((instances) => [...instances, instanceRef]);
+    }
+
+    return instanceRef;
   }
 
-  public close() {
-    this._isOpen.set(false);
-    this.config.set(null);
-  }
+  public close<T>(instanceRef: ExplorerRef<T>) {
+    const index = this.instances().findIndex((i) => i === instanceRef);
 
-  public setWidth(width: number) {
-    this._width.set(width);
-    this.localStorageService.set(LS_EXPLORER_WIDTH, width);
-  }
+    if (index === -1) {
+      return;
+    }
 
-  private getInitialWidth() {
-    return this.localStorageService.get<number>(LS_EXPLORER_WIDTH) || 550;
+    this.instances.update((configs) => configs.toSpliced(index, 1));
   }
 }

@@ -2,7 +2,6 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  ManyToMany,
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
@@ -34,13 +33,13 @@ export class TaskEntity implements Task {
   })
   board!: TaskBoardEntity;
 
-  @Column('uuid')
-  columnUuid!: string;
+  @Column('uuid', { nullable: true })
+  columnUuid!: string | null;
 
-  @ManyToMany(() => TaskColumnEntity, (column) => column.tasks, {
+  @ManyToOne(() => TaskColumnEntity, (column) => column.tasks, {
     onDelete: 'CASCADE',
   })
-  column!: TaskColumnEntity;
+  column!: TaskColumnEntity | null;
 
   @Column('uuid', { array: true })
   executorUuids!: string[];

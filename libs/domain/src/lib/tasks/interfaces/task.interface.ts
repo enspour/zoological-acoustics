@@ -4,7 +4,7 @@ export interface Task {
   startDate: string;
   endDate: string;
   boardUuid: string;
-  columnUuid: string;
+  columnUuid: string | null;
   executorUuids: string[];
   creatorUuid: string;
   createdAt: string;

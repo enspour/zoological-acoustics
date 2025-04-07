@@ -21,10 +21,15 @@ import { TasksService } from '@kudu/mfr-data-access-tasks';
 import { BrowseTaskComponent } from '@kudu/mfr-feature-browse-task';
 import { ExplorerService } from '@kudu/mfr-feature-explorer';
 
-import { KanbanColumnComponent } from '@kudu/mfr-ui-kanban-column';
-import { KanbanColumnCreationComponent } from '@kudu/mfr-ui-kanban-column-creation';
-import { KanbanTaskComponent } from '@kudu/mfr-ui-kanban-task';
-import { KanbanTaskCreationComponent } from '@kudu/mfr-ui-kanban-task-creation';
+import {
+  KanbanColumnComponent,
+  KanbanColumnCreationComponent,
+  KanbanColumnUnassignedComponent,
+} from '@kudu/mfr-ui-kanban-column';
+import {
+  KanbanTaskComponent,
+  KanbanTaskCreationComponent,
+} from '@kudu/mfr-ui-kanban-task';
 
 @Component({
   selector: 'lib-kanban-board',
@@ -34,6 +39,7 @@ import { KanbanTaskCreationComponent } from '@kudu/mfr-ui-kanban-task-creation';
     KuduFilterPipe,
     KanbanColumnComponent,
     KanbanColumnCreationComponent,
+    KanbanColumnUnassignedComponent,
     KanbanTaskComponent,
     KanbanTaskCreationComponent,
   ],
@@ -106,7 +112,7 @@ export class KanbanBoardComponent {
     return columns.boardUuid === board.uuid;
   }
 
-  public filterByColumnFn(task: Task, _: number, column: TaskColumn) {
-    return task.columnUuid === column.uuid;
+  public filterByColumnFn(task: Task, _: number, column: TaskColumn | null) {
+    return task.columnUuid === (column?.uuid || null);
   }
 }

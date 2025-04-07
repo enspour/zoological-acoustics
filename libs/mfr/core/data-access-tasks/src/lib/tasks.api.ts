@@ -16,7 +16,7 @@ export class TasksApi {
   constructor(private http: HttpClient) {}
 
   public getByProject(uuid: string) {
-    const url = `api/v1/tasks/tasks/by-query?projectUuid[]=${uuid}`;
+    const url = `api/v1/tasks/tasks/by-query?projectUuids[]=${uuid}`;
     return this.http
       .get<GetTasksByProjectResponseDto>(url)
       .pipe(map((response) => response.data.tasks));

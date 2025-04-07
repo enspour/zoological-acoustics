@@ -9,7 +9,6 @@ import {
 import { KuduIconComponent } from '@kudu-ui';
 
 import { GanttRowTaskCreation } from '@kudu/mfr-data-access-gantt';
-import { ProjectTaskColumnsService } from '@kudu/mfr-data-access-project';
 import { TasksService } from '@kudu/mfr-data-access-tasks';
 
 import { GanttLayoutRowsDirective } from '@kudu/mfr-feature-gantt-layout';
@@ -29,7 +28,6 @@ import { RenameableComponent } from '@kudu/mfr-ui-kit';
 })
 export class RowTaskCreationComponent {
   private ganttLayoutRowsDirective = inject(GanttLayoutRowsDirective);
-  private projectTaskColumnsService = inject(ProjectTaskColumnsService);
   private tasksService = inject(TasksService);
 
   public row = input.required<GanttRowTaskCreation>();
@@ -45,20 +43,13 @@ export class RowTaskCreationComponent {
   public async onCreate(title: string) {
     const board = this.row().board;
 
-    const columns = this.projectTaskColumnsService.columns() || [];
-    const column = columns.find((c) => c.boardUuid === board.uuid);
-
-    if (!column) {
-      return;
-    }
-
     await this.tasksService.createTask({
       title,
       startDate: '2025-02-22',
       endDate: '2025-02-23',
       executorUuids: [],
       boardUuid: board.uuid,
-      columnUuid: column.uuid,
+      columnUuid: null,
     });
   }
 }

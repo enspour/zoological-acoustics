@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsDateString, IsString, IsUUID } from 'class-validator';
+import { IsDateString, IsString, IsUUID, ValidateIf } from 'class-validator';
 
 import { CreatableTask } from '@kudu/domain';
 
@@ -20,9 +20,10 @@ export class CreateTaskDto implements CreatableTask {
   @IsUUID()
   boardUuid!: string;
 
-  @ApiProperty({ description: 'Column uuid', nullable: false })
+  @ApiProperty({ description: 'Column uuid', nullable: true })
   @IsUUID()
-  columnUuid!: string;
+  @ValidateIf((_, value) => value !== null)
+  columnUuid!: string | null;
 
   @ApiProperty({ description: 'Executor uuids', nullable: false })
   @IsUUID('4', { each: true })

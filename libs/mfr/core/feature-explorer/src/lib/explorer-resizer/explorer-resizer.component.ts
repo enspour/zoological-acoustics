@@ -6,11 +6,10 @@ import {
   HostListener,
   inject,
   OnDestroy,
+  output,
   signal,
 } from '@angular/core';
 import { fromEvent, Subject, takeUntil } from 'rxjs';
-
-import { ExplorerService } from '../explorer.service';
 
 @Component({
   selector: 'lib-explorer-resizer',
@@ -21,9 +20,11 @@ import { ExplorerService } from '../explorer.service';
 })
 export class ExplorerResizerComponent implements OnDestroy {
   private document = inject(DOCUMENT);
-  private explorerService = inject(ExplorerService);
 
   public isResizing = signal(false);
+
+  public byResize = output<number>();
+
   public cleaner$ = new Subject<void>();
 
   ngOnDestroy(): void {
@@ -56,7 +57,7 @@ export class ExplorerResizerComponent implements OnDestroy {
 
   public move(position: { x: number; y: number }) {
     const width = this.document.body.clientWidth - position.x;
-    this.explorerService.setWidth(width);
+    this.byResize.emit(width);
   }
 
   public stop() {

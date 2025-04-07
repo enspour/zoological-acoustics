@@ -7,6 +7,29 @@
   [kuduDropContainerData]="columns"
   (byDrop)="onColumnDrop()"
 >
+  <lib-kanban-column-unassigned>
+    <div
+      class="tasks"
+      kuduDropContainer
+      [kuduDropContainerTypes]="['task']"
+      [kuduDropContainerData]="null"
+      (byDrop)="onTaskDrop()"
+    >
+      @let tasks = this.tasks() || [] | filter: filterByColumnFn : null;
+
+      @for (task of tasks; track task.uuid) {
+        <lib-kanban-task
+          [task]="task"
+          (click)="onTaskClick(task)"
+          kuduDrag
+          kuduDragType="task"
+          [kuduDragData]="task"
+          (byDelete)="onTaskDelete($event)"
+        />
+      }
+    </div>
+  </lib-kanban-column-unassigned>
+
   @for (column of columns; track column.uuid) {
     <lib-kanban-column
       [column]="column"

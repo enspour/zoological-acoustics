@@ -21,4 +21,16 @@ export class GetByQueryDto {
   })
   @ValidateIf((_, value) => value !== undefined)
   boardUuids!: string[];
+
+  @IsArray()
+  @IsUUID(4, { each: true })
+  @Transform(({ value }) => {
+    if (typeof value === 'string') {
+      return value.split(',');
+    }
+
+    return value;
+  })
+  @ValidateIf((_, value) => value !== undefined)
+  projectUuids!: string[];
 }

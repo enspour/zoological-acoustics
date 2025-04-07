@@ -1,32 +1,3 @@
-<kudu-sidebar
-  class="sidebar"
-  tabindex="1"
-  mode="over"
-  [isOpen]="isOpen()"
-  [width]="width()"
-  [maxWidth]="700"
-  [minWidth]="200"
-  [style.right]="0"
-  (keydown.escape)="$event.stopPropagation(); onClose()"
->
-  <header class="sidebar__header">
-    <kudu-icon
-      class="sidebar__header-close"
-      icon="close"
-      [iconSize]="18"
-      (click)="onClose()"
-    />
-  </header>
-
-  @let config = this.config();
-
-  @if (config) {
-    <ng-container
-      [ngComponentOutlet]="config.component"
-      [ngComponentOutletInputs]="config.inputs"
-      [ngComponentOutletInjector]="config.injector"
-    />
-  }
-
-  <lib-explorer-resizer />
-</kudu-sidebar>
+@for (instance of instances(); track $index) {
+  <lib-explorer [explorer]="instance" />
+}

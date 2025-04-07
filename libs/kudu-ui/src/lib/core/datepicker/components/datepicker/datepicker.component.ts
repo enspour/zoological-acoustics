@@ -6,8 +6,7 @@ import {
   model,
 } from '@angular/core';
 
-import { KuduCalendarComponent } from '../../../calendar/components/calendar/calendar.component';
-
+import { KuduCalendarComponent } from '../../../calendar';
 import { KuduClickOutsideDirective } from '../../../click-outside';
 import { KuduIconComponent } from '../../../icon';
 import {

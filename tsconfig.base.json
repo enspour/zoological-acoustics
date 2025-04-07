@@ -167,14 +167,8 @@
       "@kudu/mfr-ui-kanban-column": [
         "libs/mfr/mfr-kanban/ui-kanban-column/src/index.ts"
       ],
-      "@kudu/mfr-ui-kanban-column-creation": [
-        "libs/mfr/mfr-kanban/ui-kanban-column-creation/src/index.ts"
-      ],
       "@kudu/mfr-ui-kanban-task": [
         "libs/mfr/mfr-kanban/ui-kanban-task/src/index.ts"
-      ],
-      "@kudu/mfr-ui-kanban-task-creation": [
-        "libs/mfr/mfr-kanban/ui-kanban-task-creation/src/index.ts"
       ],
       "@kudu/mfr-ui-kit": ["libs/mfr/core/ui-kit/src/index.ts"],
       "@kudu/mfr-ui-modals": ["libs/mfr/core/ui-modals/src/index.ts"],
