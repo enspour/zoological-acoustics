@@ -1,10 +1,14 @@
-<div>Создатель:</div>
+@let creator = this.creator();
 
-<lib-employee-avatar
-  class="employee"
-  [avatar]="creator()!"
-  [avatarSize]="24"
-  [kuduTooltip]="creator()!.name"
-/>
+@if (creator) {
+  <div>Создатель:</div>
 
-<div class="date">{{ task().createdAt | date: ' h:mm, d MMMM y' }}</div>
+  <lib-employee-avatar
+    class="employee"
+    [avatar]="creator"
+    [avatarSize]="24"
+    [kuduTooltip]="creator.name"
+  />
+
+  <div class="date">{{ task().createdAt | date: ' h:mm, d MMMM y' }}</div>
+}

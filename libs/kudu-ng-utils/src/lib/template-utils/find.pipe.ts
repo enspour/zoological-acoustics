@@ -1,8 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-export type KuduFindFn<T, Args extends unknown[]> =
-  | ((value: T, index: number, ...args: Args) => value is T)
-  | ((value: T, index: number, ...args: Args) => unknown);
+export type KuduFindFn<T, Args extends unknown[]> = (
+  ...args: Args
+) =>
+  | ((value: T, index: number, array: T[]) => value is T)
+  | ((value: T, index: number, array: T[]) => unknown);
 
 @Pipe({
   name: 'find',
@@ -13,6 +15,7 @@ export class KuduFindPipe implements PipeTransform {
     findFn: KuduFindFn<T, Args>,
     ...args: Args
   ): T | undefined {
-    return array.find((value, index) => findFn(value, index, ...args));
+    const fn = findFn(...args);
+    return array.find((value, index, array) => fn(value, index, array));
   }
 }

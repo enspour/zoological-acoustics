@@ -45,7 +45,7 @@ export class ProjectsPageComponent {
   });
 
   public onClickProject(project: Project) {
-    this.router.navigateByUrl(`/projects/${project.uuid}/gantt`);
+    this.router.navigateByUrl(`/projects/${project.uuid}`);
   }
 
   public onSortConfigChange(config?: KuduSortConfig) {
@@ -58,7 +58,8 @@ export class ProjectsPageComponent {
     this.router.navigate([`/projects`], { queryParams });
   }
 
-  public filterFn(value: Project, _: number, search: string) {
-    return value.name.toLowerCase().includes(search.toLowerCase());
+  public filterFn(search: string) {
+    return (value: Project) =>
+      value.name.toLowerCase().includes(search.toLowerCase());
   }
 }

@@ -10,7 +10,7 @@ import {
   TasksModule,
 } from '@kudu/msrv-feature-tasks';
 
-import { TokenModule } from '@kudu/msrv-util-token';
+import { TokenModule } from '@kudu/msrv-feature-token';
 
 import { AppController } from './controllers/app.controller';
 import { TaskBoardsController } from './controllers/task-boards.controller';

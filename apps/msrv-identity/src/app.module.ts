@@ -10,7 +10,7 @@ import {
   UsersModule,
 } from '@kudu/msrv-feature-users';
 
-import { TokenModule } from '@kudu/msrv-util-token';
+import { TokenModule } from '@kudu/msrv-feature-token';
 
 import { AppController } from './controllers/app.controller';
 import { AuthController } from './controllers/auth.controller';

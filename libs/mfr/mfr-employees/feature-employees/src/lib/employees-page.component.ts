@@ -58,7 +58,8 @@ export class EmployeesPageComponent {
     this.router.navigate([`/employees`], { queryParams });
   }
 
-  public filterFn(value: Employee, _: number, search: string) {
-    return value.name.toLowerCase().includes(search.toLowerCase());
+  public filterFn(search: string) {
+    return (value: Employee) =>
+      value.name.toLowerCase().includes(search.toLowerCase());
   }
 }

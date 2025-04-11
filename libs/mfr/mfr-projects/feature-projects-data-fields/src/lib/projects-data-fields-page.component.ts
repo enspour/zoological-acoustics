@@ -66,7 +66,8 @@ export class ProjectsDataFieldsPageComponent {
     this.router.navigate([`/projects/settings/data-fields`], { queryParams });
   }
 
-  public filterFn(value: ProjectDataField, _: number, search: string) {
-    return value.name.toLowerCase().includes(search.toLowerCase());
+  public filterFn(search: string) {
+    return (value: ProjectDataField) =>
+      value.name.toLowerCase().includes(search.toLowerCase());
   }
 }

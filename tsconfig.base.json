@@ -130,8 +130,23 @@
       "@kudu/mfr-feature-project": [
         "libs/mfr/mfr-projects/feature-project/src/index.ts"
       ],
+      "@kudu/mfr-feature-project-my-tasks": [
+        "libs/mfr/mfr-projects/feature-project-my-tasks/src/index.ts"
+      ],
+      "@kudu/mfr-feature-project-overview": [
+        "libs/mfr/mfr-projects/feature-project-overview/src/index.ts"
+      ],
       "@kudu/mfr-feature-project-settings": [
         "libs/mfr/mfr-projects/feature-project-settings/src/index.ts"
+      ],
+      "@kudu/mfr-feature-project-settings-access": [
+        "libs/mfr/mfr-projects/feature-project-settings-access/src/index.ts"
+      ],
+      "@kudu/mfr-feature-project-settings-general": [
+        "libs/mfr/mfr-projects/feature-project-settings-general/src/index.ts"
+      ],
+      "@kudu/mfr-feature-project-settings-workflows": [
+        "libs/mfr/mfr-projects/feature-project-settings-workflows/src/index.ts"
       ],
       "@kudu/mfr-feature-projects": [
         "libs/mfr/mfr-projects/feature-projects/src/index.ts"
@@ -222,6 +237,7 @@
       "@kudu/msrv-feature-tasks": [
         "libs/msrv/msrv-tasks/feature-tasks/src/index.ts"
       ],
+      "@kudu/msrv-feature-token": ["libs/msrv/core/feature-token/src/index.ts"],
       "@kudu/msrv-feature-user-duplication": [
         "libs/msrv/core/feature-user-duplication/src/index.ts"
       ],
@@ -241,8 +257,7 @@
         "libs/msrv/core/util-event-bus/src/index.ts"
       ],
       "@kudu/msrv-util-jwt": ["libs/msrv/core/util-jwt/src/index.ts"],
-      "@kudu/msrv-util-password": ["libs/msrv/core/util-password/src/index.ts"],
-      "@kudu/msrv-util-token": ["libs/msrv/core/util-token/src/index.ts"]
+      "@kudu/msrv-util-password": ["libs/msrv/core/util-password/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

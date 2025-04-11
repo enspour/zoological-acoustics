@@ -10,7 +10,7 @@ import {
 
 import { PostgresService } from '@kudu/msrv-data-access-postgres';
 
-import { TokenService } from '@kudu/msrv-util-token';
+import { TokenService } from '@kudu/msrv-feature-token';
 
 import { TaskEntity } from '../entities';
 import { TasksQuery } from '../interfaces';
@@ -51,7 +51,7 @@ export class TasksService {
     const manager = this.postgresService.ManagerInTransaction;
     return await manager.save(TaskEntity, {
       ...data,
-      creatorUuid: token.sub,
+      createdByUuid: token.sub,
     });
   }
 

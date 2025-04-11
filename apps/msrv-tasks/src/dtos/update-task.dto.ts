@@ -1,6 +1,6 @@
 import { UpdatableTask } from '@kudu/domain';
 import { ApiProperty } from '@nestjs/swagger';
-import { IsDateString, IsString, IsUUID } from 'class-validator';
+import { IsDateString, IsString, IsUUID, ValidateIf } from 'class-validator';
 
 export class UpdateTaskDto implements Omit<UpdatableTask, 'uuid'> {
   @ApiProperty({ description: 'Title', nullable: false })
@@ -21,7 +21,8 @@ export class UpdateTaskDto implements Omit<UpdatableTask, 'uuid'> {
 
   @ApiProperty({ description: 'Column uuid', nullable: false })
   @IsUUID()
-  columnUuid!: string;
+  @ValidateIf((_, value) => value !== null)
+  columnUuid!: string | null;
 
   @ApiProperty({ description: 'Executor uuids', nullable: false })
   @IsUUID('4', { each: true })

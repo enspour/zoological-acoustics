@@ -1,1 +1,9 @@
-<p>project-settings-page works!</p>
+<kudu-menu class="menu">
+  <a kudu-menu-link href="./" [exact]="true"> Общее </a>
+  <a kudu-menu-link href="./access" [exact]="true"> Доступ </a>
+  <a kudu-menu-link href="./workflows" [exact]="true"> Workflows </a>
+</kudu-menu>
+
+<div class="content">
+  <router-outlet />
+</div>

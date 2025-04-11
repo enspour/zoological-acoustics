@@ -108,11 +108,11 @@ export class KanbanBoardComponent {
     console.log('swap tasks');
   }
 
-  public filterByBoardFn(columns: TaskColumn, _: number, board: TaskBoard) {
-    return columns.boardUuid === board.uuid;
+  public filterByBoardFn(board: TaskBoard) {
+    return (item: Task | TaskColumn) => item.boardUuid === board.uuid;
   }
 
-  public filterByColumnFn(task: Task, _: number, column: TaskColumn | null) {
-    return task.columnUuid === (column?.uuid || null);
+  public filterByColumnFn(column: TaskColumn | null) {
+    return (task: Task) => task.columnUuid === (column?.uuid || null);
   }
 }

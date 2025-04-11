@@ -12,7 +12,7 @@ import {
 import { ProjectDataFieldsModule } from '@kudu/msrv-feature-project-data-fields';
 import { ProjectsModule } from '@kudu/msrv-feature-projects';
 
-import { TokenModule } from '@kudu/msrv-util-token';
+import { TokenModule } from '@kudu/msrv-feature-token';
 
 import { AppController } from './controllers/app.controller';
 import { ProjectDataFieldsController } from './controllers/project-data-fields.controller';

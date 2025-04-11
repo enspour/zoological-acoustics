@@ -7,8 +7,6 @@ export enum EmployeeStatus {
 
 export type Employee = User & {
   status: EmployeeStatus;
-  dateOfEmployment: string | null;
-  dateOfDismissal: string | null;
 };
 
 export type UpdatableEmployee = Omit<Employee, 'name'>;

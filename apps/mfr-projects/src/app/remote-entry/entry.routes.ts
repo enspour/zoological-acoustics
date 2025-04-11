@@ -19,9 +19,34 @@ const ProjectsDataFieldsPage = () =>
 const ProjectPage = () =>
   import('@kudu/mfr-feature-project').then((c) => c.ProjectPageComponent);
 
+const ProjectOverviewPage = () =>
+  import('@kudu/mfr-feature-project-overview').then(
+    (c) => c.ProjectOverviewPageComponent,
+  );
+
+const ProjectMyTasksPage = () =>
+  import('@kudu/mfr-feature-project-my-tasks').then(
+    (c) => c.ProjectMyTasksPageComponent,
+  );
+
 const ProjectSettingsPage = () =>
   import('@kudu/mfr-feature-project-settings').then(
     (c) => c.ProjectSettingsPageComponent,
+  );
+
+const ProjectSettingsGeneralPage = () =>
+  import('@kudu/mfr-feature-project-settings-general').then(
+    (c) => c.ProjectSettingsGeneralPageComponent,
+  );
+
+const ProjectSettingsAccessPage = () =>
+  import('@kudu/mfr-feature-project-settings-access').then(
+    (c) => c.ProjectSettingsAccessPageComponent,
+  );
+
+const ProjectSettingsWorkflowsPage = () =>
+  import('@kudu/mfr-feature-project-settings-workflows').then(
+    (c) => c.ProjectSettingsWorkflowsPageComponent,
   );
 
 const GanttPage = () =>
@@ -58,6 +83,16 @@ export const remoteRoutes: Route[] = [
         loadComponent: ProjectPage,
         children: [
           {
+            path: '',
+            title: 'Kudu | Проект',
+            loadComponent: ProjectOverviewPage,
+          },
+          {
+            path: 'my-tasks',
+            title: 'Kudu | Мои задачи',
+            loadComponent: ProjectMyTasksPage,
+          },
+          {
             path: 'gantt',
             title: 'Kudu | Диаграмма',
             loadComponent: GanttPage,
@@ -77,6 +112,23 @@ export const remoteRoutes: Route[] = [
             path: 'settings',
             title: 'Kudu | Настройки',
             loadComponent: ProjectSettingsPage,
+            children: [
+              {
+                path: '',
+                title: 'Kudu | Общие',
+                loadComponent: ProjectSettingsGeneralPage,
+              },
+              {
+                path: 'access',
+                title: 'Kudu | Доступ',
+                loadComponent: ProjectSettingsAccessPage,
+              },
+              {
+                path: 'workflows',
+                title: 'Kudu | Workflows',
+                loadComponent: ProjectSettingsWorkflowsPage,
+              },
+            ],
           },
         ],
       },

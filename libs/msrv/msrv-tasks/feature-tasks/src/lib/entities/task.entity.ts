@@ -45,7 +45,7 @@ export class TaskEntity implements Task {
   executorUuids!: string[];
 
   @Column('uuid')
-  creatorUuid!: string;
+  createdByUuid!: string;
 
   @CreateDateColumn({ type: 'timestamptz' })
   createdAt!: string;

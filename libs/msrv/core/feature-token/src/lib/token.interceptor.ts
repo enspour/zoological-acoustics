@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { AccessTokenPayload } from '@kudu/domain';
 
 import { decodeToken } from '@kudu/msrv-util-jwt';
+
 import { TokenStorage } from './token.storage';
 
 @Injectable()

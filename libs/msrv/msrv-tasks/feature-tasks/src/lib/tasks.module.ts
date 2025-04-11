@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 
 import { PostgresModule } from '@kudu/msrv-data-access-postgres';
 
-import { TokenModule } from '@kudu/msrv-util-token';
+import { TokenModule } from '@kudu/msrv-feature-token';
 
 import { TaskBoardsService } from './services/task-boards.service';
 import { TasksService } from './services/tasks.service';

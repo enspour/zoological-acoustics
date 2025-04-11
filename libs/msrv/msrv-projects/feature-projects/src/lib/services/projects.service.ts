@@ -3,15 +3,21 @@ import { Injectable } from '@nestjs/common';
 import {
   CreatableProject,
   NotFoundError,
+  UnauthorizedError,
   UpdatableProject,
 } from '@kudu/domain';
+
+import { TokenService } from '@kudu/msrv-feature-token';
 
 import { PostgresService } from '@kudu/msrv-data-access-postgres';
 import { ProjectEntity } from '@kudu/msrv-data-access-project-entities';
 
 @Injectable()
 export class ProjectsService {
-  constructor(private postgresService: PostgresService) {}
+  constructor(
+    private postgresService: PostgresService,
+    private tokenService: TokenService,
+  ) {}
 
   public async getAll() {
     const manager = this.postgresService.Manager;
@@ -30,8 +36,17 @@ export class ProjectsService {
   }
 
   public async create(data: CreatableProject) {
+    const token = this.tokenService.get();
+
+    if (!token) {
+      throw new UnauthorizedError();
+    }
+
     const manager = this.postgresService.ManagerInTransaction;
-    return await manager.save(ProjectEntity, data);
+    return await manager.save(ProjectEntity, {
+      ...data,
+      createdByUuid: token.sub,
+    });
   }
 
   public async update(data: UpdatableProject) {

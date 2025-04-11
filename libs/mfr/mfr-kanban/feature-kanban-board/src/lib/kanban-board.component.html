@@ -15,7 +15,10 @@
       [kuduDropContainerData]="null"
       (byDrop)="onTaskDrop()"
     >
-      @let tasks = this.tasks() || [] | filter: filterByColumnFn : null;
+      @let tasks =
+        this.tasks() || []
+          | filter: filterByBoardFn : board()
+          | filter: filterByColumnFn : null;
 
       @for (task of tasks; track task.uuid) {
         <lib-kanban-task

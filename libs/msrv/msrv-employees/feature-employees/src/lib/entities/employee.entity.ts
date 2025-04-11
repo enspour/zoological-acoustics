@@ -16,10 +16,4 @@ export class EmployeeEntity implements Employee {
     default: EmployeeStatus.WORKING,
   })
   status!: EmployeeStatus;
-
-  @Column({ type: 'timestamptz', default: null })
-  dateOfEmployment!: string | null;
-
-  @Column({ type: 'timestamptz', default: null })
-  dateOfDismissal!: string | null;
 }

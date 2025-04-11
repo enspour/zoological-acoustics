@@ -1,11 +1,11 @@
 import { NgComponentOutlet } from '@angular/common';
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   inject,
   input,
   linkedSignal,
-  OnInit,
   signal,
 } from '@angular/core';
 
@@ -30,7 +30,7 @@ const LS_EXPLORER = '__v1/explorer';
   styleUrl: './explorer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExplorerComponent implements OnInit {
+export class ExplorerComponent implements AfterViewInit {
   private localStorageService = inject(LocalStorageService);
 
   public explorer = input.required<ExplorerRef<unknown>>();
@@ -39,8 +39,8 @@ export class ExplorerComponent implements OnInit {
 
   public width = linkedSignal(() => this.getInitialWidth());
 
-  ngOnInit(): void {
-    setTimeout(() => this.isOpen.set(true), 0);
+  ngAfterViewInit(): void {
+    setTimeout(() => this.isOpen.set(true));
   }
 
   public onClose() {

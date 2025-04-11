@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 
 import { PostgresModule } from '@kudu/msrv-data-access-postgres';
 import { EmployeeEntity, EmployeesModule } from '@kudu/msrv-feature-employees';
-import { TokenModule } from '@kudu/msrv-util-token';
+import { TokenModule } from '@kudu/msrv-feature-token';
 
 import { AppController } from './controllers/app.controller';
 import { EmployeesController } from './controllers/employees.controller';

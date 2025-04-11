@@ -1,4 +1,10 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 import { Project } from '@kudu/domain';
 
@@ -14,4 +20,10 @@ export class ProjectEntity implements Project {
 
   @OneToMany(() => ProjectToDataFieldEntity, (entity) => entity.project)
   dfs!: ProjectToDataFieldEntity[];
+
+  @Column('uuid')
+  createdByUuid!: string;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt!: string;
 }

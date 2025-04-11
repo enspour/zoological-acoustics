@@ -6,9 +6,9 @@ export interface Task {
   boardUuid: string;
   columnUuid: string | null;
   executorUuids: string[];
-  creatorUuid: string;
+  createdByUuid: string;
   createdAt: string;
 }
 
-export type CreatableTask = Omit<Task, 'uuid' | 'creatorUuid' | 'createdAt'>;
-export type UpdatableTask = Omit<Task, 'creatorUuid' | 'createdAt'>;
+export type CreatableTask = Omit<Task, 'uuid' | 'createdByUuid' | 'createdAt'>;
+export type UpdatableTask = Omit<Task, 'createdByUuid' | 'createdAt'>;

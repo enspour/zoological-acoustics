@@ -99,11 +99,12 @@ export class EmployeePickerComponent {
     }
   }
 
-  public filterBySearchFn(value: Employee, _: number, searchTerm: string) {
-    return value.name.toLowerCase().includes(searchTerm.toLowerCase());
+  public filterBySearchFn(searchTerm: string) {
+    return (value: Employee) =>
+      value.name.toLowerCase().includes(searchTerm.toLowerCase());
   }
 
-  public findByUuidFn(value: Employee, _: number, uuid: string) {
-    return value.uuid === uuid;
+  public findByUuidFn(uuid: string) {
+    return (value: Employee) => value.uuid === uuid;
   }
 }
