@@ -18,10 +18,10 @@ import { KuduIconComponent } from '../../../icon';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarSpinComponent {
-  public dateTime = model.required<DateTime>();
+  public date = model.required<DateTime>();
 
-  public month = computed(() => this.dateTime().getMonthString());
-  public year = computed(() => this.dateTime().getYear());
+  public month = computed(() => this.date().getMonthString());
+  public year = computed(() => this.date().getYear());
 
   public byYearClick = output();
   public byMonthClick = output();
@@ -35,16 +35,16 @@ export class CalendarSpinComponent {
   }
 
   public onIncreaseMonth() {
-    this.dateTime.set(
-      this.dateTime()
+    this.date.set(
+      this.date()
         .clone()
         .setMonth((month) => month + 1),
     );
   }
 
   public onDecreaseMonth() {
-    this.dateTime.set(
-      this.dateTime()
+    this.date.set(
+      this.date()
         .clone()
         .setMonth((month) => month - 1),
     );

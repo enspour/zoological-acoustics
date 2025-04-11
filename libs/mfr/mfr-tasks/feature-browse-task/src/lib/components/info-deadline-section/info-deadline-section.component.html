@@ -3,8 +3,8 @@
     <div class="date__title">Начало:</div>
 
     <kudu-datepicker
-      [date]="task().startDate"
-      (dateChange)="onDeadlineChange({ startDate: $event })"
+      [(date)]="startDate"
+      (dateChange)="onDeadlineChange()"
       placeholder="Начало"
     />
   </div>
@@ -13,8 +13,8 @@
     <div class="date__title">Завершение:</div>
 
     <kudu-datepicker
-      [date]="task().endDate"
-      (dateChange)="onDeadlineChange({ endDate: $event })"
+      [(date)]="endDate"
+      (dateChange)="onDeadlineChange()"
       placeholder="Завершение"
     />
   </div>

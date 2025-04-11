@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   HostBinding,
   inject,
   linkedSignal,
@@ -33,21 +32,13 @@ import { CalendarYearComponent } from '../calendar-years/calendar-years.componen
 export class KuduCalendarComponent {
   private size = inject(kuduSize);
 
-  public date = model<Date | number | string>();
-  public dateTime = linkedSignal(() => new DateTime(this.date() || Date.now()));
-  public dateSelected = computed(() => {
-    const date = this.date();
-    return date ? new DateTime(date) : undefined;
-  });
+  public date = model<DateTime>();
+  public dateAvailable = linkedSignal(() => this.date() || DateTime.now());
 
   public mode = model<'sheet' | 'years' | 'months'>('sheet');
 
   @HostBinding('class')
   public get Classes() {
     return this.size();
-  }
-
-  public onDateClick(date: Date) {
-    this.date.set(date);
   }
 }

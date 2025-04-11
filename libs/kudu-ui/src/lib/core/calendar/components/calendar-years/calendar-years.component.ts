@@ -17,12 +17,12 @@ import { KuduButtonComponent } from '../../../button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarYearComponent {
-  public dateTime = model.required<DateTime>();
+  public date = model.required<DateTime>();
 
   public years = computed(() => this.generateYears());
 
   public onYearClick(year: number) {
-    this.dateTime.set(this.dateTime().clone().setYear(year));
+    this.date.set(this.date().clone().setYear(year));
   }
 
   public generateYears() {

@@ -6,13 +6,19 @@ import {
   model,
 } from '@angular/core';
 
+import { DateTime } from '@kudu-date';
+
 import { KuduCalendarComponent } from '../../../calendar';
+
 import { KuduClickOutsideDirective } from '../../../click-outside';
+
 import { KuduIconComponent } from '../../../icon';
+
 import {
   KuduInputContainerComponent,
   KuduInputDateComponent,
 } from '../../../input';
+
 import {
   KuduOverlayComponent,
   KuduOverlayConfig,
@@ -36,7 +42,7 @@ import {
 export class KuduDatepickerComponent {
   public origin = inject(KuduOverlayOriginDirective);
 
-  public date = model<Date | number | string>();
+  public date = model<DateTime>();
 
   public isOpen = model(false);
 

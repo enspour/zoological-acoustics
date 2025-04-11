@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  linkedSignal,
+} from '@angular/core';
+
+import { DateTime } from '@kudu-date';
 
 import { KuduDatepickerComponent } from '@kudu-ui';
 
@@ -19,18 +26,19 @@ export class InfoDeadlineSectionComponent {
 
   public task = this.browser.task;
 
-  public async onDeadlineChange(period: {
-    startDate?: Date | number | string;
-    endDate?: Date | number | string;
-  }) {
+  public startDate = linkedSignal(
+    () => new DateTime(this.browser.task().startDate),
+  );
+
+  public endDate = linkedSignal(
+    () => new DateTime(this.browser.task().endDate),
+  );
+
+  public async onDeadlineChange() {
     await this.tasksService.updateTask({
       ...this.task(),
-      startDate: period.startDate
-        ? new Date(period.startDate).toISOString()
-        : this.task().startDate,
-      endDate: period.endDate
-        ? new Date(period.endDate).toISOString()
-        : this.task().endDate,
+      startDate: this.startDate().toDate().toISOString(),
+      endDate: this.endDate().toDate().toISOString(),
     });
   }
 }

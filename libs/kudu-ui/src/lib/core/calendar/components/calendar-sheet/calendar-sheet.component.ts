@@ -6,7 +6,6 @@ import {
   inject,
   input,
   model,
-  output,
 } from '@angular/core';
 
 import { DateTime, DateTimePeriod, DAY_SHORT_NAMES } from '@kudu-date';
@@ -35,13 +34,11 @@ import {
 export class CalendarSheetComponent {
   private size = inject(kuduSize);
 
-  public dateTime = model.required<DateTime>();
-  public dateSelected = input<DateTime>();
+  public date = model<DateTime>();
+  public dateAvailable = input.required<DateTime>();
 
   public weeks = DAY_SHORT_NAMES;
-  public dates = computed(() => this.generateDates(this.dateTime()));
-
-  public byDateClick = output<Date>();
+  public dates = computed(() => this.generateDates(this.dateAvailable()));
 
   @HostBinding('class')
   public get Classes() {
@@ -49,7 +46,7 @@ export class CalendarSheetComponent {
   }
 
   public onDateClick(date: DateTime) {
-    this.byDateClick.emit(date.toDate());
+    this.date.set(date);
   }
 
   private generateDates(date: DateTime) {

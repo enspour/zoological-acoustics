@@ -16,21 +16,21 @@ import { DateTime } from '@kudu-date';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KuduInputDateComponent {
-  public value = model<Date | string | number>();
+  public value = model<DateTime>();
 
   @HostBinding('value')
   public get Value() {
     const value = this.value();
-    return value ? new Date(value).toLocaleDateString().slice(0, 10) : '';
+    return value ? value.toDate().toLocaleDateString().slice(0, 10) : '';
   }
 
   @HostListener('input', ['$event'])
   public onInput(event: Event) {
     const target = event.target as HTMLInputElement;
-    const datetime = DateTime.fromStringByDatePatterns(target.value);
+    const date = DateTime.fromStringByDatePatterns(target.value);
 
-    if (datetime) {
-      this.value.set(datetime.toDate());
+    if (date) {
+      this.value.set(date);
     }
   }
 }

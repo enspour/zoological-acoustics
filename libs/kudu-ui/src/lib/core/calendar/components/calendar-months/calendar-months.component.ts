@@ -12,11 +12,11 @@ import { KuduButtonComponent } from '../../../button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarMonthsComponent {
-  public dateTime = model.required<DateTime>();
+  public date = model.required<DateTime>();
 
   public months = MONTH_SHORT_NAMES;
 
   public onMonthClick(month: number) {
-    this.dateTime.set(this.dateTime().clone().setMonth(month));
+    this.date.set(this.date().clone().setMonth(month));
   }
 }

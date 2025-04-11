@@ -4,19 +4,19 @@
   }
 </div>
 
-@let dateTime = this.dateTime();
-@let dateSelected = this.dateSelected();
+@let date = this.date();
+@let dateAvailable = this.dateAvailable();
 
 <div class="dates">
-  @for (date of dates(); track $index) {
+  @for (item of dates(); track $index) {
     <button
       class="date"
-      [class.date--available]="date | isAvailable: dateTime"
-      [class.date--today]="date | isToday"
-      [class.date--selected]="dateSelected && (date | equals: dateSelected)"
-      (click)="onDateClick(date)"
+      [class.date--available]="item | isAvailable: dateAvailable"
+      [class.date--today]="item | isToday"
+      [class.date--selected]="date && (item | equals: date)"
+      (click)="onDateClick(item)"
     >
-      {{ date | getDay }}
+      {{ item | getDay }}
     </button>
   }
 </div>
