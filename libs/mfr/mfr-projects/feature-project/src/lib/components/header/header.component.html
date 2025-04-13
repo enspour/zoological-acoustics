@@ -8,7 +8,16 @@
     </div>
 
     <div class="head__section">
-      <lib-project-more [project]="project" />
+      <button class="members" (click)="onMembersClick(project)">
+        <div class="members__title">Участники:</div>
+        <lib-project-member-avatars [members]="members()" />
+      </button>
+
+      <lib-project-more
+        [project]="project"
+        (byDelete)="onDelete($event)"
+        (byRename)="onRename($event)"
+      />
     </div>
   </div>
 
@@ -17,7 +26,6 @@
     <lib-tab-link href="./my-tasks"> Мои задачи </lib-tab-link>
     <lib-tab-link href="./gantt"> Диаграмма </lib-tab-link>
     <lib-tab-link href="./kanban"> Доски </lib-tab-link>
-    <lib-tab-link href="#"> Занятость </lib-tab-link>
     <lib-tab-link href="./settings"> Настройки </lib-tab-link>
   </lib-tabs>
 }

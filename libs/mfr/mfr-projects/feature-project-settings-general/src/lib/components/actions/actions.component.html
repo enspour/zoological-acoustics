@@ -1,0 +1,42 @@
+<div class="action">
+  <div>
+    <div class="action__title">Изменить видимость проекта</div>
+    <div class="action__hint">Текущий проект приватный.</div>
+  </div>
+
+  <button class="action__btn" kudu-button kind="bordered">
+    Изменить видимость
+  </button>
+</div>
+
+<div class="action">
+  <div>
+    <div class="action__title">Архивировать проект</div>
+    <div class="action__hint">
+      Отметить этот проект как архивный и доступный только для чтения.
+    </div>
+  </div>
+
+  <button class="action__btn" kudu-button kind="bordered">
+    Архивировать проект
+  </button>
+</div>
+
+<div class="action">
+  <div>
+    <div class="action__title">Удалить проект</div>
+    <div class="action__hint">
+      После удаления проекта пути назад уже не будет. Пожалуйста, будьте
+      уверены.
+    </div>
+  </div>
+
+  <button
+    class="action__btn action__btn--delete"
+    kudu-button
+    kind="bordered"
+    (click)="onDelete()"
+  >
+    Удалить проект
+  </button>
+</div>

@@ -1,4 +1,4 @@
-import { inject, Injectable, resource } from '@angular/core';
+import { computed, inject, Injectable, resource } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
 import { CreatableProject } from '@kudu/domain';
@@ -16,7 +16,7 @@ export class ProjectsService {
     },
   });
 
-  public projects = this.response.value;
+  public projects = computed(() => this.response.value() || []);
   public error = this.response.error;
   public isLoading = this.response.isLoading;
 
@@ -26,25 +26,11 @@ export class ProjectsService {
 
   public async create(data: CreatableProject) {
     const request = this.projectsApi.create(data);
-    const project = await lastValueFrom(request);
-
-    const projects = this.projects();
-    if (projects) {
-      this.response.set([...projects, project]);
-    }
-
-    return project;
+    return await lastValueFrom(request);
   }
 
   public async delete(uuid: string) {
     const request = this.projectsApi.delete(uuid);
-    const project = await lastValueFrom(request);
-
-    const projects = this.projects();
-    if (projects) {
-      this.response.set(projects.filter((p) => p.uuid !== uuid));
-    }
-
-    return project;
+    return await lastValueFrom(request);
   }
 }

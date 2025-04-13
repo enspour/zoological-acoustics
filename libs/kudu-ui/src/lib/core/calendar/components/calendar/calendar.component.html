@@ -12,13 +12,13 @@
 @if (mode() === 'months') {
   <kudu-calendar-months
     [(date)]="dateAvailable"
-    (dateTimeChange)="mode.set('sheet')"
+    (dateChange)="mode.set('sheet')"
   />
 }
 
 @if (mode() === 'years') {
   <kudu-calendar-years
     [(date)]="dateAvailable"
-    (dateTimeChange)="mode.set('sheet')"
+    (dateChange)="mode.set('sheet')"
   />
 }

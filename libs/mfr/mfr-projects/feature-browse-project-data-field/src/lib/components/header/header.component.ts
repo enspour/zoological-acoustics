@@ -9,6 +9,8 @@ import {
 
 import { GetTypeAliasPipe } from '@kudu/mfr-util-project-data-field';
 
+import { UniqueComponent } from '@kudu/mfr-util-unique-component';
+
 import { BrowseProjectDataFieldModalComponent } from '../../browse-project-data-field-modal.component';
 
 @Component({
@@ -23,7 +25,7 @@ import { BrowseProjectDataFieldModalComponent } from '../../browse-project-data-
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
+export class HeaderComponent extends UniqueComponent {
   private modal = inject(BrowseProjectDataFieldModalComponent);
   private dialogRef = inject(KuduDialogRef);
 

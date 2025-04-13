@@ -27,6 +27,19 @@
   cursor: pointer;
 }
 
+.members {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  &:hover {
+    .members__title {
+      text-decoration: underline;
+    }
+  }
+}
+
 .tabs {
   font-size: 18px;
   height: 26px;

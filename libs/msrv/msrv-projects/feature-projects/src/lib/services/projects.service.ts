@@ -7,6 +7,7 @@ import {
   UpdatableProject,
 } from '@kudu/domain';
 
+import { ProjectEventsService } from '@kudu/msrv-feature-project-events';
 import { TokenService } from '@kudu/msrv-feature-token';
 
 import { PostgresService } from '@kudu/msrv-data-access-postgres';
@@ -15,15 +16,29 @@ import { ProjectEntity } from '@kudu/msrv-data-access-project-entities';
 @Injectable()
 export class ProjectsService {
   constructor(
-    private postgresService: PostgresService,
     private tokenService: TokenService,
+    private postgresService: PostgresService,
+    private projectEventsService: ProjectEventsService,
   ) {}
 
   public async getAll() {
+    const token = this.tokenService.get();
+
+    if (!token) {
+      throw new UnauthorizedError();
+    }
+
     const manager = this.postgresService.Manager;
     return await manager.find(ProjectEntity, {
+      where: {
+        members: {
+          member: {
+            uuid: token.sub,
+          },
+        },
+      },
       relations: {
-        dfs: {
+        dataValues: {
           value: true,
         },
       },
@@ -31,8 +46,23 @@ export class ProjectsService {
   }
 
   public async getByUuid(uuid: string) {
+    const token = this.tokenService.get();
+
+    if (!token) {
+      throw new UnauthorizedError();
+    }
+
     const manager = this.postgresService.Manager;
-    return await manager.findOne(ProjectEntity, { where: { uuid } });
+    return await manager.findOne(ProjectEntity, {
+      where: {
+        uuid,
+        members: {
+          member: {
+            uuid: token.sub,
+          },
+        },
+      },
+    });
   }
 
   public async create(data: CreatableProject) {
@@ -43,24 +73,31 @@ export class ProjectsService {
     }
 
     const manager = this.postgresService.ManagerInTransaction;
-    return await manager.save(ProjectEntity, {
+    const project = await manager.save(ProjectEntity, {
       ...data,
       createdByUuid: token.sub,
     });
+
+    this.projectEventsService.notifyProjectCreated(project);
+
+    return project;
   }
 
   public async update(data: UpdatableProject) {
     const manager = this.postgresService.ManagerInTransaction;
-
-    const project = await manager.findOne(ProjectEntity, {
+    const found = await manager.findOne(ProjectEntity, {
       where: { uuid: data.uuid },
     });
 
-    if (!project) {
+    if (!found) {
       throw new NotFoundError('Проект не найден!');
     }
 
-    return await manager.save(ProjectEntity, data);
+    const project = await manager.save(ProjectEntity, data);
+
+    this.projectEventsService.notifyProjectUpdated(project);
+
+    return project;
   }
 
   public async delete(uuid: string) {
@@ -74,6 +111,8 @@ export class ProjectsService {
 
     const manager = this.postgresService.ManagerInTransaction;
     await manager.delete(ProjectEntity, uuid);
+
+    this.projectEventsService.notifyProjectRemoved(project);
 
     return project;
   }

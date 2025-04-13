@@ -53,6 +53,7 @@ export class ProjectsDataFieldsPageComponent {
       data: {
         field,
       },
+      minWidth: '400px',
     });
   }
 
@@ -63,7 +64,7 @@ export class ProjectsDataFieldsPageComponent {
       sortOrder: config?.order,
     };
 
-    this.router.navigate([`/projects/settings/data-fields`], { queryParams });
+    this.router.navigate([], { queryParams, relativeTo: this.route });
   }
 
   public filterFn(search: string) {

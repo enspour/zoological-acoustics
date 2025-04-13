@@ -1,10 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 import { Employee, EmployeeStatus } from '@kudu/domain';
 
 @Entity()
 export class EmployeeEntity implements Employee {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryColumn('uuid')
   uuid!: string;
 
   @Column()

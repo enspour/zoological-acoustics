@@ -5,7 +5,7 @@ import { PostgresModule } from '@kudu/msrv-data-access-postgres';
 import {
   ProjectDataFieldEntity,
   ProjectDataValueEntity,
-  ProjectToDataFieldEntity,
+  ProjectToDataValueEntity,
 } from '@kudu/msrv-data-access-project-entities';
 
 import { ProjectDataFieldsService } from './services/project-data-fields.service';
@@ -17,7 +17,7 @@ import { ProjectDataValuesService } from './services/project-data-values.service
     PostgresModule.forFeature([
       ProjectDataFieldEntity,
       ProjectDataValueEntity,
-      ProjectToDataFieldEntity,
+      ProjectToDataValueEntity,
     ]),
   ],
   providers: [ProjectDataFieldsService, ProjectDataValuesService],

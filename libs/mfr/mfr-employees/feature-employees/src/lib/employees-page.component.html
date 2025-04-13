@@ -1,9 +1,7 @@
 <lib-header [searchTerm]="searchTerm()" />
 
-@let employees = this.employees() || [] | filter: filterFn : searchTerm() || '';
-
 <lib-employee-table
-  [employees]="employees"
+  [employees]="this.employees() | filter: filterFn : searchTerm() || ''"
   (byEmployeeClick)="onEmployeeClick($event)"
   [sortConfig]="sortConfig()"
   (sortConfigChange)="onSortConfigChange($event)"

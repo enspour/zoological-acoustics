@@ -9,7 +9,7 @@ import { TasksApi } from './tasks.api';
 export class TasksService {
   private tasksApi = inject(TasksApi);
 
-  public async getByProject(uuid: string) {
+  public async getTasksByProject(uuid: string) {
     const request = this.tasksApi.getByProject(uuid);
     return await lastValueFrom(request);
   }

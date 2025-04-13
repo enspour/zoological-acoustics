@@ -35,10 +35,14 @@ export class KuduDialogRef<R> {
 }
 
 export class KuduDialogConfig {
+  injector?: Injector;
   data?: any;
   hasBackdrop?: boolean = false;
   hasGlassmorphism?: boolean = false;
   glassmorphism?: KuduGlassmorphismConfig;
+  width?: string;
+  maxWidth?: string;
+  minWidth?: string;
 }
 
 export const KuduDialogData = new InjectionToken<any>('kudu-ui/dialog/data');
@@ -49,17 +53,14 @@ export class KuduDialogService {
   private portalsService = inject(KuduPortalsService);
 
   private portalRef: KuduPortalRef | null = null;
-  private dialogRef: KuduDialogRef<any> | null = null;
 
   open<T, R>(component: Type<T>, config?: KuduDialogConfig): KuduDialogRef<R> {
-    this.dialogRef?.close();
-
     const injector = Injector.create({
       providers: [
-        { provide: KuduDialogRef, useFactory: () => this.dialogRef },
+        { provide: KuduDialogRef, useFactory: () => dialogRef },
         { provide: KuduDialogData, useFactory: () => config?.data },
       ],
-      parent: this.injector,
+      parent: config?.injector || this.injector,
     });
 
     const portal: KuduPortalByComponent = {
@@ -74,8 +75,8 @@ export class KuduDialogService {
     };
 
     this.portalRef = this.portalsService.open(portal);
-    this.dialogRef = new KuduDialogRef(this.portalRef);
+    const dialogRef = new KuduDialogRef<R>(this.portalRef);
 
-    return this.dialogRef;
+    return dialogRef;
   }
 }

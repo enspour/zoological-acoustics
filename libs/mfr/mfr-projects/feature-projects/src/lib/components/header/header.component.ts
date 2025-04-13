@@ -17,6 +17,8 @@ import {
 
 import { CreateProjectModalComponent } from '@kudu/mfr-feature-create-project';
 
+import { UniqueComponent } from '@kudu/mfr-util-unique-component';
+
 @Component({
   selector: 'lib-header',
   imports: [
@@ -31,7 +33,7 @@ import { CreateProjectModalComponent } from '@kudu/mfr-feature-create-project';
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
+export class HeaderComponent extends UniqueComponent {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private dialog = inject(KuduDialogService);
@@ -40,12 +42,13 @@ export class HeaderComponent {
 
   public onSearchTermChange(searchTerm: string) {
     const queryParams = { ...this.route.snapshot.queryParams, searchTerm };
-    this.router.navigate([`/projects`], { queryParams });
+    this.router.navigate([], { queryParams, relativeTo: this.route });
   }
 
   public onCreateProject() {
     this.dialog.open(CreateProjectModalComponent, {
       hasBackdrop: true,
+      minWidth: '400px',
     });
   }
 }

@@ -1,0 +1,15 @@
+<div class="header">
+  <kudu-input-container>
+    <kudu-icon icon="search" kuduPrefix />
+    <input kudu-input placeholder="Поиск" [(ngModel)]="searchTerm" />
+  </kudu-input-container>
+
+  <button kudu-button class="header__btn" (click)="onMemberInvite()">
+    <kudu-icon icon="user-plus" />
+    <div>Пригласить</div>
+  </button>
+</div>
+
+<lib-project-member-table
+  [members]="members() | filter: filterFn : searchTerm() || ''"
+/>

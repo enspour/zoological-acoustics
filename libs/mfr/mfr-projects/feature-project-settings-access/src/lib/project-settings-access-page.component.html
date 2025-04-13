@@ -1,1 +1,9 @@
 <h2 class="title">Участники</h2>
+
+<lib-members
+  [members]="members()"
+  [searchTerm]="searchTerm() || ''"
+  (searchTermChange)="onSearchTermChange($event)"
+  [sortConfig]="sortConfig()"
+  (sortConfigChange)="onSortConfigChange($event)"
+/>

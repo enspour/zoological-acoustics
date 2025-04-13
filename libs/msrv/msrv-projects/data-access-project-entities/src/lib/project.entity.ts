@@ -8,7 +8,8 @@ import {
 
 import { Project } from '@kudu/domain';
 
-import { ProjectToDataFieldEntity } from './project-to-data-field.entity';
+import { ProjectToDataValueEntity } from './project-to-data-value.entity';
+import { ProjectToMemberEntity } from './project-to-member.entity';
 
 @Entity()
 export class ProjectEntity implements Project {
@@ -18,8 +19,15 @@ export class ProjectEntity implements Project {
   @Column()
   name!: string;
 
-  @OneToMany(() => ProjectToDataFieldEntity, (entity) => entity.project)
-  dfs!: ProjectToDataFieldEntity[];
+  @OneToMany(() => ProjectToMemberEntity, (entity) => entity.project, {
+    cascade: true,
+  })
+  members!: ProjectToMemberEntity[];
+
+  @OneToMany(() => ProjectToDataValueEntity, (entity) => entity.project, {
+    cascade: true,
+  })
+  dataValues!: ProjectToDataValueEntity[];
 
   @Column('uuid')
   createdByUuid!: string;

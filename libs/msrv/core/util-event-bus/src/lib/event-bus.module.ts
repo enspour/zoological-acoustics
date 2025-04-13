@@ -6,6 +6,7 @@ import { EventBusService } from './event-bus.service';
 
 export interface EventBusConsumerOptions {
   queue: string;
+  group: string;
 }
 
 export interface EventBusProviderOptions {
@@ -23,7 +24,7 @@ export class EventBusModule {
           brokers: [process.env['KAFKA_URL'] || 'localhost:9092'],
         },
         consumer: {
-          groupId: `${options.queue}-consumer`,
+          groupId: `${options.group}-consumer`,
         },
       },
     });

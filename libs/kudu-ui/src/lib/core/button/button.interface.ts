@@ -1,1 +1,1 @@
-export type KuduButtonKind = 'filled' | 'outlined';
+export type KuduButtonKind = 'filled' | 'outlined' | 'bordered';

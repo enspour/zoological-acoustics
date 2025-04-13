@@ -44,11 +44,6 @@ const ProjectSettingsAccessPage = () =>
     (c) => c.ProjectSettingsAccessPageComponent,
   );
 
-const ProjectSettingsWorkflowsPage = () =>
-  import('@kudu/mfr-feature-project-settings-workflows').then(
-    (c) => c.ProjectSettingsWorkflowsPageComponent,
-  );
-
 const GanttPage = () =>
   import('@kudu/mfr-feature-gantt').then((c) => c.GanttPageComponent);
 
@@ -122,11 +117,6 @@ export const remoteRoutes: Route[] = [
                 path: 'access',
                 title: 'Kudu | Доступ',
                 loadComponent: ProjectSettingsAccessPage,
-              },
-              {
-                path: 'workflows',
-                title: 'Kudu | Workflows',
-                loadComponent: ProjectSettingsWorkflowsPage,
               },
             ],
           },

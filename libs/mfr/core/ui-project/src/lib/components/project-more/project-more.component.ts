@@ -32,7 +32,7 @@ import { ConfirmationModalComponent } from '@kudu/mfr-ui-modals';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectMoreComponent {
-  private dialog = inject(KuduDialogService);
+  private dialogService = inject(KuduDialogService);
 
   public project = input.required<Project>();
 
@@ -50,7 +50,7 @@ export class ProjectMoreComponent {
   }
 
   public onDelete() {
-    const dialogRef = this.dialog.open(ConfirmationModalComponent, {
+    const dialogRef = this.dialogService.open(ConfirmationModalComponent, {
       hasBackdrop: true,
       data: {
         title: 'Удаление проекта',

@@ -1,4 +1,4 @@
-import { Employee, Task, TaskBoard } from '@kudu/domain';
+import { ProjectMember, Task, TaskBoard } from '@kudu/domain';
 
 export interface GanttRowBoard {
   type: 'board';
@@ -34,7 +34,7 @@ export interface GanttRowTasksUnassigned {
 
 export interface GanttRowExecutor {
   type: 'executor';
-  executor: Employee;
+  executor: ProjectMember;
   tasks: Task[];
   index: number;
   isFirst: boolean;

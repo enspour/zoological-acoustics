@@ -12,7 +12,7 @@
     @for (employee of employees; track employee.uuid) {
       <tr (click)="onClick(employee)">
         <td kudu-td>
-          <lib-employee-avatar class="employee__avatar" [avatar]="employee" />
+          <lib-employee-avatar class="avatar" [avatar]="employee" />
         </td>
 
         <td kudu-td>{{ employee.name }}</td>

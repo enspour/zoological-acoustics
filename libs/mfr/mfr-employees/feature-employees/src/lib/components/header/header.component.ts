@@ -17,6 +17,8 @@ import {
 
 import { InviteEmployeeModalComponent } from '@kudu/mfr-feature-invite-employee';
 
+import { UniqueComponent } from '@kudu/mfr-util-unique-component';
+
 @Component({
   selector: 'lib-header',
   imports: [
@@ -30,7 +32,7 @@ import { InviteEmployeeModalComponent } from '@kudu/mfr-feature-invite-employee'
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
+export class HeaderComponent extends UniqueComponent {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private dialogService = inject(KuduDialogService);
@@ -39,7 +41,7 @@ export class HeaderComponent {
 
   public onSearchTermChange(searchTerm: string) {
     const queryParams = { ...this.route.snapshot.queryParams, searchTerm };
-    this.router.navigate([`/employees`], { queryParams });
+    this.router.navigate([], { queryParams, relativeTo: this.route });
   }
 
   public onInvite() {

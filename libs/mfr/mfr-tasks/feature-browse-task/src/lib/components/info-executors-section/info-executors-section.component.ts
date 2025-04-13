@@ -8,10 +8,10 @@ import {
 import { Employee } from '@kudu/domain';
 
 import { EmployeesService } from '@kudu/mfr-data-access-employees';
+import { TasksService } from '@kudu/mfr-data-access-tasks';
 
 import { EmployeePickerComponent } from '@kudu/mfr-ui-employee';
 
-import { TasksService } from '@kudu/mfr-data-access-tasks';
 import { BrowseTaskComponent } from '../../browse-task.component';
 
 @Component({
@@ -32,7 +32,7 @@ export class InfoExecutorsSectionComponent {
   public employeesSelected = linkedSignal({
     source: () => ({
       task: this.task(),
-      employees: this.employees() || [],
+      employees: this.employees(),
     }),
     computation: ({ task, employees }) => {
       return employees.filter((e) => task.executorUuids.includes(e.uuid));

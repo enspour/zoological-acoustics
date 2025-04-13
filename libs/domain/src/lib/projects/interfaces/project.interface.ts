@@ -1,4 +1,5 @@
 import { ProjectDataValue } from './project-data-value.interface';
+import { ProjectMember } from './project-member.interface';
 
 export interface Project {
   uuid: string;
@@ -8,7 +9,11 @@ export interface Project {
 }
 
 export type ProjectWithDataValues = Project & {
-  dvs: ProjectDataValue[];
+  dataValues: ProjectDataValue[];
+};
+
+export type ProjectWithMembers = Project & {
+  members: ProjectMember[];
 };
 
 export type CreatableProject = Omit<

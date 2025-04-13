@@ -1,0 +1,16 @@
+<lib-header />
+
+<div class="content">
+  <div class="content__search">
+    <kudu-input-container>
+      <kudu-icon icon="search" kuduPrefix />
+      <input kudu-input placeholder="Поиск" [(ngModel)]="searchTerm" />
+    </kudu-input-container>
+  </div>
+
+  <lib-employee-table
+    [employees]="employees() | filter: filterFn : searchTerm()"
+  />
+</div>
+
+<lib-footer />

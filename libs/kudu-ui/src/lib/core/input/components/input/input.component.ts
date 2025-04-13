@@ -3,12 +3,9 @@ import {
   Component,
   HostBinding,
   inject,
-  input,
 } from '@angular/core';
 
 import { kuduSize } from '../../../size';
-
-import { KuduInputKind } from './input.interface';
 
 @Component({
   selector: 'input[kudu-input]',
@@ -20,10 +17,8 @@ import { KuduInputKind } from './input.interface';
 export class KuduInputComponent {
   public size = inject(kuduSize);
 
-  public kind = input<KuduInputKind>('outlined');
-
   @HostBinding('class')
   public get Classes() {
-    return `${this.size()} ${this.kind()}`;
+    return `${this.size()}`;
   }
 }

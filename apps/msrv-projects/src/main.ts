@@ -3,6 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import cookieParser from 'cookie-parser';
 
 import { BusinessErrorFilter } from '@kudu/msrv-util-error-handling';
+import { EventBusModule } from '@kudu/msrv-util-event-bus';
 
 import { useSwagger } from './swagger';
 
@@ -19,6 +20,10 @@ async function bootstrap() {
   app.use(cookieParser());
   app.useGlobalFilters(new BusinessErrorFilter());
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
+
+  EventBusModule.connect(app, { queue: 'projects', group: 'msrv-projects' });
+  EventBusModule.connect(app, { queue: 'users', group: 'msrv-projects' });
+  EventBusModule.connect(app, { queue: 'employees', group: 'msrv-projects' });
 
   app.startAllMicroservices();
 

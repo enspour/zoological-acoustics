@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+}
+
+.action {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #dddddd;
+  }
+}
+
+.action__title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.action__hint {
+  font-size: 16px;
+  color: #666666;
+}
+
+.action__btn {
+  flex-shrink: 0;
+}
+
+.action__btn--delete {
+  color: #ff0000;
+
+  &:hover {
+    color: #ffffff;
+    background-color: #ff0000;
+  }
+}

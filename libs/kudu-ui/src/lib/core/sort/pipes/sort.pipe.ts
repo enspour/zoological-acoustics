@@ -32,13 +32,13 @@ const sortFnByDefault = <T>(arr: T[], config: KuduSortConfig): T[] => {
 };
 
 const sortByAsc = <T>(arr: T[], by: string) => {
-  return arr.sort((a: any, b: any) =>
+  return [...arr].sort((a: any, b: any) =>
     a[by] < b[by] ? -1 : a[by] > b[by] ? 1 : 0,
   );
 };
 
 const sortByDesc = <T>(arr: T[], by: string) => {
-  return arr.sort((a: any, b: any) =>
+  return [...arr].sort((a: any, b: any) =>
     a[by] > b[by] ? -1 : a[by] < b[by] ? 1 : 0,
   );
 };

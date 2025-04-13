@@ -1,4 +1,4 @@
-@let columns = this.columns() || [] | filter: filterByBoardFn : board();
+@let columns = this.columns() | filter: filterByBoardFn : board();
 
 <div
   class="columns"
@@ -16,7 +16,7 @@
       (byDrop)="onTaskDrop()"
     >
       @let tasks =
-        this.tasks() || []
+        this.tasks()
           | filter: filterByBoardFn : board()
           | filter: filterByColumnFn : null;
 
@@ -55,7 +55,7 @@
         [kuduDropContainerData]="column"
         (byDrop)="onTaskDrop()"
       >
-        @let tasks = this.tasks() || [] | filter: filterByColumnFn : column;
+        @let tasks = this.tasks() | filter: filterByColumnFn : column;
 
         @for (task of tasks; track task.uuid) {
           <lib-kanban-task

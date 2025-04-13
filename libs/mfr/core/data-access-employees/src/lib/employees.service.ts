@@ -1,4 +1,4 @@
-import { inject, Injectable, resource } from '@angular/core';
+import { computed, inject, Injectable, resource } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
 import { EmployeesApi } from './employees.api';
@@ -14,7 +14,7 @@ export class EmployeesService {
     },
   });
 
-  public employees = this.response.value;
+  public employees = computed(() => this.response.value() || []);
   public error = this.response.error;
   public isLoading = this.response.isLoading;
 

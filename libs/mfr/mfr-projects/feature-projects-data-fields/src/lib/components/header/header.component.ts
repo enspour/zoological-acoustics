@@ -17,6 +17,8 @@ import {
 
 import { CreateProjectDataFieldModalComponent } from '@kudu/mfr-feature-create-project-data-field';
 
+import { UniqueComponent } from '@kudu/mfr-util-unique-component';
+
 @Component({
   selector: 'lib-header',
   imports: [
@@ -30,7 +32,7 @@ import { CreateProjectDataFieldModalComponent } from '@kudu/mfr-feature-create-p
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
+export class HeaderComponent extends UniqueComponent {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private dialogService = inject(KuduDialogService);
@@ -39,7 +41,7 @@ export class HeaderComponent {
 
   public onSearchTermChange(searchTerm: string) {
     const queryParams = { ...this.route.snapshot.queryParams, searchTerm };
-    this.router.navigate([`/projects/settings/data-fields`], { queryParams });
+    this.router.navigate([], { queryParams, relativeTo: this.route });
   }
 
   public onCreateDataField() {

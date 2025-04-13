@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  z-index: 0;
+}
+
+.avatar {
+  position: relative;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+}
+
+.avatar__rest {
+  position: relative;
+  min-width: var(--member-size);
+  max-width: var(--member-size);
+  width: var(--member-size);
+  height: var(--member-size);
+  font-size: calc(var(--member-size) / 2 - 2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+}

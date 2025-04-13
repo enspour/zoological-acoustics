@@ -21,7 +21,7 @@ async function bootstrap() {
   app.useGlobalFilters(new BusinessErrorFilter());
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
 
-  EventBusModule.connect(app, { queue: 'users' });
+  EventBusModule.connect(app, { queue: 'users', group: 'msrv-employees' });
 
   app.startAllMicroservices();
 

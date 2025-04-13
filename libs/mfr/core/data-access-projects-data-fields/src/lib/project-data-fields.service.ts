@@ -1,4 +1,4 @@
-import { inject, Injectable, resource } from '@angular/core';
+import { computed, inject, Injectable, resource } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
 import {
@@ -20,7 +20,7 @@ export class ProjectDataFieldsService {
     },
   });
 
-  public dataFields = this.response.value;
+  public dataFields = computed(() => this.response.value() || []);
   public error = this.response.error;
   public isLoading = this.response.isLoading;
 

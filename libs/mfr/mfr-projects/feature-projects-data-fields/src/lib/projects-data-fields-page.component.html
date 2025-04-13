@@ -1,9 +1,7 @@
 <lib-header [searchTerm]="searchTerm() || ''" />
 
-@let dataFields = this.dataFields() || [];
-
 <lib-project-data-field-table
-  [dataFields]="dataFields | filter: filterFn : searchTerm() || ''"
+  [dataFields]="this.dataFields() | filter: filterFn : searchTerm() || ''"
   (byClick)="onDataFieldClick($event)"
   [sortConfig]="sortConfig()"
   (sortConfigChange)="onSortConfigChange($event)"

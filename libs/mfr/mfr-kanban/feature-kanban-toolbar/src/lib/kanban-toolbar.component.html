@@ -1,11 +1,9 @@
-@let boards = this.boards() || [];
-
 <lib-kanban-board-tabs
   class="tabs"
   kuduDropContainer
   [kuduDropContainerTypes]="['board']"
 >
-  @for (board of boards; track board.uuid) {
+  @for (board of this.boards(); track board.uuid) {
     <lib-kanban-board-tab
       [board]="board"
       kuduDrag

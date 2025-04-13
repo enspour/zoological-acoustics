@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content__search {
+  padding: 0 20px;
+}

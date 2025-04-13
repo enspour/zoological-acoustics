@@ -55,7 +55,7 @@ export class EmployeesPageComponent {
       sortOrder: config?.order,
     };
 
-    this.router.navigate([`/employees`], { queryParams });
+    this.router.navigate([], { queryParams, relativeTo: this.route });
   }
 
   public filterFn(search: string) {

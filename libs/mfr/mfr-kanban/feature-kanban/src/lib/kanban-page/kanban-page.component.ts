@@ -30,7 +30,7 @@ export class KanbanPageComponent {
   public board = computed(() => this.getBoard());
 
   private getBoard() {
-    const boards = this.projectTaskBoardsService.boards() || [];
+    const boards = this.projectTaskBoardsService.boards();
     const boardUuid = this.boardUuid();
 
     if (boardUuid) {

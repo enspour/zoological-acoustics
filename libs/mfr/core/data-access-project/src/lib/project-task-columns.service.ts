@@ -22,7 +22,7 @@ export class ProjectTaskColumnsService {
     },
   });
 
-  public columns = this.resource.value;
+  public columns = computed(() => this.resource.value() || []);
   public error = this.resource.error;
   public isLoading = this.resource.isLoading;
 }

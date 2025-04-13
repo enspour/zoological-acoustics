@@ -32,7 +32,6 @@ export class InfoCreatorSectionComponent {
   public creator = computed(() => this.getCreator());
 
   public getCreator() {
-    const employees = this.employees() || [];
-    return employees.find((e) => e.uuid === this.task().createdByUuid);
+    return this.employees().find((e) => e.uuid === this.task().createdByUuid);
   }
 }

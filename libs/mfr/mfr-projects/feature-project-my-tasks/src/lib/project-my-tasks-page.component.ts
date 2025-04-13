@@ -43,7 +43,8 @@ export class ProjectMyTasksPageComponent {
       return [];
     }
 
-    const tasks = this.projectTasksService.tasks() || [];
-    return tasks.filter((task) => task.executorUuids.includes(user.uuid));
+    return this.projectTasksService
+      .tasks()
+      .filter((task) => task.executorUuids.includes(user.uuid));
   }
 }

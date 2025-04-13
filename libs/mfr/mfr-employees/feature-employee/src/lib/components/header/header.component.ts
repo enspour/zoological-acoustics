@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { TabLinkComponent, TabsComponent } from '@kudu/mfr-ui-kit';
 
+import { UniqueComponent } from '@kudu/mfr-util-unique-component';
+
 import { EmployeePageComponent } from '../../employee-page.component';
 
 @Component({
@@ -11,7 +13,7 @@ import { EmployeePageComponent } from '../../employee-page.component';
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
+export class HeaderComponent extends UniqueComponent {
   private page = inject(EmployeePageComponent);
 
   public employee = this.page.employee;

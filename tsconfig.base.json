@@ -69,6 +69,9 @@
       "@kudu/mfr-feature-browse-employee": [
         "libs/mfr/mfr-employees/feature-browse-employee/src/index.ts"
       ],
+      "@kudu/mfr-feature-browse-project-access": [
+        "libs/mfr/mfr-projects/feature-browse-project-access/src/index.ts"
+      ],
       "@kudu/mfr-feature-browse-project-data-field": [
         "libs/mfr/mfr-projects/feature-browse-project-data-field/src/index.ts"
       ],
@@ -115,6 +118,9 @@
       "@kudu/mfr-feature-invite-employee": [
         "libs/mfr/mfr-employees/feature-invite-employee/src/index.ts"
       ],
+      "@kudu/mfr-feature-invite-project-member": [
+        "libs/mfr/mfr-projects/feature-invite-project-member/src/index.ts"
+      ],
       "@kudu/mfr-feature-kanban": [
         "libs/mfr/mfr-kanban/feature-kanban/src/index.ts"
       ],
@@ -144,9 +150,6 @@
       ],
       "@kudu/mfr-feature-project-settings-general": [
         "libs/mfr/mfr-projects/feature-project-settings-general/src/index.ts"
-      ],
-      "@kudu/mfr-feature-project-settings-workflows": [
-        "libs/mfr/mfr-projects/feature-project-settings-workflows/src/index.ts"
       ],
       "@kudu/mfr-feature-projects": [
         "libs/mfr/mfr-projects/feature-projects/src/index.ts"
@@ -216,6 +219,9 @@
         "libs/mfr/mfr-projects/util-project-data-field/src/index.ts"
       ],
       "@kudu/mfr-util-tasks": ["libs/mfr/core/util-tasks/src/index.ts"],
+      "@kudu/mfr-util-unique-component": [
+        "libs/mfr/core/util-unique-component/src/index.ts"
+      ],
       "@kudu/msrv-data-access-postgres": [
         "libs/msrv/core/data-access-postgres/src/index.ts"
       ],
@@ -225,11 +231,23 @@
       "@kudu/msrv-feature-auth": [
         "libs/msrv/msrv-identity/feature-auth/src/index.ts"
       ],
+      "@kudu/msrv-feature-employee-duplication": [
+        "libs/msrv/core/feature-employee-duplication/src/index.ts"
+      ],
+      "@kudu/msrv-feature-employee-events": [
+        "libs/msrv/msrv-employees/feature-employee-events/src/index.ts"
+      ],
       "@kudu/msrv-feature-employees": [
         "libs/msrv/msrv-employees/feature-employees/src/index.ts"
       ],
       "@kudu/msrv-feature-project-data-fields": [
         "libs/msrv/msrv-projects/feature-project-data-fields/src/index.ts"
+      ],
+      "@kudu/msrv-feature-project-events": [
+        "libs/msrv/msrv-projects/feature-project-events/src/index.ts"
+      ],
+      "@kudu/msrv-feature-project-members": [
+        "libs/msrv/msrv-projects/feature-project-members/src/index.ts"
       ],
       "@kudu/msrv-feature-projects": [
         "libs/msrv/msrv-projects/feature-projects/src/index.ts"

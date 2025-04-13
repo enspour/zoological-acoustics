@@ -22,7 +22,7 @@ export class ProjectTaskBoardsService {
     },
   });
 
-  public boards = this.resource.value;
+  public boards = computed(() => this.resource.value() || []);
   public error = this.resource.error;
   public isLoading = this.resource.isLoading;
 }

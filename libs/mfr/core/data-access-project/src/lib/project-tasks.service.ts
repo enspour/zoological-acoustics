@@ -18,11 +18,11 @@ export class ProjectTasksService {
         return [];
       }
 
-      return await this.tasksService.getByProject(request);
+      return await this.tasksService.getTasksByProject(request);
     },
   });
 
-  public tasks = this.resource.value;
+  public tasks = computed(() => this.resource.value() || []);
   public error = this.resource.error;
   public isLoading = this.resource.isLoading;
 }

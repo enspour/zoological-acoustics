@@ -11,6 +11,8 @@ import { ConfirmationModalComponent } from '@kudu/mfr-ui-modals';
 
 import { ProjectDataFieldsService } from '@kudu/mfr-data-access-projects-data-fields';
 
+import { UniqueComponent } from '@kudu/mfr-util-unique-component';
+
 import { BrowseProjectDataFieldModalComponent } from '../../browse-project-data-field-modal.component';
 
 @Component({
@@ -20,7 +22,7 @@ import { BrowseProjectDataFieldModalComponent } from '../../browse-project-data-
   styleUrl: './footer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FooterComponent {
+export class FooterComponent extends UniqueComponent {
   private modal = inject(BrowseProjectDataFieldModalComponent);
 
   private dialogService = inject(KuduDialogService);

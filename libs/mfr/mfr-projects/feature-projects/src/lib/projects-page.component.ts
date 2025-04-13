@@ -55,7 +55,7 @@ export class ProjectsPageComponent {
       sortOrder: config?.order,
     };
 
-    this.router.navigate([`/projects`], { queryParams });
+    this.router.navigate([], { queryParams, relativeTo: this.route });
   }
 
   public filterFn(search: string) {

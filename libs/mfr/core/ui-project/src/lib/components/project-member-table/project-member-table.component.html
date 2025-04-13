@@ -1,0 +1,22 @@
+<table kudu-table kuduSort #sortRef="kuduSort" [(kuduSortConfig)]="sortConfig">
+  <thead>
+    <tr>
+      <th kudu-th [style.width.px]="52"></th>
+      <th kudu-th kuduThSort="name">Название</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @let members = this.members() | kuduSort: sortRef.config();
+
+    @for (member of members; track member.uuid) {
+      <tr (click)="onClick(member)">
+        <td kudu-td>
+          <lib-employee-avatar [avatar]="member" />
+        </td>
+
+        <td kudu-td>{{ member.name }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

@@ -1,9 +1,7 @@
 <lib-header [searchTerm]="searchTerm() || ''" />
 
-@let projects = this.projects() || [];
-
 <lib-project-table
-  [projects]="projects | filter: filterFn : searchTerm() || ''"
+  [projects]="this.projects() | filter: filterFn : searchTerm() || ''"
   (byProjectClick)="onClickProject($event)"
   [sortConfig]="sortConfig()"
   (sortConfigChange)="onSortConfigChange($event)"

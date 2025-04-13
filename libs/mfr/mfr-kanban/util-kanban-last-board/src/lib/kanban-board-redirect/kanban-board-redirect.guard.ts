@@ -12,7 +12,7 @@ export const kanbanBoardRedirectGuard: CanActivateFn = (_, state) => {
   const localStorageService = inject(LocalStorageService);
   const projectTaskBoardsService = inject(ProjectTaskBoardsService);
 
-  const boards = projectTaskBoardsService.boards() || [];
+  const boards = projectTaskBoardsService.boards();
 
   if (boards.length === 0) {
     return true;
