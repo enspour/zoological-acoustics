@@ -5,13 +5,13 @@ import {
   KuduVirtualizationConfig,
 } from '../virtualization.interface';
 
-import { kuduVirtualizationToken } from '../virtualization.token';
+import { kuduVirtualization } from '../virtualization.token';
 
 @Directive({
   selector: '[kuduVirtualizeByRange]',
   providers: [
     {
-      provide: kuduVirtualizationToken,
+      provide: kuduVirtualization,
       useExisting: KuduVirtualizeByRangeDirective,
       multi: true,
     },

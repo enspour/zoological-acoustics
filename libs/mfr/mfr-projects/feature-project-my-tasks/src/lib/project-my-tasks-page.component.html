@@ -2,4 +2,6 @@
   class="table"
   [tasks]="tasks()"
   (byTaskClick)="onTaskClick($event)"
+  [sortConfig]="sortConfig()"
+  (sortConfigChange)="onSortConfigChange($event)"
 />

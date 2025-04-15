@@ -1,6 +1,6 @@
 <kudu-overlay
+  [isOpen]="isOpen()"
   [origin]="trigger()"
-  [(isOpen)]="isOpen"
   (byClickOutside)="isOpen.set(false)"
 >
   <div class="menu">

@@ -19,9 +19,9 @@ import {
   KuduOverlayPositionY,
 } from '../overlay';
 
-import { KuduClickOutsideZoneDirective } from '../click-outside';
 import { KuduOptionsDirective } from '../options';
 import { kuduSize } from '../size';
+import { KuduZoneDirective } from '../zone';
 
 @Component({
   selector: 'kudu-autocomplete',
@@ -30,7 +30,7 @@ import { kuduSize } from '../size';
   styleUrl: './autocomplete.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
-    KuduClickOutsideZoneDirective,
+    KuduZoneDirective,
     {
       directive: KuduOptionsDirective,
       inputs: ['value', 'multiple'],
@@ -51,11 +51,8 @@ export class KuduAutocompleteComponent {
 
   public config: KuduOverlayConfig = {
     width: 'origin-width',
-    positionX: 'left',
-    positionY: 'under',
     lockX: true,
     lockY: false,
-    gap: 0,
   };
 
   public positionX = signal<KuduOverlayPositionX>('right');

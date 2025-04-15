@@ -20,7 +20,7 @@
 </button>
 
 <kudu-overlay
-  [(isOpen)]="isOpen"
+  [isOpen]="isOpen()"
   [origin]="origin"
   [config]="config"
   (positionXChange)="positionX.set($event)"

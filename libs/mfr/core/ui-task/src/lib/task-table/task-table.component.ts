@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 
 import {
+  KuduIconComponent,
   KuduSortConfig,
   KuduSortDirective,
   KuduSortPipe,
@@ -29,6 +30,7 @@ import { Task } from '@kudu/domain';
     KuduTableHeaderSortDirective,
     KuduSortDirective,
     KuduSortPipe,
+    KuduIconComponent,
   ],
   templateUrl: './task-table.component.html',
   styleUrl: './task-table.component.scss',

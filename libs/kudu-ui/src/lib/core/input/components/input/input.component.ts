@@ -15,7 +15,7 @@ import { kuduSize } from '../../../size';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KuduInputComponent {
-  public size = inject(kuduSize);
+  private size = inject(kuduSize);
 
   @HostBinding('class')
   public get Classes() {

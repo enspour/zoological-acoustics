@@ -7,7 +7,11 @@ import {
 
 import { DateTime } from '@kudu-date';
 
-import { KuduDatepickerComponent } from '@kudu-ui';
+import {
+  KuduIconComponent,
+  KuduInputContainerComponent,
+  KuduInputDateComponent,
+} from '@kudu-ui';
 
 import { TasksService } from '@kudu/mfr-data-access-tasks';
 
@@ -15,7 +19,11 @@ import { BrowseTaskComponent } from '../../browse-task.component';
 
 @Component({
   selector: 'lib-info-deadline-section',
-  imports: [KuduDatepickerComponent],
+  imports: [
+    KuduIconComponent,
+    KuduInputContainerComponent,
+    KuduInputDateComponent,
+  ],
   templateUrl: './info-deadline-section.component.html',
   styleUrl: './info-deadline-section.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

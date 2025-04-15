@@ -1,9 +1,9 @@
 import { computed, inject, Injectable } from '@angular/core';
 
-import { ProjectMember, Task, TaskBoard } from '@kudu/domain';
+import { Employee, Task, TaskBoard } from '@kudu/domain';
 
+import { EmployeesService } from '@kudu/mfr-data-access-employees';
 import {
-  ProjectMembersService,
   ProjectTaskBoardsService,
   ProjectTasksService,
 } from '@kudu/mfr-data-access-project';
@@ -18,7 +18,7 @@ import { GanttRow } from './interfaces';
 
 @Injectable()
 export class GanttRowsService {
-  private projectMembersService = inject(ProjectMembersService);
+  private employeesService = inject(EmployeesService);
   private projectTaskBoardsService = inject(ProjectTaskBoardsService);
   private projectTasksService = inject(ProjectTasksService);
   private ganttStashService = inject(GanttStashService);
@@ -70,7 +70,7 @@ export class GanttRowsService {
   private groupByExecutors() {
     const boards = this.projectTaskBoardsService.boards();
 
-    const members = this.projectMembersService.members();
+    const employees = this.employeesService.employees();
 
     const tasks = this.projectTasksService.tasks();
     const tasksByBoardsAndExecutors = groupTasks(tasks, 'board:executor');
@@ -92,12 +92,12 @@ export class GanttRowsService {
 
       this.appendTasksUnassigned(rows, { tasksByRows });
 
-      for (const member of members) {
-        const key = `${board.uuid}:${member.uuid}`;
+      for (const employee of employees) {
+        const key = `${board.uuid}:${employee.uuid}`;
         const tasksByExecutor = tasksByBoardsAndExecutors[key] || [];
         const tasksByRows = groupTasksByRows(tasksByExecutor);
 
-        this.appendEmployee(rows, { member, tasksByRows });
+        this.appendEmployee(rows, { employee, tasksByRows });
       }
     }
 
@@ -127,12 +127,12 @@ export class GanttRowsService {
 
   private appendEmployee(
     rows: GanttRow[],
-    context: { member: ProjectMember; tasksByRows: Task[][] },
+    context: { employee: Employee; tasksByRows: Task[][] },
   ) {
     for (let i = 0; i < context.tasksByRows.length; i++) {
       rows.push({
         type: 'executor',
-        executor: context.member,
+        executor: context.employee,
         tasks: context.tasksByRows[i],
         index: rows.length,
         isFirst: i === 0,

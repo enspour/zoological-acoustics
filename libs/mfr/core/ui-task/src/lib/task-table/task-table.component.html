@@ -1,6 +1,7 @@
 <table kudu-table kuduSort #sortRef="kuduSort" [(kuduSortConfig)]="sortConfig">
   <thead>
     <tr>
+      <th kudu-th [style.width.px]="52"></th>
       <th kudu-th kuduThSort="title">Название</th>
       <th kudu-th kuduThSort="startDate">Начало</th>
       <th kudu-th kuduThSort="endDate">Завершение</th>
@@ -12,6 +13,10 @@
 
     @for (task of tasks; track task.uuid) {
       <tr (click)="onClick(task)">
+        <td kudu-td>
+          <kudu-icon class="done" icon="circle-check" />
+        </td>
+
         <td kudu-td>{{ task.title }}</td>
         <td kudu-td>{{ task.startDate | date: 'dd.MM.yyyy' }}</td>
         <td kudu-td>{{ task.endDate | date: 'dd.MM.yyyy' }}</td>

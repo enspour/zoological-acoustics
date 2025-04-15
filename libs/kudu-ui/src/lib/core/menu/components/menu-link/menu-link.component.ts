@@ -11,16 +11,14 @@ import {
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { kuduSize } from '../../../size';
-import { kuduMenuItemToken } from '../../tokens/menu-item.token';
+import { kuduMenuItem } from '../../tokens/menu-item.token';
 
 @Component({
   selector: 'a[kudu-menu-link]',
   templateUrl: './menu-link.component.html',
   styleUrl: './menu-link.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    { provide: kuduMenuItemToken, useExisting: KuduMenuLinkComponent },
-  ],
+  providers: [{ provide: kuduMenuItem, useExisting: KuduMenuLinkComponent }],
   hostDirectives: [RouterLink, RouterLinkActive],
 })
 export class KuduMenuLinkComponent implements OnChanges {

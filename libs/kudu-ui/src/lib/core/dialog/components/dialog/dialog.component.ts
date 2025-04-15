@@ -9,8 +9,8 @@ import {
 } from '@angular/core';
 
 import { KuduClickOutsideDirective } from '../../../click-outside';
-
 import { KuduGlassmorphismDirective } from '../../../glassmorphism';
+import { KuduZoneDirective } from '../../../zone';
 
 import { KuduDialogConfig, KuduDialogRef } from '../../services/dialog.service';
 
@@ -21,6 +21,7 @@ import { KuduDialogConfig, KuduDialogRef } from '../../services/dialog.service';
   styleUrl: './dialog.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
+    KuduZoneDirective,
     {
       directive: KuduClickOutsideDirective,
       outputs: ['byClickOutside'],

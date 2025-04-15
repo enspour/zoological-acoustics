@@ -4,6 +4,6 @@ export interface KuduMenuItem {
   byClick: OutputEmitterRef<Event>;
 }
 
-export const kuduMenuItemToken = new InjectionToken<KuduMenuItem>(
+export const kuduMenuItem = new InjectionToken<KuduMenuItem>(
   'kudu-ui/menu/item',
 );

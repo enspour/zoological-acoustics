@@ -9,7 +9,7 @@ import {
   KuduVirtualizationConfig,
 } from './virtualization.interface';
 
-import { kuduVirtualizationToken } from './virtualization.token';
+import { kuduVirtualization } from './virtualization.token';
 
 export interface KuduByVirtualization<T> {
   items: T[];
@@ -24,7 +24,7 @@ export class KuduVirtualizationDirective<T> {
   private elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
 
   private virtualizations = inject<KuduVirtualization<T>[]>(
-    kuduVirtualizationToken,
+    kuduVirtualization,
     { optional: true, self: true },
   );
 

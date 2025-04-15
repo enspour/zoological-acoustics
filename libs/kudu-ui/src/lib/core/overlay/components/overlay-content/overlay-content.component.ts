@@ -12,6 +12,7 @@ import { of, switchMap } from 'rxjs';
 import { layoutObservable } from '@kudu-ng-utils';
 
 import { KuduClickOutsideDirective } from '../../../click-outside';
+import { KuduZoneDirective } from '../../../zone';
 
 import {
   KuduOverlayComponent,
@@ -31,6 +32,7 @@ import {
     '[style.width.px]': 'layout()?.width',
   },
   hostDirectives: [
+    KuduZoneDirective,
     {
       directive: KuduClickOutsideDirective,
       outputs: ['byClickOutside'],

@@ -1,14 +1,13 @@
 import { Directive, HostListener, inject, output } from '@angular/core';
 
-import { KuduClickOutsideZoneDirective } from './click-outside-zone.directive';
+import { KuduZoneDirective } from '../zone';
 
 @Directive({
   selector: '[kuduClickOutside]',
-  hostDirectives: [KuduClickOutsideZoneDirective],
 })
 export class KuduClickOutsideDirective {
-  private inner = inject(KuduClickOutsideZoneDirective);
-  private outer = inject(KuduClickOutsideZoneDirective, {
+  private inner = inject(KuduZoneDirective, { self: true });
+  private outer = inject(KuduZoneDirective, {
     skipSelf: true,
     optional: true,
   });

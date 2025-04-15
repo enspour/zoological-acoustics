@@ -2,20 +2,30 @@
   <div class="date">
     <div class="date__title">Начало:</div>
 
-    <kudu-datepicker
-      [(date)]="startDate"
-      (dateChange)="onDeadlineChange()"
-      placeholder="Начало"
-    />
+    <kudu-input-container>
+      <input
+        kudu-input-date
+        [(value)]="startDate"
+        (valueChange)="onDeadlineChange()"
+        placeholder="Начало"
+      />
+
+      <kudu-icon icon="calendar" kuduSuffix />
+    </kudu-input-container>
   </div>
 
   <div class="date">
     <div class="date__title">Завершение:</div>
 
-    <kudu-datepicker
-      [(date)]="endDate"
-      (dateChange)="onDeadlineChange()"
-      placeholder="Завершение"
-    />
+    <kudu-input-container>
+      <input
+        kudu-input-date
+        [(value)]="endDate"
+        (valueChange)="onDeadlineChange()"
+        placeholder="Завершение"
+      />
+
+      <kudu-icon icon="calendar" kuduSuffix />
+    </kudu-input-container>
   </div>
 </div>

@@ -1,8 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   input,
-  model,
   output,
 } from '@angular/core';
 
@@ -14,15 +14,15 @@ export type KuduOverlayPositionY = 'above' | 'under';
 export type KuduOverlayPositionX = 'left' | 'right' | 'center';
 
 export interface KuduOverlayConfig {
-  width: 'origin-width' | 'self-width';
-  positionX: KuduOverlayPositionX;
-  positionY: KuduOverlayPositionY;
-  lockX: boolean;
-  lockY: boolean;
-  gap: number;
+  width?: 'origin-width' | 'self-width';
+  positionX?: KuduOverlayPositionX;
+  positionY?: KuduOverlayPositionY;
+  lockX?: boolean;
+  lockY?: boolean;
+  gap?: number;
 }
 
-const initialConfig: KuduOverlayConfig = {
+const initialConfig: Required<KuduOverlayConfig> = {
   width: 'self-width',
   positionX: 'left',
   positionY: 'under',
@@ -39,10 +39,12 @@ const initialConfig: KuduOverlayConfig = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KuduOverlayComponent {
-  public origin = input.required<KuduOverlayOriginDirective>();
-  public config = input<KuduOverlayConfig>(initialConfig);
+  public isOpen = input<boolean>(true);
 
-  public isOpen = model.required<boolean>();
+  public origin = input.required<KuduOverlayOriginDirective>();
+
+  public _config = input<KuduOverlayConfig>(undefined, { alias: 'config' });
+  public config = computed(() => ({ ...initialConfig, ...this._config() }));
 
   public positionXChange = output<KuduOverlayPositionX>();
   public positionYChange = output<KuduOverlayPositionY>();

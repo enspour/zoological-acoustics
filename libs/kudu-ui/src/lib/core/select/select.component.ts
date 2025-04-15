@@ -19,9 +19,9 @@ import {
   KuduOverlayPositionY,
 } from '../overlay';
 
-import { KuduClickOutsideZoneDirective } from '../click-outside';
 import { KuduOptionComponent, KuduOptionsDirective } from '../options';
 import { kuduSize } from '../size';
+import { KuduZoneDirective } from '../zone';
 
 @Component({
   selector: 'kudu-select',
@@ -30,7 +30,7 @@ import { kuduSize } from '../size';
   styleUrl: './select.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
-    KuduClickOutsideZoneDirective,
+    KuduZoneDirective,
     {
       directive: KuduOptionsDirective,
       inputs: ['value', 'multiple'],
@@ -49,11 +49,8 @@ export class KuduSelectComponent<T> implements OnInit {
 
   public config: KuduOverlayConfig = {
     width: 'origin-width',
-    positionX: 'left',
-    positionY: 'under',
     lockX: true,
     lockY: false,
-    gap: 0,
   };
 
   public positionX = signal<KuduOverlayPositionX>('right');

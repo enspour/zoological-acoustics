@@ -21,8 +21,6 @@ export class KuduTooltipComponent {
     width: 'self-width',
     positionX: 'center',
     positionY: 'under',
-    lockX: false,
-    lockY: false,
     gap: 4,
   };
 }

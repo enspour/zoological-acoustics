@@ -12,7 +12,7 @@ import {
 import { KuduOverlayComponent } from '../../../overlay';
 import { kuduSize } from '../../../size';
 import { KuduMenuTriggerDirective } from '../../directives/menu-trigger.directive';
-import { kuduMenuItemToken } from '../../tokens/menu-item.token';
+import { kuduMenuItem } from '../../tokens/menu-item.token';
 
 @Component({
   selector: 'kudu-menu-by-trigger',
@@ -24,7 +24,7 @@ import { kuduMenuItemToken } from '../../tokens/menu-item.token';
 export class KuduMenuByTriggerComponent {
   private size = inject(kuduSize);
 
-  private items = contentChildren(kuduMenuItemToken);
+  private items = contentChildren(kuduMenuItem);
 
   public isOpen = model(false);
 

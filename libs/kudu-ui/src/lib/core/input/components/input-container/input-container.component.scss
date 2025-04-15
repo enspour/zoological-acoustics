@@ -5,12 +5,14 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 8px;
   color: #191919;
+  outline: none;
   border: 1px solid #dddddd;
   background-color: #ffffff;
 
-  &:focus-within {
+  &:focus,
+  &:focus-within,
+  &.focused {
     background-color: #f5f5f5;
     border: 1px solid #6a6a6a;
   }
@@ -23,19 +25,17 @@
 :host.sm {
   @include layout.sm;
   height: 26px;
+  gap: 8px;
 }
 
 :host.md {
   @include layout.md;
   height: 30px;
+  gap: 12px;
 }
 
 :host.lg {
   @include layout.lg;
   height: 34px;
-}
-
-:host(.focused) {
-  background-color: #f5f5f5;
-  border: 1px solid #6a6a6a;
+  gap: 16px;
 }

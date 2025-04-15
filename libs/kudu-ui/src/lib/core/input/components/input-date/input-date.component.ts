@@ -1,36 +1,48 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  HostBinding,
-  HostListener,
+  inject,
   model,
 } from '@angular/core';
 
 import { DateTime } from '@kudu-date';
 
+import { KuduCalendarComponent } from '../../../calendar';
+
+import {
+  KuduOverlayComponent,
+  KuduOverlayConfig,
+  KuduOverlayOriginDirective,
+} from '../../../overlay';
+
+import { KuduActiveZoneDirective } from '../../../active-zone';
+import { KuduInputDateValidatorDirective } from '../../directives';
+
 @Component({
   selector: 'input[kudu-input-date]',
-  imports: [],
+  imports: [KuduOverlayComponent, KuduCalendarComponent],
   templateUrl: './input-date.component.html',
   styleUrl: './input-date.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  hostDirectives: [
+    {
+      directive: KuduInputDateValidatorDirective,
+      inputs: ['kuduInputDateValidatorValue: value'],
+      outputs: ['kuduInputDateValidatorValueChange: valueChange'],
+    },
+  ],
 })
 export class KuduInputDateComponent {
+  private activeZoneDirective = inject(KuduActiveZoneDirective);
+
+  public origin = inject(KuduOverlayOriginDirective);
+
   public value = model<DateTime>();
 
-  @HostBinding('value')
-  public get Value() {
-    const value = this.value();
-    return value ? value.toDate().toLocaleDateString().slice(0, 10) : '';
-  }
+  public isFocus = this.activeZoneDirective.active;
 
-  @HostListener('input', ['$event'])
-  public onInput(event: Event) {
-    const target = event.target as HTMLInputElement;
-    const date = DateTime.fromStringByDatePatterns(target.value);
-
-    if (date) {
-      this.value.set(date);
-    }
-  }
+  public config: KuduOverlayConfig = {
+    width: 'self-width',
+    gap: 4,
+  };
 }
