@@ -1,7 +1,22 @@
-<kudu-icon icon="circle-check" />
+<div class="header">
+  <kudu-icon icon="circle-check" />
 
-<div kudu-editable class="title" [disabled]="true">
-  {{ task().title }}
+  <div kudu-editable class="title" [disabled]="true">
+    {{ task().title }}
+  </div>
+
+  <lib-task-more
+    [task]="task()"
+    (byDelete)="onDelete()"
+    (click)="$event.stopPropagation()"
+  />
 </div>
 
-<lib-task-more [task]="task()" (byDelete)="onDelete()" />
+<lib-employee-picker
+  class="employees"
+  [(value)]="employeesSelected"
+  [employees]="employees()"
+  [multiple]="true"
+  (byClose)="onClose($event)"
+  (click)="$event.stopPropagation()"
+/>

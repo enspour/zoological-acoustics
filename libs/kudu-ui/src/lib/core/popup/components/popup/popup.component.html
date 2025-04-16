@@ -1,0 +1,9 @@
+<kudu-overlay
+  [isOpen]="isOpen()"
+  [origin]="origin"
+  [config]="config()"
+  (positionXChange)="positionXChange.emit($event)"
+  (positionYChange)="positionYChange.emit($event)"
+>
+  <ng-content />
+</kudu-overlay>

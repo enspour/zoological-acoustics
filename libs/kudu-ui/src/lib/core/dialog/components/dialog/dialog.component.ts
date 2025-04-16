@@ -24,7 +24,7 @@ import { KuduDialogConfig, KuduDialogRef } from '../../services/dialog.service';
     KuduZoneDirective,
     {
       directive: KuduClickOutsideDirective,
-      outputs: ['byClickOutside'],
+      outputs: ['kuduClickOutside'],
     },
   ],
 })
@@ -34,7 +34,7 @@ export class KuduDialogComponent {
   public component = input.required<Type<any>>();
   public config = input<KuduDialogConfig>();
 
-  @HostListener('byClickOutside')
+  @HostListener('kuduClickOutside')
   public onClickOutside() {
     this.dialogRef.close();
   }

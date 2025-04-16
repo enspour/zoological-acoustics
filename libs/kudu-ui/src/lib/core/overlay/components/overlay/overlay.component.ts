@@ -6,6 +6,7 @@ import {
   output,
 } from '@angular/core';
 
+import { KuduClickOutsideDirective } from '../../../click-outside';
 import { KuduTeleportDirective } from '../../../portals';
 import { KuduOverlayOriginDirective } from '../../directives/overlay-origin.directive';
 import { KuduOverlayContentComponent } from '../overlay-content/overlay-content.component';
@@ -33,7 +34,11 @@ const initialConfig: Required<KuduOverlayConfig> = {
 
 @Component({
   selector: 'kudu-overlay',
-  imports: [KuduOverlayContentComponent, KuduTeleportDirective],
+  imports: [
+    KuduOverlayContentComponent,
+    KuduTeleportDirective,
+    KuduClickOutsideDirective,
+  ],
   templateUrl: './overlay.component.html',
   styleUrl: './overlay.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -49,9 +54,9 @@ export class KuduOverlayComponent {
   public positionXChange = output<KuduOverlayPositionX>();
   public positionYChange = output<KuduOverlayPositionY>();
 
-  public byClickOutside = output();
+  public byClickOutside = output<Event>();
 
-  public onClickOutside() {
-    this.byClickOutside.emit();
+  public onClickOutside(event: Event) {
+    this.byClickOutside.emit(event);
   }
 }

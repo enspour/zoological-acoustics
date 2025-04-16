@@ -8,6 +8,7 @@ import { kuduActiveElement } from '../tokens';
 
 @Directive({
   selector: '[kuduActiveZone]',
+  exportAs: 'kuduActiveZone',
 })
 export class KuduActiveZoneDirective {
   private zone = inject(KuduZoneDirective, { self: true });

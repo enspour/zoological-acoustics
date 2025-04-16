@@ -1,10 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   inject,
   input,
   output,
-  signal,
+  viewChild,
 } from '@angular/core';
 
 import {
@@ -34,16 +35,14 @@ import { ConfirmationModalComponent } from '@kudu/mfr-ui-modals';
 export class TaskColumnMoreComponent {
   private dialog = inject(KuduDialogService);
 
-  public column = input.required<TaskColumn>();
+  private trigger = viewChild(KuduMenuTriggerDirective);
 
-  public isOpen = signal(false);
+  public isOpen = computed(() => !!this.trigger()?.isOpen());
+
+  public column = input.required<TaskColumn>();
 
   public byRename = output<TaskColumn>();
   public byDelete = output<TaskColumn>();
-
-  public onToggle() {
-    this.isOpen.update((value) => !value);
-  }
 
   public onRename() {
     this.byRename.emit(this.column());

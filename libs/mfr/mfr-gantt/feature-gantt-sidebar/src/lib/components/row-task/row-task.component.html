@@ -8,4 +8,5 @@
   [class.more--opened]="more.isOpen()"
   [task]="row().task"
   (byDelete)="onDelete()"
+  (click)="$event.stopPropagation()"
 />

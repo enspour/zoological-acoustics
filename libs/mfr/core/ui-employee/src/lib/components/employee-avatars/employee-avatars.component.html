@@ -1,0 +1,16 @@
+@for (employee of employees() | slice: 0 : max(); track employee.uuid) {
+  <lib-employee-avatar
+    class="avatar"
+    [avatar]="employee"
+    [avatarSize]="employeeSize()"
+    [style.left.px]="$index * -offset()"
+    [style.z-index]="employees().length - $index"
+  />
+}
+
+@if (employees().length > max()) {
+  <div class="avatar__rest" [style.left.px]="max() * -offset()">
+    <span>+</span>
+    <span>{{ employees().length - max() }}</span>
+  </div>
+}

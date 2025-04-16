@@ -5,7 +5,7 @@
     [positionY]="config().positionY"
     (positionXChange)="positionXChange.emit($event)"
     (positionYChange)="positionYChange.emit($event)"
-    (byClickOutside)="onClickOutside()"
+    (kuduClickOutside)="onClickOutside($event)"
   >
     <ng-content />
   </kudu-overlay-content>

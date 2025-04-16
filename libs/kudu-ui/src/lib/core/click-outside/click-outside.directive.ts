@@ -12,9 +12,11 @@ export class KuduClickOutsideDirective {
     optional: true,
   });
 
-  public byClickOutside = output<Event>();
+  public byClickOutside = output<Event>({
+    alias: 'kuduClickOutside',
+  });
 
-  @HostListener('document:click', ['$event'])
+  @HostListener('document:mousedown', ['$event'])
   public onClickOutside(event: Event) {
     const target = event.target as HTMLElement;
 

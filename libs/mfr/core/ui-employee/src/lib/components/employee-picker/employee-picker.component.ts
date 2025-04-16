@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  inject,
   input,
   model,
   output,
@@ -14,16 +13,15 @@ import { KuduFilterPipe, KuduFindPipe } from '@kudu-ng-utils';
 import {
   KuduIconComponent,
   KuduInputComponent,
-  KuduOverlayComponent,
-  KuduOverlayConfig,
   KuduOverlayOriginDirective,
-  KuduOverlayPositionX,
-  KuduOverlayPositionY,
+  KuduPopupComponent,
+  KuduPopupConfig,
+  KuduPopupTriggerDirective,
 } from '@kudu-ui';
 
 import { Employee } from '@kudu/domain';
 
-import { EmployeeAvatarComponent } from '../employee-avatar';
+import { EmployeeAvatarsComponent } from '../employee-avatars';
 
 @Component({
   selector: 'lib-employee-picker',
@@ -33,8 +31,9 @@ import { EmployeeAvatarComponent } from '../employee-avatar';
     KuduFindPipe,
     KuduIconComponent,
     KuduInputComponent,
-    KuduOverlayComponent,
-    EmployeeAvatarComponent,
+    KuduPopupComponent,
+    KuduPopupTriggerDirective,
+    EmployeeAvatarsComponent,
   ],
   templateUrl: './employee-picker.component.html',
   styleUrl: './employee-picker.component.scss',
@@ -42,19 +41,15 @@ import { EmployeeAvatarComponent } from '../employee-avatar';
   hostDirectives: [KuduOverlayOriginDirective],
 })
 export class EmployeePickerComponent {
-  public origin = inject(KuduOverlayOriginDirective);
-
   public employees = input.required<Employee[]>();
 
   public value = model.required<Employee[]>();
 
   public multiple = input(false);
 
-  public isOpen = signal(false);
-
   public searchTerm = signal('');
 
-  public config: KuduOverlayConfig = {
+  public config: KuduPopupConfig = {
     width: 'self-width',
     positionX: 'left',
     positionY: 'under',
@@ -63,26 +58,11 @@ export class EmployeePickerComponent {
     gap: 4,
   };
 
-  public positionX = signal<KuduOverlayPositionX>('right');
-  public positionY = signal<KuduOverlayPositionY>('under');
-
   public byClose = output<Employee[]>();
 
-  public onToggle() {
-    if (this.isOpen()) {
-      this.onClose();
-    } else {
-      this.onOpen();
-    }
-  }
-
   public onClose() {
-    this.isOpen.set(false);
+    console.log('CLOSE', this.value());
     this.byClose.emit(this.value());
-  }
-
-  public onOpen() {
-    this.isOpen.set(true);
   }
 
   public onSelect(employee: Employee) {

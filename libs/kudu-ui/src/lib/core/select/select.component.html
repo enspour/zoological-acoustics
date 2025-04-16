@@ -1,20 +1,11 @@
-<button
-  class="content"
-  kuduOverlayOrigin
-  #origin="kuduOverlayOrigin"
-  [innerHTML]="content()"
-  (click)="onClick()"
-></button>
+<button class="content" [innerHTML]="content()"></button>
 
-<kudu-overlay
-  [isOpen]="isOpen()"
-  [origin]="origin"
+<kudu-popup
   [config]="config"
   (positionXChange)="positionX.set($event)"
   (positionYChange)="positionY.set($event)"
-  (byClickOutside)="isOpen.set(false)"
 >
   <div [class]="['options', size(), positionX(), positionY()]">
     <ng-content />
   </div>
-</kudu-overlay>
+</kudu-popup>

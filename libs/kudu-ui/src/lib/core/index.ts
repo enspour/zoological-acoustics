@@ -1,4 +1,5 @@
 export * from './accordion';
+export * from './active-zone';
 export * from './autocomplete';
 export * from './autofocus';
 export * from './button';
@@ -14,6 +15,7 @@ export * from './input';
 export * from './menu';
 export * from './options';
 export * from './overlay';
+export * from './popup';
 export * from './portals';
 export * from './ripple';
 export * from './select';
@@ -26,3 +28,4 @@ export * from './tabs';
 export * from './tooltip';
 export * from './virtual-scroll';
 export * from './virtualization';
+export * from './zone';

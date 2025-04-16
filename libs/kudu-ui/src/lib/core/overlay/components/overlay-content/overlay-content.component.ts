@@ -11,7 +11,6 @@ import { of, switchMap } from 'rxjs';
 
 import { layoutObservable } from '@kudu-ng-utils';
 
-import { KuduClickOutsideDirective } from '../../../click-outside';
 import { KuduZoneDirective } from '../../../zone';
 
 import {
@@ -31,13 +30,7 @@ import {
     '[style.left.px]': 'layout()?.left',
     '[style.width.px]': 'layout()?.width',
   },
-  hostDirectives: [
-    KuduZoneDirective,
-    {
-      directive: KuduClickOutsideDirective,
-      outputs: ['byClickOutside'],
-    },
-  ],
+  hostDirectives: [KuduZoneDirective],
 })
 export class KuduOverlayContentComponent {
   private document = inject(DOCUMENT);

@@ -1,9 +1,5 @@
-<kudu-overlay
-  [isOpen]="isOpen()"
-  [origin]="trigger()"
-  (byClickOutside)="isOpen.set(false)"
->
+<kudu-popup>
   <div class="menu">
     <ng-content />
   </div>
-</kudu-overlay>
+</kudu-popup>

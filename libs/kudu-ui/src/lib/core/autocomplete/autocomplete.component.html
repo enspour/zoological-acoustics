@@ -1,20 +1,11 @@
-<input
-  class="text"
-  kuduOverlayOrigin
-  #origin="kuduOverlayOrigin"
-  [(ngModel)]="text"
-  [placeholder]="placeholder()"
-/>
+<input class="text" [(ngModel)]="text" [placeholder]="placeholder()" />
 
-<kudu-overlay
-  [isOpen]="isOpen()"
-  [origin]="origin"
+<kudu-popup
   [config]="config"
   (positionXChange)="positionX.set($event)"
   (positionYChange)="positionY.set($event)"
-  (byClickOutside)="isOpen.set(false)"
 >
   <div [class]="['options', size(), positionX(), positionY()]">
     <ng-content />
   </div>
-</kudu-overlay>
+</kudu-popup>

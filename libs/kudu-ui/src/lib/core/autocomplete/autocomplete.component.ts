@@ -3,7 +3,6 @@ import {
   Component,
   effect,
   HostBinding,
-  HostListener,
   inject,
   input,
   model,
@@ -12,25 +11,24 @@ import {
 import { FormsModule } from '@angular/forms';
 
 import {
-  KuduOverlayComponent,
-  KuduOverlayConfig,
-  KuduOverlayOriginDirective,
-  KuduOverlayPositionX,
-  KuduOverlayPositionY,
-} from '../overlay';
+  KuduPopupComponent,
+  KuduPopupConfig,
+  KuduPopupPositionX,
+  KuduPopupPositionY,
+  KuduPopupTriggerDirective,
+} from '../popup';
 
 import { KuduOptionsDirective } from '../options';
 import { kuduSize } from '../size';
-import { KuduZoneDirective } from '../zone';
 
 @Component({
   selector: 'kudu-autocomplete',
-  imports: [FormsModule, KuduOverlayComponent, KuduOverlayOriginDirective],
+  imports: [FormsModule, KuduPopupComponent],
   templateUrl: './autocomplete.component.html',
   styleUrl: './autocomplete.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
-    KuduZoneDirective,
+    KuduPopupTriggerDirective,
     {
       directive: KuduOptionsDirective,
       inputs: ['value', 'multiple'],
@@ -39,27 +37,28 @@ import { KuduZoneDirective } from '../zone';
   ],
 })
 export class KuduAutocompleteComponent {
-  private options = inject(KuduOptionsDirective);
+  private optionsDirective = inject(KuduOptionsDirective);
+  private trigger = inject(KuduPopupTriggerDirective);
 
   public size = inject(kuduSize);
 
-  public isOpen = model(false);
+  public isOpen = this.trigger.isOpen;
 
   public text = model<string>('');
 
   public placeholder = input<string>('');
 
-  public config: KuduOverlayConfig = {
+  public config: KuduPopupConfig = {
     width: 'origin-width',
     lockX: true,
     lockY: false,
   };
 
-  public positionX = signal<KuduOverlayPositionX>('right');
-  public positionY = signal<KuduOverlayPositionY>('under');
+  public positionX = signal<KuduPopupPositionX>('right');
+  public positionY = signal<KuduPopupPositionY>('under');
 
   constructor() {
-    effect(() => this.options.filterByText(this.text()));
+    effect(() => this.optionsDirective.filterByText(this.text()));
   }
 
   @HostBinding('class')
@@ -70,10 +69,5 @@ export class KuduAutocompleteComponent {
       ${this.positionX()}
       ${this.positionY()}
     `;
-  }
-
-  @HostListener('click')
-  public onClick() {
-    this.isOpen.set(true);
   }
 }

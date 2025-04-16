@@ -75,15 +75,14 @@
 }
 
 .options {
-  box-sizing: border-box;
   position: relative;
-  width: calc(100% + 4px);
   padding: 4px;
   display: flex;
   flex-direction: column;
   gap: 4px;
   background-color: #ffffff;
   box-shadow: 0px 0px 20px 0px rgba(#000000, 0.1);
+  box-sizing: border-box;
   overflow-y: auto;
 }
 
@@ -103,15 +102,11 @@
 }
 
 .options.above {
-  bottom: 2px;
-  left: -2px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
 .options.under {
-  top: 2px;
-  left: -2px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }

@@ -3,6 +3,7 @@ import { inject, InjectionToken } from '@angular/core';
 
 import {
   distinctUntilChanged,
+  filter,
   fromEvent,
   map,
   merge,
@@ -17,16 +18,17 @@ import {
 
 export const kuduActiveElement = new InjectionToken('kudu-ui/active-element', {
   factory: () => {
-    const documentRef = inject(DOCUMENT);
+    const document = inject(DOCUMENT);
 
-    const focusout$ = fromEvent<FocusEvent>(documentRef, 'focusout');
-    const focusin$ = fromEvent<FocusEvent>(documentRef, 'focusin');
-    const mousedown$ = fromEvent<Event>(documentRef, 'mousedown');
-    const mouseup$ = fromEvent<Event>(documentRef, 'mouseup');
+    const focusout$ = fromEvent<FocusEvent>(document, 'focusout');
+    const focusin$ = fromEvent<FocusEvent>(document, 'focusin');
+    const mousedown$ = fromEvent<Event>(document, 'mousedown');
+    const mouseup$ = fromEvent<Event>(document, 'mouseup');
 
     const loss$ = focusout$.pipe(
       takeUntil(mousedown$),
       repeat({ delay: () => mouseup$ }),
+      filter(({ relatedTarget }) => !!relatedTarget),
       map(({ relatedTarget }) => relatedTarget as HTMLElement | null),
     );
 
@@ -36,7 +38,7 @@ export const kuduActiveElement = new InjectionToken('kudu-ui/active-element', {
 
     const mouse$ = mousedown$.pipe(
       switchMap(({ target }) =>
-        documentRef.activeElement === documentRef.body
+        document.activeElement === document.body
           ? of(target as HTMLElement | null)
           : focusout$.pipe(
               take(1),

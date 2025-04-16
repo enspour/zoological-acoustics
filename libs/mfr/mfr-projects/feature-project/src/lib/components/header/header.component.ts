@@ -16,10 +16,8 @@ import { BrowseProjectAccessModalComponent } from '@kudu/mfr-feature-browse-proj
 
 import { TabLinkComponent, TabsComponent } from '@kudu/mfr-ui-kit';
 
-import {
-  ProjectMemberAvatarsComponent,
-  ProjectMoreComponent,
-} from '@kudu/mfr-ui-project';
+import { EmployeeAvatarsComponent } from '@kudu/mfr-ui-employee';
+import { ProjectMoreComponent } from '@kudu/mfr-ui-project';
 
 import { UniqueComponent } from '@kudu/mfr-util-unique-component';
 
@@ -30,7 +28,7 @@ import { UniqueComponent } from '@kudu/mfr-util-unique-component';
     TabsComponent,
     TabLinkComponent,
     ProjectMoreComponent,
-    ProjectMemberAvatarsComponent,
+    EmployeeAvatarsComponent,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

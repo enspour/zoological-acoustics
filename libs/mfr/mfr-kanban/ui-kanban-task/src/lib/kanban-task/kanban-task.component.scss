@@ -1,6 +1,7 @@
 :host {
   padding: 10px;
   display: flex;
+  flex-direction: column;
   gap: 10px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -12,6 +13,15 @@
   cursor: pointer;
 }
 
+.header {
+  display: flex;
+  gap: 10px;
+}
+
 .title {
   flex: 1;
+}
+
+.employees {
+  align-self: flex-end;
 }

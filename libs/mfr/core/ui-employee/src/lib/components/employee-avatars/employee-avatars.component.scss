@@ -11,11 +11,11 @@
 
 .avatar__rest {
   position: relative;
-  min-width: var(--member-size);
-  max-width: var(--member-size);
-  width: var(--member-size);
-  height: var(--member-size);
-  font-size: calc(var(--member-size) / 2 - 2px);
+  min-width: var(--employee-size);
+  max-width: var(--employee-size);
+  width: var(--employee-size);
+  height: var(--employee-size);
+  font-size: calc(var(--employee-size) / 2 - 2px);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,8 +1,8 @@
-import { ActiveZoneDirective } from './active-zone.directive';
+import { KuduActiveZoneDirective } from './active-zone.directive';
 
-describe('ActiveZoneDirective', () => {
+describe('KuduActiveZoneDirective', () => {
   it('should create an instance', () => {
-    const directive = new ActiveZoneDirective();
+    const directive = new KuduActiveZoneDirective();
     expect(directive).toBeTruthy();
   });
 });

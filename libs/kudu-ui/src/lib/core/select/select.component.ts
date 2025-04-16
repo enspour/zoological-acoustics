@@ -5,32 +5,30 @@ import {
   HostListener,
   inject,
   input,
-  model,
   OnInit,
   signal,
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 import {
-  KuduOverlayComponent,
-  KuduOverlayConfig,
-  KuduOverlayOriginDirective,
-  KuduOverlayPositionX,
-  KuduOverlayPositionY,
-} from '../overlay';
+  KuduPopupComponent,
+  KuduPopupConfig,
+  KuduPopupPositionX,
+  KuduPopupPositionY,
+  KuduPopupTriggerDirective,
+} from '../popup';
 
 import { KuduOptionComponent, KuduOptionsDirective } from '../options';
 import { kuduSize } from '../size';
-import { KuduZoneDirective } from '../zone';
 
 @Component({
   selector: 'kudu-select',
-  imports: [KuduOverlayComponent, KuduOverlayOriginDirective],
+  imports: [KuduPopupComponent],
   templateUrl: './select.component.html',
   styleUrl: './select.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
-    KuduZoneDirective,
+    KuduPopupTriggerDirective,
     {
       directive: KuduOptionsDirective,
       inputs: ['value', 'multiple'],
@@ -40,21 +38,22 @@ import { KuduZoneDirective } from '../zone';
 })
 export class KuduSelectComponent<T> implements OnInit {
   private domSanitizer = inject(DomSanitizer);
+  private trigger = inject(KuduPopupTriggerDirective);
 
   public size = inject(kuduSize);
 
-  public isOpen = model(false);
+  public isOpen = this.trigger.isOpen;
 
   public placeholder = input<string>('');
 
-  public config: KuduOverlayConfig = {
+  public config: KuduPopupConfig = {
     width: 'origin-width',
     lockX: true,
     lockY: false,
   };
 
-  public positionX = signal<KuduOverlayPositionX>('right');
-  public positionY = signal<KuduOverlayPositionY>('under');
+  public positionX = signal<KuduPopupPositionX>('right');
+  public positionY = signal<KuduPopupPositionY>('under');
 
   public content = signal<SafeHtml>('');
 
@@ -70,10 +69,6 @@ export class KuduSelectComponent<T> implements OnInit {
 
   ngOnInit(): void {
     this.setContentToPlaceholder();
-  }
-
-  public onClick() {
-    this.isOpen.update((isOpen) => !isOpen);
   }
 
   @HostListener('bySelectionChange', ['$event'])

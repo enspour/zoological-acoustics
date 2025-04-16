@@ -4,14 +4,13 @@ import { Directive, ElementRef, inject, OnDestroy } from '@angular/core';
   selector: '[kuduZone]',
 })
 export class KuduZoneDirective implements OnDestroy {
+  private elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
   private parent = inject(KuduZoneDirective, {
     skipSelf: true,
     optional: true,
   });
 
   private children: KuduZoneDirective[] = [];
-
-  private elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
 
   constructor() {
     this.parent?.register(this);
