@@ -8,7 +8,7 @@ import {
   model,
 } from '@angular/core';
 
-import { DateTime, DateTimePeriod, DAY_SHORT_NAMES } from '@kudu-date';
+import { DAY_SHORT_NAMES, KuduDate, KuduDatePeriod } from '@kudu-date';
 
 import { kuduSize } from '../../../size';
 
@@ -34,8 +34,8 @@ import {
 export class CalendarSheetComponent {
   private size = inject(kuduSize);
 
-  public date = model<DateTime>();
-  public dateAvailable = input.required<DateTime>();
+  public date = model<KuduDate>();
+  public dateAvailable = input.required<KuduDate>();
 
   public weeks = DAY_SHORT_NAMES;
   public dates = computed(() => this.generateDates(this.dateAvailable()));
@@ -45,13 +45,13 @@ export class CalendarSheetComponent {
     return this.size();
   }
 
-  public onDateClick(date: DateTime) {
+  public onDateClick(date: KuduDate) {
     this.date.set(date);
   }
 
-  private generateDates(date: DateTime) {
-    const from = date.clone().setDay(() => -date.getFirstDayOfMonth() + 2);
+  private generateDates(date: KuduDate) {
+    const from = date.clone().setDay(() => -date.toMonth().getFirstDay() + 2);
     const to = from.clone().setDay((day) => day + 7 * 6);
-    return new DateTimePeriod(from, to).getDates();
+    return new KuduDatePeriod(from, to).getDates();
   }
 }

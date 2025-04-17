@@ -5,7 +5,7 @@ import {
   input,
 } from '@angular/core';
 
-import { DateTime } from '@kudu-date';
+import { KuduDate } from '@kudu-date';
 
 import { countBy } from '@kudu-utils';
 
@@ -21,7 +21,7 @@ import { GanttZoom } from '@kudu/mfr-data-access-gantt';
 export class GanttBoardComponent {
   public zoom = input.required<GanttZoom>();
 
-  public dates = input.required<DateTime[]>();
+  public dates = input.required<KuduDate[]>();
 
   public columnWidth = input.required<number>();
 

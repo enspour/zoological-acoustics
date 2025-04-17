@@ -1,4 +1,4 @@
-import { DateTime } from '@kudu-date';
+import { KuduDate } from '@kudu-date';
 
 import { Task } from '@kudu/domain';
 
@@ -11,7 +11,7 @@ const compare = (a: Task, b: Task, field: SortableTaskFields) => {
     case 'startDate':
     case 'endDate':
       return (
-        new DateTime(a[field]).valueOf() - new DateTime(b[field]).valueOf()
+        new KuduDate(a[field]).valueOf() - new KuduDate(b[field]).valueOf()
       );
   }
 };

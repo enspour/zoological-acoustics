@@ -5,7 +5,7 @@ import {
   linkedSignal,
 } from '@angular/core';
 
-import { DateTime } from '@kudu-date';
+import { KuduDate } from '@kudu-date';
 
 import {
   KuduIconComponent,
@@ -35,11 +35,11 @@ export class InfoDeadlineSectionComponent {
   public task = this.browser.task;
 
   public startDate = linkedSignal(
-    () => new DateTime(this.browser.task().startDate),
+    () => new KuduDate(this.browser.task().startDate),
   );
 
   public endDate = linkedSignal(
-    () => new DateTime(this.browser.task().endDate),
+    () => new KuduDate(this.browser.task().endDate),
   );
 
   public async onDeadlineChange() {

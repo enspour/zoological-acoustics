@@ -1,13 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { DateTime } from '@kudu-date';
+import { KuduDate } from '@kudu-date';
 
 @Pipe({
   name: 'equals',
   standalone: true,
 })
 export class KuduEqualsPipe implements PipeTransform {
-  transform(a: DateTime, b: DateTime): boolean {
+  transform(a: KuduDate, b: KuduDate): boolean {
     return a.toDateString() === b.toDateString();
   }
 }

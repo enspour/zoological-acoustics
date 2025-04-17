@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, model } from '@angular/core';
 
-import { DateTime } from '@kudu-date';
+import { KuduDate } from '@kudu-date';
 
 import { KuduCalendarComponent } from '../../../calendar';
 
@@ -23,7 +23,7 @@ import { KuduInputDateValidatorDirective } from '../../directives';
   ],
 })
 export class KuduInputDateComponent {
-  public value = model<DateTime>();
+  public value = model<KuduDate>();
 
   public config: KuduPopupConfig = {
     width: 'self-width',

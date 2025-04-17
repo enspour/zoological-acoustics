@@ -6,7 +6,7 @@ import {
   output,
 } from '@angular/core';
 
-import { DateTime } from '@kudu-date';
+import { KuduDate } from '@kudu-date';
 
 import { KuduIconComponent } from '../../../icon';
 
@@ -18,7 +18,7 @@ import { KuduIconComponent } from '../../../icon';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarSpinComponent {
-  public date = model.required<DateTime>();
+  public date = model.required<KuduDate>();
 
   public month = computed(() => this.date().getMonthString());
   public year = computed(() => this.date().getYear());

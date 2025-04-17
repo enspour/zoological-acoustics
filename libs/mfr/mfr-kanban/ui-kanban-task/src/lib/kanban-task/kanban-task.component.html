@@ -12,11 +12,4 @@
   />
 </div>
 
-<lib-employee-picker
-  class="employees"
-  [(value)]="employeesSelected"
-  [employees]="employees()"
-  [multiple]="true"
-  (byClose)="onClose($event)"
-  (click)="$event.stopPropagation()"
-/>
+<ng-content />

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, model } from '@angular/core';
 
-import { DateTime, MONTH_SHORT_NAMES } from '@kudu-date';
+import { KuduDate, MONTH_SHORT_NAMES } from '@kudu-date';
 
 import { KuduButtonComponent } from '../../../button';
 
@@ -12,7 +12,7 @@ import { KuduButtonComponent } from '../../../button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarMonthsComponent {
-  public date = model.required<DateTime>();
+  public date = model.required<KuduDate>();
 
   public months = MONTH_SHORT_NAMES;
 

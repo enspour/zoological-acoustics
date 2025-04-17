@@ -1,5 +1,7 @@
 :host {
+  position: relative;
   padding: 10px;
+  padding-left: 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -10,7 +12,21 @@
     rgba(0, 0, 0, 0) 0px 0px 0px 0px,
     rgba(102, 112, 133, 0.32) 0px 1px 1px 0px,
     rgba(102, 112, 133, 0.47) 0px 0px 1px 0px;
+  overflow: hidden;
   cursor: pointer;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    display: block;
+    background-color: aliceblue;
+    border-radius: 10px;
+    border-right: 1px solid rgba(#000000, 0.1);
+  }
 }
 
 .header {
@@ -20,8 +36,4 @@
 
 .title {
   flex: 1;
-}
-
-.employees {
-  align-self: flex-end;
 }

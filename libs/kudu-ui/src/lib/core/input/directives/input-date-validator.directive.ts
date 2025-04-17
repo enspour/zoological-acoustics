@@ -1,12 +1,12 @@
 import { Directive, HostBinding, HostListener, model } from '@angular/core';
 
-import { DateTime } from '@kudu-date';
+import { KuduDate } from '@kudu-date';
 
 @Directive({
   selector: '[kuduInputDateValidator]',
 })
 export class KuduInputDateValidatorDirective {
-  public value = model<DateTime | undefined>(undefined, {
+  public value = model<KuduDate | undefined>(undefined, {
     alias: 'kuduInputDateValidatorValue',
   });
 
@@ -19,7 +19,7 @@ export class KuduInputDateValidatorDirective {
   @HostListener('input', ['$event'])
   public onInput(event: Event) {
     const target = event.target as HTMLInputElement;
-    const date = DateTime.fromStringByDatePatterns(target.value);
+    const date = KuduDate.fromString(target.value);
 
     if (date) {
       this.value.set(date);

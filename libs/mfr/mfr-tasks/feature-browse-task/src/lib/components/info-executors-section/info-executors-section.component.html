@@ -1,7 +1,7 @@
 <div>Исполнители:</div>
 
 <lib-employee-picker
-  [(value)]="employeesSelected"
+  [value]="employees() | getEmployeesByUuid: task().executorUuids"
   [employees]="employees()"
   [multiple]="true"
   (byClose)="onClose($event)"

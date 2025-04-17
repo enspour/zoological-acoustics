@@ -1,6 +1,8 @@
 import { DATE_PATTERNS, DAY_IN_MS, MONTH_FULL_NAMES } from '../constants';
+import { KuduDateMonth } from './date-month';
+import { KuduDateWeek } from './date-week';
 
-export class DateTime {
+export class KuduDate {
   protected date: Date;
 
   constructor(date: Date | string | number) {
@@ -8,29 +10,29 @@ export class DateTime {
   }
 
   public static now() {
-    return new DateTime(Date.now());
+    return new KuduDate(Date.now());
   }
 
-  public static fromStringByDatePatterns(value: string) {
+  public static fromString(value: string) {
     for (const pattern of DATE_PATTERNS) {
       const match = value.match(pattern);
       if (match) {
         if (pattern.source.includes('\\/([0-9]{4})$')) {
           // MM/dd/yyyy format
           const [, month, day, year] = match;
-          return new DateTime(new Date(+year, +month - 1, +day));
+          return new KuduDate(new Date(+year, +month - 1, +day));
         } else if (pattern.source.includes('^(\\d{4})-')) {
           // yyyy-MM-dd format
           const [, year, month, day] = match;
-          return new DateTime(new Date(+year, +month - 1, +day));
+          return new KuduDate(new Date(+year, +month - 1, +day));
         } else if (pattern.source.includes('\\.(\\d{4})$')) {
           // dd.MM.yyyy format
           const [, day, month, year] = match;
-          return new DateTime(new Date(+year, +month - 1, +day));
+          return new KuduDate(new Date(+year, +month - 1, +day));
         } else if (pattern.source.includes('-(\\d{4})$')) {
           // dd-MM-yyyy format
           const [, day, month, year] = match;
-          return new DateTime(new Date(+year, +month - 1, +day));
+          return new KuduDate(new Date(+year, +month - 1, +day));
         }
       }
     }
@@ -78,24 +80,20 @@ export class DateTime {
     return this.date.getDate();
   }
 
-  public getDayOfWeek() {
-    const day = this.date.getDay();
-    return day === 0 ? 7 : day;
+  public getHours() {
+    return this.date.getHours();
   }
 
-  public getFirstDayOfMonth() {
-    return this.clone().setDay(1).getDayOfWeek();
+  public getMinutes() {
+    return this.date.getMinutes();
   }
 
-  public getDaysOfMonth() {
-    return Array.from({ length: this.getTotalDaysOfMonth() }, (_, i) => i + 1);
+  public getSeconds() {
+    return this.date.getSeconds();
   }
 
-  public getTotalDaysOfMonth() {
-    return this.clone()
-      .setMonth((month) => month + 1)
-      .setDay(0)
-      .getDay();
+  public getMilliseconds() {
+    return this.date.getMilliseconds();
   }
 
   public setDay(day: number | ((current: number) => number)) {
@@ -128,8 +126,58 @@ export class DateTime {
     return this;
   }
 
+  public setHours(hours: number | ((current: number) => number)) {
+    if (typeof hours === 'function') {
+      this.date.setHours(hours(this.getHours()));
+    } else {
+      this.date.setHours(hours);
+    }
+
+    return this;
+  }
+
+  public setMinutes(minutes: number | ((current: number) => number)) {
+    if (typeof minutes === 'function') {
+      this.date.setMinutes(minutes(this.getMinutes()));
+    } else {
+      this.date.setMinutes(minutes);
+    }
+
+    return this;
+  }
+
+  public setSeconds(seconds: number | ((current: number) => number)) {
+    if (typeof seconds === 'function') {
+      this.date.setSeconds(seconds(this.getSeconds()));
+    } else {
+      this.date.setSeconds(seconds);
+    }
+
+    return this;
+  }
+
+  public setMilliseconds(ms: number | ((current: number) => number)) {
+    if (typeof ms === 'function') {
+      this.date.setMilliseconds(ms(this.getMilliseconds()));
+    } else {
+      this.date.setMilliseconds(ms);
+    }
+
+    return this;
+  }
+
+  public startOf() {
+    this.setHours(0).setMinutes(0).setSeconds(0).setMilliseconds(0);
+    return this;
+  }
+
+  public endOf() {
+    this.setHours(23).setMinutes(59).setSeconds(59).setMilliseconds(999);
+    return this;
+  }
+
   public clone() {
-    return new DateTime(this.date);
+    return new KuduDate(this.date);
   }
 
   public toDate() {
@@ -138,6 +186,14 @@ export class DateTime {
 
   public toDateString() {
     return `${this.getYear()}-${this.getMonth() + 1}-${this.getDay()}`;
+  }
+
+  public toMonth() {
+    return new KuduDateMonth(this);
+  }
+
+  public toWeek() {
+    return new KuduDateWeek(this);
   }
 
   public valueOf() {

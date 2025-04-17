@@ -1,1 +1,9 @@
-{{ task().title }}
+<button class="resizer" (mousedown)="onResize()">
+  <div class="resizer__line"></div>
+</button>
+
+<div class="content">{{ task().title }}</div>
+
+<button class="resizer" (mousedown)="onResize()">
+  <div class="resizer__line"></div>
+</button>

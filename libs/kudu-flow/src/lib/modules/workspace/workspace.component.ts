@@ -51,10 +51,6 @@ export class KuduWorkspaceComponent implements OnDestroy {
     this.workspaceEventsDirective.mousewheel$
       .pipe(takeUntilDestroyed())
       .subscribe((event) => this.handleWheel(event));
-
-    this.workspaceEventsDirective.space$
-      .pipe(takeUntilDestroyed())
-      .subscribe((space) => this.handleSpacePressed(space.isPress));
   }
 
   ngOnDestroy(): void {
@@ -62,25 +58,8 @@ export class KuduWorkspaceComponent implements OnDestroy {
     this.cleaner$.complete();
   }
 
-  handleSpacePressed(isPress: boolean) {
-    if (this.isPressSpace === isPress) {
-      return;
-    }
-
-    this.isPressSpace = isPress;
-
-    if (this.isPressSpace) {
-      this.document.body.style.cursor = 'grab';
-    } else {
-      this.document.body.style.cursor = 'auto';
-    }
-  }
-
   handleMouseDown(event: MouseEvent) {
-    if (
-      this.isMoving() ||
-      !(event.button === 1 || (event.button === 0 && this.isPressSpace))
-    ) {
+    if (this.isMoving() || event.button !== 0) {
       return;
     }
 

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
-import { DateTime } from '@kudu-date';
+import { KuduDate } from '@kudu-date';
 
 import { GanttZoom } from '@kudu/mfr-data-access-gantt';
 
@@ -28,7 +28,7 @@ import { YearsComponent } from './components/years/years.component';
 export class GanttTimelineComponent {
   public zoom = input.required<GanttZoom>();
 
-  public dates = input.required<DateTime[]>();
+  public dates = input.required<KuduDate[]>();
 
   public columnWidth = input.required<number>();
 }

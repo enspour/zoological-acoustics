@@ -1,6 +1,6 @@
-import { DateTime } from '@kudu-date';
+import { KuduDate } from '@kudu-date';
 
 export interface GanttPeriod {
-  startDate: DateTime;
-  endDate: DateTime;
+  startDate: KuduDate;
+  endDate: KuduDate;
 }

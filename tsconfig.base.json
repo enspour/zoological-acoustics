@@ -19,11 +19,15 @@
       "@kudu-date": ["libs/kudu-date/src/index.ts"],
       "@kudu-dnd": ["libs/kudu-dnd/src/index.ts"],
       "@kudu-flow": ["libs/kudu-flow/src/index.ts"],
+      "@kudu-ng-date": ["libs/kudu-ng-date/src/index.ts"],
       "@kudu-ng-utils": ["libs/kudu-ng-utils/src/index.ts"],
       "@kudu-ui": ["libs/kudu-ui/src/index.ts"],
       "@kudu-ui-icons": ["libs/kudu-ui-icons/src/index.ts"],
       "@kudu-utils": ["libs/kudu-utils/src/index.ts"],
       "@kudu/domain": ["libs/domain/src/index.ts"],
+      "@kudu/mfr-company/Routes": [
+        "apps/mfr-company/src/app/remote-entry/entry.routes.ts"
+      ],
       "@kudu/mfr-data-access-auth": [
         "libs/mfr/core/data-access-auth/src/index.ts"
       ],
@@ -77,6 +81,15 @@
       ],
       "@kudu/mfr-feature-browse-task": [
         "libs/mfr/mfr-tasks/feature-browse-task/src/index.ts"
+      ],
+      "@kudu/mfr-feature-company": [
+        "libs/mfr/mfr-company/feature-company/src/index.ts"
+      ],
+      "@kudu/mfr-feature-company-overview": [
+        "libs/mfr/mfr-company/feature-company-overview/src/index.ts"
+      ],
+      "@kudu/mfr-feature-company-structure": [
+        "libs/mfr/mfr-company/feature-company-structure/src/index.ts"
       ],
       "@kudu/mfr-feature-create-project": [
         "libs/mfr/mfr-projects/feature-create-project/src/index.ts"
@@ -148,6 +161,9 @@
       "@kudu/mfr-feature-project-settings-access": [
         "libs/mfr/mfr-projects/feature-project-settings-access/src/index.ts"
       ],
+      "@kudu/mfr-feature-project-settings-boards": [
+        "libs/mfr/mfr-projects/feature-project-settings-boards/src/index.ts"
+      ],
       "@kudu/mfr-feature-project-settings-general": [
         "libs/mfr/mfr-projects/feature-project-settings-general/src/index.ts"
       ],
@@ -204,6 +220,7 @@
         "libs/mfr/core/util-auth-interceptor/src/index.ts"
       ],
       "@kudu/mfr-util-cookie": ["libs/mfr/core/util-cookie/src/index.ts"],
+      "@kudu/mfr-util-employees": ["libs/mfr/core/util-employees/src/index.ts"],
       "@kudu/mfr-util-gantt-chart": [
         "libs/mfr/mfr-gantt/util-gantt-chart/src/index.ts"
       ],

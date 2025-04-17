@@ -44,6 +44,11 @@ const ProjectSettingsAccessPage = () =>
     (c) => c.ProjectSettingsAccessPageComponent,
   );
 
+const ProjectSettingsBoardsPage = () =>
+  import('@kudu/mfr-feature-project-settings-boards').then(
+    (c) => c.ProjectSettingsBoardsPageComponent,
+  );
+
 const GanttPage = () =>
   import('@kudu/mfr-feature-gantt').then((c) => c.GanttPageComponent);
 
@@ -117,6 +122,11 @@ export const remoteRoutes: Route[] = [
                 path: 'access',
                 title: 'Kudu | Доступ',
                 loadComponent: ProjectSettingsAccessPage,
+              },
+              {
+                path: 'boards',
+                title: 'Kudu | Доски',
+                loadComponent: ProjectSettingsBoardsPage,
               },
             ],
           },

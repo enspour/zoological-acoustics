@@ -11,4 +11,8 @@ import { Task } from '@kudu/domain';
 })
 export class GanttTaskComponent {
   public task = input.required<Task>();
+
+  public onResize() {
+    console.log('onResize');
+  }
 }

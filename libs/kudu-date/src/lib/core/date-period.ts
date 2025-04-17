@@ -1,16 +1,16 @@
 import { DAY_IN_MS } from '../constants';
-import { DateTime } from './datetime';
+import { KuduDate } from './date';
 
-export class DateTimePeriod {
+export class KuduDatePeriod {
   constructor(
-    private from: DateTime,
-    private to: DateTime,
+    private from: KuduDate,
+    private to: KuduDate,
   ) {}
 
   public getDays() {
     const from = this.from.valueOf();
     const to = this.to.valueOf();
-    return Math.floor((to - from) / DAY_IN_MS);
+    return Math.ceil((to - from) / DAY_IN_MS);
   }
 
   public getDates() {
@@ -19,7 +19,7 @@ export class DateTimePeriod {
     );
   }
 
-  public isBetween(date: DateTime): boolean {
+  public isBetween(date: KuduDate): boolean {
     if (this.from <= date && date <= this.to) {
       return true;
     }

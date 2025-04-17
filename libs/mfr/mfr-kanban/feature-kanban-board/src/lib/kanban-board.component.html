@@ -24,11 +24,20 @@
         <lib-kanban-task
           [task]="task"
           (click)="onTaskClick(task)"
+          (byDelete)="onTaskDelete($event)"
           kuduDrag
           kuduDragType="task"
           [kuduDragData]="task"
-          (byDelete)="onTaskDelete($event)"
-        />
+        >
+          <lib-employee-picker
+            class="task__employees"
+            [value]="employees() | getEmployeesByUuid: task.executorUuids"
+            [employees]="employees()"
+            [multiple]="true"
+            (byClose)="onTaskExecutorsChange(task, $event)"
+            (click)="$event.stopPropagation()"
+          />
+        </lib-kanban-task>
       }
     </div>
   </lib-kanban-column-unassigned>
@@ -65,7 +74,16 @@
             kuduDragType="task"
             [kuduDragData]="task"
             (byDelete)="onTaskDelete($event)"
-          />
+          >
+            <lib-employee-picker
+              class="task__employees"
+              [value]="employees() | getEmployeesByUuid: task.executorUuids"
+              [employees]="employees()"
+              [multiple]="true"
+              (byClose)="onTaskExecutorsChange(task, $event)"
+              (click)="$event.stopPropagation()"
+            />
+          </lib-kanban-task>
         }
       </div>
     </lib-kanban-column>

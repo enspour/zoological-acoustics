@@ -7,7 +7,7 @@ import {
   model,
 } from '@angular/core';
 
-import { DateTime } from '@kudu-date';
+import { KuduDate } from '@kudu-date';
 
 import { kuduSize } from '../../../size';
 
@@ -32,8 +32,8 @@ import { CalendarYearComponent } from '../calendar-years/calendar-years.componen
 export class KuduCalendarComponent {
   private size = inject(kuduSize);
 
-  public date = model<DateTime>();
-  public dateAvailable = linkedSignal(() => this.date() || DateTime.now());
+  public date = model<KuduDate>();
+  public dateAvailable = linkedSignal(() => this.date() || KuduDate.now());
 
   public mode = model<'sheet' | 'years' | 'months'>('sheet');
 

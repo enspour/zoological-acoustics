@@ -5,7 +5,7 @@ import {
   model,
 } from '@angular/core';
 
-import { DateTime } from '@kudu-date';
+import { KuduDate } from '@kudu-date';
 
 import { KuduButtonComponent } from '../../../button';
 
@@ -17,7 +17,7 @@ import { KuduButtonComponent } from '../../../button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarYearComponent {
-  public date = model.required<DateTime>();
+  public date = model.required<KuduDate>();
 
   public years = computed(() => this.generateYears());
 
