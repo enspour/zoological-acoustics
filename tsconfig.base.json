@@ -25,8 +25,8 @@
       "@kudu-ui-icons": ["libs/kudu-ui-icons/src/index.ts"],
       "@kudu-utils": ["libs/kudu-utils/src/index.ts"],
       "@kudu/domain": ["libs/domain/src/index.ts"],
-      "@kudu/mfr-company/Routes": [
-        "apps/mfr-company/src/app/remote-entry/entry.routes.ts"
+      "@kudu/mfr-organization/Routes": [
+        "apps/mfr-organization/src/app/remote-entry/entry.routes.ts"
       ],
       "@kudu/mfr-data-access-auth": [
         "libs/mfr/core/data-access-auth/src/index.ts"
@@ -64,9 +64,6 @@
       "@kudu/mfr-data-access-user": [
         "libs/mfr/core/data-access-user/src/index.ts"
       ],
-      "@kudu/mfr-employees/Routes": [
-        "apps/mfr-employees/src/app/remote-entry/entry.routes.ts"
-      ],
       "@kudu/mfr-feature-auth-layout": [
         "libs/mfr/mfr-host/feature-auth-layout/src/index.ts"
       ],
@@ -82,14 +79,14 @@
       "@kudu/mfr-feature-browse-task": [
         "libs/mfr/mfr-tasks/feature-browse-task/src/index.ts"
       ],
-      "@kudu/mfr-feature-company": [
-        "libs/mfr/mfr-company/feature-company/src/index.ts"
+      "@kudu/mfr-feature-organization": [
+        "libs/mfr/mfr-organization/feature-organization/src/index.ts"
       ],
-      "@kudu/mfr-feature-company-overview": [
-        "libs/mfr/mfr-company/feature-company-overview/src/index.ts"
+      "@kudu/mfr-feature-organization-overview": [
+        "libs/mfr/mfr-organization/feature-organization-overview/src/index.ts"
       ],
-      "@kudu/mfr-feature-company-structure": [
-        "libs/mfr/mfr-company/feature-company-structure/src/index.ts"
+      "@kudu/mfr-feature-organization-structure": [
+        "libs/mfr/mfr-organization/feature-organization-structure/src/index.ts"
       ],
       "@kudu/mfr-feature-create-project": [
         "libs/mfr/mfr-projects/feature-create-project/src/index.ts"

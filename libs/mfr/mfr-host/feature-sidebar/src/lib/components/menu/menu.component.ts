@@ -23,6 +23,6 @@ export class MenuComponent {
   public apps = [
     { title: 'Главная', icon: 'home', href: '/' },
     { title: 'Проекты', icon: 'case', href: '/projects' },
-    { title: 'Организация', icon: 'users', href: '/company' },
+    { title: 'Организация', icon: 'users', href: '/organization' },
   ];
 }

@@ -45,7 +45,7 @@ export class EmployeesPageComponent {
   });
 
   public onEmployeeClick(employee: Employee) {
-    this.router.navigateByUrl(`/employees/${employee.uuid}`);
+    this.router.navigateByUrl(`/organization/employees/${employee.uuid}`);
   }
 
   public onSortConfigChange(config?: KuduSortConfig) {

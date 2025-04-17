@@ -1,9 +1,0 @@
-{
-  "name": "mfr-employees-e2e",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "projectType": "application",
-  "sourceRoot": "apps/mfr-employees-e2e/src",
-  "implicitDependencies": ["mfr-employees"],
-  "// targets": "to see all targets run: nx show project mfr-employees-e2e --web",
-  "targets": {}
-}

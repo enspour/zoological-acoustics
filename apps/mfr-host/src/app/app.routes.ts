@@ -2,26 +2,23 @@ import { Route } from '@angular/router';
 
 import { AuthGuard, UnAuthGuard } from '@kudu/mfr-util-auth-guard';
 
+const AuthLayout = () =>
+  import('@kudu/mfr-feature-auth-layout').then((c) => c.LayoutComponent);
+
 const LoginPage = () =>
   import('@kudu/mfr-feature-login').then((c) => c.LoginPageComponent);
 
 const SignupPage = () =>
   import('@kudu/mfr-feature-signup').then((c) => c.SignupPageComponent);
 
-const AuthLayout = () =>
-  import('@kudu/mfr-feature-auth-layout').then((c) => c.LayoutComponent);
-
 const HomePage = () =>
   import('@kudu/mfr-feature-home').then((c) => c.HomePageComponent);
-
-const EmployeesPages = () =>
-  import('@kudu/mfr-employees/Routes').then((m) => m.remoteRoutes);
 
 const ProjectsPages = () =>
   import('@kudu/mfr-projects/Routes').then((m) => m.remoteRoutes);
 
-const CompanyPages = () =>
-  import('@kudu/mfr-company/Routes').then((m) => m.remoteRoutes);
+const OrganizationPages = () =>
+  import('@kudu/mfr-organization/Routes').then((m) => m.remoteRoutes);
 
 export const appRoutes: Route[] = [
   {
@@ -47,16 +44,12 @@ export const appRoutes: Route[] = [
         loadComponent: HomePage,
       },
       {
-        path: 'employees',
-        loadChildren: EmployeesPages,
-      },
-      {
         path: 'projects',
         loadChildren: ProjectsPages,
       },
       {
-        path: 'company',
-        loadChildren: CompanyPages,
+        path: 'organization',
+        loadChildren: OrganizationPages,
       },
     ],
   },
