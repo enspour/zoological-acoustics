@@ -1,23 +1,23 @@
 import { inject, Injectable, RendererFactory2, signal } from '@angular/core';
 
-import { KuduDragRef } from './drag-ref';
-import { KuduDragDirective } from './drag.directive';
-import { KuduDropContainerDirective } from './drop-container.directive';
+import { KuduDndDragRef } from './drag-ref';
+import { KuduDndDragDirective } from './drag.directive';
+import { KuduDndDropContainerDirective } from './drop-container.directive';
 
 import { Point } from './interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
-export class KuduDnDService {
+export class KuduDndService {
   private rendererFactory = inject(RendererFactory2);
   private renderer = this.rendererFactory.createRenderer(null, null);
 
-  private _dragRef = signal<KuduDragRef | null>(null);
+  private _dragRef = signal<KuduDndDragRef | null>(null);
   public dragRef = this._dragRef.asReadonly();
 
-  public dragstart(draggable: KuduDragDirective) {
-    const dragRef = new KuduDragRef(
+  public dragstart(draggable: KuduDndDragDirective) {
+    const dragRef = new KuduDndDragRef(
       this.renderer,
       draggable,
       draggable.container(),
@@ -30,7 +30,7 @@ export class KuduDnDService {
     this._dragRef.set(null);
   }
 
-  public dragover(container: KuduDropContainerDirective, position: Point) {
+  public dragover(container: KuduDndDropContainerDirective, position: Point) {
     const dragRef = this._dragRef();
 
     if (!dragRef) {

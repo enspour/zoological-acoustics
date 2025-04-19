@@ -1,14 +1,14 @@
 <lib-kanban-board-tabs
   class="tabs"
-  kuduDropContainer
-  [kuduDropContainerTypes]="['board']"
+  kuduDndDropContainer
+  [kuduDndDropContainerTypes]="['board']"
 >
   @for (board of this.boards(); track board.uuid) {
     <lib-kanban-board-tab
       [board]="board"
-      kuduDrag
-      kuduDragType="board"
-      [kuduDragData]="board"
+      kuduDndDrag
+      kuduDndDragType="board"
+      [kuduDndDragData]="board"
     />
   }
 

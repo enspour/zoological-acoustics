@@ -1,23 +1,21 @@
 :host {
-  position: fixed;
+  position: relative;
   display: block;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-.workspace {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.workspace--disabled {
-  pointer-events: none;
+:host.interacting {
+  cursor: grabbing;
 }
 
 .scalable {
   width: max-content;
   position: relative;
   transform-origin: 0 0;
+}
+
+.scalable--disabled {
+  pointer-events: none;
 }

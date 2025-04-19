@@ -16,6 +16,8 @@ import { KuduOverlayOriginDirective } from '../../overlay';
 
 import { KuduTooltipComponent } from '../components/tooltip/tooltip.component';
 
+export type KuduTooltipOrientation = 'left' | 'right' | 'under' | 'above';
+
 @Directive({
   selector: '[kuduTooltip]',
   hostDirectives: [KuduOverlayOriginDirective],
@@ -27,6 +29,10 @@ export class KuduTooltipDirective implements OnDestroy {
 
   public tooltip = input.required<string | TemplateRef<any>>({
     alias: 'kuduTooltip',
+  });
+
+  public orientation = input<KuduTooltipOrientation>('under', {
+    alias: 'kuduTooltipOrientation',
   });
 
   public isVisible = toSignal(
@@ -44,6 +50,7 @@ export class KuduTooltipDirective implements OnDestroy {
         this.component = this.vcRef.createComponent(KuduTooltipComponent);
         this.component.setInput('origin', this.origin);
         this.component.setInput('tooltip', this.tooltip());
+        this.component.setInput('orientation', this.orientation());
       } else {
         this.component?.destroy();
       }

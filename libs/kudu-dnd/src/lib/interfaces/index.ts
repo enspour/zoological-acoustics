@@ -3,11 +3,11 @@ export interface Point {
   y: number;
 }
 
-export interface KuduDrag {
+export interface KuduDndDrag {
   event: DragEvent;
 }
 
-export interface KuduDrop<
+export interface KuduDndDrop<
   Draggable = any,
   PrevContainer = any,
   NextContainer = any,

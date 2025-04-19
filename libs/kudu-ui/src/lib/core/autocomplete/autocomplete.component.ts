@@ -13,8 +13,7 @@ import { FormsModule } from '@angular/forms';
 import {
   KuduPopupComponent,
   KuduPopupConfig,
-  KuduPopupPositionX,
-  KuduPopupPositionY,
+  KuduPopupPosition,
   KuduPopupTriggerDirective,
 } from '../popup';
 
@@ -50,12 +49,12 @@ export class KuduAutocompleteComponent {
 
   public config: KuduPopupConfig = {
     width: 'origin-width',
+    position: 'under',
     lockX: true,
     lockY: false,
   };
 
-  public positionX = signal<KuduPopupPositionX>('right');
-  public positionY = signal<KuduPopupPositionY>('under');
+  public position = signal<KuduPopupPosition>('under');
 
   constructor() {
     effect(() => this.optionsDirective.filterByText(this.text()));
@@ -66,8 +65,7 @@ export class KuduAutocompleteComponent {
     return `
       ${this.size()} 
       ${this.isOpen() ? 'opened' : 'closed'} 
-      ${this.positionX()}
-      ${this.positionY()}
+      ${this.position()}
     `;
   }
 }

@@ -13,8 +13,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   KuduPopupComponent,
   KuduPopupConfig,
-  KuduPopupPositionX,
-  KuduPopupPositionY,
+  KuduPopupPosition,
   KuduPopupTriggerDirective,
 } from '../popup';
 
@@ -48,12 +47,12 @@ export class KuduSelectComponent<T> implements OnInit {
 
   public config: KuduPopupConfig = {
     width: 'origin-width',
+    position: 'under',
     lockX: true,
     lockY: false,
   };
 
-  public positionX = signal<KuduPopupPositionX>('right');
-  public positionY = signal<KuduPopupPositionY>('under');
+  public position = signal<KuduPopupPosition>('under');
 
   public content = signal<SafeHtml>('');
 
@@ -62,8 +61,7 @@ export class KuduSelectComponent<T> implements OnInit {
     return `
       ${this.size()} 
       ${this.isOpen() ? 'opened' : 'closed'} 
-      ${this.positionX()}
-      ${this.positionY()}
+      ${this.position()}
     `;
   }
 

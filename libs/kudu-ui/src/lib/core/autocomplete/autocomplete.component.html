@@ -1,11 +1,7 @@
 <input class="text" [(ngModel)]="text" [placeholder]="placeholder()" />
 
-<kudu-popup
-  [config]="config"
-  (positionXChange)="positionX.set($event)"
-  (positionYChange)="positionY.set($event)"
->
-  <div [class]="['options', size(), positionX(), positionY()]">
+<kudu-popup [config]="config" (positionChange)="position.set($event)">
+  <div [class]="['options', size(), position()]">
     <ng-content />
   </div>
 </kudu-popup>

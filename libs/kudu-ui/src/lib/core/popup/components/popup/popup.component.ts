@@ -11,16 +11,14 @@ import { filter, skip } from 'rxjs';
 import {
   KuduOverlayComponent,
   KuduOverlayConfig,
-  KuduOverlayPositionX,
-  KuduOverlayPositionY,
+  KuduOverlayPosition,
 } from '../../../overlay';
 
 import { KuduPopupTriggerDirective } from '../../directives/popup-trigger.directive';
 
 export type KuduPopupConfig = KuduOverlayConfig;
 
-export type KuduPopupPositionX = KuduOverlayPositionX;
-export type KuduPopupPositionY = KuduOverlayPositionY;
+export type KuduPopupPosition = KuduOverlayPosition;
 
 @Component({
   selector: 'kudu-popup',
@@ -37,8 +35,7 @@ export class KuduPopupComponent {
 
   public config = input<KuduPopupConfig>();
 
-  public positionXChange = output<KuduPopupPositionX>();
-  public positionYChange = output<KuduPopupPositionY>();
+  public positionChange = output<KuduPopupPosition>();
 
   public byClose = outputFromObservable(
     toObservable(this.isOpen).pipe(

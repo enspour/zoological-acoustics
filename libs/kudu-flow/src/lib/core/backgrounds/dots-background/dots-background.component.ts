@@ -6,21 +6,21 @@ import {
   input,
 } from '@angular/core';
 
-import { KuduWorkspaceDirective } from '../../workspace';
+import { KuduFlowWorkspaceDirective } from '../../workspace';
 
 @Component({
-  selector: 'kudu-dots-board',
-  templateUrl: './dots-board.component.html',
-  styleUrls: ['./dots-board.component.scss'],
+  selector: 'kudu-flow-dots-background',
+  templateUrl: './dots-background.component.html',
+  styleUrls: ['./dots-background.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KuduDotsBoardComponent {
-  private workspaceDirective = inject(KuduWorkspaceDirective);
+export class KuduFlowDotsBackgroundComponent {
+  private workspace = inject(KuduFlowWorkspaceDirective);
 
   public size = input(10);
 
-  private scale = this.workspaceDirective.scale;
-  private scroll = this.workspaceDirective.scroll;
+  private scale = this.workspace.scale;
+  private scroll = this.workspace.scroll;
 
   @HostBinding('style.background-size')
   get Size() {

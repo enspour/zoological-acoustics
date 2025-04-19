@@ -1,2 +1,3 @@
-export * from './lib/modules/backgrounds/dots-board';
-export * from './lib/modules/workspace';
+export * from './lib/core/backgrounds';
+export * from './lib/core/controls';
+export * from './lib/core/workspace';

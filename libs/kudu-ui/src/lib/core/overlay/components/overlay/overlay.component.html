@@ -1,10 +1,7 @@
 @if (isOpen()) {
   <kudu-overlay-content
     *kuduTeleport="'overlay'"
-    [positionX]="config().positionX"
-    [positionY]="config().positionY"
-    (positionXChange)="positionXChange.emit($event)"
-    (positionYChange)="positionYChange.emit($event)"
+    (positionChange)="positionChange.emit($event)"
     (kuduClickOutside)="onClickOutside($event)"
   >
     <ng-content />

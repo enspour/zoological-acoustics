@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
+import { KuduTooltipDirective } from '@kudu-ui';
+
 import { Task } from '@kudu/domain';
 
 @Component({
   selector: 'lib-gantt-task',
-  imports: [],
+  imports: [KuduTooltipDirective],
   templateUrl: './gantt-task.component.html',
   styleUrl: './gantt-task.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

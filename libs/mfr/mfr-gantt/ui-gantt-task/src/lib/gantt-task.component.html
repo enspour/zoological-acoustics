@@ -2,7 +2,7 @@
   <div class="resizer__line"></div>
 </button>
 
-<div class="content">{{ task().title }}</div>
+<div class="content" [kuduTooltip]="task().title">{{ task().title }}</div>
 
 <button class="resizer" (mousedown)="onResize()">
   <div class="resizer__line"></div>

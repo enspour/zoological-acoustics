@@ -8,25 +8,15 @@ import {
 
 import { KuduClickOutsideDirective } from '../../../click-outside';
 import { KuduTeleportDirective } from '../../../portals';
+
 import { KuduOverlayOriginDirective } from '../../directives/overlay-origin.directive';
 import { KuduOverlayContentComponent } from '../overlay-content/overlay-content.component';
 
-export type KuduOverlayPositionY = 'above' | 'under';
-export type KuduOverlayPositionX = 'left' | 'right' | 'center';
-
-export interface KuduOverlayConfig {
-  width?: 'origin-width' | 'self-width';
-  positionX?: KuduOverlayPositionX;
-  positionY?: KuduOverlayPositionY;
-  lockX?: boolean;
-  lockY?: boolean;
-  gap?: number;
-}
+import { KuduOverlayConfig, KuduOverlayPosition } from '../../interfaces';
 
 const initialConfig: Required<KuduOverlayConfig> = {
   width: 'self-width',
-  positionX: 'left',
-  positionY: 'under',
+  position: 'under-left',
   lockX: false,
   lockY: false,
   gap: 0,
@@ -51,8 +41,7 @@ export class KuduOverlayComponent {
   public _config = input<KuduOverlayConfig>(undefined, { alias: 'config' });
   public config = computed(() => ({ ...initialConfig, ...this._config() }));
 
-  public positionXChange = output<KuduOverlayPositionX>();
-  public positionYChange = output<KuduOverlayPositionY>();
+  public positionChange = output<KuduOverlayPosition>();
 
   public byClickOutside = output<Event>();
 

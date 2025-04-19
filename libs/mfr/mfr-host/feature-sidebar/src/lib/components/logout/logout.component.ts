@@ -1,7 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { KuduButtonComponent, KuduIconComponent } from '@kudu-ui';
+import {
+  KuduButtonComponent,
+  KuduIconComponent,
+  KuduTooltipDirective,
+} from '@kudu-ui';
 
 import { AuthService } from '@kudu/mfr-data-access-auth';
 
@@ -9,7 +13,7 @@ import { SidebarComponent } from '../../sidebar.component';
 
 @Component({
   selector: 'lib-logout',
-  imports: [KuduIconComponent, KuduButtonComponent],
+  imports: [KuduIconComponent, KuduButtonComponent, KuduTooltipDirective],
   templateUrl: './logout.component.html',
   styleUrl: './logout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

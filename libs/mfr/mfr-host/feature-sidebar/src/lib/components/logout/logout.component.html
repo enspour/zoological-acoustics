@@ -1,4 +1,10 @@
-<button class="logout" kudu-button (click)="onLogout()">
+<button
+  class="logout"
+  kudu-button
+  kuduTooltip="Завершить сессию"
+  kuduTooltipOrientation="right"
+  (click)="onLogout()"
+>
   <kudu-icon icon="logout" />
 
   @if (isOpen()) {

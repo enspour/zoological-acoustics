@@ -1,8 +1,8 @@
-import { KuduDragDirective } from './drag.directive';
+import { KuduDndDragDirective } from './drag.directive';
 
-describe('KuduDragDirective', () => {
+describe('KuduDndDragDirective', () => {
   it('should create an instance', () => {
-    const directive = new KuduDragDirective();
+    const directive = new KuduDndDragDirective();
     expect(directive).toBeTruthy();
   });
 });

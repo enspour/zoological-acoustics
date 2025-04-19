@@ -9,33 +9,33 @@ import {
   output,
 } from '@angular/core';
 
-import { KuduDnDService } from './dnd.service';
-import { KuduDragDirective } from './drag.directive';
+import { KuduDndService } from './dnd.service';
+import { KuduDndDragDirective } from './drag.directive';
 
-import { KuduDrag, KuduDrop } from './interfaces';
+import { KuduDndDrag, KuduDndDrop } from './interfaces';
 
 @Directive({
-  selector: '[kuduDropContainer]',
+  selector: '[kuduDndDropContainer]',
 })
-export class KuduDropContainerDirective<T = any> {
-  private dndService = inject(KuduDnDService);
+export class KuduDndDropContainerDirective<T = any> {
+  private dndService = inject(KuduDndService);
 
   public elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
 
-  private _children = contentChildren(KuduDragDirective);
-  public children = linkedSignal({
-    source: this._children,
-    computation: (content) => content,
+  private _children = contentChildren(KuduDndDragDirective);
+  public children = linkedSignal(() => this._children());
+
+  public types = input.required<string[]>({
+    alias: 'kuduDndDropContainerTypes',
   });
 
-  public types = input.required<string[]>({ alias: 'kuduDropContainerTypes' });
-  public data = input<T>(undefined, { alias: 'kuduDropContainerData' });
-  public disabled = input(false, { alias: 'kuduDropContainerDisabled' });
+  public data = input<T>(undefined, { alias: 'kuduDndDropContainerData' });
+  public disabled = input(false, { alias: 'kuduDndDropContainerDisabled' });
 
-  public byDrop = output<KuduDrop>();
-  public byDragOver = output<KuduDrag>();
-  public byDragEnter = output<KuduDrag>();
-  public byDragLeave = output<KuduDrag>();
+  public byDrop = output<KuduDndDrop>();
+  public byDragOver = output<KuduDndDrag>();
+  public byDragEnter = output<KuduDndDrag>();
+  public byDragLeave = output<KuduDndDrag>();
 
   @HostListener('drop', ['$event'])
   public onDrop(event: DragEvent) {
@@ -74,15 +74,15 @@ export class KuduDropContainerDirective<T = any> {
     this.byDragOver.emit({ event });
   }
 
-  public insertChild(child: KuduDragDirective, index: number) {
+  public insertChild(child: KuduDndDragDirective, index: number) {
     this.children.update((children) => children.toSpliced(index, 0, child));
   }
 
-  public removeChild(child: KuduDragDirective) {
+  public removeChild(child: KuduDndDragDirective) {
     this.children.update((children) => children.filter((e) => e !== child));
   }
 
-  public indexChildOf(child: KuduDragDirective) {
+  public indexChildOf(child: KuduDndDragDirective) {
     return this.children().indexOf(child);
   }
 }

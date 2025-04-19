@@ -1,0 +1,32 @@
+:host {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.group {
+  padding: 2px;
+  display: flex;
+  gap: 4px;
+  background-color: #ffffff;
+  border: 1px solid rgba($color: #000000, $alpha: 0.1);
+  border-radius: 8px;
+}
+
+.control {
+  padding: 10px;
+  height: 38px;
+  width: 38px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #eeeeee;
+  }
+}

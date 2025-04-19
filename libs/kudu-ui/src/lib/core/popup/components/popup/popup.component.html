@@ -2,8 +2,7 @@
   [isOpen]="isOpen()"
   [origin]="origin"
   [config]="config()"
-  (positionXChange)="positionXChange.emit($event)"
-  (positionYChange)="positionYChange.emit($event)"
+  (positionChange)="positionChange.emit($event)"
 >
   <ng-content />
 </kudu-overlay>

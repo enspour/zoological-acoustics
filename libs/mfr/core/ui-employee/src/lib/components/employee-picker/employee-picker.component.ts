@@ -51,17 +51,12 @@ export class EmployeePickerComponent {
 
   public config: KuduPopupConfig = {
     width: 'self-width',
-    positionX: 'left',
-    positionY: 'under',
-    lockX: false,
-    lockY: false,
     gap: 4,
   };
 
   public byClose = output<Employee[]>();
 
   public onClose() {
-    console.log('CLOSE', this.value());
     this.byClose.emit(this.value());
   }
 

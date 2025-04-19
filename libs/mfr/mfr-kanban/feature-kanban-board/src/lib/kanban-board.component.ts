@@ -5,7 +5,7 @@ import {
   input,
 } from '@angular/core';
 
-import { KuduDragDirective, KuduDropContainerDirective } from '@kudu-dnd';
+import { KuduDndDragDirective, KuduDndDropContainerDirective } from '@kudu-dnd';
 
 import { KuduFilterPipe } from '@kudu-ng-utils';
 
@@ -41,8 +41,8 @@ import { GetEmployeesByUuidPipe } from '@kudu/mfr-util-employees';
 @Component({
   selector: 'lib-kanban-board',
   imports: [
-    KuduDragDirective,
-    KuduDropContainerDirective,
+    KuduDndDragDirective,
+    KuduDndDropContainerDirective,
     KuduFilterPipe,
     KanbanColumnComponent,
     KanbanColumnCreationComponent,

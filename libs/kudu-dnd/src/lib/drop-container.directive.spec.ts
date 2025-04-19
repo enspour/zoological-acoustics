@@ -1,8 +1,8 @@
-import { KuduDropContainerDirective } from './drop-container.directive';
+import { KuduDndDropContainerDirective } from './drop-container.directive';
 
-describe('KuduDropListDirective', () => {
+describe('KuduDndDropContainerDirective', () => {
   it('should create an instance', () => {
-    const directive = new KuduDropContainerDirective();
+    const directive = new KuduDndDropContainerDirective();
     expect(directive).toBeTruthy();
   });
 });

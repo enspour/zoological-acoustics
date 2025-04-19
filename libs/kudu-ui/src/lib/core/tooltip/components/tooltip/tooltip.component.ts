@@ -1,10 +1,17 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+} from '@angular/core';
 
 import {
   KuduOverlayComponent,
   KuduOverlayConfig,
   KuduOverlayOriginDirective,
 } from '../../../overlay';
+
+import { KuduTooltipOrientation } from '../../directives/tooltip.directive';
 
 @Component({
   selector: 'kudu-tooltip',
@@ -16,11 +23,11 @@ import {
 export class KuduTooltipComponent {
   public origin = input.required<KuduOverlayOriginDirective>();
   public tooltip = input.required<string>();
+  public orientation = input.required<KuduTooltipOrientation>();
 
-  public config: KuduOverlayConfig = {
+  public config = computed<KuduOverlayConfig>(() => ({
     width: 'self-width',
-    positionX: 'center',
-    positionY: 'under',
+    position: this.orientation(),
     gap: 4,
-  };
+  }));
 }

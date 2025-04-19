@@ -1,29 +1,29 @@
 import { Renderer2 } from '@angular/core';
 
-import { KuduDragDirective } from './drag.directive';
-import { KuduDropContainerDirective } from './drop-container.directive';
+import { KuduDndDragDirective } from './drag.directive';
+import { KuduDndDropContainerDirective } from './drop-container.directive';
 
 import { Point } from './interfaces';
 
-export interface KuduDragInstance {
-  draggable: KuduDragDirective;
+export interface KuduDndDragInstance {
+  draggable: KuduDndDragDirective;
   source: {
-    container: KuduDropContainerDirective;
+    container: KuduDndDropContainerDirective;
     index: number;
   };
   target: {
-    container: KuduDropContainerDirective;
+    container: KuduDndDropContainerDirective;
     index: number;
   };
 }
 
-export class KuduDragRef {
-  private instance: KuduDragInstance;
+export class KuduDndDragRef {
+  private instance: KuduDndDragInstance;
 
   constructor(
     private renderer: Renderer2,
-    draggable: KuduDragDirective,
-    container: KuduDropContainerDirective,
+    draggable: KuduDndDragDirective,
+    container: KuduDndDropContainerDirective,
   ) {
     this.instance = {
       draggable,
@@ -42,7 +42,7 @@ export class KuduDragRef {
     return this.instance;
   }
 
-  public move(container: KuduDropContainerDirective, position: Point) {
+  public move(container: KuduDndDropContainerDirective, position: Point) {
     if (!this.isValidTypes(container)) {
       return;
     }
@@ -62,7 +62,7 @@ export class KuduDragRef {
   }
 
   private findNextIndex(
-    container: KuduDropContainerDirective,
+    container: KuduDndDropContainerDirective,
     position: Point,
   ) {
     return container
@@ -70,7 +70,7 @@ export class KuduDragRef {
       .findIndex((element) => this.isOverElement(element, position));
   }
 
-  private isOverElement(element: KuduDragDirective, position: Point) {
+  private isOverElement(element: KuduDndDragDirective, position: Point) {
     const rect = element.elementRef.nativeElement.getBoundingClientRect();
 
     if (
@@ -86,7 +86,7 @@ export class KuduDragRef {
   }
 
   private isValidNextIndex(
-    container: KuduDropContainerDirective,
+    container: KuduDndDropContainerDirective,
     index: number,
   ) {
     if (index === -1) {
@@ -99,11 +99,14 @@ export class KuduDragRef {
     );
   }
 
-  private isValidTypes(container: KuduDropContainerDirective) {
+  private isValidTypes(container: KuduDndDropContainerDirective) {
     return container.types().includes(this.instance.draggable.type());
   }
 
-  public moveDraggable(container: KuduDropContainerDirective, index: number) {
+  public moveDraggable(
+    container: KuduDndDropContainerDirective,
+    index: number,
+  ) {
     const placeholder = this.instance.draggable.elementRef.nativeElement;
 
     const prevContainer = this.instance.target.container;

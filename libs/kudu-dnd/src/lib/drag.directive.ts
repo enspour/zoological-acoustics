@@ -9,34 +9,34 @@ import {
   signal,
 } from '@angular/core';
 
-import { KuduDnDService } from './dnd.service';
-import { KuduDropContainerDirective } from './drop-container.directive';
+import { KuduDndService } from './dnd.service';
+import { KuduDndDropContainerDirective } from './drop-container.directive';
 
-import { KuduDrag } from './interfaces';
+import { KuduDndDrag } from './interfaces';
 
 @Directive({
-  selector: '[kuduDrag]',
+  selector: '[kuduDndDrag]',
   host: {
     '[draggable]': '!disabled()',
     '[style.opacity]': 'isDraggable() ? 0 : 1',
   },
 })
-export class KuduDragDirective<T = any> {
-  private dndService = inject(KuduDnDService);
-  private dropContainerDirective = inject(KuduDropContainerDirective);
+export class KuduDndDragDirective<T = any> {
+  private dndService = inject(KuduDndService);
+  private dropContainerDirective = inject(KuduDndDropContainerDirective);
 
   public elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
 
   public container = signal(this.dropContainerDirective);
 
-  public type = input.required<string>({ alias: 'kuduDragType' });
-  public data = input<T>(undefined, { alias: 'kuduDragData' });
+  public type = input.required<string>({ alias: 'kuduDndDragType' });
+  public data = input<T>(undefined, { alias: 'kuduDndDragData' });
   public disabled = computed(() => this.getDisabled());
 
   public isDraggable = computed(() => this.getIsDraggable());
 
-  public byDragStart = output<KuduDrag>();
-  public byDragEnd = output<KuduDrag>();
+  public byDragStart = output<KuduDndDrag>();
+  public byDragEnd = output<KuduDndDrag>();
 
   @HostListener('dragstart', ['$event'])
   public onDragStart(event: DragEvent) {

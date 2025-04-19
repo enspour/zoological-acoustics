@@ -2,17 +2,17 @@
 
 <div
   class="columns"
-  kuduDropContainer
-  [kuduDropContainerTypes]="['column']"
-  [kuduDropContainerData]="columns"
+  kuduDndDropContainer
+  [kuduDndDropContainerTypes]="['column']"
+  [kuduDndDropContainerData]="columns"
   (byDrop)="onColumnDrop()"
 >
   <lib-kanban-column-unassigned>
     <div
       class="tasks"
-      kuduDropContainer
-      [kuduDropContainerTypes]="['task']"
-      [kuduDropContainerData]="null"
+      kuduDndDropContainer
+      [kuduDndDropContainerTypes]="['task']"
+      [kuduDndDropContainerData]="null"
       (byDrop)="onTaskDrop()"
     >
       @let tasks =
@@ -25,9 +25,9 @@
           [task]="task"
           (click)="onTaskClick(task)"
           (byDelete)="onTaskDelete($event)"
-          kuduDrag
-          kuduDragType="task"
-          [kuduDragData]="task"
+          kuduDndDrag
+          kuduDndDragType="task"
+          [kuduDndDragData]="task"
         >
           <lib-employee-picker
             class="task__employees"
@@ -45,9 +45,9 @@
   @for (column of columns; track column.uuid) {
     <lib-kanban-column
       [column]="column"
-      kuduDrag
-      kuduDragType="column"
-      [kuduDragData]="column"
+      kuduDndDrag
+      kuduDndDragType="column"
+      [kuduDndDragData]="column"
       (byDelete)="onColumnDelete($event)"
     >
       <lib-kanban-task-creation
@@ -59,9 +59,9 @@
 
       <div
         class="tasks"
-        kuduDropContainer
-        [kuduDropContainerTypes]="['task']"
-        [kuduDropContainerData]="column"
+        kuduDndDropContainer
+        [kuduDndDropContainerTypes]="['task']"
+        [kuduDndDropContainerData]="column"
         (byDrop)="onTaskDrop()"
       >
         @let tasks = this.tasks() | filter: filterByColumnFn : column;
@@ -70,9 +70,9 @@
           <lib-kanban-task
             [task]="task"
             (click)="onTaskClick(task)"
-            kuduDrag
-            kuduDragType="task"
-            [kuduDragData]="task"
+            kuduDndDrag
+            kuduDndDragType="task"
+            [kuduDndDragData]="task"
             (byDelete)="onTaskDelete($event)"
           >
             <lib-employee-picker

@@ -4,13 +4,19 @@ import {
   KuduIconComponent,
   KuduMenuComponent,
   KuduMenuLinkComponent,
+  KuduTooltipDirective,
 } from '@kudu-ui';
 
 import { SidebarComponent } from '../../sidebar.component';
 
 @Component({
   selector: 'lib-menu',
-  imports: [KuduMenuComponent, KuduMenuLinkComponent, KuduIconComponent],
+  imports: [
+    KuduMenuComponent,
+    KuduMenuLinkComponent,
+    KuduIconComponent,
+    KuduTooltipDirective,
+  ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

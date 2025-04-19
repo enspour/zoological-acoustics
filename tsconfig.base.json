@@ -25,9 +25,6 @@
       "@kudu-ui-icons": ["libs/kudu-ui-icons/src/index.ts"],
       "@kudu-utils": ["libs/kudu-utils/src/index.ts"],
       "@kudu/domain": ["libs/domain/src/index.ts"],
-      "@kudu/mfr-organization/Routes": [
-        "apps/mfr-organization/src/app/remote-entry/entry.routes.ts"
-      ],
       "@kudu/mfr-data-access-auth": [
         "libs/mfr/core/data-access-auth/src/index.ts"
       ],
@@ -78,15 +75,6 @@
       ],
       "@kudu/mfr-feature-browse-task": [
         "libs/mfr/mfr-tasks/feature-browse-task/src/index.ts"
-      ],
-      "@kudu/mfr-feature-organization": [
-        "libs/mfr/mfr-organization/feature-organization/src/index.ts"
-      ],
-      "@kudu/mfr-feature-organization-overview": [
-        "libs/mfr/mfr-organization/feature-organization-overview/src/index.ts"
-      ],
-      "@kudu/mfr-feature-organization-structure": [
-        "libs/mfr/mfr-organization/feature-organization-structure/src/index.ts"
       ],
       "@kudu/mfr-feature-create-project": [
         "libs/mfr/mfr-projects/feature-create-project/src/index.ts"
@@ -143,6 +131,15 @@
       "@kudu/mfr-feature-login": [
         "libs/mfr/mfr-host/feature-login/src/index.ts"
       ],
+      "@kudu/mfr-feature-organization": [
+        "libs/mfr/mfr-organization/feature-organization/src/index.ts"
+      ],
+      "@kudu/mfr-feature-organization-overview": [
+        "libs/mfr/mfr-organization/feature-organization-overview/src/index.ts"
+      ],
+      "@kudu/mfr-feature-organization-structure": [
+        "libs/mfr/mfr-organization/feature-organization-structure/src/index.ts"
+      ],
       "@kudu/mfr-feature-project": [
         "libs/mfr/mfr-projects/feature-project/src/index.ts"
       ],
@@ -178,6 +175,9 @@
       ],
       "@kudu/mfr-feature-signup": [
         "libs/mfr/mfr-host/feature-signup/src/index.ts"
+      ],
+      "@kudu/mfr-organization/Routes": [
+        "apps/mfr-organization/src/app/remote-entry/entry.routes.ts"
       ],
       "@kudu/mfr-projects/Routes": [
         "apps/mfr-projects/src/app/remote-entry/entry.routes.ts"

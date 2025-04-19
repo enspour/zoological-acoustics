@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { KuduSelectComponent } from './select.component';
 
 describe('SelectComponent', () => {
-  let component: KuduSelectComponent;
-  let fixture: ComponentFixture<KuduSelectComponent>;
+  let component: KuduSelectComponent<unknown>;
+  let fixture: ComponentFixture<KuduSelectComponent<unknown>>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

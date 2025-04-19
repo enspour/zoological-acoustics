@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   imports: [RouterOutlet],
-  selector: 'app-mfr-projects-entry',
+  selector: 'app-mfr-organization-entry',
   template: `<router-outlet />`,
   styles: `
     :host {

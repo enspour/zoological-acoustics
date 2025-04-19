@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Directive, ElementRef, inject, model, viewChild } from '@angular/core';
+import { Directive, ElementRef, inject, model } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 
@@ -10,21 +10,18 @@ import {
   WORKSPACE_SCALING_MAX,
   WORKSPACE_SCALING_MIN,
   WORKSPACE_SCROLLING_DELTA,
-} from '../constants/workspace.constants';
+} from '../constants';
 
 import { Point } from '../../../interfaces';
-import { KuduWorkspaceScale, KuduWorkspaceScroll } from '../interfaces';
+import { KuduFlowWorkspaceScale, KuduFlowWorkspaceScroll } from '../interfaces';
 
 @Directive()
-export class KuduWorkspaceDirective {
+export class KuduFlowWorkspaceDirective {
   private document = inject(DOCUMENT);
   private elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
 
-  private scalableRef =
-    viewChild.required<ElementRef<HTMLDivElement>>('scalable');
-
-  public scroll = model<KuduWorkspaceScroll>({ x: 0, y: 0 });
-  public scale = model<KuduWorkspaceScale>(1);
+  public scroll = model<KuduFlowWorkspaceScroll>({ x: 0, y: 0 });
+  public scale = model<KuduFlowWorkspaceScale>(1);
 
   public layout = toSignal(
     resizeObservable(this.elementRef).pipe(
@@ -32,11 +29,11 @@ export class KuduWorkspaceDirective {
     ),
   );
 
-  public setScroll(scroll: KuduWorkspaceScroll) {
+  public setScroll(scroll: KuduFlowWorkspaceScroll) {
     this.scroll.set(scroll);
   }
 
-  public setScale(scale: KuduWorkspaceScale) {
+  public setScale(scale: KuduFlowWorkspaceScale) {
     this.scale.set(scale);
   }
 
@@ -81,15 +78,13 @@ export class KuduWorkspaceDirective {
   }
 
   public scrollBack() {
-    const scalableRef = this.scalableRef();
-
     const layout = this.layout();
 
-    if (!this.document.defaultView || !scalableRef.nativeElement || !layout) {
+    if (!this.document.defaultView || !layout) {
       return;
     }
 
-    const { width, height } = scalableRef.nativeElement.getBoundingClientRect();
+    const { width, height } = layout;
 
     const elementCenter = {
       x: width / 2,
