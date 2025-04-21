@@ -7,6 +7,7 @@
 >
   <thead>
     <tr>
+      <th kudu-th></th>
       <th kudu-th [style.width.px]="52"></th>
       <th kudu-th kuduThSort="title">Название</th>
       <th kudu-th [style.width.%]="10">Исполнители</th>
@@ -21,6 +22,8 @@
 
     @for (task of tasks; track task.uuid) {
       <tr (click)="onTaskClick(task)">
+        <td kudu-td></td>
+
         <td kudu-td>
           <kudu-icon class="icon" icon="circle-check" />
         </td>

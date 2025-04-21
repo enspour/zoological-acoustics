@@ -31,7 +31,7 @@ const ProjectMyTasksPage = () =>
 
 const ProjectTablePage = () =>
   import('@kudu/mfr-feature-project-table').then(
-    (c) => c.ProjectTableComponent,
+    (c) => c.ProjectTablePageComponent,
   );
 
 const ProjectSettingsPage = () =>

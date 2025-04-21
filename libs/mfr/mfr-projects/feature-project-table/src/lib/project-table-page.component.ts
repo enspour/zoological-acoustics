@@ -6,6 +6,7 @@ import {
   input,
   linkedSignal,
 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { KuduFilterPipe } from '@kudu-ng-utils';
@@ -31,18 +32,19 @@ import { TaskBoardMoreComponent } from '@kudu/mfr-ui-task-board';
 import { joinTasksWithColumns } from '@kudu/mfr-util-tasks';
 
 @Component({
-  selector: 'lib-project-table',
+  selector: 'lib-project-table-page',
   imports: [
+    FormsModule,
     KuduIconComponent,
     KuduFilterPipe,
     TaskTableComponent,
     TaskBoardMoreComponent,
   ],
-  templateUrl: './project-table.component.html',
-  styleUrl: './project-table.component.scss',
+  templateUrl: './project-table-page.component.html',
+  styleUrl: './project-table-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectTableComponent {
+export class ProjectTablePageComponent {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private explorerService = inject(ExplorerService);

@@ -1,1 +1,1 @@
-export * from './lib/project-table.component';
+export * from './lib/project-table-page.component';
