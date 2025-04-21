@@ -7,7 +7,7 @@ export type KuduFindFn<T, Args extends unknown[]> = (
   | ((value: T, index: number, array: T[]) => unknown);
 
 @Pipe({
-  name: 'find',
+  name: 'kuduFind',
 })
 export class KuduFindPipe implements PipeTransform {
   public transform<T, Args extends unknown[]>(

@@ -1,16 +1,19 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   ElementRef,
   HostBinding,
   HostListener,
   inject,
   input,
-  model,
   output,
+  signal,
 } from '@angular/core';
 
 import { kuduSize } from '../../../size';
+
+import { KuduOptionsDirective } from '../../directives/options.directive';
 
 @Component({
   selector: 'kudu-option',
@@ -20,14 +23,16 @@ import { kuduSize } from '../../../size';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KuduOptionComponent<T> {
-  public size = inject(kuduSize);
+  private options = inject(KuduOptionsDirective);
+
+  private size = inject(kuduSize);
 
   public value = input.required<T>();
 
-  public isHidden = model(false);
-  public isSelected = model(false);
+  public disabled = input(false);
 
-  public disabled = model(false);
+  public isHidden = signal(false);
+  public isSelected = computed(() => this.getIsSelected());
 
   public byClick = output<Event>();
 
@@ -45,6 +50,11 @@ export class KuduOptionComponent<T> {
 
   @HostListener('click', ['$event'])
   public onClick(event: Event) {
+    this.options.toggle(this.value());
     this.byClick.emit(event);
+  }
+
+  private getIsSelected() {
+    return this.options.isSelected(this.value());
   }
 }

@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  effect,
   HostBinding,
   inject,
   input,
@@ -30,20 +29,20 @@ import { kuduSize } from '../size';
     KuduPopupTriggerDirective,
     {
       directive: KuduOptionsDirective,
-      inputs: ['value', 'multiple'],
-      outputs: ['valueChange'],
+      inputs: ['kuduOptionsValue: value'],
+      outputs: ['kuduOptionsValueChange: valueChange'],
     },
   ],
 })
 export class KuduAutocompleteComponent {
-  private optionsDirective = inject(KuduOptionsDirective);
+  private options = inject(KuduOptionsDirective);
   private trigger = inject(KuduPopupTriggerDirective);
 
   public size = inject(kuduSize);
 
   public isOpen = this.trigger.isOpen;
 
-  public text = model<string>('');
+  public searchTerm = model<string>('');
 
   public placeholder = input<string>('');
 
@@ -56,10 +55,6 @@ export class KuduAutocompleteComponent {
 
   public position = signal<KuduPopupPosition>('under');
 
-  constructor() {
-    effect(() => this.optionsDirective.filterByText(this.text()));
-  }
-
   @HostBinding('class')
   public get Classes() {
     return `
@@ -67,5 +62,19 @@ export class KuduAutocompleteComponent {
       ${this.isOpen() ? 'opened' : 'closed'} 
       ${this.position()}
     `;
+  }
+
+  public onSearchTermChange() {
+    const searchTerm = this.searchTerm().toLowerCase();
+
+    for (const option of this.options.options()) {
+      const text = option.elementRef.nativeElement.innerText.toLowerCase();
+
+      if (text.includes(searchTerm)) {
+        option.isHidden.set(false);
+      } else {
+        option.isHidden.set(true);
+      }
+    }
   }
 }

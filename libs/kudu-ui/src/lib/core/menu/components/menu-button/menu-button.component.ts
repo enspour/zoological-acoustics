@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 
 import { kuduSize } from '../../../size';
-import { kuduMenuItem } from '../../tokens/menu-item.token';
 
 @Component({
   selector: 'button[kudu-menu-button]',
@@ -16,7 +15,6 @@ import { kuduMenuItem } from '../../tokens/menu-item.token';
   templateUrl: './menu-button.component.html',
   styleUrl: './menu-button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: kuduMenuItem, useExisting: KuduMenuButtonComponent }],
 })
 export class KuduMenuButtonComponent {
   private size = inject(kuduSize);

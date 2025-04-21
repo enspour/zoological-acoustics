@@ -1,7 +1,25 @@
-<lib-task-table
-  class="table"
-  [tasks]="tasks()"
-  (byTaskClick)="onTaskClick($event)"
-  [sortConfig]="sortConfig()"
-  (sortConfigChange)="onSortConfigChange($event)"
-/>
+@for (board of boards(); track board.uuid) {
+  @let tasks = this.tasks() | kuduFilter: filterByBoard : board;
+
+  @if (tasks.length) {
+    <div class="board">
+      <div class="board__header">
+        <div>{{ board.title }}</div>
+        <lib-task-board-more [board]="board" />
+      </div>
+
+      <lib-task-table
+        [tasks]="tasks"
+        [employees]="employees()"
+        [sortConfig]="sortConfig()"
+        (sortConfigChange)="onSortConfigChange($event)"
+        (byTaskClick)="onTaskClick($event)"
+      />
+
+      <button class="task__creation">
+        <kudu-icon icon="plus" [iconSize]="16" />
+        <div>Добавить задачу</div>
+      </button>
+    </div>
+  }
+}

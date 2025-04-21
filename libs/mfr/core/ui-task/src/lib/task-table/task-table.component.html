@@ -1,10 +1,18 @@
-<table kudu-table kuduSort #sortRef="kuduSort" [(kuduSortConfig)]="sortConfig">
+<table
+  kudu-table
+  kuduSort
+  #sortRef="kuduSort"
+  [(kuduSortConfig)]="sortConfig"
+  [kuduSortFn]="sortFn"
+>
   <thead>
     <tr>
       <th kudu-th [style.width.px]="52"></th>
       <th kudu-th kuduThSort="title">Название</th>
-      <th kudu-th kuduThSort="startDate">Начало</th>
-      <th kudu-th kuduThSort="endDate">Завершение</th>
+      <th kudu-th [style.width.%]="10">Исполнители</th>
+      <th kudu-th kuduThSort="column" [style.width.%]="10">Статус</th>
+      <th kudu-th kuduThSort="startDate" [style.width.%]="10">Начало</th>
+      <th kudu-th kuduThSort="endDate" [style.width.%]="10">Завершение</th>
     </tr>
   </thead>
 
@@ -12,12 +20,24 @@
     @let tasks = this.tasks() | kuduSort: sortRef.config();
 
     @for (task of tasks; track task.uuid) {
-      <tr (click)="onClick(task)">
+      <tr (click)="onTaskClick(task)">
         <td kudu-td>
-          <kudu-icon class="done" icon="circle-check" />
+          <kudu-icon class="icon" icon="circle-check" />
         </td>
 
         <td kudu-td>{{ task.title }}</td>
+
+        <td kudu-td>
+          <lib-employee-picker
+            [value]="employees() | getEmployeesByUuid: task.executorUuids"
+            [employees]="employees()"
+            [multiple]="true"
+            (byClose)="onTaskExecutorsChange(task, $event)"
+            (click)="$event.stopPropagation()"
+          />
+        </td>
+
+        <td kudu-td>{{ task?.column?.title || '' }}</td>
         <td kudu-td>{{ task.startDate | date: 'dd.MM.yyyy' }}</td>
         <td kudu-td>{{ task.endDate | date: 'dd.MM.yyyy' }}</td>
       </tr>

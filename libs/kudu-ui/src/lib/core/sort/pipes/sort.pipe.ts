@@ -8,10 +8,10 @@ import {
 @Pipe({
   name: 'kuduSort',
 })
-export class KuduSortPipe<T> implements PipeTransform {
+export class KuduSortPipe implements PipeTransform {
   private sort = inject(KuduSortDirective);
 
-  public transform(arr: T[], config?: KuduSortConfig): T[] {
+  public transform<T>(arr: T[], config?: KuduSortConfig): T[] {
     if (!config) {
       return arr;
     }

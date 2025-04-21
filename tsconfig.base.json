@@ -65,7 +65,7 @@
         "libs/mfr/mfr-host/feature-auth-layout/src/index.ts"
       ],
       "@kudu/mfr-feature-browse-employee": [
-        "libs/mfr/mfr-employees/feature-browse-employee/src/index.ts"
+        "libs/mfr/core/feature-browse-employee/src/index.ts"
       ],
       "@kudu/mfr-feature-browse-project-access": [
         "libs/mfr/mfr-projects/feature-browse-project-access/src/index.ts"
@@ -74,7 +74,7 @@
         "libs/mfr/mfr-projects/feature-browse-project-data-field/src/index.ts"
       ],
       "@kudu/mfr-feature-browse-task": [
-        "libs/mfr/mfr-tasks/feature-browse-task/src/index.ts"
+        "libs/mfr/core/feature-browse-task/src/index.ts"
       ],
       "@kudu/mfr-feature-create-project": [
         "libs/mfr/mfr-projects/feature-create-project/src/index.ts"
@@ -160,6 +160,9 @@
       ],
       "@kudu/mfr-feature-project-settings-general": [
         "libs/mfr/mfr-projects/feature-project-settings-general/src/index.ts"
+      ],
+      "@kudu/mfr-feature-project-table": [
+        "libs/mfr/mfr-projects/feature-project-table/src/index.ts"
       ],
       "@kudu/mfr-feature-projects": [
         "libs/mfr/mfr-projects/feature-projects/src/index.ts"

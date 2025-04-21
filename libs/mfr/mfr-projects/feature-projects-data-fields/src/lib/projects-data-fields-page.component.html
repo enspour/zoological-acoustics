@@ -1,7 +1,7 @@
 <lib-header [searchTerm]="searchTerm() || ''" />
 
 <lib-project-data-field-table
-  [dataFields]="this.dataFields() | filter: filterFn : searchTerm() || ''"
+  [dataFields]="this.dataFields() | kuduFilter: filterFn : searchTerm() || ''"
   (byClick)="onDataFieldClick($event)"
   [sortConfig]="sortConfig()"
   (sortConfigChange)="onSortConfigChange($event)"

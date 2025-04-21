@@ -2,9 +2,9 @@ import { groupBy } from '@kudu-utils';
 
 import { Task } from '@kudu/domain';
 
-type GroupableTaskFields = 'executor' | 'board' | 'board:executor';
+type GroupField = 'executor' | 'board';
 
-const groupTasksByExecutors = (tasks: Task[]) => {
+const groupTasksByExecutors = <T extends Task>(tasks: T[]) => {
   return tasks.reduce(
     (acc, task) => {
       if (task.executorUuids.length === 0) {
@@ -29,46 +29,15 @@ const groupTasksByExecutors = (tasks: Task[]) => {
 
       return acc;
     },
-    {} as Partial<Record<string, Task[]>>,
+    {} as Partial<Record<string, T[]>>,
   );
 };
 
-const groupTasksByBoardsAndExecutors = (tasks: Task[]) => {
-  return tasks.reduce(
-    (acc, task) => {
-      if (task.executorUuids.length === 0) {
-        const key = `${task.boardUuid}`;
-
-        if (!(key in acc)) {
-          acc[key] = [];
-        }
-
-        acc[key]!.push(task);
-      }
-
-      for (const executorUuid of task.executorUuids) {
-        const key = `${task.boardUuid}:${executorUuid}`;
-
-        if (!(key in acc)) {
-          acc[key] = [];
-        }
-
-        acc[key]!.push(task);
-      }
-
-      return acc;
-    },
-    {} as Partial<Record<string, Task[]>>,
-  );
-};
-
-export const groupTasks = (tasks: Task[], field: GroupableTaskFields) => {
+export const groupTasks = <T extends Task>(tasks: T[], field: GroupField) => {
   switch (field) {
     case 'executor':
       return groupTasksByExecutors(tasks);
     case 'board':
       return groupBy(tasks, (task) => task.boardUuid);
-    case 'board:executor':
-      return groupTasksByBoardsAndExecutors(tasks);
   }
 };

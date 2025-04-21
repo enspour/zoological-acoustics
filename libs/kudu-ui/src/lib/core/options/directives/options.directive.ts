@@ -1,111 +1,80 @@
 import {
-  AfterContentInit,
-  computed,
   contentChildren,
   Directive,
   effect,
   inject,
-  Injector,
-  input,
   model,
-  runInInjectionContext,
+  untracked,
 } from '@angular/core';
+
+import { KuduSelectionDirective } from '../../selection';
 
 import { KuduOptionComponent } from '../components/option/option.component';
 
-import { outputFromObservable, toObservable } from '@angular/core/rxjs-interop';
-
-type Value<T, M extends boolean = false> = M extends any
-  ? T
-  : M extends true
-    ? T[]
-    : T;
+export type KuduOptionsValue<T> = T extends Array<infer I> ? I[] : T;
 
 @Directive({
   selector: '[kuduOptions]',
+  hostDirectives: [KuduSelectionDirective],
 })
-export class KuduOptionsDirective<T, M extends boolean = false>
-  implements AfterContentInit
-{
-  private injector = inject(Injector);
+export class KuduOptionsDirective<T, V extends KuduOptionsValue<T>> {
+  private selection = inject(KuduSelectionDirective<V>);
 
-  public options = contentChildren(KuduOptionComponent<T>);
+  public options = contentChildren(KuduOptionComponent<V>);
 
-  public value = model<Value<T, M>>();
-  public multiple = input<M>(false as M);
+  public value = model.required<V>({
+    alias: 'kuduOptionsValue',
+  });
 
-  public selection = computed(() => this.Selection);
-  public bySelectionChange = outputFromObservable(toObservable(this.selection));
+  constructor() {
+    effect(() => {
+      const value = this.value();
 
-  ngAfterContentInit(): void {
-    runInInjectionContext(this.injector, () => {
-      effect(() => {
-        for (const option of this.options()) {
-          const isSelected = this.isSelectedByValue(option.value());
-          option.isSelected.set(isSelected);
+      untracked(() => {
+        if (Array.isArray(value)) {
+          this.selection.reset(...value);
+        } else {
+          this.selection.reset(value);
         }
       });
+    });
 
-      effect((onCleanup) => {
-        const subscriptions = this.options().map((option) =>
-          option.byClick.subscribe(() => this.selectByValue(option.value())),
-        );
+    effect(() => {
+      const selection = this.selection.selection();
 
-        onCleanup(() => subscriptions.forEach((s) => s.unsubscribe()));
+      untracked(() => {
+        if (Array.isArray(this.value())) {
+          this.value.set([...selection] as V);
+        } else {
+          this.value.set([...selection].at(0)!);
+        }
       });
     });
   }
 
-  public get Selection() {
-    return this.options().filter((o) => o.isSelected());
+  public isSelected(value: V) {
+    return this.selection.isSelected(value);
   }
 
-  public selectByValue(value: T) {
-    if (this.multiple()) {
-      const current = this.value();
-
-      if (!Array.isArray(current)) {
-        return this.value.set([value] as Value<T, M>);
-      }
-
-      const index = current.findIndex((v) => v === value);
-      if (index === -1) {
-        return this.value.set([...current, value] as Value<T, M>);
-      }
-
-      return this.value.set([
-        ...current.slice(0, index),
-        ...current.slice(index + 1),
-      ] as Value<T, M>);
+  public select(value: V) {
+    if (Array.isArray(this.value())) {
+      return this.selection.select(value);
     }
 
-    return this.value.set(value as Value<T, M>);
+    this.selection.reset(value);
   }
 
-  public isSelectedByValue(value: T) {
-    const current = this.value();
-    if (current === undefined) {
-      return false;
+  public deselect(value: V) {
+    if (Array.isArray(this.value())) {
+      this.selection.deselect(value);
     }
-
-    if (this.multiple()) {
-      return Array.isArray(current) ? current.some((v) => v === value) : false;
-    }
-
-    return current === value;
   }
 
-  public filterByText(text: string) {
-    const value = text.toLowerCase();
-
-    for (const option of this.options()) {
-      const text = option.elementRef.nativeElement.innerText.toLowerCase();
-
-      if (text.includes(value)) {
-        option.isHidden.set(false);
-      } else {
-        option.isHidden.set(true);
-      }
+  public toggle(value: V) {
+    if (Array.isArray(this.value())) {
+      return this.selection.toggle(value);
     }
+
+    this.selection.reset(value);
   }
 }

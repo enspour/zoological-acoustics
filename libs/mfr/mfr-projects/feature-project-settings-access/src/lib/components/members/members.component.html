@@ -15,6 +15,6 @@
 </div>
 
 <lib-project-member-table
-  [members]="members() | filter: filterFn : searchTerm() || ''"
+  [members]="members() | kuduFilter: filterFn : searchTerm() || ''"
   [(sortConfig)]="sortConfig"
 />

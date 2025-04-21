@@ -29,6 +29,11 @@ const ProjectMyTasksPage = () =>
     (c) => c.ProjectMyTasksPageComponent,
   );
 
+const ProjectTablePage = () =>
+  import('@kudu/mfr-feature-project-table').then(
+    (c) => c.ProjectTableComponent,
+  );
+
 const ProjectSettingsPage = () =>
   import('@kudu/mfr-feature-project-settings').then(
     (c) => c.ProjectSettingsPageComponent,
@@ -107,6 +112,11 @@ export const remoteRoutes: Route[] = [
             path: 'kanban/board/:boardUuid',
             title: 'Kudu | Доски',
             loadComponent: KanbanPage,
+          },
+          {
+            path: 'table',
+            title: 'Kudu | Таблица',
+            loadComponent: ProjectTablePage,
           },
           {
             path: 'settings',

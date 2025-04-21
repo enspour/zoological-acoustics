@@ -1,8 +1,8 @@
-import { FindPipe } from './find.pipe';
+import { KuduFindPipe } from './find.pipe';
 
-describe('FindPipe', () => {
+describe('KuduFindPipe', () => {
   it('create an instance', () => {
-    const pipe = new FindPipe();
+    const pipe = new KuduFindPipe();
     expect(pipe).toBeTruthy();
   });
 });

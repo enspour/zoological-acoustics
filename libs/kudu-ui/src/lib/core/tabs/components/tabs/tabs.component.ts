@@ -13,6 +13,7 @@ import {
 } from '@angular/core';
 
 import { kuduSize } from '../../../size';
+
 import { KuduTabComponent } from '../tab/tab.component';
 
 export type KuduTabsOrientation = 'vertical' | 'horizontal';
@@ -41,14 +42,6 @@ export class KuduTabsComponent {
   });
 
   constructor() {
-    effect((onCleanup) => {
-      const subscriptions = this.tabs().map((tab, index) =>
-        tab.byClick.subscribe(() => this.currentIndex.set(index)),
-      );
-
-      onCleanup(() => subscriptions.forEach((s) => s.unsubscribe()));
-    });
-
     effect(() => {
       this.tabs()[this.previousIndex()].isActive.set(false);
       this.tabs()[this.currentIndex()].isActive.set(true);
@@ -58,5 +51,13 @@ export class KuduTabsComponent {
   @HostBinding('class')
   public get Classes() {
     return `${this.size()} ${this.orientation()}`;
+  }
+
+  public open(tab: KuduTabComponent) {
+    const index = this.tabs().findIndex((t) => t === tab);
+
+    if (index !== -1) {
+      this.currentIndex.set(index);
+    }
   }
 }

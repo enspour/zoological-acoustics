@@ -1,4 +1,9 @@
-<input class="text" [(ngModel)]="text" [placeholder]="placeholder()" />
+<input
+  class="input"
+  [(ngModel)]="searchTerm"
+  (ngModelChange)="onSearchTermChange()"
+  [placeholder]="placeholder()"
+/>
 
 <kudu-popup [config]="config" (positionChange)="position.set($event)">
   <div [class]="['options', size(), position()]">

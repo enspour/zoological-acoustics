@@ -1,8 +1,8 @@
-import { FilterPipe } from '../filter.pipe';
+import { KuduFilterPipe } from './filter.pipe';
 
-describe('FilterPipe', () => {
+describe('KuduFilterPipe', () => {
   it('create an instance', () => {
-    const pipe = new FilterPipe();
+    const pipe = new KuduFilterPipe();
     expect(pipe).toBeTruthy();
   });
 });

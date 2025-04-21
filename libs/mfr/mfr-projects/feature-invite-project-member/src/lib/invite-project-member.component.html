@@ -9,7 +9,7 @@
   </div>
 
   <lib-employee-table
-    [employees]="employees() | filter: filterFn : searchTerm()"
+    [employees]="employees() | kuduFilter: filterFn : searchTerm()"
   />
 </div>
 

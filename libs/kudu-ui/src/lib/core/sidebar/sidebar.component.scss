@@ -7,11 +7,13 @@
 :host.push {
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 
 :host.over {
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 
 .content {

@@ -42,6 +42,7 @@ export class KuduTabComponent {
   }
 
   public onClick(event: Event) {
+    this.tabs.open(this);
     this.byClick.emit(event);
   }
 }

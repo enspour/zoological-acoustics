@@ -1,9 +1,9 @@
 export default {
-  displayName: 'mfr-feature-browse-task',
+  displayName: 'mfr-feature-browse-employee',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory:
-    '../../../../coverage/libs/mfr/mfr-tasks/feature-browse-task',
+    '../../../../coverage/libs/mfr/core/feature-browse-employee',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

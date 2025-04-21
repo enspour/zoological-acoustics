@@ -1,14 +1,13 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   HostBinding,
-  HostListener,
   inject,
   input,
-  OnInit,
   signal,
 } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import {
   KuduPopupComponent,
@@ -17,7 +16,8 @@ import {
   KuduPopupTriggerDirective,
 } from '../popup';
 
-import { KuduOptionComponent, KuduOptionsDirective } from '../options';
+import { KuduOptionsDirective } from '../options';
+
 import { kuduSize } from '../size';
 
 @Component({
@@ -30,14 +30,15 @@ import { kuduSize } from '../size';
     KuduPopupTriggerDirective,
     {
       directive: KuduOptionsDirective,
-      inputs: ['value', 'multiple'],
-      outputs: ['valueChange', 'bySelectionChange'],
+      inputs: ['kuduOptionsValue: value'],
+      outputs: ['kuduOptionsValueChange: valueChange'],
     },
   ],
 })
-export class KuduSelectComponent<T> implements OnInit {
+export class KuduSelectComponent {
   private domSanitizer = inject(DomSanitizer);
   private trigger = inject(KuduPopupTriggerDirective);
+  private options = inject(KuduOptionsDirective);
 
   public size = inject(kuduSize);
 
@@ -54,7 +55,7 @@ export class KuduSelectComponent<T> implements OnInit {
 
   public position = signal<KuduPopupPosition>('under');
 
-  public content = signal<SafeHtml>('');
+  public content = computed(() => this.getContent());
 
   @HostBinding('class')
   public get Classes() {
@@ -65,30 +66,21 @@ export class KuduSelectComponent<T> implements OnInit {
     `;
   }
 
-  ngOnInit(): void {
-    this.setContentToPlaceholder();
-  }
+  private getContent() {
+    const selected = this.options
+      .options()
+      .filter((option) => option.isSelected());
 
-  @HostListener('bySelectionChange', ['$event'])
-  public onOptionChange(selection: KuduOptionComponent<T>[]) {
-    if (selection.length === 0) {
-      return this.setContentToPlaceholder();
+    if (selected.length === 0) {
+      const content = this.placeholder();
+      return this.domSanitizer.bypassSecurityTrustHtml(content);
     }
 
-    if (selection.length === 1) {
-      return this.setContentToSelected(selection[0]);
+    if (selected.length === 1) {
+      const content = selected[0].elementRef.nativeElement.innerHTML;
+      return this.domSanitizer.bypassSecurityTrustHtml(content);
     }
 
-    this.content.set(`Выбрано: ${selection.length}`);
-  }
-
-  private setContentToPlaceholder() {
-    const content = this.placeholder();
-    this.content.set(this.domSanitizer.bypassSecurityTrustHtml(content));
-  }
-
-  private setContentToSelected(selected: KuduOptionComponent<T>) {
-    const content = selected.elementRef.nativeElement.innerHTML;
-    return this.content.set(this.domSanitizer.bypassSecurityTrustHtml(content));
+    return `Выбрано: ${selected.length}`;
   }
 }

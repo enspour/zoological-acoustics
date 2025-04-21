@@ -56,6 +56,11 @@ export class KuduFlowWorkspaceInteractionDirective implements OnDestroy {
 
   handleMouseDown(event: MouseEvent) {
     const isLeftMouse = event.button === 0;
+
+    /**
+     * TODO (FIX): not correct detection when click on workspace
+     *             and when click on element in workspace to scrolling
+     */
     const isWorkspace = this.elementRef.nativeElement === event.target;
 
     if (this.isInteracting() || !isLeftMouse || !isWorkspace) {

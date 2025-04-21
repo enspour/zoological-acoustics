@@ -12,7 +12,9 @@ import {
 } from '@angular/core';
 
 import { kuduSize } from '../../../size';
+
 import { kuduAccordionItemContent } from '../../directives/accordion-item-content.directive';
+import { KuduAccordionComponent } from '../accordion/accordion.component';
 
 export type AccordionStatus = 'idle' | 'animated';
 
@@ -25,7 +27,8 @@ export type AccordionStatus = 'idle' | 'animated';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KuduAccordionItemComponent {
-  public size = inject(kuduSize);
+  private accordion = inject(KuduAccordionComponent);
+  private size = inject(kuduSize);
 
   public content = contentChild(kuduAccordionItemContent, {
     read: TemplateRef,
@@ -46,6 +49,7 @@ export class KuduAccordionItemComponent {
   }
 
   public onClick(event: Event) {
+    this.accordion.toggle(this);
     this.byClick.emit(event);
   }
 

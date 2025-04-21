@@ -2,8 +2,12 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  color: #005aaa;
+  color: #3b5d7d;
   background-color: transparent !important;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .task {

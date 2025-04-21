@@ -24,10 +24,10 @@
 
       <div class="picker__employees">
         @let employees =
-          this.employees() | filter: filterBySearchFn : searchTerm();
+          this.employees() | kuduFilter: filterBySearchFn : searchTerm();
 
         @for (employee of employees; track employee.uuid) {
-          @let isSelected = value() | find: findByUuidFn : employee.uuid;
+          @let isSelected = value() | kuduFind: findByUuidFn : employee.uuid;
 
           <button
             class="picker__employee"
