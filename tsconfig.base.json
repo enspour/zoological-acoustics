@@ -143,9 +143,6 @@
       "@kudu/mfr-feature-project": [
         "libs/mfr/mfr-projects/feature-project/src/index.ts"
       ],
-      "@kudu/mfr-feature-project-my-tasks": [
-        "libs/mfr/mfr-projects/feature-project-my-tasks/src/index.ts"
-      ],
       "@kudu/mfr-feature-project-overview": [
         "libs/mfr/mfr-projects/feature-project-overview/src/index.ts"
       ],
@@ -161,9 +158,6 @@
       "@kudu/mfr-feature-project-settings-general": [
         "libs/mfr/mfr-projects/feature-project-settings-general/src/index.ts"
       ],
-      "@kudu/mfr-feature-project-table": [
-        "libs/mfr/mfr-projects/feature-project-table/src/index.ts"
-      ],
       "@kudu/mfr-feature-projects": [
         "libs/mfr/mfr-projects/feature-projects/src/index.ts"
       ],
@@ -178,6 +172,9 @@
       ],
       "@kudu/mfr-feature-signup": [
         "libs/mfr/mfr-host/feature-signup/src/index.ts"
+      ],
+      "@kudu/mfr-feature-tasks": [
+        "libs/mfr/mfr-tasks/feature-tasks/src/index.ts"
       ],
       "@kudu/mfr-organization/Routes": [
         "apps/mfr-organization/src/app/remote-entry/entry.routes.ts"
@@ -238,6 +235,9 @@
       "@kudu/mfr-util-tasks": ["libs/mfr/core/util-tasks/src/index.ts"],
       "@kudu/mfr-util-unique-component": [
         "libs/mfr/core/util-unique-component/src/index.ts"
+      ],
+      "@kudu/mfr-util-user-redirection": [
+        "libs/mfr/core/util-user-redirection/src/index.ts"
       ],
       "@kudu/msrv-data-access-postgres": [
         "libs/msrv/core/data-access-postgres/src/index.ts"

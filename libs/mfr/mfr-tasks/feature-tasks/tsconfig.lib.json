@@ -13,5 +13,9 @@
     "jest.config.ts",
     "src/**/*.test.ts"
   ],
-  "include": ["src/**/*.ts"]
+  "include": [
+    "src/**/*.ts",
+    "../../core/util-user-redirection/src/lib/user-redirection.guard.ts",
+    "../../core/util-user-redirection/src/lib/user-redirection.guard.spec.ts"
+  ]
 }

@@ -1,6 +1,6 @@
 :host {
+  width: 100%;
   display: flex;
-  align-self: center;
   gap: 10px;
 }
 
@@ -12,11 +12,26 @@
 }
 
 .range__input {
+  width: 140px;
   appearance: none;
   background: transparent;
   accent-color: #b2b2b2;
   z-index: 1;
   cursor: pointer;
+
+  &::-webkit-slider-thumb,
+  &::-moz-range-thumb {
+    appearance: none;
+    height: 12px;
+    width: 12px;
+    background-color: #b2b2b2;
+    border: none;
+  }
+
+  &::-moz-range-thumb {
+    height: 14px;
+    width: 14px;
+  }
 }
 
 .range__line {
@@ -51,5 +66,7 @@
 
 .value {
   width: 60px;
+  display: flex;
+  align-items: center;
   font-size: 14px;
 }

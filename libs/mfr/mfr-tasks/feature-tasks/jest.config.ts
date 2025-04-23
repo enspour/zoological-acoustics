@@ -1,9 +1,8 @@
 export default {
-  displayName: 'mfr-feature-project-table',
+  displayName: 'mfr-feature-tasks',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory:
-    '../../../../coverage/libs/mfr/mfr-projects/feature-project-table',
+  coverageDirectory: '../../../../coverage/libs/mfr/mfr-tasks/feature-tasks',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

@@ -1,0 +1,31 @@
+<header class="header"></header>
+
+<kudu-accordion class="boards" [multiple]="true">
+  @for (board of boards(); track board.uuid) {
+    @let tasks = this.tasks() | kuduFilter: filterByBoard : board;
+
+    @if (!user() || tasks.length !== 0) {
+      <kudu-accordion-item class="board" [isOpen]="true">
+        <div class="board__header">
+          <div>{{ board.title }}</div>
+          <lib-task-board-more [board]="board" />
+        </div>
+
+        <ng-template kuduAccordionItemContent>
+          <lib-task-table
+            [tasks]="tasks"
+            [employees]="employees()"
+            [sortConfig]="sortConfig()"
+            (sortConfigChange)="onSortConfigChange($event)"
+            (byTaskClick)="onTaskClick($event)"
+          />
+
+          <button class="task__creation">
+            <kudu-icon icon="plus" [iconSize]="16" />
+            <div>Добавить задачу</div>
+          </button>
+        </ng-template>
+      </kudu-accordion-item>
+    }
+  }
+</kudu-accordion>

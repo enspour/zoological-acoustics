@@ -1,9 +1,8 @@
 export default {
-  displayName: 'feature-project-my-tasks',
+  displayName: 'mfr-util-user-redirection',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory:
-    '../../../../coverage/libs/mfr/mfr-projects/feature-project-my-tasks',
+  coverageDirectory: '../../../../coverage/libs/mfr/core/util-user-redirection',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

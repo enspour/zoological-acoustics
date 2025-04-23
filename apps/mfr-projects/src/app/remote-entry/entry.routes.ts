@@ -2,6 +2,7 @@ import { Route } from '@angular/router';
 import { RemoteEntryComponent } from './entry.component';
 
 import { kanbanBoardRedirectGuard } from '@kudu/mfr-util-kanban-last-board';
+import { userRedirectionGuard } from '@kudu/mfr-util-user-redirection';
 
 const ProjectsPage = () =>
   import('@kudu/mfr-feature-projects').then((c) => c.ProjectsPageComponent);
@@ -24,16 +25,6 @@ const ProjectOverviewPage = () =>
     (c) => c.ProjectOverviewPageComponent,
   );
 
-const ProjectMyTasksPage = () =>
-  import('@kudu/mfr-feature-project-my-tasks').then(
-    (c) => c.ProjectMyTasksPageComponent,
-  );
-
-const ProjectTablePage = () =>
-  import('@kudu/mfr-feature-project-table').then(
-    (c) => c.ProjectTablePageComponent,
-  );
-
 const ProjectSettingsPage = () =>
   import('@kudu/mfr-feature-project-settings').then(
     (c) => c.ProjectSettingsPageComponent,
@@ -53,6 +44,9 @@ const ProjectSettingsBoardsPage = () =>
   import('@kudu/mfr-feature-project-settings-boards').then(
     (c) => c.ProjectSettingsBoardsPageComponent,
   );
+
+const TasksPage = () =>
+  import('@kudu/mfr-feature-tasks').then((c) => c.TasksPageComponent);
 
 const GanttPage = () =>
   import('@kudu/mfr-feature-gantt').then((c) => c.GanttPageComponent);
@@ -93,9 +87,15 @@ export const remoteRoutes: Route[] = [
             loadComponent: ProjectOverviewPage,
           },
           {
-            path: 'my-tasks',
+            path: 'tasks',
             title: 'Kudu | Мои задачи',
-            loadComponent: ProjectMyTasksPage,
+            loadComponent: TasksPage,
+            canActivate: [userRedirectionGuard],
+          },
+          {
+            path: 'tasks/:user',
+            title: 'Kudu | Мои задачи',
+            loadComponent: TasksPage,
           },
           {
             path: 'gantt',
@@ -116,7 +116,7 @@ export const remoteRoutes: Route[] = [
           {
             path: 'table',
             title: 'Kudu | Таблица',
-            loadComponent: ProjectTablePage,
+            loadComponent: TasksPage,
           },
           {
             path: 'settings',

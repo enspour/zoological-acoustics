@@ -6,11 +6,18 @@ import {
   input,
   linkedSignal,
 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { KuduIconComponent, KuduSortConfig } from '@kudu-ui';
-
 import { KuduFilterPipe } from '@kudu-ng-utils';
+
+import {
+  KuduAccordionComponent,
+  KuduAccordionItemComponent,
+  KuduAccordionItemContentDirective,
+  KuduIconComponent,
+  KuduSortConfig,
+} from '@kudu-ui';
 
 import { Task, TaskBoard } from '@kudu/domain';
 
@@ -23,8 +30,6 @@ import {
   ProjectTasksService,
 } from '@kudu/mfr-data-access-project';
 
-import { UserService } from '@kudu/mfr-data-access-user';
-
 import { EmployeesService } from '@kudu/mfr-data-access-employees';
 
 import { TaskTableComponent } from '@kudu/mfr-ui-task';
@@ -33,23 +38,26 @@ import { TaskBoardMoreComponent } from '@kudu/mfr-ui-task-board';
 import { joinTasksWithColumns } from '@kudu/mfr-util-tasks';
 
 @Component({
-  selector: 'lib-project-my-tasks-page',
+  selector: 'lib-tasks-page',
   imports: [
+    FormsModule,
     KuduIconComponent,
+    KuduAccordionComponent,
+    KuduAccordionItemComponent,
+    KuduAccordionItemContentDirective,
     KuduFilterPipe,
     TaskTableComponent,
     TaskBoardMoreComponent,
   ],
-  templateUrl: './project-my-tasks-page.component.html',
-  styleUrl: './project-my-tasks-page.component.scss',
+  templateUrl: './tasks-page.component.html',
+  styleUrl: './tasks-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectMyTasksPageComponent {
+export class TasksPageComponent {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
-  private userService = inject(UserService);
-  private employeesService = inject(EmployeesService);
   private explorerService = inject(ExplorerService);
+  private employeesService = inject(EmployeesService);
   private projectTasksService = inject(ProjectTasksService);
   private projectTaskBoardsService = inject(ProjectTaskBoardsService);
   private projectTaskColumnsService = inject(ProjectTaskColumnsService);
@@ -57,6 +65,8 @@ export class ProjectMyTasksPageComponent {
   public employees = this.employeesService.employees;
   public boards = this.projectTaskBoardsService.boards;
   public tasks = computed(() => this.getTasks());
+
+  public user = input<string>();
 
   public sortBy = input<KuduSortConfig['by']>();
   public sortOrder = input<KuduSortConfig['order']>();
@@ -91,16 +101,17 @@ export class ProjectMyTasksPageComponent {
   }
 
   private getTasks() {
-    const user = this.userService.user();
-
-    if (!user) {
-      return [];
-    }
-
+    const tasks = this.projectTasksService.tasks();
     const columns = this.projectTaskColumnsService.columns();
-    const tasks = this.projectTasksService
-      .tasks()
-      .filter((task) => task.executorUuids.includes(user.uuid));
+
+    const by = this.user();
+
+    if (by) {
+      return joinTasksWithColumns(
+        tasks.filter((task) => task.executorUuids.includes(by)),
+        columns,
+      );
+    }
 
     return joinTasksWithColumns(tasks, columns);
   }

@@ -10,6 +10,7 @@ export * from './click-outside';
 export * from './dialog';
 export * from './editable';
 export * from './element';
+export * from './expanded';
 export * from './glassmorphism';
 export * from './icon';
 export * from './input';

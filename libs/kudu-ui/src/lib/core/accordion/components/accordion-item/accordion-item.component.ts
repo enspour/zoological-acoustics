@@ -5,7 +5,6 @@ import {
   contentChild,
   HostBinding,
   inject,
-  linkedSignal,
   model,
   output,
   TemplateRef,
@@ -13,15 +12,15 @@ import {
 
 import { kuduSize } from '../../../size';
 
+import { KuduExpandedComponent } from '../../../expanded/expanded.component';
+
 import { kuduAccordionItemContent } from '../../directives/accordion-item-content.directive';
 import { KuduAccordionComponent } from '../accordion/accordion.component';
-
-export type AccordionStatus = 'idle' | 'animated';
 
 @Component({
   selector: 'kudu-accordion-item',
   standalone: true,
-  imports: [NgTemplateOutlet],
+  imports: [NgTemplateOutlet, KuduExpandedComponent],
   templateUrl: './accordion-item.component.html',
   styleUrl: './accordion-item.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -36,11 +35,6 @@ export class KuduAccordionItemComponent {
 
   public isOpen = model(false);
 
-  public status = linkedSignal<boolean, AccordionStatus>({
-    source: this.isOpen,
-    computation: (_, previous) => (previous ? 'animated' : 'idle'),
-  });
-
   public byClick = output<Event>();
 
   @HostBinding('class')
@@ -51,10 +45,6 @@ export class KuduAccordionItemComponent {
   public onClick(event: Event) {
     this.accordion.toggle(this);
     this.byClick.emit(event);
-  }
-
-  public onTransitionEnd() {
-    this.status.set('idle');
   }
 
   public open() {

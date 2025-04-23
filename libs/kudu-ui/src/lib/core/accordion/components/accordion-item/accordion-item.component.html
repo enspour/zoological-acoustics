@@ -2,21 +2,12 @@
   <ng-content />
 </button>
 
-<div
-  #expanded
-  class="expanded"
-  [class.expanded--opened]="isOpen()"
-  [class.expanded--closed]="!isOpen()"
-  (transitionend)="onTransitionEnd()"
-  (transitioncancel)="onTransitionEnd()"
->
-  @if (isOpen() || status() === 'animated') {
-    @let _content = content();
+<kudu-expanded [isOpen]="isOpen()">
+  @let _content = content();
 
-    @if (_content) {
-      <ng-container [ngTemplateOutlet]="_content" />
-    } @else {
-      <ng-content select="[kuduAccordionItemContent]" />
-    }
+  @if (_content) {
+    <ng-container [ngTemplateOutlet]="_content" />
+  } @else {
+    <ng-content select="[kuduAccordionItemContent]" />
   }
-</div>
+</kudu-expanded>
