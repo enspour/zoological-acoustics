@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -18,7 +19,7 @@ export type ExpandedStatus = 'idle' | 'transition';
   styleUrl: './expanded.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KuduExpandedComponent {
+export class KuduExpandedComponent implements AfterViewInit {
   private elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
 
   public isOpen = input(false);
@@ -27,6 +28,10 @@ export class KuduExpandedComponent {
     source: this.isOpen,
     computation: (_, previous) => (previous ? 'transition' : 'idle'),
   });
+
+  ngAfterViewInit(): void {
+    this.updateHeight();
+  }
 
   @HostBinding('class.opened')
   public get IsOpen() {
@@ -46,12 +51,16 @@ export class KuduExpandedComponent {
 
   @HostListener('transitionstart')
   public onTransitionStart() {
-    const element = this.elementRef.nativeElement;
-    element.style.setProperty('height', `${this.Height}px`);
+    this.updateHeight();
   }
 
   @HostListener('transitionend')
   public onTransitionEnd() {
     this.status.set('idle');
+  }
+
+  private updateHeight() {
+    const element = this.elementRef.nativeElement;
+    element.style.setProperty('height', `${this.Height}px`);
   }
 }

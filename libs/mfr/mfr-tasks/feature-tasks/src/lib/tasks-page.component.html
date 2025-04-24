@@ -8,7 +8,11 @@
       <kudu-accordion-item class="board" [isOpen]="true">
         <div class="board__header">
           <div>{{ board.title }}</div>
-          <lib-task-board-more [board]="board" />
+
+          <lib-task-board-more
+            [board]="board"
+            (click)="$event.stopPropagation()"
+          />
         </div>
 
         <ng-template kuduAccordionItemContent>

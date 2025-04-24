@@ -24,6 +24,7 @@
       "@kudu-ui": ["libs/kudu-ui/src/index.ts"],
       "@kudu-ui-icons": ["libs/kudu-ui-icons/src/index.ts"],
       "@kudu-utils": ["libs/kudu-utils/src/index.ts"],
+      "@kudu-differ": ["libs/kudu-differ/src/index.ts"],
       "@kudu/domain": ["libs/domain/src/index.ts"],
       "@kudu/mfr-data-access-auth": [
         "libs/mfr/core/data-access-auth/src/index.ts"

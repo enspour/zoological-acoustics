@@ -1,11 +1,12 @@
 :host {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 2px;
+  left: -1px;
+  width: 4px;
   height: 100%;
   display: block;
   user-select: none;
+  z-index: 15;
   cursor: ew-resize;
 
   &:hover {

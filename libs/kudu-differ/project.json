@@ -1,0 +1,19 @@
+{
+  "name": "kudu-differ",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/kudu-differ/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/kudu-differ",
+        "main": "libs/kudu-differ/src/index.ts",
+        "tsConfig": "libs/kudu-differ/tsconfig.lib.json",
+        "assets": ["libs/kudu-differ/*.md"]
+      }
+    }
+  }
+}
