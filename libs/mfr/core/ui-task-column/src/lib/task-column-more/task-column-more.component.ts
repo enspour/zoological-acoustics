@@ -9,11 +9,13 @@ import {
 } from '@angular/core';
 
 import {
+  KuduColorPaletteComponent,
   KuduDialogService,
   KuduIconComponent,
   KuduMenuButtonComponent,
   KuduMenuByTriggerComponent,
   KuduMenuTriggerDirective,
+  KuduSizeDirective,
 } from '@kudu-ui';
 
 import { TaskColumn } from '@kudu/domain';
@@ -27,6 +29,8 @@ import { ConfirmationModalComponent } from '@kudu/mfr-ui-modals';
     KuduMenuByTriggerComponent,
     KuduMenuButtonComponent,
     KuduMenuTriggerDirective,
+    KuduColorPaletteComponent,
+    KuduSizeDirective,
   ],
   templateUrl: './task-column-more.component.html',
   styleUrl: './task-column-more.component.scss',
@@ -40,6 +44,17 @@ export class TaskColumnMoreComponent {
   public isOpen = computed(() => !!this.trigger()?.isOpen());
 
   public column = input.required<TaskColumn>();
+
+  public colors = [
+    '#4dabf7',
+    '#69db7c',
+    '#38d9a9',
+    '#ffd43b',
+    '#ffa94d',
+    '#f06595',
+    '#9775fa',
+    '#7b869e',
+  ];
 
   public byRename = output<TaskColumn>();
   public byDelete = output<TaskColumn>();

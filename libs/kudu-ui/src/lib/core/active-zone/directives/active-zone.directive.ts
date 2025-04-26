@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import { Directive, inject } from '@angular/core';
 import { outputFromObservable, toSignal } from '@angular/core/rxjs-interop';
 import { distinctUntilChanged, map, skip, startWith } from 'rxjs';
@@ -11,7 +12,12 @@ import { kuduActiveElement } from '../tokens';
   exportAs: 'kuduActiveZone',
 })
 export class KuduActiveZoneDirective {
+  private document = inject(DOCUMENT);
   private zone = inject(KuduZoneDirective, { self: true });
+  private parent = inject(KuduZoneDirective, {
+    skipSelf: true,
+    optional: true,
+  });
 
   private activeElement$ = inject(kuduActiveElement);
   private active$ = this.activeElement$.pipe(
@@ -23,4 +29,11 @@ export class KuduActiveZoneDirective {
 
   public active = toSignal(this.active$, { initialValue: false });
   public activeZoneChange = outputFromObservable(this.active$);
+
+  public deactivate() {
+    this.document.body.tabIndex = -1;
+
+    const element = this.parent?.Element || this.document.body;
+    element.focus();
+  }
 }

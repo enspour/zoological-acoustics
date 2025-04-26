@@ -5,6 +5,16 @@
       <div>Переименовать</div>
     </button>
 
+    <div class="menu__colors">
+      <div>Цвет колонки</div>
+
+      <kudu-color-palette
+        [colors]="colors"
+        [color]="column().color"
+        kuduSize="sm"
+      />
+    </div>
+
     <button
       kudu-menu-button
       class="menu__btn menu__btn--remove"

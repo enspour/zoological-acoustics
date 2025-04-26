@@ -25,6 +25,8 @@ import { EmployeePickerComponent } from '@kudu/mfr-ui-employee';
 import { GetEmployeesByUuidPipe } from '@kudu/mfr-util-employees';
 import { sortTasks } from '@kudu/mfr-util-tasks';
 
+import { TaskStatusComponent } from '../task-status/task-status.component';
+
 interface ExecutorsChangeEvent {
   task: TaskWithColumn;
   executors: Employee[];
@@ -43,6 +45,7 @@ interface ExecutorsChangeEvent {
     KuduIconComponent,
     EmployeePickerComponent,
     GetEmployeesByUuidPipe,
+    TaskStatusComponent,
   ],
   templateUrl: './task-table.component.html',
   styleUrl: './task-table.component.scss',

@@ -19,6 +19,9 @@ export class TaskColumnEntity implements TaskColumn {
   @Column()
   title!: string;
 
+  @Column({ default: '#7b869e' })
+  color!: string;
+
   @Column('uuid')
   boardUuid!: string;
 

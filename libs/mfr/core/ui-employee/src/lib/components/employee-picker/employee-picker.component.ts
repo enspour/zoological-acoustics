@@ -13,7 +13,6 @@ import { KuduFilterPipe, KuduFindPipe } from '@kudu-ng-utils';
 import {
   KuduIconComponent,
   KuduInputComponent,
-  KuduOverlayOriginDirective,
   KuduPopupComponent,
   KuduPopupConfig,
   KuduPopupTriggerDirective,
@@ -38,7 +37,7 @@ import { EmployeeAvatarsComponent } from '../employee-avatars';
   templateUrl: './employee-picker.component.html',
   styleUrl: './employee-picker.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  hostDirectives: [KuduOverlayOriginDirective],
+  hostDirectives: [KuduPopupTriggerDirective],
 })
 export class EmployeePickerComponent {
   public employees = input.required<Employee[]>();

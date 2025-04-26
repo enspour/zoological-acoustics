@@ -20,6 +20,10 @@ export class KuduZoneDirective implements OnDestroy {
     this.parent?.unregister(this);
   }
 
+  public get Element() {
+    return this.elementRef.nativeElement;
+  }
+
   public contains(target: HTMLElement): boolean {
     return (
       this.elementRef.nativeElement.contains(target) ||
@@ -27,11 +31,11 @@ export class KuduZoneDirective implements OnDestroy {
     );
   }
 
-  private register(child: KuduZoneDirective) {
+  public register(child: KuduZoneDirective) {
     this.children.push(child);
   }
 
-  private unregister(child: KuduZoneDirective) {
+  public unregister(child: KuduZoneDirective) {
     const index = this.children.findIndex((c) => c === child);
 
     if (index !== -1) {

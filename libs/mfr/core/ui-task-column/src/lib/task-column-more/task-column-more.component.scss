@@ -17,3 +17,15 @@
     background-color: #ff0000;
   }
 }
+
+.menu__colors {
+  min-width: 200px;
+  max-width: 200px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 8px;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+}

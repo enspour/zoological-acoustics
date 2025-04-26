@@ -80,6 +80,7 @@ export class KanbanBoardComponent {
 
     await this.taskColumnsService.createColumn({
       title,
+      color: '#7b869e',
       boardUuid: board.uuid,
     });
   }

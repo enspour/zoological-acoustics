@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@kudu-date": ["libs/kudu-date/src/index.ts"],
+      "@kudu-differ": ["libs/kudu-differ/src/index.ts"],
       "@kudu-dnd": ["libs/kudu-dnd/src/index.ts"],
       "@kudu-flow": ["libs/kudu-flow/src/index.ts"],
       "@kudu-ng-date": ["libs/kudu-ng-date/src/index.ts"],
@@ -24,7 +25,6 @@
       "@kudu-ui": ["libs/kudu-ui/src/index.ts"],
       "@kudu-ui-icons": ["libs/kudu-ui-icons/src/index.ts"],
       "@kudu-utils": ["libs/kudu-utils/src/index.ts"],
-      "@kudu-differ": ["libs/kudu-differ/src/index.ts"],
       "@kudu/domain": ["libs/domain/src/index.ts"],
       "@kudu/mfr-data-access-auth": [
         "libs/mfr/core/data-access-auth/src/index.ts"

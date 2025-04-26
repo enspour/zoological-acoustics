@@ -27,7 +27,10 @@
             "output": "assets"
           }
         ],
-        "styles": ["apps/mfr-host/src/app/index.scss"],
+        "styles": [
+          "apps/mfr-host/src/app/index.scss",
+          "apps/mfr-host/src/app/fonts.scss"
+        ],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/mfr-host/webpack.config.ts"

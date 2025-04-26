@@ -1,0 +1,7 @@
+@let column = task().column;
+
+@if (column) {
+  <div class="status">{{ column.title }}</div>
+} @else {
+  <div class="status">Не назначено</div>
+}

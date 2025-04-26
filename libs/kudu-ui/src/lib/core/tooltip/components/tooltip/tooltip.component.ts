@@ -1,8 +1,10 @@
+import { NgTemplateOutlet } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   computed,
   input,
+  TemplateRef,
 } from '@angular/core';
 
 import {
@@ -15,14 +17,16 @@ import { KuduTooltipOrientation } from '../../directives/tooltip.directive';
 
 @Component({
   selector: 'kudu-tooltip',
-  imports: [KuduOverlayComponent],
+  imports: [NgTemplateOutlet, KuduOverlayComponent],
   templateUrl: './tooltip.component.html',
   styleUrl: './tooltip.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KuduTooltipComponent {
   public origin = input.required<KuduOverlayOriginDirective>();
-  public tooltip = input.required<string>();
+
+  public tooltip = input.required<string | TemplateRef<any>>();
+
   public orientation = input.required<KuduTooltipOrientation>();
 
   public config = computed<KuduOverlayConfig>(() => ({
@@ -30,4 +34,8 @@ export class KuduTooltipComponent {
     position: this.orientation(),
     gap: 4,
   }));
+
+  public isTemplateRef(value: unknown): value is TemplateRef<any> {
+    return value instanceof TemplateRef;
+  }
 }

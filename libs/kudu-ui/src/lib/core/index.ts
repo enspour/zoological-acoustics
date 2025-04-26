@@ -7,6 +7,7 @@ export * from './calendar';
 export * from './checkbox';
 export * from './chip';
 export * from './click-outside';
+export * from './color-selector';
 export * from './dialog';
 export * from './editable';
 export * from './element';

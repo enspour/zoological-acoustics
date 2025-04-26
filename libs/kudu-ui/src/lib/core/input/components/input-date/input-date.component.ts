@@ -21,6 +21,12 @@ import { KuduInputDateValidatorDirective } from '../../directives';
       outputs: ['kuduInputDateValidatorValueChange: valueChange'],
     },
   ],
+  host: {
+    /**
+     * TODO (FIX): figure out how to solve mark elements that should not to close by click
+     */
+    'kudu.popup.close-on-click': 'off',
+  },
 })
 export class KuduInputDateComponent {
   public value = model<KuduDate>();

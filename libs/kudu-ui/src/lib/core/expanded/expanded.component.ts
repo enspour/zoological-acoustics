@@ -43,12 +43,6 @@ export class KuduExpandedComponent implements AfterViewInit {
     return this.status() === 'transition';
   }
 
-  @HostBinding('style.height.px')
-  public get Height() {
-    const element = this.elementRef.nativeElement;
-    return this.isOpen() ? element.scrollHeight : 0;
-  }
-
   @HostListener('transitionstart')
   public onTransitionStart() {
     this.updateHeight();
@@ -61,6 +55,7 @@ export class KuduExpandedComponent implements AfterViewInit {
 
   private updateHeight() {
     const element = this.elementRef.nativeElement;
-    element.style.setProperty('height', `${this.Height}px`);
+    const height = this.isOpen() ? element.scrollHeight : 0;
+    element.style.setProperty('--height', `${height}px`);
   }
 }

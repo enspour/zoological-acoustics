@@ -1,0 +1,8 @@
+@for (color of colors(); track color) {
+  <button
+    class="color"
+    [class.color--active]="color === this.color()"
+    [style.--kudu-color-palette-color]="color"
+    (click)="this.color.set(color)"
+  ></button>
+}

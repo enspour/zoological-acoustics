@@ -35,6 +35,10 @@ export class KuduTooltipDirective implements OnDestroy {
     alias: 'kuduTooltipOrientation',
   });
 
+  public isDisabled = input<boolean>(false, {
+    alias: 'kuduTooltipDisabled',
+  });
+
   public isVisible = toSignal(
     merge(
       fromEvent(this.elementRef.nativeElement, 'mouseenter'),
@@ -46,7 +50,7 @@ export class KuduTooltipDirective implements OnDestroy {
 
   constructor() {
     effect(() => {
-      if (this.isVisible()) {
+      if (this.isVisible() && !this.isDisabled()) {
         this.component = this.vcRef.createComponent(KuduTooltipComponent);
         this.component.setInput('origin', this.origin);
         this.component.setInput('tooltip', this.tooltip());

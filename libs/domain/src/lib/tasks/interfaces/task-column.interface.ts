@@ -1,6 +1,7 @@
 export interface TaskColumn {
   uuid: string;
   title: string;
+  color: string;
   boardUuid: string;
 }
 

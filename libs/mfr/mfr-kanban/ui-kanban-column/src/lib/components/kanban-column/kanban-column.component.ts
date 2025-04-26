@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  HostBinding,
   input,
   output,
 } from '@angular/core';
@@ -20,6 +21,11 @@ export class KanbanColumnComponent {
   public column = input.required<TaskColumn>();
 
   public byDelete = output<TaskColumn>();
+
+  @HostBinding('style.--color')
+  public get Color() {
+    return this.column().color;
+  }
 
   public onDelete() {
     this.byDelete.emit(this.column());

@@ -11,7 +11,7 @@
       <th kudu-th [style.width.px]="52"></th>
       <th kudu-th kuduThSort="title">Название</th>
       <th kudu-th [style.width.%]="10">Исполнители</th>
-      <th kudu-th kuduThSort="column" [style.width.%]="10">Статус</th>
+      <th kudu-th kuduThSort="column" [style.width.px]="160">Статус</th>
       <th kudu-th kuduThSort="startDate" [style.width.%]="10">Начало</th>
       <th kudu-th kuduThSort="endDate" [style.width.%]="10">Завершение</th>
     </tr>
@@ -40,7 +40,14 @@
           />
         </td>
 
-        <td kudu-td>{{ task?.column?.title || '' }}</td>
+        <td kudu-td>
+          <lib-task-status
+            [task]="task"
+            [style.max-width.px]="138"
+            (click)="$event.stopPropagation()"
+          />
+        </td>
+
         <td kudu-td>{{ task.startDate | date: 'dd.MM.yyyy' }}</td>
         <td kudu-td>{{ task.endDate | date: 'dd.MM.yyyy' }}</td>
       </tr>

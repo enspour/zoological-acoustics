@@ -1,3 +1,11 @@
 <kudu-overlay [origin]="origin()" [config]="config()">
-  <div class="tooltip">{{ this.tooltip() }}</div>
+  @let tooltip = this.tooltip();
+
+  @if (isTemplateRef(tooltip)) {
+    <ng-container [ngTemplateOutlet]="tooltip" />
+  } @else {
+    <div class="tooltip">
+      {{ tooltip }}
+    </div>
+  }
 </kudu-overlay>
