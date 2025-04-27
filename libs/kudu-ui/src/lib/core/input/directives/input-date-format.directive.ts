@@ -3,11 +3,11 @@ import { Directive, HostBinding, HostListener, model } from '@angular/core';
 import { KuduDate } from '@kudu-date';
 
 @Directive({
-  selector: '[kuduInputDateValidator]',
+  selector: '[kuduInputDateFormat]',
 })
-export class KuduInputDateValidatorDirective {
+export class KuduInputDateFormatDirective {
   public value = model<KuduDate | undefined>(undefined, {
-    alias: 'kuduInputDateValidatorValue',
+    alias: 'kuduInputDateFormatValue',
   });
 
   @HostBinding('value')

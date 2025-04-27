@@ -6,7 +6,7 @@ import { KuduCalendarComponent } from '../../../calendar';
 
 import { KuduPopupComponent, KuduPopupConfig } from '../../../popup';
 
-import { KuduInputDateValidatorDirective } from '../../directives';
+import { KuduInputDateFormatDirective } from '../../directives';
 
 @Component({
   selector: 'input[kudu-input-date]',
@@ -16,9 +16,9 @@ import { KuduInputDateValidatorDirective } from '../../directives';
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
     {
-      directive: KuduInputDateValidatorDirective,
-      inputs: ['kuduInputDateValidatorValue: value'],
-      outputs: ['kuduInputDateValidatorValueChange: valueChange'],
+      directive: KuduInputDateFormatDirective,
+      inputs: ['kuduInputDateFormatValue: value'],
+      outputs: ['kuduInputDateFormatValueChange: valueChange'],
     },
   ],
 })

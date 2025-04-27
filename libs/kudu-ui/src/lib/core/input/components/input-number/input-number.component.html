@@ -1,0 +1,11 @@
+<ng-template #controls>
+  <div class="controls">
+    <button class="control" (click)="onIncrease()">
+      <kudu-icon icon="chevron-up" [iconSize]="controlSize()" />
+    </button>
+
+    <button class="control" (click)="onDecrease()">
+      <kudu-icon icon="chevron-down" [iconSize]="controlSize()" />
+    </button>
+  </div>
+</ng-template>

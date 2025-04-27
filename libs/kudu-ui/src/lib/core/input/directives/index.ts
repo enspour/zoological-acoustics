@@ -1,1 +1,1 @@
-export * from './input-date-validator.directive';
+export * from './input-date-format.directive';

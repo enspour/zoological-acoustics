@@ -1,0 +1,49 @@
+@use '../../../../mixins/font-size.mixin.scss' as font-size;
+
+:host {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  color: #191919;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+:host.sm {
+  @include font-size.sm;
+}
+
+:host.md {
+  @include font-size.md;
+}
+
+:host.lg {
+  @include font-size.lg;
+}
+
+:host {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+:host::-webkit-inner-spin-button,
+:host::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.control {
+  color: #bbbbbb;
+  border-radius: 2px;
+
+  &:hover {
+    color: #191919;
+    background-color: #dddddd;
+  }
+}
