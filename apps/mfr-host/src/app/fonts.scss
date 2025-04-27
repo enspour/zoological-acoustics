@@ -3,8 +3,12 @@
   src: url('/fonts/Inter.ttf');
 }
 
+@font-face {
+  font-family: OpenSans;
+  src: url('/fonts/OpenSans.ttf');
+}
+
 body {
-  font-family: 'Inter', sans-serif;
-  font-optical-sizing: auto;
+  font-family: 'OpenSans', sans-serif;
   font-size: 14px;
 }
