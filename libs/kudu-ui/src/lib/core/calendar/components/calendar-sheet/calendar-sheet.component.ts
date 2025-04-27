@@ -6,6 +6,7 @@ import {
   inject,
   input,
   model,
+  output,
 } from '@angular/core';
 
 import { DAY_SHORT_NAMES, KuduDate, KuduDatePeriod } from '@kudu-date';
@@ -40,6 +41,8 @@ export class CalendarSheetComponent {
   public weeks = DAY_SHORT_NAMES;
   public dates = computed(() => this.generateDates(this.dateAvailable()));
 
+  public byDateClick = output<KuduDate>();
+
   @HostBinding('class')
   public get Classes() {
     return this.size();
@@ -47,6 +50,7 @@ export class CalendarSheetComponent {
 
   public onDateClick(date: KuduDate) {
     this.date.set(date);
+    this.byDateClick.emit(date);
   }
 
   private generateDates(date: KuduDate) {

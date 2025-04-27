@@ -1,10 +1,19 @@
-import { ChangeDetectionStrategy, Component, model } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  model,
+} from '@angular/core';
 
 import { KuduDate } from '@kudu-date';
 
 import { KuduCalendarComponent } from '../../../calendar';
 
-import { KuduPopupComponent, KuduPopupConfig } from '../../../popup';
+import {
+  KuduPopupComponent,
+  KuduPopupConfig,
+  KuduPopupTriggerDirective,
+} from '../../../popup';
 
 import { KuduInputDateFormatDirective } from '../../directives';
 
@@ -23,6 +32,8 @@ import { KuduInputDateFormatDirective } from '../../directives';
   ],
 })
 export class KuduInputDateComponent {
+  private trigger = inject(KuduPopupTriggerDirective);
+
   public value = model<KuduDate>();
 
   public config: KuduPopupConfig = {
@@ -30,4 +41,8 @@ export class KuduInputDateComponent {
     position: 'under-left',
     gap: 4,
   };
+
+  public onDateClick() {
+    this.trigger.close();
+  }
 }

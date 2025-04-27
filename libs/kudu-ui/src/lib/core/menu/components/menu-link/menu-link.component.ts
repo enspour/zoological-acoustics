@@ -11,6 +11,7 @@ import {
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { kuduSize } from '../../../size';
+import { kuduMenu } from '../../tokens';
 
 @Component({
   selector: 'a[kudu-menu-link]',
@@ -24,6 +25,7 @@ export class KuduMenuLinkComponent implements OnChanges {
   private routerLinkActive = inject(RouterLinkActive);
 
   private size = inject(kuduSize);
+  private menu = inject(kuduMenu);
 
   public href = input.required<string>();
   public exact = input<boolean>(false);
@@ -44,5 +46,6 @@ export class KuduMenuLinkComponent implements OnChanges {
   @HostListener('click', ['$event'])
   public onClick(event: Event) {
     this.byClick.emit(event);
+    this.menu.click();
   }
 }

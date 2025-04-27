@@ -1,7 +1,9 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  effect,
   HostBinding,
+  HostListener,
   inject,
   input,
   model,
@@ -16,8 +18,9 @@ import {
   KuduPopupTriggerDirective,
 } from '../popup';
 
-import { KuduOptionsDirective } from '../options';
 import { kuduSize } from '../size';
+
+import { KuduOptionsDirective } from '../options';
 
 @Component({
   selector: 'kudu-autocomplete',
@@ -30,7 +33,10 @@ import { kuduSize } from '../size';
     {
       directive: KuduOptionsDirective,
       inputs: ['kuduOptionsValue: value'],
-      outputs: ['kuduOptionsValueChange: valueChange'],
+      outputs: [
+        'kuduOptionsValueChange: valueChange',
+        'kuduOptionsByClick: byOptionClick',
+      ],
     },
   ],
 })
@@ -55,6 +61,10 @@ export class KuduAutocompleteComponent {
 
   public position = signal<KuduPopupPosition>('under');
 
+  constructor() {
+    effect(() => this.search());
+  }
+
   @HostBinding('class')
   public get Classes() {
     return `
@@ -64,7 +74,14 @@ export class KuduAutocompleteComponent {
     `;
   }
 
-  public onSearchTermChange() {
+  @HostListener('byOptionClick')
+  public onOptionClick() {
+    if (!Array.isArray(this.options.value)) {
+      this.trigger.close();
+    }
+  }
+
+  public search() {
     const searchTerm = this.searchTerm().toLowerCase();
 
     for (const option of this.options.options()) {

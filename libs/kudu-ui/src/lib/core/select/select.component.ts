@@ -3,6 +3,7 @@ import {
   Component,
   computed,
   HostBinding,
+  HostListener,
   inject,
   input,
   signal,
@@ -31,7 +32,10 @@ import { kuduSize } from '../size';
     {
       directive: KuduOptionsDirective,
       inputs: ['kuduOptionsValue: value'],
-      outputs: ['kuduOptionsValueChange: valueChange'],
+      outputs: [
+        'kuduOptionsValueChange: valueChange',
+        'kuduOptionsByClick: byOptionClick',
+      ],
     },
   ],
 })
@@ -64,6 +68,13 @@ export class KuduSelectComponent {
       ${this.isOpen() ? 'opened' : 'closed'} 
       ${this.position()}
     `;
+  }
+
+  @HostListener('byOptionClick')
+  public onOptionClick() {
+    if (!Array.isArray(this.options.value)) {
+      this.trigger.close();
+    }
   }
 
   private getContent() {

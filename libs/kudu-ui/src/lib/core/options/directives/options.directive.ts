@@ -4,6 +4,7 @@ import {
   effect,
   inject,
   model,
+  output,
   untracked,
 } from '@angular/core';
 
@@ -22,9 +23,9 @@ export class KuduOptionsDirective<T, V extends KuduOptionsValue<T>> {
 
   public options = contentChildren(KuduOptionComponent<V>);
 
-  public value = model.required<V>({
-    alias: 'kuduOptionsValue',
-  });
+  public value = model.required<V>({ alias: 'kuduOptionsValue' });
+
+  public byClick = output<V>({ alias: 'kuduOptionsByClick' });
 
   constructor() {
     effect(() => {
@@ -58,23 +59,28 @@ export class KuduOptionsDirective<T, V extends KuduOptionsValue<T>> {
 
   public select(value: V) {
     if (Array.isArray(this.value())) {
-      return this.selection.select(value);
+      this.selection.select(value);
+    } else {
+      this.selection.reset(value);
     }
 
-    this.selection.reset(value);
+    this.byClick.emit(value);
   }
 
   public deselect(value: V) {
     if (Array.isArray(this.value())) {
       this.selection.deselect(value);
+      this.byClick.emit(value);
     }
   }
 
   public toggle(value: V) {
     if (Array.isArray(this.value())) {
-      return this.selection.toggle(value);
+      this.selection.toggle(value);
+    } else {
+      this.selection.reset(value);
     }
 
-    this.selection.reset(value);
+    this.byClick.emit(value);
   }
 }

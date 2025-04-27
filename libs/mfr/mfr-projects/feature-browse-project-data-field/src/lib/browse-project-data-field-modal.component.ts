@@ -3,7 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import {
   KuduAutofocusDirective,
-  KuduDialogData,
+  kuduDialogData,
   KuduInputComponent,
   KuduInputContainerComponent,
 } from '@kudu-ui';
@@ -28,7 +28,7 @@ import { HeaderComponent } from './components/header/header.component';
 })
 export class BrowseProjectDataFieldModalComponent {
   private fb = inject(FormBuilder);
-  private dialogData = inject<DialogData>(KuduDialogData);
+  private dialogData = inject<DialogData>(kuduDialogData);
 
   public field = this.dialogData.field;
 

@@ -6,7 +6,11 @@
     (byYearClick)="mode.set('years')"
   />
 
-  <kudu-calendar-sheet [(date)]="date" [dateAvailable]="dateAvailable()" />
+  <kudu-calendar-sheet
+    [(date)]="date"
+    [dateAvailable]="dateAvailable()"
+    (byDateClick)="onDateClick($event)"
+  />
 }
 
 @if (mode() === 'months') {

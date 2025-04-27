@@ -1,3 +1,7 @@
 <kudu-popup [config]="config">
-  <kudu-calendar class="calendar" [(date)]="value" />
+  <kudu-calendar
+    class="calendar"
+    [(date)]="value"
+    (byDateClick)="onDateClick()"
+  />
 </kudu-popup>

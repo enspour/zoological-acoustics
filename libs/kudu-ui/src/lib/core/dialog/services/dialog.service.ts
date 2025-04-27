@@ -45,20 +45,18 @@ export class KuduDialogConfig {
   minWidth?: string;
 }
 
-export const KuduDialogData = new InjectionToken<any>('kudu-ui/dialog/data');
+export const kuduDialogData = new InjectionToken<any>('kudu-ui/dialog/data');
 
 @Injectable()
 export class KuduDialogService {
   private injector = inject(Injector);
   private portalsService = inject(KuduPortalsService);
 
-  private portalRef: KuduPortalRef | null = null;
-
   open<T, R>(component: Type<T>, config?: KuduDialogConfig): KuduDialogRef<R> {
     const injector = Injector.create({
       providers: [
         { provide: KuduDialogRef, useFactory: () => dialogRef },
-        { provide: KuduDialogData, useFactory: () => config?.data },
+        { provide: kuduDialogData, useFactory: () => config?.data },
       ],
       parent: config?.injector || this.injector,
     });
@@ -74,8 +72,8 @@ export class KuduDialogService {
       },
     };
 
-    this.portalRef = this.portalsService.open(portal);
-    const dialogRef = new KuduDialogRef<R>(this.portalRef);
+    const portalRef = this.portalsService.open(portal);
+    const dialogRef = new KuduDialogRef<R>(portalRef);
 
     return dialogRef;
   }

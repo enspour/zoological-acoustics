@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import {
   KuduButtonComponent,
-  KuduDialogData,
+  kuduDialogData,
   KuduDialogRef,
   KuduIconComponent,
 } from '@kudu-ui';
@@ -17,7 +17,7 @@ import {
 export class ConfirmationModalComponent {
   private dialogRef = inject(KuduDialogRef);
 
-  public data = inject(KuduDialogData);
+  public data = inject(kuduDialogData);
 
   public onClose() {
     this.dialogRef.close(false);

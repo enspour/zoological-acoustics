@@ -14,4 +14,8 @@ export class KuduMenuTriggerDirective {
   private trigger = inject(KuduPopupTriggerDirective);
 
   public isOpen = this.trigger.isOpen;
+
+  public close() {
+    this.trigger.close();
+  }
 }

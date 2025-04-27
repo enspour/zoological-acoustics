@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 
 import { kuduSize } from '../../../size';
+import { kuduMenu } from '../../tokens';
 
 @Component({
   selector: 'button[kudu-menu-button]',
@@ -18,6 +19,7 @@ import { kuduSize } from '../../../size';
 })
 export class KuduMenuButtonComponent {
   private size = inject(kuduSize);
+  private menu = inject(kuduMenu);
 
   public byClick = output<Event>();
 
@@ -29,5 +31,6 @@ export class KuduMenuButtonComponent {
   @HostListener('click', ['$event'])
   public onClick(event: Event) {
     this.byClick.emit(event);
+    this.menu.click();
   }
 }

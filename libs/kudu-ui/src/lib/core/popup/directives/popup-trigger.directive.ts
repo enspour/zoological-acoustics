@@ -18,6 +18,9 @@ import { KuduZoneDirective } from '../../zone';
     KuduZoneDirective,
     KuduActiveZoneDirective,
   ],
+  host: {
+    tabindex: '0',
+  },
 })
 export class KuduPopupTriggerDirective {
   private activeZoneDirective = inject(KuduActiveZoneDirective);
@@ -40,9 +43,13 @@ export class KuduPopupTriggerDirective {
     }
 
     if (this.isClicked()) {
-      this.activeZoneDirective.deactivate();
+      this.close();
     } else {
       this.isClicked.set(true);
     }
+  }
+
+  public close() {
+    this.activeZoneDirective.deactivate();
   }
 }

@@ -5,6 +5,7 @@ import {
   inject,
   linkedSignal,
   model,
+  output,
 } from '@angular/core';
 
 import { KuduDate } from '@kudu-date';
@@ -37,8 +38,14 @@ export class KuduCalendarComponent {
 
   public mode = model<'sheet' | 'years' | 'months'>('sheet');
 
+  public byDateClick = output<KuduDate>();
+
   @HostBinding('class')
   public get Classes() {
     return this.size();
+  }
+
+  public onDateClick(date: KuduDate) {
+    this.byDateClick.emit(date);
   }
 }
