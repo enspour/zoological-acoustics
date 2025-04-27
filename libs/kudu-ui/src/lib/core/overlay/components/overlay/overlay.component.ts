@@ -7,16 +7,16 @@ import {
 } from '@angular/core';
 
 import { KuduClickOutsideDirective } from '../../../click-outside';
-import { KuduTeleportDirective } from '../../../portals';
+import { KuduTeleportDirective } from '../../../teleports';
 
 import { KuduOverlayOriginDirective } from '../../directives/overlay-origin.directive';
 import { KuduOverlayContentComponent } from '../overlay-content/overlay-content.component';
 
-import { KuduOverlayConfig, KuduOverlayPosition } from '../../interfaces';
+import { KuduOverlayConfig, KuduOverlayPlacement } from '../../interfaces';
 
 const initialConfig: Required<KuduOverlayConfig> = {
   width: 'self-width',
-  position: 'under-left',
+  placement: 'bottom-left',
   lockX: false,
   lockY: false,
   gap: 0,
@@ -41,7 +41,7 @@ export class KuduOverlayComponent {
   public _config = input<KuduOverlayConfig>(undefined, { alias: 'config' });
   public config = computed(() => ({ ...initialConfig, ...this._config() }));
 
-  public positionChange = output<KuduOverlayPosition>();
+  public placementChange = output<KuduOverlayPlacement>();
 
   public byClickOutside = output<Event>();
 

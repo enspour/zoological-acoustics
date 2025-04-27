@@ -1,0 +1,91 @@
+@use '../../../../mixins/layout.mixin.scss';
+
+:host {
+  --kudu-toast-offset: 30px;
+
+  position: fixed;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  opacity: 1;
+  overflow: hidden;
+  z-index: 1;
+
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+:host.sm {
+  @include layout.sm;
+  padding: 6px 12px;
+}
+
+:host.md {
+  @include layout.md;
+  padding: 8px 16px;
+}
+
+:host.lg {
+  @include layout.lg;
+  padding: 10px 20px;
+}
+
+:host.bottom {
+  left: 50%;
+  bottom: var(--kudu-toast-offset);
+  transform: translate(-50%, 0);
+
+  @starting-style {
+    transform: translate(-50%, 100%);
+  }
+}
+
+:host.bottom-left {
+  left: var(--kudu-toast-offset);
+  bottom: var(--kudu-toast-offset);
+
+  @starting-style {
+    transform: translate(0, 100%);
+  }
+}
+
+:host.bottom-right {
+  right: var(--kudu-toast-offset);
+  bottom: var(--kudu-toast-offset);
+
+  @starting-style {
+    transform: translate(0, 100%);
+  }
+}
+
+:host.top {
+  left: 50%;
+  top: var(--kudu-toast-offset);
+  transform: translate(-50%, 0);
+
+  @starting-style {
+    transform: translate(-50%, -100%);
+  }
+}
+
+:host.top-left {
+  top: var(--kudu-toast-offset);
+  left: var(--kudu-toast-offset);
+
+  @starting-style {
+    transform: translate(0, -100%);
+  }
+}
+
+:host.top-right {
+  top: var(--kudu-toast-offset);
+  right: var(--kudu-toast-offset);
+
+  @starting-style {
+    transform: translate(0, -100%);
+  }
+}

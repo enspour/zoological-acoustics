@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import {
   KuduDialogContainerComponent,
   KuduOverlayContainerComponent,
+  KuduToastContainerComponent,
 } from '@kudu-ui';
 
 @Component({
@@ -11,6 +12,7 @@ import {
     RouterOutlet,
     KuduDialogContainerComponent,
     KuduOverlayContainerComponent,
+    KuduToastContainerComponent,
   ],
   selector: 'app-root',
   templateUrl: './app.component.html',

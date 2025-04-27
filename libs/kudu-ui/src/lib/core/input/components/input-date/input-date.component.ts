@@ -38,7 +38,7 @@ export class KuduInputDateComponent {
 
   public config: KuduPopupConfig = {
     width: 'self-width',
-    position: 'under-left',
+    placement: 'bottom-left',
     gap: 4,
   };
 

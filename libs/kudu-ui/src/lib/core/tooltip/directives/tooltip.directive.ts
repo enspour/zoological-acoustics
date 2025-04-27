@@ -16,7 +16,7 @@ import { KuduOverlayOriginDirective } from '../../overlay';
 
 import { KuduTooltipComponent } from '../components/tooltip/tooltip.component';
 
-export type KuduTooltipOrientation = 'left' | 'right' | 'under' | 'above';
+export type KuduTooltipOrientation = 'left' | 'right' | 'bottom' | 'top';
 
 @Directive({
   selector: '[kuduTooltip]',
@@ -31,7 +31,7 @@ export class KuduTooltipDirective implements OnDestroy {
     alias: 'kuduTooltip',
   });
 
-  public orientation = input<KuduTooltipOrientation>('under', {
+  public orientation = input<KuduTooltipOrientation>('bottom', {
     alias: 'kuduTooltipOrientation',
   });
 

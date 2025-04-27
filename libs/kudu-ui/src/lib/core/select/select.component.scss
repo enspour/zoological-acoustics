@@ -54,12 +54,12 @@
   border: 1px solid #6a6a6a;
 }
 
-:host.opened.above {
+:host.opened.top {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-:host.opened.under {
+:host.opened.bottom {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -103,12 +103,12 @@
   max-height: calc(34px * 5 + 4px * 5 + 4px);
 }
 
-.options.above {
+.options.top {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.options.under {
+.options.bottom {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }

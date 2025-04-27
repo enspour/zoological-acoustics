@@ -1,2 +1,2 @@
 export * from './layout.constants';
-export * from './positions.constants';
+export * from './placements.constants';

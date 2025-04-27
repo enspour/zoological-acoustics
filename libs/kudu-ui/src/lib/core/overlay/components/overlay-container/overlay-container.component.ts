@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { KuduPortalComponent } from '../../../portals';
+import { KuduTeleportPlaceComponent } from '../../../teleports';
 
 @Component({
   selector: 'kudu-overlay-container',
-  imports: [KuduPortalComponent],
+  imports: [KuduTeleportPlaceComponent],
   templateUrl: './overlay-container.component.html',
   styleUrl: './overlay-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

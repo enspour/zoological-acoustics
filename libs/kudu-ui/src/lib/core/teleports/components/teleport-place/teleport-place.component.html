@@ -1,0 +1,13 @@
+@for (teleport of teleports(); track $index) {
+  @if (teleport.type === 'template') {
+    <ng-container [ngTemplateOutlet]="teleport.template" />
+  }
+
+  @if (teleport.type === 'component') {
+    <ng-container
+      [ngComponentOutlet]="teleport.component"
+      [ngComponentOutletInjector]="teleport.injector"
+      [ngComponentOutletInputs]="teleport.inputs"
+    />
+  }
+}

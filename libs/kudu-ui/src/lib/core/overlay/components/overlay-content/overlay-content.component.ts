@@ -19,9 +19,9 @@ import { KuduZoneDirective } from '../../../zone';
 
 import { KuduOverlayComponent } from '../overlay/overlay.component';
 
-import { FALLBACK_POSITIONS, LAYOUT_GETTER } from '../../constants';
+import { FALLBACK_PLACEMENTS, LAYOUT_GETTER } from '../../constants';
 
-import { KuduOverlayPosition } from '../../interfaces';
+import { KuduOverlayPlacement } from '../../interfaces';
 
 @Component({
   selector: 'kudu-overlay-content',
@@ -49,8 +49,8 @@ export class KuduOverlayContentComponent {
 
   private self = computed(() => this.getSelf());
 
-  public position = computed(() => this.getPosition());
-  public positionChange = outputFromObservable(toObservable(this.position));
+  public placement = computed(() => this.getPlacement());
+  public placementChange = outputFromObservable(toObservable(this.placement));
 
   public layout = computed(() => this.getLayout());
 
@@ -64,7 +64,7 @@ export class KuduOverlayContentComponent {
 
     const config = this.overlay.config();
 
-    const { top, left } = LAYOUT_GETTER[this.position()](origin, self, config);
+    const { top, left } = LAYOUT_GETTER[this.placement()](origin, self, config);
     return new DOMRect(left, top, self.width, self.height);
   }
 
@@ -83,63 +83,63 @@ export class KuduOverlayContentComponent {
     return self;
   }
 
-  private getPosition() {
+  private getPlacement() {
     const origin = this.origin();
     const self = this.self();
 
     if (!origin || !self) {
-      return this.overlay.config().position;
+      return this.overlay.config().placement;
     }
 
     const config = this.overlay.config();
 
     if (config.lockX && config.lockY) {
-      return config.position;
+      return config.placement;
     }
 
-    const initial = config.position;
+    const initial = config.placement;
 
     let maxFitPercent = 0;
-    let maxFitPosition: KuduOverlayPosition | null = null;
+    let maxFitPlacement: KuduOverlayPlacement | null = null;
 
-    const positions = [initial, ...FALLBACK_POSITIONS[initial]].filter(
-      (position) => this.isLock(position),
+    const placements = [initial, ...FALLBACK_PLACEMENTS[initial]].filter(
+      (placement) => this.isLock(placement),
     );
 
-    for (const position of positions) {
-      const { top, left } = LAYOUT_GETTER[position](origin, self, config);
+    for (const placement of placements) {
+      const { top, left } = LAYOUT_GETTER[placement](origin, self, config);
 
       const rect = new DOMRect(left, top, self.width, self.height);
       const percent = this.getVisiblePercent(rect);
 
       if (percent === 100) {
-        return position;
+        return placement;
       }
 
       if (maxFitPercent < percent) {
         maxFitPercent = percent;
-        maxFitPosition = position;
+        maxFitPlacement = placement;
       }
     }
 
-    return maxFitPosition || initial;
+    return maxFitPlacement || initial;
   }
 
-  private isLock(position: KuduOverlayPosition) {
+  private isLock(placement: KuduOverlayPlacement) {
     const config = this.overlay.config();
 
     if (
       config.lockX &&
-      ((config.position.includes('left') && !position.includes('left')) ||
-        (config.position.includes('right') && !position.includes('right')))
+      ((config.placement.includes('left') && !placement.includes('left')) ||
+        (config.placement.includes('right') && !placement.includes('right')))
     ) {
       return false;
     }
 
     if (
       config.lockY &&
-      ((config.position.includes('under') && !position.includes('under')) ||
-        (config.position.includes('above') && !position.includes('above')))
+      ((config.placement.includes('under') && !placement.includes('under')) ||
+        (config.placement.includes('above') && !placement.includes('above')))
     ) {
       return false;
     }

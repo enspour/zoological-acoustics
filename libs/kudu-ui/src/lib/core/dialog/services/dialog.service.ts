@@ -10,24 +10,24 @@ import { Subject } from 'rxjs';
 import { KuduDialogComponent } from '../components/dialog/dialog.component';
 
 import {
-  KuduPortalByComponent,
-  KuduPortalRef,
-  KuduPortalsService,
-} from '../../portals';
+  KuduTeleportByComponent,
+  KuduTeleportRef,
+  KuduTeleportsService,
+} from '../../teleports';
 
 import { KuduGlassmorphismConfig } from '../../glassmorphism';
 
 export class KuduDialogRef<R> {
   private closed = new Subject<R | undefined>();
 
-  constructor(private portalRef: KuduPortalRef) {}
+  constructor(private teleportRef: KuduTeleportRef) {}
 
   afterClosed() {
     return this.closed.asObservable();
   }
 
   close(result?: R) {
-    this.portalRef?.close();
+    this.teleportRef?.close();
 
     this.closed.next(result);
     this.closed.complete();
@@ -50,7 +50,7 @@ export const kuduDialogData = new InjectionToken<any>('kudu-ui/dialog/data');
 @Injectable()
 export class KuduDialogService {
   private injector = inject(Injector);
-  private portalsService = inject(KuduPortalsService);
+  private teleportsService = inject(KuduTeleportsService);
 
   open<T, R>(component: Type<T>, config?: KuduDialogConfig): KuduDialogRef<R> {
     const injector = Injector.create({
@@ -61,8 +61,8 @@ export class KuduDialogService {
       parent: config?.injector || this.injector,
     });
 
-    const portal: KuduPortalByComponent = {
-      id: 'dialog',
+    const teleport: KuduTeleportByComponent = {
+      placeId: 'dialog',
       type: 'component',
       component: KuduDialogComponent,
       injector,
@@ -72,8 +72,8 @@ export class KuduDialogService {
       },
     };
 
-    const portalRef = this.portalsService.open(portal);
-    const dialogRef = new KuduDialogRef<R>(portalRef);
+    const teleportRef = this.teleportsService.open(teleport);
+    const dialogRef = new KuduDialogRef<R>(teleportRef);
 
     return dialogRef;
   }

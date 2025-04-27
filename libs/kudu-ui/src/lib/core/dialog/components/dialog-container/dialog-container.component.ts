@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { KuduPortalComponent } from '../../../portals';
+import { KuduTeleportPlaceComponent } from '../../../teleports';
 
 import { KuduDialogService } from '../../services/dialog.service';
 
 @Component({
   selector: 'kudu-dialog-container',
-  imports: [KuduPortalComponent],
+  imports: [KuduTeleportPlaceComponent],
   templateUrl: './dialog-container.component.html',
   styleUrl: './dialog-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

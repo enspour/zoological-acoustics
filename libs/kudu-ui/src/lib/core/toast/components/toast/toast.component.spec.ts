@@ -1,17 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { KuduToastComponent } from './toast.component';
 
-import { KuduPortalComponent } from './portal.component';
-
-describe('PortalComponent', () => {
-  let component: KuduPortalComponent;
-  let fixture: ComponentFixture<KuduPortalComponent>;
+describe('KuduToastComponent', () => {
+  let component: KuduToastComponent;
+  let fixture: ComponentFixture<KuduToastComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [KuduPortalComponent],
+      imports: [KuduToastComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(KuduPortalComponent);
+    fixture = TestBed.createComponent(KuduToastComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

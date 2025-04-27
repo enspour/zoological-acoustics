@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 import {
   KuduPopupComponent,
   KuduPopupConfig,
-  KuduPopupPosition,
+  KuduPopupPlacement,
   KuduPopupTriggerDirective,
 } from '../popup';
 
@@ -54,12 +54,12 @@ export class KuduAutocompleteComponent {
 
   public config: KuduPopupConfig = {
     width: 'origin-width',
-    position: 'under',
+    placement: 'bottom',
     lockX: true,
     lockY: false,
   };
 
-  public position = signal<KuduPopupPosition>('under');
+  public placement = signal<KuduPopupPlacement>('bottom');
 
   constructor() {
     effect(() => this.search());
@@ -70,7 +70,7 @@ export class KuduAutocompleteComponent {
     return `
       ${this.size()} 
       ${this.isOpen() ? 'opened' : 'closed'} 
-      ${this.position()}
+      ${this.placement()}
     `;
   }
 

@@ -31,7 +31,7 @@ export class KuduTooltipComponent {
 
   public config = computed<KuduOverlayConfig>(() => ({
     width: 'self-width',
-    position: this.orientation(),
+    placement: this.orientation(),
     gap: 4,
   }));
 

@@ -1,8 +1,8 @@
-import { KuduOverlayPosition } from './overlay-position.interface';
+import { KuduOverlayPlacement } from './overlay-placement.interface';
 
 export interface KuduOverlayConfig {
   width?: 'origin-width' | 'self-width';
-  position?: KuduOverlayPosition;
+  placement?: KuduOverlayPlacement;
   lockX?: boolean;
   lockY?: boolean;
   gap?: number;

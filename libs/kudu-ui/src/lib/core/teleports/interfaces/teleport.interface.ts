@@ -1,17 +1,17 @@
 import { Injector, TemplateRef, Type } from '@angular/core';
 
-export interface KuduPortalByTemplate {
-  id: string;
+export interface KuduTeleportByTemplate {
+  placeId: string;
   type: 'template';
   template: TemplateRef<any>;
 }
 
-export interface KuduPortalByComponent {
-  id: string;
+export interface KuduTeleportByComponent {
+  placeId: string;
   type: 'component';
   component: Type<any>;
   inputs?: Record<string, any>;
   injector?: Injector;
 }
 
-export type KuduPortal = KuduPortalByTemplate | KuduPortalByComponent;
+export type KuduTeleport = KuduTeleportByTemplate | KuduTeleportByComponent;

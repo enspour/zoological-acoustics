@@ -1,2 +1,2 @@
 export * from './overlay-config.interface';
-export * from './overlay-position.interface';
+export * from './overlay-placement.interface';
