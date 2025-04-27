@@ -31,9 +31,10 @@ export class KuduActiveZoneDirective {
   public activeZoneChange = outputFromObservable(this.active$);
 
   public deactivate() {
-    this.document.body.tabIndex = -1;
-
-    const element = this.parent?.Element || this.document.body;
-    element.focus();
+    if (this.parent) {
+      this.parent.Element.focus();
+    } else {
+      this.document.dispatchEvent(new Event('kudu:active-element:clear'));
+    }
   }
 }

@@ -5,7 +5,6 @@
   width: 100%;
   display: flex;
   align-items: center;
-  font-weight: 500;
   color: #191919;
   background-color: #ffffff;
   border: 1px solid #dddddd;
@@ -18,8 +17,9 @@
 }
 
 :host.sm {
+  @include layout.sm;
   height: 26px;
-  border-radius: 6px;
+  padding: 0;
 
   .content {
     @include layout.sm;
@@ -28,8 +28,9 @@
 }
 
 :host.md {
+  @include layout.md;
   height: 30px;
-  border-radius: 8px;
+  padding: 0;
 
   .content {
     @include layout.md;
@@ -38,8 +39,9 @@
 }
 
 :host.lg {
+  @include layout.lg;
   height: 34px;
-  border-radius: 10px;
+  padding: 0;
 
   .content {
     @include layout.lg;

@@ -37,7 +37,6 @@ import { EmployeeAvatarsComponent } from '../employee-avatars';
   templateUrl: './employee-picker.component.html',
   styleUrl: './employee-picker.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  hostDirectives: [KuduPopupTriggerDirective],
 })
 export class EmployeePickerComponent {
   public employees = input.required<Employee[]>();

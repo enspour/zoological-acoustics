@@ -66,7 +66,6 @@ export class KuduSidebarComponent {
   }
 
   @HostListener('transitionend')
-  @HostListener('transitioncancel')
   public onTransitionEnd() {
     this.isTransition.set(false);
     this.transition.set('none');

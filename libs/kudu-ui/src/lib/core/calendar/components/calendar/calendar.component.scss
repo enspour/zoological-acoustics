@@ -14,16 +14,16 @@
   --kudu-calendar-today-bottom: 3px;
   @include layout.sm;
   padding: 0;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 :host.md {
   --kudu-calendar-width: calc(7 * 36px);
   --kudu-calendar-today-size: 4px;
-  --kudu-calendar-today-bottom: 4px;
+  --kudu-calendar-today-bottom: 3px;
   @include layout.md;
   padding: 0;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 :host.lg {

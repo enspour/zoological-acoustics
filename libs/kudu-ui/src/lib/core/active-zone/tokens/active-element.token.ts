@@ -13,6 +13,7 @@ import {
   switchMap,
   take,
   takeUntil,
+  tap,
   timer,
 } from 'rxjs';
 
@@ -48,6 +49,14 @@ export const kuduActiveElement = new InjectionToken('kudu-ui/active-element', {
       ),
     );
 
-    return merge(loss$, gain$, mouse$).pipe(distinctUntilChanged(), share());
+    const clear$ = fromEvent<Event>(document, 'kudu:active-element:clear').pipe(
+      tap(() => (document.activeElement as HTMLElement)?.blur()),
+      map(() => null),
+    );
+
+    return merge(loss$, gain$, mouse$, clear$).pipe(
+      distinctUntilChanged(),
+      share(),
+    );
   },
 });

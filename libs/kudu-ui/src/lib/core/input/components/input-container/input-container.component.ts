@@ -15,14 +15,15 @@ import { kuduSize } from '../../../size';
   styleUrl: './input-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [KuduPopupTriggerDirective],
-  host: {
-    tabindex: '1',
-  },
 })
 export class KuduInputContainerComponent {
   private size = inject(kuduSize);
 
   private trigger = inject(KuduPopupTriggerDirective);
+
+  constructor() {
+    this.trigger.closable.set(false);
+  }
 
   @HostBinding('class')
   public get Classes() {
