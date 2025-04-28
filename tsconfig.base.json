@@ -22,6 +22,7 @@
       "@kudu-flow": ["libs/kudu-flow/src/index.ts"],
       "@kudu-ng-date": ["libs/kudu-ng-date/src/index.ts"],
       "@kudu-ng-utils": ["libs/kudu-ng-utils/src/index.ts"],
+      "@kudu-ng-web-apis": ["libs/kudu-ng-web-apis/src/index.ts"],
       "@kudu-ui": ["libs/kudu-ui/src/index.ts"],
       "@kudu-ui-icons": ["libs/kudu-ui-icons/src/index.ts"],
       "@kudu-utils": ["libs/kudu-utils/src/index.ts"],

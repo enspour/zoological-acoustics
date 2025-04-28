@@ -2,7 +2,7 @@ import { computed, Directive, ElementRef, inject, input } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { map, switchMap } from 'rxjs';
 
-import { resizeObservable, scrollObservable } from '@kudu-ng-utils';
+import { resizeObservable, scrollObservable } from '@kudu-ng-web-apis';
 
 import {
   KuduVirtualization,

@@ -13,7 +13,7 @@ import {
 } from '@angular/core/rxjs-interop';
 import { switchMap } from 'rxjs';
 
-import { layoutObservable } from '@kudu-ng-utils';
+import { layoutObservable } from '@kudu-ng-web-apis';
 
 import { KuduZoneDirective } from '../../../zone';
 

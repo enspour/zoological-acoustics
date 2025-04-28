@@ -3,7 +3,7 @@ import { Directive, ElementRef, inject, model } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 
-import { resizeObservable } from '@kudu-ng-utils';
+import { resizeObservable } from '@kudu-ng-web-apis';
 
 import {
   WORKSPACE_SCALING_DELTA,
