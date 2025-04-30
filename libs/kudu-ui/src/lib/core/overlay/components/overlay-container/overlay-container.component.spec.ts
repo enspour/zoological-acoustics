@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { KuduOverlayContainerComponent } from './overlay-container.component';
 
-describe('OverlayContainerComponent', () => {
+describe('KuduOverlayContainerComponent', () => {
   let component: KuduOverlayContainerComponent;
   let fixture: ComponentFixture<KuduOverlayContainerComponent>;
 

@@ -13,7 +13,7 @@ import {
   KuduOverlayOriginDirective,
 } from '../../../overlay';
 
-import { KuduTooltipOrientation } from '../../directives/tooltip.directive';
+import { KuduTooltipPlacement } from '../../directives/tooltip.directive';
 
 @Component({
   selector: 'kudu-tooltip',
@@ -27,11 +27,11 @@ export class KuduTooltipComponent {
 
   public tooltip = input.required<string | TemplateRef<any>>();
 
-  public orientation = input.required<KuduTooltipOrientation>();
+  public placement = input.required<KuduTooltipPlacement>();
 
   public config = computed<KuduOverlayConfig>(() => ({
     width: 'self-width',
-    placement: this.orientation(),
+    placement: this.placement(),
     gap: 4,
   }));
 

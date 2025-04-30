@@ -6,17 +6,11 @@
   position: fixed;
   background-color: #ffffff;
   border: 1px solid #dddddd;
-  opacity: 1;
+  opacity: 0;
   overflow: hidden;
   z-index: 1;
 
-  transition:
-    opacity 0.2s,
-    transform 0.2s;
-
-  @starting-style {
-    opacity: 0;
-  }
+  animation: enter 0.2s ease-out forwards;
 }
 
 :host.sm {
@@ -35,57 +29,58 @@
 }
 
 :host.bottom {
+  --kudu-toast-enter-x: -50%;
+  --kudu-toast-enter-y: 0;
+
   left: 50%;
   bottom: var(--kudu-toast-offset);
-  transform: translate(-50%, 0);
-
-  @starting-style {
-    transform: translate(-50%, 100%);
-  }
+  transform: translate(-50%, 100%);
 }
 
 :host.bottom-left {
+  --kudu-toast-enter-y: 0;
+
   left: var(--kudu-toast-offset);
   bottom: var(--kudu-toast-offset);
-
-  @starting-style {
-    transform: translate(0, 100%);
-  }
+  transform: translateY(100%);
 }
 
 :host.bottom-right {
+  --kudu-toast-enter-y: 0;
+
   right: var(--kudu-toast-offset);
   bottom: var(--kudu-toast-offset);
-
-  @starting-style {
-    transform: translate(0, 100%);
-  }
+  transform: translateY(100%);
 }
 
 :host.top {
+  --kudu-toast-enter-x: -50%;
+  --kudu-toast-enter-y: 0;
+
   left: 50%;
   top: var(--kudu-toast-offset);
-  transform: translate(-50%, 0);
-
-  @starting-style {
-    transform: translate(-50%, -100%);
-  }
+  transform: translate(-50%, -100%);
 }
 
 :host.top-left {
-  top: var(--kudu-toast-offset);
-  left: var(--kudu-toast-offset);
+  --kudu-toast-enter-y: 0;
 
-  @starting-style {
-    transform: translate(0, -100%);
-  }
+  left: var(--kudu-toast-offset);
+  top: var(--kudu-toast-offset);
+  transform: translateY(-100%);
 }
 
 :host.top-right {
-  top: var(--kudu-toast-offset);
-  right: var(--kudu-toast-offset);
+  --kudu-toast-enter-y: 0;
 
-  @starting-style {
-    transform: translate(0, -100%);
+  right: var(--kudu-toast-offset);
+  top: var(--kudu-toast-offset);
+  transform: translateY(-100%);
+}
+
+@keyframes enter {
+  to {
+    opacity: 1;
+    transform: translate(var(--kudu-toast-enter-x), var(--kudu-toast-enter-y));
   }
 }

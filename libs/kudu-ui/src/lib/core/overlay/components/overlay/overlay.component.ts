@@ -1,16 +1,18 @@
+import { DOCUMENT } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  inject,
   input,
   output,
 } from '@angular/core';
 
 import { KuduClickOutsideDirective } from '../../../click-outside';
-import { KuduTeleportDirective } from '../../../teleports';
+import { KuduTeleportDirective } from '../../../teleport';
 
 import { KuduOverlayOriginDirective } from '../../directives/overlay-origin.directive';
-import { KuduOverlayContentComponent } from '../overlay-content/overlay-content.component';
+import { KuduOverlayContainerComponent } from '../overlay-container/overlay-container.component';
 
 import { KuduOverlayConfig, KuduOverlayPlacement } from '../../interfaces';
 
@@ -25,7 +27,7 @@ const initialConfig: Required<KuduOverlayConfig> = {
 @Component({
   selector: 'kudu-overlay',
   imports: [
-    KuduOverlayContentComponent,
+    KuduOverlayContainerComponent,
     KuduTeleportDirective,
     KuduClickOutsideDirective,
   ],
@@ -34,6 +36,8 @@ const initialConfig: Required<KuduOverlayConfig> = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KuduOverlayComponent {
+  public document = inject(DOCUMENT);
+
   public isOpen = input<boolean>(true);
 
   public origin = input.required<KuduOverlayOriginDirective>();

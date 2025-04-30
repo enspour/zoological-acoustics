@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import {
   inject,
   Injectable,
@@ -7,15 +8,16 @@ import {
 } from '@angular/core';
 import { Subject } from 'rxjs';
 
-import { KuduDialogComponent } from '../components/dialog/dialog.component';
-
 import {
-  KuduTeleportByComponent,
+  KuduComponentTeleport,
   KuduTeleportRef,
-  KuduTeleportsService,
-} from '../../teleports';
+  KuduTeleportService,
+} from '../../teleport';
 
 import { KuduGlassmorphismConfig } from '../../glassmorphism';
+
+import { KuduDialogContainerComponent } from '../components/dialog-container/dialog-container.component';
+import { KuduDialogComponent } from '../components/dialog/dialog.component';
 
 export class KuduDialogRef<R> {
   private closed = new Subject<R | undefined>();
@@ -27,7 +29,7 @@ export class KuduDialogRef<R> {
   }
 
   close(result?: R) {
-    this.teleportRef?.close();
+    this.teleportRef.dispose();
 
     this.closed.next(result);
     this.closed.complete();
@@ -47,10 +49,13 @@ export class KuduDialogConfig {
 
 export const kuduDialogData = new InjectionToken<any>('kudu-ui/dialog/data');
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class KuduDialogService {
+  private document = inject(DOCUMENT);
   private injector = inject(Injector);
-  private teleportsService = inject(KuduTeleportsService);
+  private teleportService = inject(KuduTeleportService);
+
+  private containerRef = this.createContainer();
 
   open<T, R>(component: Type<T>, config?: KuduDialogConfig): KuduDialogRef<R> {
     const injector = Injector.create({
@@ -61,8 +66,7 @@ export class KuduDialogService {
       parent: config?.injector || this.injector,
     });
 
-    const teleport: KuduTeleportByComponent = {
-      placeId: 'dialog',
+    const teleport: KuduComponentTeleport = {
       type: 'component',
       component: KuduDialogComponent,
       injector,
@@ -72,9 +76,22 @@ export class KuduDialogService {
       },
     };
 
-    const teleportRef = this.teleportsService.open(teleport);
+    const teleportRef = this.teleportService.create(teleport);
     const dialogRef = new KuduDialogRef<R>(teleportRef);
 
+    teleportRef.attach(this.containerRef!.location.nativeElement);
+
     return dialogRef;
+  }
+
+  private createContainer() {
+    const teleportRef = this.teleportService.createByComponent({
+      type: 'component',
+      component: KuduDialogContainerComponent,
+    });
+
+    teleportRef.attach(this.document.body);
+
+    return teleportRef.ComponentRef;
   }
 }

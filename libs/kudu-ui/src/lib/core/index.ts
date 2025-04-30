@@ -28,7 +28,7 @@ export * from './sort';
 export * from './switch';
 export * from './table';
 export * from './tabs';
-export * from './teleports';
+export * from './teleport';
 export * from './toast';
 export * from './tooltip';
 export * from './virtual-scroll';

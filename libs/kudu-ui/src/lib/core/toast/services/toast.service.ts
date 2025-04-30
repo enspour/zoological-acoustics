@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import {
   inject,
   Injectable,
@@ -7,18 +8,19 @@ import {
 } from '@angular/core';
 
 import {
-  KuduTeleportByComponent,
+  KuduComponentTeleport,
   KuduTeleportRef,
-  KuduTeleportsService,
-} from '../../teleports';
+  KuduTeleportService,
+} from '../../teleport';
 
+import { KuduToastContainerComponent } from '../components/toast-container/toast-container.component';
 import { KuduToastComponent } from '../components/toast/toast.component';
 
 export class KuduToastRef {
   constructor(private teleportRef: KuduTeleportRef) {}
 
   close() {
-    this.teleportRef?.close();
+    this.teleportRef.dispose();
   }
 }
 
@@ -39,11 +41,13 @@ export class KuduToastConfig {
 
 export const kuduToastData = new InjectionToken<any>('kudu-ui/toast/data');
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class KuduToastService {
+  private document = inject(DOCUMENT);
   private injector = inject(Injector);
-  private teleportsService = inject(KuduTeleportsService);
+  private teleportService = inject(KuduTeleportService);
 
+  private containerRef = this.createContainer();
   private teleportRef: KuduTeleportRef | null = null;
 
   public open<T>(component: Type<T>, config?: KuduToastConfig): KuduToastRef {
@@ -55,8 +59,7 @@ export class KuduToastService {
       parent: config?.injector || this.injector,
     });
 
-    const teleport: KuduTeleportByComponent = {
-      placeId: 'toast',
+    const teleport: KuduComponentTeleport = {
       type: 'component',
       component: KuduToastComponent,
       injector,
@@ -66,10 +69,24 @@ export class KuduToastService {
       },
     };
 
-    this.teleportRef?.close();
-    this.teleportRef = this.teleportsService.open(teleport);
+    this.teleportRef?.dispose();
+    this.teleportRef = this.teleportService.create(teleport);
+
     const toastRef = new KuduToastRef(this.teleportRef);
 
+    this.teleportRef.attach(this.containerRef!.location.nativeElement);
+
     return toastRef;
+  }
+
+  private createContainer() {
+    const teleportRef = this.teleportService.createByComponent({
+      type: 'component',
+      component: KuduToastContainerComponent,
+    });
+
+    teleportRef.attach(this.document.body);
+
+    return teleportRef.ComponentRef;
   }
 }
