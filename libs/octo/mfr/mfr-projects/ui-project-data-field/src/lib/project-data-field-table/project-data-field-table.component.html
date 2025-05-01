@@ -1,0 +1,30 @@
+<table mk-table mkSort #sortRef="mkSort" [(mkSortConfig)]="sortConfig">
+  <thead>
+    <tr>
+      <th mk-th mkThSort="name">Название</th>
+      <th mk-th mkThSort="type">Тип</th>
+      <th mk-th [style.width.px]="52"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @let dataFields = this.dataFields() | mkSort: sortRef.config();
+
+    @for (dataField of dataFields; track dataField.uuid) {
+      <tr (click)="onClick(dataField)">
+        <td mk-td>{{ dataField.name }}</td>
+        <td mk-td>
+          <mk-chip>{{ dataField.type | getTypeAlias }}</mk-chip>
+        </td>
+
+        <td mk-td>
+          <mk-icon
+            icon="trash"
+            class="control"
+            (click)="$event.stopPropagation(); onDelete(dataField)"
+          />
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

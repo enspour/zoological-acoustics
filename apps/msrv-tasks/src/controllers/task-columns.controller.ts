@@ -11,14 +11,14 @@ import {
 } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 
-import { TaskColumnsService } from '@kudu/msrv-feature-tasks';
+import { KongAuthGuard } from '@kong-nest-guard';
 
-import { AuthGuard } from '@kudu/msrv-util-auth-guard';
+import { TaskColumnsService } from '@octo/msrv-feature-tasks';
 
 import { CreateTaskColumnDto } from '../dtos';
 
 @Controller('columns')
-@UseGuards(AuthGuard)
+@UseGuards(KongAuthGuard)
 export class TaskColumnsController {
   constructor(private taskColumnsService: TaskColumnsService) {}
 

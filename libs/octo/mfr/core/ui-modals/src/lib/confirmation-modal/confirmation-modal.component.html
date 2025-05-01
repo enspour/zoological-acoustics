@@ -1,0 +1,13 @@
+<div class="header">
+  <div class="header__title">{{ data.title }}</div>
+  <mk-icon class="header__icon" icon="close" (click)="onClose()" />
+</div>
+
+<div class="form">
+  <div class="form__description">{{ data.description }}</div>
+
+  <div class="form__controls">
+    <button mk-button (click)="onClose()">Отменить</button>
+    <button mk-button kind="filled" (click)="onConfirm()">Подтвердить</button>
+  </div>
+</div>

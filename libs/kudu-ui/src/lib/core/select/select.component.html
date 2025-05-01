@@ -1,7 +1,0 @@
-<button class="content" [innerHTML]="content()"></button>
-
-<kudu-popup [config]="config" (placementChange)="placement.set($event)">
-  <div [class]="['options', size(), placement()]">
-    <ng-content />
-  </div>
-</kudu-popup>

@@ -23,7 +23,7 @@
           },
           {
             "glob": "**/*",
-            "input": "libs/kudu-ui-icons/src/lib",
+            "input": "libs/meerkat-ui-icons/src/lib",
             "output": "assets"
           }
         ],

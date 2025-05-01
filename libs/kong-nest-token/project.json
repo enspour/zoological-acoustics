@@ -1,0 +1,9 @@
+{
+  "name": "kong-nest-token",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/kong-nest-token/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project kong-nest-token --web",
+  "targets": {}
+}

@@ -1,0 +1,7 @@
+<input class="input" [(ngModel)]="searchTerm" [placeholder]="placeholder()" />
+
+<mk-popup [config]="config" (placementChange)="placement.set($event)">
+  <div [class]="['options', size(), placement()]">
+    <ng-content />
+  </div>
+</mk-popup>

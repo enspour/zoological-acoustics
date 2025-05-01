@@ -18,13 +18,14 @@ import {
   ApiResponse,
 } from '@nestjs/swagger';
 
-import { UsersService } from '@kudu/msrv-feature-users';
-import { AuthGuard } from '@kudu/msrv-util-auth-guard';
+import { KongAuthGuard } from '@kong-nest-guard';
+
+import { UsersService } from '@kong/msrv-feature-users';
 
 import { UpdateUserDto } from '../dtos';
 
 @Controller('users')
-@UseGuards(AuthGuard)
+@UseGuards(KongAuthGuard)
 @ApiCookieAuth('access-token')
 export class UsersController {
   constructor(private usersService: UsersService) {}

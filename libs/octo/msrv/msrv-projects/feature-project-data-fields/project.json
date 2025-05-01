@@ -1,0 +1,9 @@
+{
+  "name": "octo-msrv-feature-project-data-fields",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/octo/msrv/msrv-projects/feature-project-data-fields/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project feature-project-data-fields --web",
+  "targets": {}
+}

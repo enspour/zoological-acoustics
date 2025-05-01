@@ -1,0 +1,31 @@
+<div class="dates">
+  <div class="date">
+    <div class="date__title">Начало:</div>
+
+    <mk-input-container>
+      <input
+        mk-input-date
+        [(value)]="startDate"
+        (valueChange)="onDeadlineChange()"
+        placeholder="Начало"
+      />
+
+      <mk-icon icon="calendar" mkSuffix />
+    </mk-input-container>
+  </div>
+
+  <div class="date">
+    <div class="date__title">Завершение:</div>
+
+    <mk-input-container>
+      <input
+        mk-input-date
+        [(value)]="endDate"
+        (valueChange)="onDeadlineChange()"
+        placeholder="Завершение"
+      />
+
+      <mk-icon icon="calendar" mkSuffix />
+    </mk-input-container>
+  </div>
+</div>

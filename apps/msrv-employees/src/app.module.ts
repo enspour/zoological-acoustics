@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { PostgresModule } from '@kudu/msrv-data-access-postgres';
-import { EmployeeEntity, EmployeesModule } from '@kudu/msrv-feature-employees';
-import { TokenModule } from '@kudu/msrv-feature-token';
+import { MkPostgresModule } from '@meerkat-nest-pg';
+
+import { KongTokenModule } from '@kong-nest-token';
+
+import { EmployeeEntity, EmployeesModule } from '@octo/msrv-feature-employees';
 
 import { AppController } from './controllers/app.controller';
 import { EmployeesController } from './controllers/employees.controller';
@@ -11,9 +13,9 @@ import { EmployeesController } from './controllers/employees.controller';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    PostgresModule.forRootAsync([EmployeeEntity]),
+    MkPostgresModule.forRootAsync([EmployeeEntity]),
+    KongTokenModule,
     EmployeesModule,
-    TokenModule,
   ],
   controllers: [AppController, EmployeesController],
 })

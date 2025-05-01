@@ -1,0 +1,93 @@
+@let columns = this.columns() | mkFilter: filterByBoardFn : board();
+
+<div
+  class="columns"
+  mkDndDropContainer
+  [mkDndDropContainerTypes]="['column']"
+  [mkDndDropContainerData]="columns"
+  (byDrop)="onColumnDrop()"
+>
+  <lib-kanban-column-unassigned>
+    <div
+      class="tasks"
+      mkDndDropContainer
+      [mkDndDropContainerTypes]="['task']"
+      [mkDndDropContainerData]="null"
+      (byDrop)="onTaskDrop()"
+    >
+      @let tasks =
+        this.tasks()
+          | mkFilter: filterByBoardFn : board()
+          | mkFilter: filterByColumnFn : null;
+
+      @for (task of tasks; track task.uuid) {
+        <lib-kanban-task
+          [task]="task"
+          (click)="onTaskClick(task)"
+          (byDelete)="onTaskDelete($event)"
+          mkDndDrag
+          mkDndDragType="task"
+          [mkDndDragData]="task"
+        >
+          <lib-employee-picker
+            class="task__employees"
+            [value]="employees() | getEmployeesByUuid: task.executorUuids"
+            [employees]="employees()"
+            [multiple]="true"
+            (byClose)="onTaskExecutorsChange(task, $event)"
+            (click)="$event.stopPropagation()"
+          />
+        </lib-kanban-task>
+      }
+    </div>
+  </lib-kanban-column-unassigned>
+
+  @for (column of columns; track column.uuid) {
+    <lib-kanban-column
+      [column]="column"
+      mkDndDrag
+      mkDndDragType="column"
+      [mkDndDragData]="column"
+      (byDelete)="onColumnDelete($event)"
+    >
+      <lib-kanban-task-creation
+        #creation
+        class="task__creation"
+        [class.task__creation--creating]="creation.isCreating()"
+        (byCreate)="onTaskCreate($event, column)"
+      />
+
+      <div
+        class="tasks"
+        mkDndDropContainer
+        [mkDndDropContainerTypes]="['task']"
+        [mkDndDropContainerData]="column"
+        (byDrop)="onTaskDrop()"
+      >
+        @let tasks = this.tasks() | mkFilter: filterByColumnFn : column;
+
+        @for (task of tasks; track task.uuid) {
+          <lib-kanban-task
+            [task]="task"
+            (click)="onTaskClick(task)"
+            mkDndDrag
+            mkDndDragType="task"
+            [mkDndDragData]="task"
+            (byDelete)="onTaskDelete($event)"
+          >
+            <lib-employee-picker
+              class="task__employees"
+              [value]="employees() | getEmployeesByUuid: task.executorUuids"
+              [employees]="employees()"
+              [multiple]="true"
+              (byClose)="onTaskExecutorsChange(task, $event)"
+              (click)="$event.stopPropagation()"
+            />
+          </lib-kanban-task>
+        }
+      </div>
+    </lib-kanban-column>
+  }
+</div>
+
+<lib-kanban-column-creation (byCreate)="onColumnCreate($event)" />

@@ -1,0 +1,22 @@
+table[mk-table] {
+  width: 100%;
+}
+
+tbody tr {
+  cursor: pointer;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
+
+  &:hover {
+    .project__star {
+      display: block;
+    }
+  }
+}
+
+.project__star {
+  margin: 0 auto;
+  display: none;
+}

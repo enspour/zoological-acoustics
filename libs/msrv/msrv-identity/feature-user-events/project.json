@@ -1,9 +1,0 @@
-{
-  "name": "msrv-feature-user-events",
-  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/msrv/msrv-identity/feature-user-events/src",
-  "projectType": "library",
-  "tags": [],
-  "// targets": "to see all targets run: nx show project feature-user-events --web",
-  "targets": {}
-}

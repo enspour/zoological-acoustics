@@ -1,0 +1,9 @@
+{
+  "name": "meerkat-nest-event-bus",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/meerkat-nest-event-bus/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project meerkat-nest-event-bus --web",
+  "targets": {}
+}

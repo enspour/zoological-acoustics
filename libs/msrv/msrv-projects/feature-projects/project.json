@@ -1,9 +1,0 @@
-{
-  "name": "msrv-feature-projects",
-  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/msrv/msrv-projects/feature-projects/src",
-  "projectType": "library",
-  "tags": [],
-  "// targets": "to see all targets run: nx show project feature-projects --web",
-  "targets": {}
-}

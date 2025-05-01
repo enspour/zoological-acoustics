@@ -1,0 +1,27 @@
+<mk-icon class="icon" icon="dots" mkMenuTrigger>
+  <mk-menu-by-trigger>
+    <button mk-menu-button class="menu__btn" (click)="onRename()">
+      <mk-icon icon="pencil" />
+      <div>Переименовать</div>
+    </button>
+
+    <div class="menu__colors">
+      <div>Цвет колонки</div>
+
+      <mk-color-palette
+        [colors]="colors"
+        [color]="column().color"
+        mkSize="sm"
+      />
+    </div>
+
+    <button
+      mk-menu-button
+      class="menu__btn menu__btn--remove"
+      (click)="onDelete()"
+    >
+      <mk-icon icon="trash" />
+      <div>Удалить</div>
+    </button>
+  </mk-menu-by-trigger>
+</mk-icon>

@@ -1,0 +1,15 @@
+<div class="header">
+  <mk-input-container>
+    <mk-icon icon="search" mkPrefix />
+    <input mk-input placeholder="Поиск" [(ngModel)]="searchTerm" />
+  </mk-input-container>
+
+  <button mk-button class="header__btn" (click)="onMemberInvite()">
+    <mk-icon icon="user-plus" />
+    <div>Пригласить</div>
+  </button>
+</div>
+
+<lib-project-member-table
+  [members]="members() | mkFilter: filterFn : searchTerm() || ''"
+/>

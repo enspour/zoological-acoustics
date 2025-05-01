@@ -1,0 +1,16 @@
+@if (config()?.hasBackdrop) {
+  <button class="backdrop" (click)="onClickOutside()"></button>
+}
+
+<div
+  class="dialog"
+  mkGlassmorphism
+  [mkGlassmorphismConfig]="config()?.glassmorphism"
+  [mkGlassmorphismDisabled]="!config()?.hasGlassmorphism"
+  [style.width]="config()?.width"
+  [style.min-width]="config()?.minWidth"
+  [style.max-width]="config()?.maxWidth"
+  (mkClickOutside)="onClickOutside()"
+>
+  <ng-container [ngComponentOutlet]="component()" />
+</div>

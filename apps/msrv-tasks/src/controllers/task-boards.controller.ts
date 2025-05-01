@@ -11,14 +11,14 @@ import {
 } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 
-import { TaskBoardsService } from '@kudu/msrv-feature-tasks';
+import { KongAuthGuard } from '@kong-nest-guard';
 
-import { AuthGuard } from '@kudu/msrv-util-auth-guard';
+import { TaskBoardsService } from '@octo/msrv-feature-tasks';
 
 import { CreateTaskBoardDto } from '../dtos';
 
 @Controller('boards')
-@UseGuards(AuthGuard)
+@UseGuards(KongAuthGuard)
 export class TaskBoardsController {
   constructor(private taskBoardsService: TaskBoardsService) {}
 

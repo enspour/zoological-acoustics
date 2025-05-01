@@ -1,0 +1,28 @@
+@if (mode() === 'sheet') {
+  <mk-calendar-spin
+    class="spin"
+    [(date)]="dateAvailable"
+    (byMonthClick)="mode.set('months')"
+    (byYearClick)="mode.set('years')"
+  />
+
+  <mk-calendar-sheet
+    [(date)]="date"
+    [dateAvailable]="dateAvailable()"
+    (byDateClick)="onDateClick($event)"
+  />
+}
+
+@if (mode() === 'months') {
+  <mk-calendar-months
+    [(date)]="dateAvailable"
+    (dateChange)="mode.set('sheet')"
+  />
+}
+
+@if (mode() === 'years') {
+  <mk-calendar-years
+    [(date)]="dateAvailable"
+    (dateChange)="mode.set('sheet')"
+  />
+}

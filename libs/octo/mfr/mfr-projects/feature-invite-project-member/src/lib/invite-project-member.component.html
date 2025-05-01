@@ -1,0 +1,16 @@
+<lib-header />
+
+<div class="content">
+  <div class="content__search">
+    <mk-input-container>
+      <mk-icon icon="search" mkPrefix />
+      <input mk-input placeholder="Поиск" [(ngModel)]="searchTerm" />
+    </mk-input-container>
+  </div>
+
+  <lib-employee-table
+    [employees]="employees() | mkFilter: filterFn : searchTerm()"
+  />
+</div>
+
+<lib-footer />

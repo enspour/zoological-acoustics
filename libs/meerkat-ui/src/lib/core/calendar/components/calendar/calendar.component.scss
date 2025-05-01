@@ -1,0 +1,40 @@
+@use '../../../../mixins/layout.mixin.scss';
+
+:host {
+  width: var(--mk-calendar-width);
+  display: block;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  overflow: hidden;
+}
+
+:host.sm {
+  --mk-calendar-width: calc(7 * 32px);
+  --mk-calendar-today-size: 3px;
+  --mk-calendar-today-bottom: 3px;
+  @include layout.sm;
+  padding: 0;
+  font-size: 12px;
+}
+
+:host.md {
+  --mk-calendar-width: calc(7 * 36px);
+  --mk-calendar-today-size: 4px;
+  --mk-calendar-today-bottom: 3px;
+  @include layout.md;
+  padding: 0;
+  font-size: 12px;
+}
+
+:host.lg {
+  --mk-calendar-width: calc(7 * 40px);
+  --mk-calendar-today-size: 5px;
+  --mk-calendar-today-bottom: 6px;
+  @include layout.lg;
+  padding: 0;
+  font-size: 16px;
+}
+
+.spin {
+  border-bottom: 1px solid #dddddd;
+}

@@ -1,0 +1,19 @@
+<button class="header__btn" mk-button (click)="onCreateProject()">
+  <mk-icon icon="plus" />
+  <span>Добавить проект</span>
+</button>
+
+<mk-input-container class="header__search">
+  <mk-icon icon="search" mkPrefix />
+
+  <input
+    mk-input
+    placeholder="Поиск по проектам..."
+    [ngModel]="searchTerm()"
+    (ngModelChange)="onSearchTermChange($event)"
+  />
+</mk-input-container>
+
+<a class="header__btn btn-settings" routerLink="settings/data-fields">
+  <mk-icon icon="settings" />
+</a>

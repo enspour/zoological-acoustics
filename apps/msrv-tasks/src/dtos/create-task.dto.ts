@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsDateString, IsString, IsUUID, ValidateIf } from 'class-validator';
 
-import { CreatableTask } from '@kudu/domain';
+import { CreatableTask } from '@octo/domain';
 
 export class CreateTaskDto implements CreatableTask {
   @ApiProperty({ description: 'Title', nullable: false })

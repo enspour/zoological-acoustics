@@ -1,0 +1,23 @@
+<mk-color-plane-picker
+  class="plane"
+  [value]="point()"
+  (valueChange)="onPlanePointChange($event)"
+/>
+
+<div class="group">
+  <div class="group__pickers">
+    <mk-color-linear-picker
+      class="hue"
+      [value]="hsv.value().h / 360"
+      (valueChange)="onHuePointChange($event)"
+    />
+
+    <mk-color-linear-picker
+      class="alpha"
+      [value]="hsv.value().a"
+      (valueChange)="onAlphaPointChange($event)"
+    />
+  </div>
+
+  <div class="color"></div>
+</div>

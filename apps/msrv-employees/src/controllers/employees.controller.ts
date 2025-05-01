@@ -16,13 +16,14 @@ import {
   ApiResponse,
 } from '@nestjs/swagger';
 
-import { EmployeesService } from '@kudu/msrv-feature-employees';
-import { AuthGuard } from '@kudu/msrv-util-auth-guard';
+import { KongAuthGuard } from '@kong-nest-guard';
+
+import { EmployeesService } from '@octo/msrv-feature-employees';
 
 import { UpdateEmployeeDto } from '../dtos';
 
 @Controller('employees')
-@UseGuards(AuthGuard)
+@UseGuards(KongAuthGuard)
 @ApiCookieAuth('access-token')
 export class EmployeesController {
   constructor(private employeeService: EmployeesService) {}

@@ -1,0 +1,11 @@
+<mk-overlay [origin]="origin()" [config]="config()">
+  @let tooltip = this.tooltip();
+
+  @if (isTemplateRef(tooltip)) {
+    <ng-container [ngTemplateOutlet]="tooltip" />
+  } @else {
+    <div class="tooltip">
+      {{ tooltip }}
+    </div>
+  }
+</mk-overlay>

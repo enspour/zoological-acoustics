@@ -1,0 +1,26 @@
+<div class="header">
+  <mk-icon icon="circle-check" />
+  <div class="header__title">{{ task().title }}</div>
+
+  <lib-task-more
+    #more
+    class="more"
+    [class.more--opened]="more.isOpen()"
+    [task]="task()"
+    (byDelete)="onDelete()"
+  />
+</div>
+
+<mk-tabs class="tabs" [(currentIndex)]="currentIndex">
+  <mk-tab name="Информация">
+    <ng-template mkTabContent>
+      <lib-info-tab />
+    </ng-template>
+  </mk-tab>
+
+  <mk-tab name="Логи">
+    <ng-template mkTabContent>
+      <lib-logs-tab />
+    </ng-template>
+  </mk-tab>
+</mk-tabs>

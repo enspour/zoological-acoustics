@@ -1,0 +1,19 @@
+{
+  "name": "meerkat-utils",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/meerkat-utils/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/meerkat-utils",
+        "main": "libs/meerkat-utils/src/index.ts",
+        "tsConfig": "libs/meerkat-utils/tsconfig.lib.json",
+        "assets": ["libs/meerkat-utils/*.md"]
+      }
+    }
+  }
+}

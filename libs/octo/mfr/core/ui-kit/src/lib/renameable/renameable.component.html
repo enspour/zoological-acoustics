@@ -1,0 +1,17 @@
+@if (isEdit()) {
+  <div class="input-container">
+    <input
+      #input
+      class="input"
+      [value]="value()"
+      [placeholder]="placeholder()"
+      mkAutofocus
+      (blur)="onClose()"
+      (keydown.enter)="onEdit(input.value)"
+    />
+
+    <mk-icon icon="check" [iconSize]="18" (mousedown)="onEdit(input.value)" />
+  </div>
+} @else {
+  <ng-content />
+}

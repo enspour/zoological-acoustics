@@ -16,285 +16,283 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@kudu-date": ["libs/kudu-date/src/index.ts"],
-      "@kudu-differ": ["libs/kudu-differ/src/index.ts"],
-      "@kudu-dnd": ["libs/kudu-dnd/src/index.ts"],
-      "@kudu-flow": ["libs/kudu-flow/src/index.ts"],
-      "@kudu-ng-date": ["libs/kudu-ng-date/src/index.ts"],
-      "@kudu-ng-utils": ["libs/kudu-ng-utils/src/index.ts"],
-      "@kudu-ng-web-apis": ["libs/kudu-ng-web-apis/src/index.ts"],
-      "@kudu-ui": ["libs/kudu-ui/src/index.ts"],
-      "@kudu-ui-icons": ["libs/kudu-ui-icons/src/index.ts"],
-      "@kudu-utils": ["libs/kudu-utils/src/index.ts"],
-      "@kudu/domain": ["libs/domain/src/index.ts"],
-      "@kudu/mfr-data-access-auth": [
-        "libs/mfr/core/data-access-auth/src/index.ts"
+      "@kong-domain": ["libs/kong-domain/src/index.ts"],
+      "@kong-nest-guard": ["libs/kong-nest-guard/src/index.ts"],
+      "@kong-nest-token": ["libs/kong-nest-token/src/index.ts"],
+      "@kong/msrv-data-access-user-entities": [
+        "libs/kong/msrv/data-access-user-entities/src/index.ts"
       ],
-      "@kudu/mfr-data-access-employee": [
-        "libs/mfr/core/data-access-employee/src/index.ts"
+      "@kong/msrv-feature-auth": ["libs/kong/msrv/feature-auth/src/index.ts"],
+      "@kong/msrv-feature-user-events": [
+        "libs/kong/msrv/feature-user-events/src/index.ts"
       ],
-      "@kudu/mfr-data-access-employees": [
-        "libs/mfr/core/data-access-employees/src/index.ts"
+      "@kong/msrv-feature-users": ["libs/kong/msrv/feature-users/src/index.ts"],
+      "@meerkat-date": ["libs/meerkat-date/src/index.ts"],
+      "@meerkat-differ": ["libs/meerkat-differ/src/index.ts"],
+      "@meerkat-dnd": ["libs/meerkat-dnd/src/index.ts"],
+      "@meerkat-flow": ["libs/meerkat-flow/src/index.ts"],
+      "@meerkat-nest-errors": ["libs/meerkat-nest-errors/src/index.ts"],
+      "@meerkat-nest-event-bus": ["libs/meerkat-nest-event-bus/src/index.ts"],
+      "@meerkat-nest-pg": ["libs/meerkat-nest-pg/src/index.ts"],
+      "@meerkat-ng-date": ["libs/meerkat-ng-date/src/index.ts"],
+      "@meerkat-ng-utils": ["libs/meerkat-ng-utils/src/index.ts"],
+      "@meerkat-ng-web-apis": ["libs/meerkat-ng-web-apis/src/index.ts"],
+      "@meerkat-ui": ["libs/meerkat-ui/src/index.ts"],
+      "@meerkat-ui-icons": ["libs/meerkat-ui-icons/src/index.ts"],
+      "@meerkat-utils": ["libs/meerkat-utils/src/index.ts"],
+      "@octo/domain": ["libs/octo/domain/src/index.ts"],
+      "@octo/mfr-data-access-auth": [
+        "libs/octo/mfr/core/data-access-auth/src/index.ts"
       ],
-      "@kudu/mfr-data-access-gantt": [
-        "libs/mfr/mfr-gantt/data-access-gantt/src/index.ts"
+      "@octo/mfr-data-access-employee": [
+        "libs/octo/mfr/core/data-access-employee/src/index.ts"
       ],
-      "@kudu/mfr-data-access-kanban": [
-        "libs/mfr/mfr-kanban/data-access-kanban/src/index.ts"
+      "@octo/mfr-data-access-employees": [
+        "libs/octo/mfr/core/data-access-employees/src/index.ts"
       ],
-      "@kudu/mfr-data-access-project": [
-        "libs/mfr/core/data-access-project/src/index.ts"
+      "@octo/mfr-data-access-gantt": [
+        "libs/octo/mfr/mfr-gantt/data-access-gantt/src/index.ts"
       ],
-      "@kudu/mfr-data-access-projects": [
-        "libs/mfr/core/data-access-projects/src/index.ts"
+      "@octo/mfr-data-access-kanban": [
+        "libs/octo/mfr/mfr-kanban/data-access-kanban/src/index.ts"
       ],
-      "@kudu/mfr-data-access-projects-data-fields": [
-        "libs/mfr/core/data-access-projects-data-fields/src/index.ts"
+      "@octo/mfr-data-access-project": [
+        "libs/octo/mfr/core/data-access-project/src/index.ts"
       ],
-      "@kudu/mfr-data-access-task-boards": [
-        "libs/mfr/core/data-access-task-boards/src/index.ts"
+      "@octo/mfr-data-access-projects": [
+        "libs/octo/mfr/core/data-access-projects/src/index.ts"
       ],
-      "@kudu/mfr-data-access-task-columns": [
-        "libs/mfr/core/data-access-task-columns/src/index.ts"
+      "@octo/mfr-data-access-projects-data-fields": [
+        "libs/octo/mfr/core/data-access-projects-data-fields/src/index.ts"
       ],
-      "@kudu/mfr-data-access-tasks": [
-        "libs/mfr/core/data-access-tasks/src/index.ts"
+      "@octo/mfr-data-access-task-boards": [
+        "libs/octo/mfr/core/data-access-task-boards/src/index.ts"
       ],
-      "@kudu/mfr-data-access-user": [
-        "libs/mfr/core/data-access-user/src/index.ts"
+      "@octo/mfr-data-access-task-columns": [
+        "libs/octo/mfr/core/data-access-task-columns/src/index.ts"
       ],
-      "@kudu/mfr-feature-auth-layout": [
-        "libs/mfr/mfr-host/feature-auth-layout/src/index.ts"
+      "@octo/mfr-data-access-tasks": [
+        "libs/octo/mfr/core/data-access-tasks/src/index.ts"
       ],
-      "@kudu/mfr-feature-browse-employee": [
-        "libs/mfr/core/feature-browse-employee/src/index.ts"
+      "@octo/mfr-data-access-user": [
+        "libs/octo/mfr/core/data-access-user/src/index.ts"
       ],
-      "@kudu/mfr-feature-browse-project-access": [
-        "libs/mfr/mfr-projects/feature-browse-project-access/src/index.ts"
+      "@octo/mfr-feature-auth-layout": [
+        "libs/octo/mfr/mfr-host/feature-auth-layout/src/index.ts"
       ],
-      "@kudu/mfr-feature-browse-project-data-field": [
-        "libs/mfr/mfr-projects/feature-browse-project-data-field/src/index.ts"
+      "@octo/mfr-feature-browse-employee": [
+        "libs/octo/mfr/core/feature-browse-employee/src/index.ts"
       ],
-      "@kudu/mfr-feature-browse-task": [
-        "libs/mfr/core/feature-browse-task/src/index.ts"
+      "@octo/mfr-feature-browse-project-access": [
+        "libs/octo/mfr/mfr-projects/feature-browse-project-access/src/index.ts"
       ],
-      "@kudu/mfr-feature-create-project": [
-        "libs/mfr/mfr-projects/feature-create-project/src/index.ts"
+      "@octo/mfr-feature-browse-project-data-field": [
+        "libs/octo/mfr/mfr-projects/feature-browse-project-data-field/src/index.ts"
       ],
-      "@kudu/mfr-feature-create-project-data-field": [
-        "libs/mfr/mfr-projects/feature-create-project-data-field/src/index.ts"
+      "@octo/mfr-feature-browse-task": [
+        "libs/octo/mfr/core/feature-browse-task/src/index.ts"
       ],
-      "@kudu/mfr-feature-employee": [
-        "libs/mfr/mfr-employees/feature-employee/src/index.ts"
+      "@octo/mfr-feature-create-project": [
+        "libs/octo/mfr/mfr-projects/feature-create-project/src/index.ts"
       ],
-      "@kudu/mfr-feature-employee-contacts": [
-        "libs/mfr/mfr-employees/feature-employee-contacts/src/index.ts"
+      "@octo/mfr-feature-create-project-data-field": [
+        "libs/octo/mfr/mfr-projects/feature-create-project-data-field/src/index.ts"
       ],
-      "@kudu/mfr-feature-employee-overview": [
-        "libs/mfr/mfr-employees/feature-employee-overview/src/index.ts"
+      "@octo/mfr-feature-employee": [
+        "libs/octo/mfr/mfr-employees/feature-employee/src/index.ts"
       ],
-      "@kudu/mfr-feature-employees": [
-        "libs/mfr/mfr-employees/feature-employees/src/index.ts"
+      "@octo/mfr-feature-employee-contacts": [
+        "libs/octo/mfr/mfr-employees/feature-employee-contacts/src/index.ts"
       ],
-      "@kudu/mfr-feature-explorer": [
-        "libs/mfr/core/feature-explorer/src/index.ts"
+      "@octo/mfr-feature-employee-overview": [
+        "libs/octo/mfr/mfr-employees/feature-employee-overview/src/index.ts"
       ],
-      "@kudu/mfr-feature-gantt": [
-        "libs/mfr/mfr-gantt/feature-gantt/src/index.ts"
+      "@octo/mfr-feature-employees": [
+        "libs/octo/mfr/mfr-employees/feature-employees/src/index.ts"
       ],
-      "@kudu/mfr-feature-gantt-chart": [
-        "libs/mfr/mfr-gantt/feature-gantt-chart/src/index.ts"
+      "@octo/mfr-feature-explorer": [
+        "libs/octo/mfr/core/feature-explorer/src/index.ts"
       ],
-      "@kudu/mfr-feature-gantt-layout": [
-        "libs/mfr/mfr-gantt/feature-gantt-layout/src/index.ts"
+      "@octo/mfr-feature-gantt": [
+        "libs/octo/mfr/mfr-gantt/feature-gantt/src/index.ts"
       ],
-      "@kudu/mfr-feature-gantt-sidebar": [
-        "libs/mfr/mfr-gantt/feature-gantt-sidebar/src/index.ts"
+      "@octo/mfr-feature-gantt-chart": [
+        "libs/octo/mfr/mfr-gantt/feature-gantt-chart/src/index.ts"
       ],
-      "@kudu/mfr-feature-gantt-toolbar": [
-        "libs/mfr/mfr-gantt/feature-gantt-toolbar/src/index.ts"
+      "@octo/mfr-feature-gantt-layout": [
+        "libs/octo/mfr/mfr-gantt/feature-gantt-layout/src/index.ts"
       ],
-      "@kudu/mfr-feature-home": ["libs/mfr/mfr-host/feature-home/src/index.ts"],
-      "@kudu/mfr-feature-invite-employee": [
-        "libs/mfr/mfr-employees/feature-invite-employee/src/index.ts"
+      "@octo/mfr-feature-gantt-sidebar": [
+        "libs/octo/mfr/mfr-gantt/feature-gantt-sidebar/src/index.ts"
       ],
-      "@kudu/mfr-feature-invite-project-member": [
-        "libs/mfr/mfr-projects/feature-invite-project-member/src/index.ts"
+      "@octo/mfr-feature-gantt-toolbar": [
+        "libs/octo/mfr/mfr-gantt/feature-gantt-toolbar/src/index.ts"
       ],
-      "@kudu/mfr-feature-kanban": [
-        "libs/mfr/mfr-kanban/feature-kanban/src/index.ts"
+      "@octo/mfr-feature-home": [
+        "libs/octo/mfr/mfr-host/feature-home/src/index.ts"
       ],
-      "@kudu/mfr-feature-kanban-board": [
-        "libs/mfr/mfr-kanban/feature-kanban-board/src/index.ts"
+      "@octo/mfr-feature-invite-employee": [
+        "libs/octo/mfr/mfr-employees/feature-invite-employee/src/index.ts"
       ],
-      "@kudu/mfr-feature-kanban-toolbar": [
-        "libs/mfr/mfr-kanban/feature-kanban-toolbar/src/index.ts"
+      "@octo/mfr-feature-invite-project-member": [
+        "libs/octo/mfr/mfr-projects/feature-invite-project-member/src/index.ts"
       ],
-      "@kudu/mfr-feature-login": [
-        "libs/mfr/mfr-host/feature-login/src/index.ts"
+      "@octo/mfr-feature-kanban": [
+        "libs/octo/mfr/mfr-kanban/feature-kanban/src/index.ts"
       ],
-      "@kudu/mfr-feature-organization": [
-        "libs/mfr/mfr-organization/feature-organization/src/index.ts"
+      "@octo/mfr-feature-kanban-board": [
+        "libs/octo/mfr/mfr-kanban/feature-kanban-board/src/index.ts"
       ],
-      "@kudu/mfr-feature-organization-overview": [
-        "libs/mfr/mfr-organization/feature-organization-overview/src/index.ts"
+      "@octo/mfr-feature-kanban-toolbar": [
+        "libs/octo/mfr/mfr-kanban/feature-kanban-toolbar/src/index.ts"
       ],
-      "@kudu/mfr-feature-organization-structure": [
-        "libs/mfr/mfr-organization/feature-organization-structure/src/index.ts"
+      "@octo/mfr-feature-login": [
+        "libs/octo/mfr/mfr-host/feature-login/src/index.ts"
       ],
-      "@kudu/mfr-feature-project": [
-        "libs/mfr/mfr-projects/feature-project/src/index.ts"
+      "@octo/mfr-feature-organization": [
+        "libs/octo/mfr/mfr-organization/feature-organization/src/index.ts"
       ],
-      "@kudu/mfr-feature-project-overview": [
-        "libs/mfr/mfr-projects/feature-project-overview/src/index.ts"
+      "@octo/mfr-feature-organization-overview": [
+        "libs/octo/mfr/mfr-organization/feature-organization-overview/src/index.ts"
       ],
-      "@kudu/mfr-feature-project-settings": [
-        "libs/mfr/mfr-projects/feature-project-settings/src/index.ts"
+      "@octo/mfr-feature-organization-structure": [
+        "libs/octo/mfr/mfr-organization/feature-organization-structure/src/index.ts"
       ],
-      "@kudu/mfr-feature-project-settings-access": [
-        "libs/mfr/mfr-projects/feature-project-settings-access/src/index.ts"
+      "@octo/mfr-feature-project": [
+        "libs/octo/mfr/mfr-projects/feature-project/src/index.ts"
       ],
-      "@kudu/mfr-feature-project-settings-boards": [
-        "libs/mfr/mfr-projects/feature-project-settings-boards/src/index.ts"
+      "@octo/mfr-feature-project-overview": [
+        "libs/octo/mfr/mfr-projects/feature-project-overview/src/index.ts"
       ],
-      "@kudu/mfr-feature-project-settings-general": [
-        "libs/mfr/mfr-projects/feature-project-settings-general/src/index.ts"
+      "@octo/mfr-feature-project-settings": [
+        "libs/octo/mfr/mfr-projects/feature-project-settings/src/index.ts"
       ],
-      "@kudu/mfr-feature-projects": [
-        "libs/mfr/mfr-projects/feature-projects/src/index.ts"
+      "@octo/mfr-feature-project-settings-access": [
+        "libs/octo/mfr/mfr-projects/feature-project-settings-access/src/index.ts"
       ],
-      "@kudu/mfr-feature-projects-data-fields": [
-        "libs/mfr/mfr-projects/feature-projects-data-fields/src/index.ts"
+      "@octo/mfr-feature-project-settings-boards": [
+        "libs/octo/mfr/mfr-projects/feature-project-settings-boards/src/index.ts"
       ],
-      "@kudu/mfr-feature-projects-settings": [
-        "libs/mfr/mfr-projects/feature-projects-settings/src/index.ts"
+      "@octo/mfr-feature-project-settings-general": [
+        "libs/octo/mfr/mfr-projects/feature-project-settings-general/src/index.ts"
       ],
-      "@kudu/mfr-feature-sidebar": [
-        "libs/mfr/mfr-host/feature-sidebar/src/index.ts"
+      "@octo/mfr-feature-projects": [
+        "libs/octo/mfr/mfr-projects/feature-projects/src/index.ts"
       ],
-      "@kudu/mfr-feature-signup": [
-        "libs/mfr/mfr-host/feature-signup/src/index.ts"
+      "@octo/mfr-feature-projects-data-fields": [
+        "libs/octo/mfr/mfr-projects/feature-projects-data-fields/src/index.ts"
       ],
-      "@kudu/mfr-feature-tasks": [
-        "libs/mfr/mfr-tasks/feature-tasks/src/index.ts"
+      "@octo/mfr-feature-projects-settings": [
+        "libs/octo/mfr/mfr-projects/feature-projects-settings/src/index.ts"
       ],
-      "@kudu/mfr-organization/Routes": [
+      "@octo/mfr-feature-sidebar": [
+        "libs/octo/mfr/mfr-host/feature-sidebar/src/index.ts"
+      ],
+      "@octo/mfr-feature-signup": [
+        "libs/octo/mfr/mfr-host/feature-signup/src/index.ts"
+      ],
+      "@octo/mfr-feature-tasks": [
+        "libs/octo/mfr/mfr-tasks/feature-tasks/src/index.ts"
+      ],
+      "@octo/mfr-organization/Routes": [
         "apps/mfr-organization/src/app/remote-entry/entry.routes.ts"
       ],
-      "@kudu/mfr-projects/Routes": [
+      "@octo/mfr-projects/Routes": [
         "apps/mfr-projects/src/app/remote-entry/entry.routes.ts"
       ],
-      "@kudu/mfr-ui-employee": ["libs/mfr/core/ui-employee/src/index.ts"],
-      "@kudu/mfr-ui-gantt-board": [
-        "libs/mfr/mfr-gantt/ui-gantt-board/src/index.ts"
+      "@octo/mfr-ui-employee": ["libs/octo/mfr/core/ui-employee/src/index.ts"],
+      "@octo/mfr-ui-gantt-board": [
+        "libs/octo/mfr/mfr-gantt/ui-gantt-board/src/index.ts"
       ],
-      "@kudu/mfr-ui-gantt-task": [
-        "libs/mfr/mfr-gantt/ui-gantt-task/src/index.ts"
+      "@octo/mfr-ui-gantt-task": [
+        "libs/octo/mfr/mfr-gantt/ui-gantt-task/src/index.ts"
       ],
-      "@kudu/mfr-ui-gantt-timeline": [
-        "libs/mfr/mfr-gantt/ui-gantt-timeline/src/index.ts"
+      "@octo/mfr-ui-gantt-timeline": [
+        "libs/octo/mfr/mfr-gantt/ui-gantt-timeline/src/index.ts"
       ],
-      "@kudu/mfr-ui-kanban-board-tabs": [
-        "libs/mfr/mfr-kanban/ui-kanban-board-tabs/src/index.ts"
+      "@octo/mfr-ui-kanban-board-tabs": [
+        "libs/octo/mfr/mfr-kanban/ui-kanban-board-tabs/src/index.ts"
       ],
-      "@kudu/mfr-ui-kanban-column": [
-        "libs/mfr/mfr-kanban/ui-kanban-column/src/index.ts"
+      "@octo/mfr-ui-kanban-column": [
+        "libs/octo/mfr/mfr-kanban/ui-kanban-column/src/index.ts"
       ],
-      "@kudu/mfr-ui-kanban-task": [
-        "libs/mfr/mfr-kanban/ui-kanban-task/src/index.ts"
+      "@octo/mfr-ui-kanban-task": [
+        "libs/octo/mfr/mfr-kanban/ui-kanban-task/src/index.ts"
       ],
-      "@kudu/mfr-ui-kit": ["libs/mfr/core/ui-kit/src/index.ts"],
-      "@kudu/mfr-ui-modals": ["libs/mfr/core/ui-modals/src/index.ts"],
-      "@kudu/mfr-ui-project": ["libs/mfr/core/ui-project/src/index.ts"],
-      "@kudu/mfr-ui-project-data-field": [
-        "libs/mfr/mfr-projects/ui-project-data-field/src/index.ts"
+      "@octo/mfr-ui-kit": ["libs/octo/mfr/core/ui-kit/src/index.ts"],
+      "@octo/mfr-ui-modals": ["libs/octo/mfr/core/ui-modals/src/index.ts"],
+      "@octo/mfr-ui-project": ["libs/octo/mfr/core/ui-project/src/index.ts"],
+      "@octo/mfr-ui-project-data-field": [
+        "libs/octo/mfr/mfr-projects/ui-project-data-field/src/index.ts"
       ],
-      "@kudu/mfr-ui-task": ["libs/mfr/core/ui-task/src/index.ts"],
-      "@kudu/mfr-ui-task-board": ["libs/mfr/core/ui-task-board/src/index.ts"],
-      "@kudu/mfr-ui-task-column": ["libs/mfr/core/ui-task-column/src/index.ts"],
-      "@kudu/mfr-util-auth-guard": [
-        "libs/mfr/core/util-auth-guard/src/index.ts"
+      "@octo/mfr-ui-task": ["libs/octo/mfr/core/ui-task/src/index.ts"],
+      "@octo/mfr-ui-task-board": [
+        "libs/octo/mfr/core/ui-task-board/src/index.ts"
       ],
-      "@kudu/mfr-util-auth-interceptor": [
-        "libs/mfr/core/util-auth-interceptor/src/index.ts"
+      "@octo/mfr-ui-task-column": [
+        "libs/octo/mfr/core/ui-task-column/src/index.ts"
       ],
-      "@kudu/mfr-util-cookie": ["libs/mfr/core/util-cookie/src/index.ts"],
-      "@kudu/mfr-util-employees": ["libs/mfr/core/util-employees/src/index.ts"],
-      "@kudu/mfr-util-gantt-chart": [
-        "libs/mfr/mfr-gantt/util-gantt-chart/src/index.ts"
+      "@octo/mfr-util-auth-guard": [
+        "libs/octo/mfr/core/util-auth-guard/src/index.ts"
       ],
-      "@kudu/mfr-util-http": ["libs/mfr/core/util-http/src/index.ts"],
-      "@kudu/mfr-util-jwt": ["libs/mfr/core/util-jwt/src/index.ts"],
-      "@kudu/mfr-util-kanban-last-board": [
-        "libs/mfr/mfr-kanban/util-kanban-last-board/src/index.ts"
+      "@octo/mfr-util-auth-interceptor": [
+        "libs/octo/mfr/core/util-auth-interceptor/src/index.ts"
       ],
-      "@kudu/mfr-util-local-storage": [
-        "libs/mfr/core/util-local-storage/src/index.ts"
+      "@octo/mfr-util-cookie": ["libs/octo/mfr/core/util-cookie/src/index.ts"],
+      "@octo/mfr-util-employees": [
+        "libs/octo/mfr/core/util-employees/src/index.ts"
       ],
-      "@kudu/mfr-util-project-data-field": [
-        "libs/mfr/mfr-projects/util-project-data-field/src/index.ts"
+      "@octo/mfr-util-gantt-chart": [
+        "libs/octo/mfr/mfr-gantt/util-gantt-chart/src/index.ts"
       ],
-      "@kudu/mfr-util-tasks": ["libs/mfr/core/util-tasks/src/index.ts"],
-      "@kudu/mfr-util-unique-component": [
-        "libs/mfr/core/util-unique-component/src/index.ts"
+      "@octo/mfr-util-http": ["libs/octo/mfr/core/util-http/src/index.ts"],
+      "@octo/mfr-util-jwt": ["libs/octo/mfr/core/util-jwt/src/index.ts"],
+      "@octo/mfr-util-kanban-last-board": [
+        "libs/octo/mfr/mfr-kanban/util-kanban-last-board/src/index.ts"
       ],
-      "@kudu/mfr-util-user-redirection": [
-        "libs/mfr/core/util-user-redirection/src/index.ts"
+      "@octo/mfr-util-local-storage": [
+        "libs/octo/mfr/core/util-local-storage/src/index.ts"
       ],
-      "@kudu/msrv-data-access-postgres": [
-        "libs/msrv/core/data-access-postgres/src/index.ts"
+      "@octo/mfr-util-project-data-field": [
+        "libs/octo/mfr/mfr-projects/util-project-data-field/src/index.ts"
       ],
-      "@kudu/msrv-data-access-project-entities": [
-        "libs/msrv/msrv-projects/data-access-project-entities/src/index.ts"
+      "@octo/mfr-util-tasks": ["libs/octo/mfr/core/util-tasks/src/index.ts"],
+      "@octo/mfr-util-unique-component": [
+        "libs/octo/mfr/core/util-unique-component/src/index.ts"
       ],
-      "@kudu/msrv-feature-auth": [
-        "libs/msrv/msrv-identity/feature-auth/src/index.ts"
+      "@octo/mfr-util-user-redirection": [
+        "libs/octo/mfr/core/util-user-redirection/src/index.ts"
       ],
-      "@kudu/msrv-feature-employee-duplication": [
-        "libs/msrv/core/feature-employee-duplication/src/index.ts"
+      "@octo/msrv-data-access-project-entities": [
+        "libs/octo/msrv/msrv-projects/data-access-project-entities/src/index.ts"
       ],
-      "@kudu/msrv-feature-employee-events": [
-        "libs/msrv/msrv-employees/feature-employee-events/src/index.ts"
+      "@octo/msrv-feature-employee-duplication": [
+        "libs/octo/msrv/core/feature-employee-duplication/src/index.ts"
       ],
-      "@kudu/msrv-feature-employees": [
-        "libs/msrv/msrv-employees/feature-employees/src/index.ts"
+      "@octo/msrv-feature-employee-events": [
+        "libs/octo/msrv/msrv-employees/feature-employee-events/src/index.ts"
       ],
-      "@kudu/msrv-feature-project-data-fields": [
-        "libs/msrv/msrv-projects/feature-project-data-fields/src/index.ts"
+      "@octo/msrv-feature-employees": [
+        "libs/octo/msrv/msrv-employees/feature-employees/src/index.ts"
       ],
-      "@kudu/msrv-feature-project-events": [
-        "libs/msrv/msrv-projects/feature-project-events/src/index.ts"
+      "@octo/msrv-feature-project-data-fields": [
+        "libs/octo/msrv/msrv-projects/feature-project-data-fields/src/index.ts"
       ],
-      "@kudu/msrv-feature-project-members": [
-        "libs/msrv/msrv-projects/feature-project-members/src/index.ts"
+      "@octo/msrv-feature-project-events": [
+        "libs/octo/msrv/msrv-projects/feature-project-events/src/index.ts"
       ],
-      "@kudu/msrv-feature-projects": [
-        "libs/msrv/msrv-projects/feature-projects/src/index.ts"
+      "@octo/msrv-feature-project-members": [
+        "libs/octo/msrv/msrv-projects/feature-project-members/src/index.ts"
       ],
-      "@kudu/msrv-feature-tasks": [
-        "libs/msrv/msrv-tasks/feature-tasks/src/index.ts"
+      "@octo/msrv-feature-projects": [
+        "libs/octo/msrv/msrv-projects/feature-projects/src/index.ts"
       ],
-      "@kudu/msrv-feature-token": ["libs/msrv/core/feature-token/src/index.ts"],
-      "@kudu/msrv-feature-user-duplication": [
-        "libs/msrv/core/feature-user-duplication/src/index.ts"
+      "@octo/msrv-feature-tasks": [
+        "libs/octo/msrv/msrv-tasks/feature-tasks/src/index.ts"
       ],
-      "@kudu/msrv-feature-user-events": [
-        "libs/msrv/msrv-identity/feature-user-events/src/index.ts"
-      ],
-      "@kudu/msrv-feature-users": [
-        "libs/msrv/msrv-identity/feature-users/src/index.ts"
-      ],
-      "@kudu/msrv-util-auth-guard": [
-        "libs/msrv/core/util-auth-guard/src/index.ts"
-      ],
-      "@kudu/msrv-util-error-handling": [
-        "libs/msrv/core/util-error-handling/src/index.ts"
-      ],
-      "@kudu/msrv-util-event-bus": [
-        "libs/msrv/core/util-event-bus/src/index.ts"
-      ],
-      "@kudu/msrv-util-jwt": ["libs/msrv/core/util-jwt/src/index.ts"],
-      "@kudu/msrv-util-password": ["libs/msrv/core/util-password/src/index.ts"]
+      "@octo/msrv-feature-user-duplication": [
+        "libs/octo/msrv/core/feature-user-duplication/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

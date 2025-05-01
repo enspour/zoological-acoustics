@@ -1,0 +1,7 @@
+<div class="years">
+  @for (year of years(); track $index) {
+    <button mk-button class="year" (click)="onYearClick(year)">
+      {{ year }}
+    </button>
+  }
+</div>

@@ -1,0 +1,9 @@
+<div class="header__title">
+  <span>Дополнительное поле</span>
+
+  <mk-chip mkSize="sm">
+    {{ field.type | getTypeAlias }}
+  </mk-chip>
+</div>
+
+<mk-icon class="header__icon" icon="close" (click)="onClose()" />

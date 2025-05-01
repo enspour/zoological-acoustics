@@ -1,0 +1,26 @@
+<table mk-table mkSort #sortRef="mkSort" [(mkSortConfig)]="sortConfig">
+  <thead>
+    <tr>
+      <th mk-th [style.width.px]="52"></th>
+      <th mk-th mkThSort="name">Название</th>
+      <th mk-th [style.width.px]="52">
+        <mk-icon icon="table-options" mkTooltip="Опции" />
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @let projects = this.projects() | mkSort: sortRef.config();
+
+    @for (project of projects; track project.uuid) {
+      <tr (click)="onClick(project)">
+        <td mk-td>
+          <mk-icon class="project__star" icon="star" />
+        </td>
+
+        <td mk-td>{{ project.name }}</td>
+        <td mk-td></td>
+      </tr>
+    }
+  </tbody>
+</table>

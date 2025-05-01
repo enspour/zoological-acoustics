@@ -1,0 +1,8 @@
+<button class="btn btn--delete" mk-button (click)="onDelete()">
+  <mk-icon icon="trash" />
+  <span>Удалить</span>
+</button>
+
+<button class="btn" mk-button (click)="onSave()" [disabled]="!form.valid">
+  <span>Сохранить</span>
+</button>

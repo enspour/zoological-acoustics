@@ -12,20 +12,20 @@ import {
 } from '@angular/core';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 
-import { provideAuthDataAccess } from '@kudu/mfr-data-access-auth';
-import { provideEmployeeDataAccess } from '@kudu/mfr-data-access-employee';
-import { provideEmployeesDataAccess } from '@kudu/mfr-data-access-employees';
-import { provideProjectDataAccess } from '@kudu/mfr-data-access-project';
-import { provideProjectsDataAccess } from '@kudu/mfr-data-access-projects';
-import { provideProjectDataFieldsDataAccess } from '@kudu/mfr-data-access-projects-data-fields';
-import { provideTaskBoardsDataAccess } from '@kudu/mfr-data-access-task-boards';
-import { provideTaskColumnsDataAccess } from '@kudu/mfr-data-access-task-columns';
-import { provideTasksDataAccess } from '@kudu/mfr-data-access-tasks';
-import { provideUserDataAccess } from '@kudu/mfr-data-access-user';
+import { provideAuthDataAccess } from '@octo/mfr-data-access-auth';
+import { provideEmployeeDataAccess } from '@octo/mfr-data-access-employee';
+import { provideEmployeesDataAccess } from '@octo/mfr-data-access-employees';
+import { provideProjectDataAccess } from '@octo/mfr-data-access-project';
+import { provideProjectsDataAccess } from '@octo/mfr-data-access-projects';
+import { provideProjectDataFieldsDataAccess } from '@octo/mfr-data-access-projects-data-fields';
+import { provideTaskBoardsDataAccess } from '@octo/mfr-data-access-task-boards';
+import { provideTaskColumnsDataAccess } from '@octo/mfr-data-access-task-columns';
+import { provideTasksDataAccess } from '@octo/mfr-data-access-tasks';
+import { provideUserDataAccess } from '@octo/mfr-data-access-user';
 
-import { provideExplorer } from '@kudu/mfr-feature-explorer';
+import { provideExplorer } from '@octo/mfr-feature-explorer';
 
-import { AuthInterceptor } from '@kudu/mfr-util-auth-interceptor';
+import { AuthInterceptor } from '@octo/mfr-util-auth-interceptor';
 
 import { appRoutes } from './app.routes';
 

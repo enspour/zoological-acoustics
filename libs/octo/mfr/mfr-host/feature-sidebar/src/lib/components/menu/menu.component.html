@@ -1,0 +1,17 @@
+<mk-menu class="menu" [class.menu--opened]="isOpen()">
+  @for (app of apps; track $index) {
+    <a
+      mk-menu-link
+      [href]="app.href"
+      [exact]="app.href === '/'"
+      [mkTooltip]="app.title"
+      mkTooltipPlacement="right"
+      [mkTooltipDisabled]="isOpen()"
+    >
+      <div class="menu__item">
+        <mk-icon [icon]="app.icon" />
+        <div class="menu__item-title">{{ app.title }}</div>
+      </div>
+    </a>
+  }
+</mk-menu>

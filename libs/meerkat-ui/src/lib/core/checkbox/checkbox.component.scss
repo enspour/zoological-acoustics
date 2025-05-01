@@ -1,0 +1,86 @@
+:host {
+  --mk-checkbox-active: #000000;
+  --mk-checkbox-active-inner: #fff;
+  --mk-checkbox-focus: 2px rgba(00, 00, 00, 0.3);
+  --mk-checkbox-border: #000000;
+  --mk-checkbox-border-hover: #000000;
+  --mk-checkbox-background: #fff;
+  --mk-checkbox-disabled: #f6f8ff;
+  --mk-checkbox-disabled-inner: #e1e6f9;
+}
+
+:host.sm {
+  --mk-checkbox-size: 16px;
+}
+
+:host.md {
+  --mk-checkbox-size: 18px;
+}
+
+:host.lg {
+  --mk-checkbox-size: 20px;
+}
+
+:host {
+  appearance: none;
+  position: relative;
+  width: var(--mk-checkbox-size);
+  height: var(--mk-checkbox-size);
+  border-radius: 4px;
+  border: 1px solid var(--background, var(--mk-checkbox-border));
+  background-color: var(--border, var(--mk-checkbox-background));
+  outline: none;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s,
+    box-shadow 0.2s;
+
+  cursor: pointer;
+}
+
+:host:after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  display: block;
+  width: 6px;
+  height: 9px;
+  border: 2px solid var(--mk-checkbox-active-inner);
+  border-top: 0;
+  border-left: 0;
+  opacity: var(--opacity, 0);
+  transform: rotate(var(--rotate, 20deg));
+  transition:
+    transform var(--d-t, 0.3s) var(--d-t-e, ease),
+    opacity var(--d-o, 0.2s);
+}
+
+:host:checked {
+  --border: var(--mk-checkbox-active);
+  --background: var(--mk-checkbox-active);
+  --opacity: 1;
+  --rotate: 43deg;
+  --d-o: 0.3s;
+  --d-t: 0.6s;
+  --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
+}
+
+:host:disabled {
+  --border: var(--mk-checkbox-disabled);
+  opacity: 0.9;
+  cursor: not-allowed;
+}
+
+:host:disabled:checked {
+  --border: var(--mk-checkbox-disabled-inner);
+  --background: var(--mk-checkbox-border);
+}
+
+:host:hover:not(:checked):not(:disabled) {
+  --background: var(--mk-checkbox-border-hover);
+}
+
+:host:focus {
+  box-shadow: 0 0 0 var(--mk-checkbox-focus);
+}

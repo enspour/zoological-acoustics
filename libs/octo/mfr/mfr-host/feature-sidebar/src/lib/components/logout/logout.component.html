@@ -1,0 +1,13 @@
+<button
+  class="logout"
+  mk-button
+  mkTooltip="Завершить сессию"
+  mkTooltipPlacement="right"
+  (click)="onLogout()"
+>
+  <mk-icon icon="logout" />
+
+  @if (isOpen()) {
+    <div class="details">Завершить сессию</div>
+  }
+</button>

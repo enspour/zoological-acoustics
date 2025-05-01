@@ -1,0 +1,35 @@
+<header class="header"></header>
+
+<mk-accordion class="boards" [multiple]="true">
+  @for (board of boards(); track board.uuid) {
+    @let tasks = this.tasks() | mkFilter: filterByBoard : board;
+
+    @if (!user() || tasks.length !== 0) {
+      <mk-accordion-item class="board" [isOpen]="true">
+        <div class="board__header">
+          <div>{{ board.title }}</div>
+
+          <lib-task-board-more
+            [board]="board"
+            (click)="$event.stopPropagation()"
+          />
+        </div>
+
+        <ng-template mkAccordionItemContent>
+          <lib-task-table
+            [tasks]="tasks"
+            [employees]="employees()"
+            [sortConfig]="sortConfig()"
+            (sortConfigChange)="onSortConfigChange($event)"
+            (byTaskClick)="onTaskClick($event)"
+          />
+
+          <button class="task__creation">
+            <mk-icon icon="plus" [iconSize]="16" />
+            <div>Добавить задачу</div>
+          </button>
+        </ng-template>
+      </mk-accordion-item>
+    }
+  }
+</mk-accordion>

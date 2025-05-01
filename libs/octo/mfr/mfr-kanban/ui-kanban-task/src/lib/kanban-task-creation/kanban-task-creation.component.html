@@ -1,0 +1,20 @@
+@if (!isCreating()) {
+  <button class="btn" (click)="onStart()">
+    <mk-icon icon="plus" [iconSize]="16" />
+    <div>Добавить задачу</div>
+  </button>
+} @else {
+  <div class="task">
+    <div
+      #input
+      mk-editable
+      class="task__title"
+      placeholder="Заголовок"
+      tabindex="1"
+      (keydown.enter)="$event.preventDefault(); onCreate(input.getValue())"
+      (keydown.escape)="onClose()"
+      (blur)="onClose()"
+      mkAutofocus
+    ></div>
+  </div>
+}

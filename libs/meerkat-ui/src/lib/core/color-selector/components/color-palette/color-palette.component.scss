@@ -1,0 +1,46 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+:host.sm {
+  --mk-color-palette-size: 16px;
+  --mk-color-palette-check-size: 7px;
+}
+
+:host.md {
+  --mk-color-palette-size: 20px;
+  --mk-color-palette-check-size: 8px;
+}
+
+:host.lg {
+  --mk-color-palette-size: 24px;
+  --mk-color-palette-check-size: 10px;
+}
+
+.color {
+  width: var(--mk-color-palette-size);
+  height: var(--mk-color-palette-size);
+  background-color: var(--mk-color-palette-color);
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.color--active {
+  position: relative;
+  border: 2px solid rgba(#000000, 0.2);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: calc(50% - 1px);
+    width: var(--mk-color-palette-check-size);
+    height: calc(var(--mk-color-palette-check-size) / 2);
+    display: block;
+    border-left: 2px solid rgba(#000000, 0.4);
+    border-bottom: 2px solid rgba(#000000, 0.4);
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}

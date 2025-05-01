@@ -1,0 +1,24 @@
+<div class="header">
+  <div class="header__title">Создание проекта</div>
+  <mk-icon class="header__icon" icon="close" (click)="onClose()" />
+</div>
+
+<form class="form" [formGroup]="form">
+  <mk-input-container>
+    <input
+      mk-input
+      formControlName="name"
+      placeholder="Название"
+      mkAutofocus
+    />
+  </mk-input-container>
+
+  <button
+    class="form__btn"
+    mk-button
+    [disabled]="!form.valid"
+    (click)="onCreate()"
+  >
+    Создать проект
+  </button>
+</form>

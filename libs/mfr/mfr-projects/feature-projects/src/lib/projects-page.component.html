@@ -1,8 +1,0 @@
-<lib-header [searchTerm]="searchTerm() || ''" />
-
-<lib-project-table
-  [projects]="this.projects() | kuduFilter: filterFn : searchTerm() || ''"
-  (byProjectClick)="onClickProject($event)"
-  [sortConfig]="sortConfig()"
-  (sortConfigChange)="onSortConfigChange($event)"
-/>

@@ -7,7 +7,7 @@ import {
 } from '@nestjs/swagger';
 import { Request, Response } from 'express';
 
-import { AuthService } from '@kudu/msrv-feature-auth';
+import { AuthService } from '@kong/msrv-feature-auth';
 
 import { LoginDto, SignupDto } from '../dtos';
 

@@ -1,16 +1,16 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { PostgresModule } from '@kudu/msrv-data-access-postgres';
+import { MkPostgresModule } from '@meerkat-nest-pg';
+
+import { KongTokenModule } from '@kong-nest-token';
 
 import {
   TaskBoardEntity,
   TaskColumnEntity,
   TaskEntity,
   TasksModule,
-} from '@kudu/msrv-feature-tasks';
-
-import { TokenModule } from '@kudu/msrv-feature-token';
+} from '@octo/msrv-feature-tasks';
 
 import { AppController } from './controllers/app.controller';
 import { TaskBoardsController } from './controllers/task-boards.controller';
@@ -20,13 +20,13 @@ import { TasksController } from './controllers/tasks.controller';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    PostgresModule.forRootAsync([
+    MkPostgresModule.forRootAsync([
       TaskEntity,
       TaskBoardEntity,
       TaskColumnEntity,
     ]),
+    KongTokenModule,
     TasksModule,
-    TokenModule,
   ],
   controllers: [
     AppController,

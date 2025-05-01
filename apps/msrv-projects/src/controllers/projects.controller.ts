@@ -13,14 +13,14 @@ import {
 } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 
-import { ProjectsService } from '@kudu/msrv-feature-projects';
+import { KongAuthGuard } from '@kong-nest-guard';
 
-import { AuthGuard } from '@kudu/msrv-util-auth-guard';
+import { ProjectsService } from '@octo/msrv-feature-projects';
 
 import { CreateProjectDto, UpdateProjectDto } from '../dtos';
 
 @Controller('projects')
-@UseGuards(AuthGuard)
+@UseGuards(KongAuthGuard)
 export class ProjectsController {
   constructor(private projectsService: ProjectsService) {}
 

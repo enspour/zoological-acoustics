@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEnum, IsNotEmpty, IsString } from 'class-validator';
 
-import { CreatableProjectDataField, ProjectDataFieldType } from '@kudu/domain';
+import { CreatableProjectDataField, ProjectDataFieldType } from '@octo/domain';
 
 export class CreateProjectDataFieldDto implements CreatableProjectDataField {
   @ApiProperty({ description: 'Name', nullable: false })

@@ -1,0 +1,8 @@
+<lib-header [searchTerm]="searchTerm()" />
+
+<lib-employee-table
+  [employees]="this.employees() | mkFilter: filterFn : searchTerm() || ''"
+  (byEmployeeClick)="onEmployeeClick($event)"
+  [sortConfig]="sortConfig()"
+  (sortConfigChange)="onSortConfigChange($event)"
+/>

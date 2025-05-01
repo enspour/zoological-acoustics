@@ -1,0 +1,22 @@
+<table mk-table mkSort #sortRef="mkSort" [(mkSortConfig)]="sortConfig">
+  <thead>
+    <tr>
+      <th mk-th [style.width.px]="52"></th>
+      <th mk-th mkThSort="name">Название</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @let members = this.members() | mkSort: sortRef.config();
+
+    @for (member of members; track member.uuid) {
+      <tr (click)="onClick(member)">
+        <td mk-td>
+          <lib-employee-avatar [avatar]="member" />
+        </td>
+
+        <td mk-td>{{ member.name }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

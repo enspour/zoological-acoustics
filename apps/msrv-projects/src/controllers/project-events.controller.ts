@@ -1,11 +1,14 @@
-import { Controller } from '@nestjs/common';
+import { Controller, UseGuards } from '@nestjs/common';
 import { EventPattern, Payload } from '@nestjs/microservices';
 
-import { Project } from '@kudu/domain';
+import { KongAuthGuard } from '@kong-nest-guard';
 
-import { ProjectMembersService } from '@kudu/msrv-feature-project-members';
+import { Project } from '@octo/domain';
+
+import { ProjectMembersService } from '@octo/msrv-feature-project-members';
 
 @Controller()
+@UseGuards(KongAuthGuard)
 export class ProjectEventsController {
   constructor(private projectMembersService: ProjectMembersService) {}
 

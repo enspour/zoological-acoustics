@@ -1,0 +1,56 @@
+<table
+  mk-table
+  mkSort
+  #sortRef="mkSort"
+  [(mkSortConfig)]="sortConfig"
+  [mkSortFn]="sortFn"
+>
+  <thead>
+    <tr>
+      <th mk-th></th>
+      <th mk-th [style.width.px]="52"></th>
+      <th mk-th mkThSort="title">Название</th>
+      <th mk-th [style.width.%]="10">Исполнители</th>
+      <th mk-th mkThSort="column" [style.width.px]="160">Статус</th>
+      <th mk-th mkThSort="startDate" [style.width.%]="10">Начало</th>
+      <th mk-th mkThSort="endDate" [style.width.%]="10">Завершение</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @let tasks = this.tasks() | mkSort: sortRef.config();
+
+    @for (task of tasks; track task.uuid) {
+      <tr (click)="onTaskClick(task)">
+        <td mk-td></td>
+
+        <td mk-td>
+          <mk-icon class="icon" icon="circle-check" />
+        </td>
+
+        <td mk-td>{{ task.title }}</td>
+
+        <td mk-td>
+          <lib-employee-picker
+            [value]="employees() | getEmployeesByUuid: task.executorUuids"
+            [employees]="employees()"
+            [multiple]="true"
+            (byClose)="onTaskExecutorsChange(task, $event)"
+            (click)="$event.stopPropagation()"
+          />
+        </td>
+
+        <td mk-td>
+          <lib-task-status
+            [task]="task"
+            [style.max-width.px]="138"
+            (click)="$event.stopPropagation()"
+          />
+        </td>
+
+        <td mk-td>{{ task.startDate | date: 'dd.MM.yyyy' }}</td>
+        <td mk-td>{{ task.endDate | date: 'dd.MM.yyyy' }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

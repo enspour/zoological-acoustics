@@ -1,0 +1,9 @@
+{
+  "name": "kong-msrv-feature-user-events",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/kong/msrv/feature-user-events/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project feature-user-events --web",
+  "targets": {}
+}

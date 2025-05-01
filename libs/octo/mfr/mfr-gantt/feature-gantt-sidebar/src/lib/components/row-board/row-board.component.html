@@ -1,0 +1,20 @@
+<button (click)="onToggle()">
+  @if (row().isOpen) {
+    <mk-icon icon="chevron-up" />
+  } @else {
+    <mk-icon icon="chevron-down" />
+  }
+</button>
+
+<lib-renameable [value]="row().board.title" [(isEdit)]="isEdit">
+  <div class="title">{{ row().board.title }}</div>
+</lib-renameable>
+
+<lib-task-board-more
+  #more
+  class="more"
+  [class.more--opened]="more.isOpen()"
+  [board]="row().board"
+  (byRename)="onRename()"
+  (byDelete)="onDelete($event)"
+/>

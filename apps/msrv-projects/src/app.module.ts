@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { PostgresModule } from '@kudu/msrv-data-access-postgres';
+import { MkPostgresModule } from '@meerkat-nest-pg';
+
+import { KongTokenModule } from '@kong-nest-token';
+
 import {
   ProjectDataFieldEntity,
   ProjectDataValueEntity,
@@ -9,12 +12,11 @@ import {
   ProjectMemberEntity,
   ProjectToDataValueEntity,
   ProjectToMemberEntity,
-} from '@kudu/msrv-data-access-project-entities';
+} from '@octo/msrv-data-access-project-entities';
 
-import { ProjectDataFieldsModule } from '@kudu/msrv-feature-project-data-fields';
-import { ProjectMembersModule } from '@kudu/msrv-feature-project-members';
-import { ProjectsModule } from '@kudu/msrv-feature-projects';
-import { TokenModule } from '@kudu/msrv-feature-token';
+import { ProjectDataFieldsModule } from '@octo/msrv-feature-project-data-fields';
+import { ProjectMembersModule } from '@octo/msrv-feature-project-members';
+import { ProjectsModule } from '@octo/msrv-feature-projects';
 
 import { AppController } from './controllers/app.controller';
 import { ProjectDataFieldsController } from './controllers/project-data-fields.controller';
@@ -26,7 +28,7 @@ import { ProjectsController } from './controllers/projects.controller';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    PostgresModule.forRootAsync([
+    MkPostgresModule.forRootAsync([
       ProjectEntity,
       ProjectDataFieldEntity,
       ProjectDataValueEntity,
@@ -34,10 +36,10 @@ import { ProjectsController } from './controllers/projects.controller';
       ProjectMemberEntity,
       ProjectToMemberEntity,
     ]),
+    KongTokenModule,
     ProjectsModule,
     ProjectDataFieldsModule,
     ProjectMembersModule,
-    TokenModule,
   ],
   controllers: [
     AppController,

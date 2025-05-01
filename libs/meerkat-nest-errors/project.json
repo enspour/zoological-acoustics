@@ -1,0 +1,9 @@
+{
+  "name": "meerkat-nest-errors",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/meerkat-nest-errors/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project meerkat-nest-errors --web",
+  "targets": {}
+}

@@ -5,14 +5,18 @@ import {
   Param,
   ParseUUIDPipe,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
-import { ProjectDataValuesService } from '@kudu/msrv-feature-project-data-fields';
+import { KongAuthGuard } from '@kong-nest-guard';
+
+import { ProjectDataValuesService } from '@octo/msrv-feature-project-data-fields';
 
 import { CreateProjectDataValueDto } from '../dtos';
 
 @Controller('data-fields/:uuid/values')
+@UseGuards(KongAuthGuard)
 export class ProjectDataValuesController {
   constructor(private projectDataValuesService: ProjectDataValuesService) {}
 

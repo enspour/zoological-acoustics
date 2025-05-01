@@ -1,58 +1,58 @@
 import { Route } from '@angular/router';
 import { RemoteEntryComponent } from './entry.component';
 
-import { kanbanBoardRedirectGuard } from '@kudu/mfr-util-kanban-last-board';
-import { userRedirectionGuard } from '@kudu/mfr-util-user-redirection';
+import { kanbanBoardRedirectGuard } from '@octo/mfr-util-kanban-last-board';
+import { userRedirectionGuard } from '@octo/mfr-util-user-redirection';
 
 const ProjectsPage = () =>
-  import('@kudu/mfr-feature-projects').then((c) => c.ProjectsPageComponent);
+  import('@octo/mfr-feature-projects').then((c) => c.ProjectsPageComponent);
 
 const ProjectsSettingsPage = () =>
-  import('@kudu/mfr-feature-projects-settings').then(
+  import('@octo/mfr-feature-projects-settings').then(
     (c) => c.ProjectsSettingsPageComponent,
   );
 
 const ProjectsDataFieldsPage = () =>
-  import('@kudu/mfr-feature-projects-data-fields').then(
+  import('@octo/mfr-feature-projects-data-fields').then(
     (c) => c.ProjectsDataFieldsPageComponent,
   );
 
 const ProjectPage = () =>
-  import('@kudu/mfr-feature-project').then((c) => c.ProjectPageComponent);
+  import('@octo/mfr-feature-project').then((c) => c.ProjectPageComponent);
 
 const ProjectOverviewPage = () =>
-  import('@kudu/mfr-feature-project-overview').then(
+  import('@octo/mfr-feature-project-overview').then(
     (c) => c.ProjectOverviewPageComponent,
   );
 
 const ProjectSettingsPage = () =>
-  import('@kudu/mfr-feature-project-settings').then(
+  import('@octo/mfr-feature-project-settings').then(
     (c) => c.ProjectSettingsPageComponent,
   );
 
 const ProjectSettingsGeneralPage = () =>
-  import('@kudu/mfr-feature-project-settings-general').then(
+  import('@octo/mfr-feature-project-settings-general').then(
     (c) => c.ProjectSettingsGeneralPageComponent,
   );
 
 const ProjectSettingsAccessPage = () =>
-  import('@kudu/mfr-feature-project-settings-access').then(
+  import('@octo/mfr-feature-project-settings-access').then(
     (c) => c.ProjectSettingsAccessPageComponent,
   );
 
 const ProjectSettingsBoardsPage = () =>
-  import('@kudu/mfr-feature-project-settings-boards').then(
+  import('@octo/mfr-feature-project-settings-boards').then(
     (c) => c.ProjectSettingsBoardsPageComponent,
   );
 
 const TasksPage = () =>
-  import('@kudu/mfr-feature-tasks').then((c) => c.TasksPageComponent);
+  import('@octo/mfr-feature-tasks').then((c) => c.TasksPageComponent);
 
 const GanttPage = () =>
-  import('@kudu/mfr-feature-gantt').then((c) => c.GanttPageComponent);
+  import('@octo/mfr-feature-gantt').then((c) => c.GanttPageComponent);
 
 const KanbanPage = () =>
-  import('@kudu/mfr-feature-kanban').then((c) => c.KanbanPageComponent);
+  import('@octo/mfr-feature-kanban').then((c) => c.KanbanPageComponent);
 
 export const remoteRoutes: Route[] = [
   {
@@ -61,81 +61,81 @@ export const remoteRoutes: Route[] = [
     children: [
       {
         path: '',
-        title: 'Kudu | Проекты',
+        title: 'Octo | Проекты',
         loadComponent: ProjectsPage,
       },
       {
         path: 'settings',
-        title: 'Kudu | Настройки проектов',
+        title: 'Octo | Настройки проектов',
         loadComponent: ProjectsSettingsPage,
         children: [
           {
             path: 'data-fields',
-            title: 'Kudu | Дополнительные поля',
+            title: 'Octo | Дополнительные поля',
             loadComponent: ProjectsDataFieldsPage,
           },
         ],
       },
       {
         path: ':projectUuid',
-        title: 'Kudu | Проект',
+        title: 'Octo | Проект',
         loadComponent: ProjectPage,
         children: [
           {
             path: '',
-            title: 'Kudu | Проект',
+            title: 'Octo | Проект',
             loadComponent: ProjectOverviewPage,
           },
           {
             path: 'tasks',
-            title: 'Kudu | Мои задачи',
+            title: 'Octo | Мои задачи',
             loadComponent: TasksPage,
             canActivate: [userRedirectionGuard],
           },
           {
             path: 'tasks/:user',
-            title: 'Kudu | Мои задачи',
+            title: 'Octo | Мои задачи',
             loadComponent: TasksPage,
           },
           {
             path: 'gantt',
-            title: 'Kudu | Диаграмма',
+            title: 'Octo | Диаграмма',
             loadComponent: GanttPage,
           },
           {
             path: 'kanban',
-            title: 'Kudu | Доски',
+            title: 'Octo | Доски',
             loadComponent: KanbanPage,
             canActivate: [kanbanBoardRedirectGuard],
           },
           {
             path: 'kanban/board/:boardUuid',
-            title: 'Kudu | Доски',
+            title: 'Octo | Доски',
             loadComponent: KanbanPage,
           },
           {
             path: 'table',
-            title: 'Kudu | Таблица',
+            title: 'Octo | Таблица',
             loadComponent: TasksPage,
           },
           {
             path: 'settings',
-            title: 'Kudu | Настройки',
+            title: 'Octo | Настройки',
             loadComponent: ProjectSettingsPage,
             children: [
               {
                 path: '',
-                title: 'Kudu | Общие',
+                title: 'Octo | Общие',
                 loadComponent: ProjectSettingsGeneralPage,
               },
               {
                 path: 'access',
-                title: 'Kudu | Доступ',
+                title: 'Octo | Доступ',
                 loadComponent: ProjectSettingsAccessPage,
               },
               {
                 path: 'boards',
-                title: 'Kudu | Доски',
+                title: 'Octo | Доски',
                 loadComponent: ProjectSettingsBoardsPage,
               },
             ],

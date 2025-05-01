@@ -1,16 +1,17 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { PostgresModule } from '@kudu/msrv-data-access-postgres';
+import { MkPostgresModule } from '@meerkat-nest-pg';
 
-import { AuthModule } from '@kudu/msrv-feature-auth';
+import { KongTokenModule } from '@kong-nest-token';
+
 import {
   UserCredentialsEntity,
   UserEntity,
-  UsersModule,
-} from '@kudu/msrv-feature-users';
+} from '@kong/msrv-data-access-user-entities';
 
-import { TokenModule } from '@kudu/msrv-feature-token';
+import { AuthModule } from '@kong/msrv-feature-auth';
+import { UsersModule } from '@kong/msrv-feature-users';
 
 import { AppController } from './controllers/app.controller';
 import { AuthController } from './controllers/auth.controller';
@@ -19,10 +20,10 @@ import { UsersController } from './controllers/users.controller';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    PostgresModule.forRootAsync([UserEntity, UserCredentialsEntity]),
+    MkPostgresModule.forRootAsync([UserEntity, UserCredentialsEntity]),
+    KongTokenModule,
     AuthModule,
     UsersModule,
-    TokenModule,
   ],
   controllers: [AppController, AuthController, UsersController],
 })

@@ -1,9 +1,0 @@
-{
-  "name": "msrv-data-access-project-entities",
-  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/msrv/msrv-projects/data-access-project-entities/src",
-  "projectType": "library",
-  "tags": [],
-  "// targets": "to see all targets run: nx show project data-access-project-entities --web",
-  "targets": {}
-}

@@ -1,0 +1,19 @@
+@if (!isCreating()) {
+  <button class="btn" mk-button (click)="onStart()">
+    <mk-icon icon="plus" [iconSize]="16" />
+    <div>Добавить колонку</div>
+  </button>
+} @else {
+  <div class="column">
+    <header class="column__header">
+      <input
+        #input
+        class="column__header-title"
+        placeholder="Название"
+        mkAutofocus
+        (blur)="onClose()"
+        (keydown.enter)="onCreate(input.value)"
+      />
+    </header>
+  </div>
+}

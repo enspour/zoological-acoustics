@@ -1,0 +1,33 @@
+<form
+  class="form"
+  [formGroup]="form"
+  (submit)="$event.preventDefault(); onSubmit()"
+>
+  <h1 class="form__title">Octo</h1>
+
+  <mk-input-container>
+    <mk-icon icon="user" mkPrefix />
+
+    <input
+      mk-input
+      type="text"
+      formControlName="username"
+      placeholder="Логин"
+    />
+  </mk-input-container>
+
+  <mk-input-container>
+    <mk-icon icon="lock" mkPrefix />
+
+    <input
+      mk-input
+      type="password"
+      formControlName="password"
+      placeholder="Пароль"
+    />
+  </mk-input-container>
+
+  <button mk-button class="form__submit" kind="filled" [disabled]="!form.valid">
+    Войти
+  </button>
+</form>

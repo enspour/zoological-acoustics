@@ -1,0 +1,15 @@
+<div class="header">
+  <mk-icon icon="circle-check" />
+
+  <div mk-editable class="title" [disabled]="true">
+    {{ task().title }}
+  </div>
+
+  <lib-task-more
+    [task]="task()"
+    (byDelete)="onDelete()"
+    (click)="$event.stopPropagation()"
+  />
+</div>
+
+<ng-content />

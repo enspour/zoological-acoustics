@@ -20,14 +20,14 @@ import {
   ApiResponse,
 } from '@nestjs/swagger';
 
-import { TasksService } from '@kudu/msrv-feature-tasks';
+import { KongAuthGuard } from '@kong-nest-guard';
 
-import { AuthGuard } from '@kudu/msrv-util-auth-guard';
+import { TasksService } from '@octo/msrv-feature-tasks';
 
 import { CreateTaskDto, GetByQueryDto, UpdateTaskDto } from '../dtos';
 
 @Controller('tasks')
-@UseGuards(AuthGuard)
+@UseGuards(KongAuthGuard)
 export class TasksController {
   constructor(private tasksService: TasksService) {}
 

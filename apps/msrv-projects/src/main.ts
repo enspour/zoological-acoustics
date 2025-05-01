@@ -2,8 +2,8 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import cookieParser from 'cookie-parser';
 
-import { BusinessErrorFilter } from '@kudu/msrv-util-error-handling';
-import { EventBusModule } from '@kudu/msrv-util-event-bus';
+import { MkBusinessErrorFilter } from '@meerkat-nest-errors';
+import { MkEventBusModule } from '@meerkat-nest-event-bus';
 
 import { useSwagger } from './swagger';
 
@@ -18,12 +18,12 @@ async function bootstrap() {
   useSwagger(app);
 
   app.use(cookieParser());
-  app.useGlobalFilters(new BusinessErrorFilter());
+  app.useGlobalFilters(new MkBusinessErrorFilter());
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
 
-  EventBusModule.connect(app, { queue: 'projects', group: 'msrv-projects' });
-  EventBusModule.connect(app, { queue: 'users', group: 'msrv-projects' });
-  EventBusModule.connect(app, { queue: 'employees', group: 'msrv-projects' });
+  MkEventBusModule.connect(app, { queue: 'projects', group: 'msrv-projects' });
+  MkEventBusModule.connect(app, { queue: 'users', group: 'msrv-projects' });
+  MkEventBusModule.connect(app, { queue: 'employees', group: 'msrv-projects' });
 
   app.startAllMicroservices();
 

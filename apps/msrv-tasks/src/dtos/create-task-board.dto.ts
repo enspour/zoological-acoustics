@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, IsUUID } from 'class-validator';
 
-import { CreatableTaskBoard } from '@kudu/domain';
+import { CreatableTaskBoard } from '@octo/domain';
 
 export class CreateTaskBoardDto implements CreatableTaskBoard {
   @ApiProperty({ description: 'Title', nullable: false })

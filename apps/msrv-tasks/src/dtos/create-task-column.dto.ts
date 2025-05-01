@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, IsUUID } from 'class-validator';
 
-import { CreatableTaskColumn } from '@kudu/domain';
+import { CreatableTaskColumn } from '@octo/domain';
 
 export class CreateTaskColumnDto implements CreatableTaskColumn {
   @ApiProperty({ description: 'Title', nullable: false })

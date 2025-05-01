@@ -1,0 +1,18 @@
+<lib-kanban-board-tabs
+  class="tabs"
+  mkDndDropContainer
+  [mkDndDropContainerTypes]="['board']"
+>
+  @for (board of this.boards(); track board.uuid) {
+    <lib-kanban-board-tab
+      [board]="board"
+      mkDndDrag
+      mkDndDragType="board"
+      [mkDndDragData]="board"
+    />
+  }
+
+  <div class="tabs__helper">
+    <mk-icon class="tabs__helper-icon" icon="plus" [iconSize]="16" />
+  </div>
+</lib-kanban-board-tabs>

@@ -1,0 +1,14 @@
+@let creator = this.creator();
+
+@if (creator) {
+  <div>Создатель:</div>
+
+  <lib-employee-avatar
+    class="employee"
+    [avatar]="creator"
+    [avatarSize]="24"
+    [mkTooltip]="creator.name"
+  />
+
+  <div class="date">{{ task().createdAt | date: ' HH:mm, d MMMM y' }}</div>
+}

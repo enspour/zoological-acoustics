@@ -6,12 +6,16 @@ import {
   Param,
   ParseUUIDPipe,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 
-import { ProjectMembersService } from '@kudu/msrv-feature-project-members';
+import { KongAuthGuard } from '@kong-nest-guard';
+
+import { ProjectMembersService } from '@octo/msrv-feature-project-members';
 
 @Controller('projects/:projectUuid/members')
+@UseGuards(KongAuthGuard)
 export class ProjectMembersController {
   constructor(private projectMembersService: ProjectMembersService) {}
 

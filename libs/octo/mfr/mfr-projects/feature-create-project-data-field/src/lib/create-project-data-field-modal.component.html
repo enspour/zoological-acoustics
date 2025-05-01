@@ -1,0 +1,28 @@
+<div class="header">
+  <div class="header__title">Создание дополнительного поля</div>
+  <mk-icon class="header__icon" icon="close" (click)="onClose()" />
+</div>
+
+<form class="form" [formGroup]="form">
+  <mk-input-container>
+    <input mk-input formControlName="name" placeholder="Название" />
+  </mk-input-container>
+
+  <mk-select
+    [value]="form.controls['type'].value"
+    (valueChange)="$event && form.controls['type'].setValue($event)"
+  >
+    @for (type of types(); track type) {
+      <mk-option [value]="type">{{ type | getTypeAlias }}</mk-option>
+    }
+  </mk-select>
+
+  <button
+    class="form__btn"
+    mk-button
+    [disabled]="!form.valid"
+    (click)="onCreate()"
+  >
+    Создать
+  </button>
+</form>

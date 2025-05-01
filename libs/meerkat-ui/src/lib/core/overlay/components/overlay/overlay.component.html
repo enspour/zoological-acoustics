@@ -1,0 +1,9 @@
+@if (isOpen()) {
+  <mk-overlay-container
+    *mkTeleport="document.body"
+    (placementChange)="placementChange.emit($event)"
+    (mkClickOutside)="onClickOutside($event)"
+  >
+    <ng-content />
+  </mk-overlay-container>
+}

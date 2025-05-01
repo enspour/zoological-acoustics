@@ -1,0 +1,18 @@
+<lib-gantt-toolbar />
+
+<div
+  class="layout"
+  #layout="libGanttLayoutRows"
+  libGanttLayoutRows
+  #virtualization="mkVirtualization"
+  mkVirtualization
+  mkVirtualizeByRange
+  [elements]="rows()"
+  [elementHeight]="layout.rowHeight()"
+>
+  <lib-gantt-sidebar [rows]="virtualization.elementsToRender()" />
+  <lib-gantt-chart
+    libGanttLayoutColumns
+    [rows]="virtualization.elementsToRender()"
+  />
+</div>

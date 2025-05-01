@@ -1,0 +1,86 @@
+@use '../../../../mixins/layout.mixin.scss';
+
+:host {
+  --mk-toast-offset: 30px;
+
+  position: fixed;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  opacity: 0;
+  overflow: hidden;
+  z-index: 1;
+
+  animation: enter 0.2s ease-out forwards;
+}
+
+:host.sm {
+  @include layout.sm;
+  padding: 6px 12px;
+}
+
+:host.md {
+  @include layout.md;
+  padding: 8px 16px;
+}
+
+:host.lg {
+  @include layout.lg;
+  padding: 10px 20px;
+}
+
+:host.bottom {
+  --mk-toast-enter-x: -50%;
+  --mk-toast-enter-y: 0;
+
+  left: 50%;
+  bottom: var(--mk-toast-offset);
+  transform: translate(-50%, 100%);
+}
+
+:host.bottom-left {
+  --mk-toast-enter-y: 0;
+
+  left: var(--mk-toast-offset);
+  bottom: var(--mk-toast-offset);
+  transform: translateY(100%);
+}
+
+:host.bottom-right {
+  --mk-toast-enter-y: 0;
+
+  right: var(--mk-toast-offset);
+  bottom: var(--mk-toast-offset);
+  transform: translateY(100%);
+}
+
+:host.top {
+  --mk-toast-enter-x: -50%;
+  --mk-toast-enter-y: 0;
+
+  left: 50%;
+  top: var(--mk-toast-offset);
+  transform: translate(-50%, -100%);
+}
+
+:host.top-left {
+  --mk-toast-enter-y: 0;
+
+  left: var(--mk-toast-offset);
+  top: var(--mk-toast-offset);
+  transform: translateY(-100%);
+}
+
+:host.top-right {
+  --mk-toast-enter-y: 0;
+
+  right: var(--mk-toast-offset);
+  top: var(--mk-toast-offset);
+  transform: translateY(-100%);
+}
+
+@keyframes enter {
+  to {
+    opacity: 1;
+    transform: translate(var(--mk-toast-enter-x), var(--mk-toast-enter-y));
+  }
+}

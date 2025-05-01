@@ -1,0 +1,13 @@
+<button class="header" (click)="onClick($event)">
+  <ng-content />
+</button>
+
+<mk-expanded [isOpen]="isOpen()">
+  @let _content = content();
+
+  @if (_content) {
+    <ng-container [ngTemplateOutlet]="_content" />
+  } @else {
+    <ng-content select="[mkAccordionItemContent]" />
+  }
+</mk-expanded>

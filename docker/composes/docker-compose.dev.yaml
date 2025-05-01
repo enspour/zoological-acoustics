@@ -2,7 +2,7 @@ version: '3.9'
 services:
   kafka:
     image: 'bitnami/kafka:3.9-debian-12'
-    container_name: kudu-kafka
+    container_name: zoological-acoustics-kafka
     ports:
       - 9094:9094
     environment:
@@ -16,7 +16,7 @@ services:
 
   pg:
     image: 'postgres:15.1'
-    container_name: kudu-pg
+    container_name: zoological-acoustics-pg
     ports:
       - 5432:5432
     volumes:
@@ -28,7 +28,7 @@ services:
 
   pg-admin:
     image: 'dpage/pgadmin4:9.1.0'
-    container_name: kudu-pg-admin
+    container_name: zoological-acoustics-pg-admin
     ports:
       - 5050:80
     environment:

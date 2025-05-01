@@ -1,0 +1,43 @@
+<button
+  class="employees"
+  [class.employees--empty]="value().length === 0"
+  [class.employees--opened]="trigger.isOpen()"
+  #trigger="mkPopupTrigger"
+  mkPopupTrigger
+>
+  @if (value().length === 0) {
+    <mk-icon icon="user-circle" [iconSize]="26" />
+  } @else {
+    <lib-employee-avatars
+      [employees]="value()"
+      [employeeSize]="26"
+      [offset]="16"
+    />
+  }
+
+  <mk-popup [config]="config" (byClose)="onClose()">
+    <div class="picker">
+      <div class="picker__header">
+        <mk-icon icon="search" />
+        <input mk-input placeholder="Поиск..." [(ngModel)]="searchTerm" />
+      </div>
+
+      <div class="picker__employees">
+        @let employees =
+          this.employees() | mkFilter: filterBySearchFn : searchTerm();
+
+        @for (employee of employees; track employee.uuid) {
+          @let isSelected = value() | mkFind: findByUuidFn : employee.uuid;
+
+          <button
+            class="picker__employee"
+            [class.picker__employee--selected]="isSelected"
+            (click)="onSelect(employee)"
+          >
+            {{ employee.name }}
+          </button>
+        }
+      </div>
+    </div>
+  </mk-popup>
+</button>

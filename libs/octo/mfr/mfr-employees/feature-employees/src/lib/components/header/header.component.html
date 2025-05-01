@@ -1,0 +1,15 @@
+<button class="header__btn" mk-button (click)="onInvite()">
+  <mk-icon icon="user-plus" />
+  <span>Пригласить</span>
+</button>
+
+<mk-input-container class="header__search">
+  <mk-icon icon="search" mkPrefix />
+
+  <input
+    mk-input
+    placeholder="Поиск по сотрудникам..."
+    [ngModel]="searchTerm()"
+    (ngModelChange)="onSearchTermChange($event)"
+  />
+</mk-input-container>
