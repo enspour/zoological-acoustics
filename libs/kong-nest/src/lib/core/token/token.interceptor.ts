@@ -26,10 +26,6 @@ export class KongTokenInterceptor implements NestInterceptor {
         const token = request.cookies['access-token'];
         const store = kongDecodeAccessToken(token);
 
-        if (!store) {
-          throw new Error('Access Token is not provided!');
-        }
-
         const subscription = this.tokenStorage.run(store, () => {
           return next.handle().subscribe(subscriber);
         });

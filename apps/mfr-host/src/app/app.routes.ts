@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 
-import { AuthGuard, UnAuthGuard } from '@octo/mfr-util-auth-guard';
+import { AuthGuard, UnAuthGuard } from '@kong-ng';
 
 const AuthLayout = () =>
   import('@octo/mfr-feature-auth-layout').then((c) => c.LayoutComponent);

@@ -12,7 +12,8 @@ import {
 } from '@angular/core';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 
-import { provideAuthDataAccess } from '@octo/mfr-data-access-auth';
+import { AuthInterceptor, provideAuthDataAccess } from '@kong-ng';
+
 import { provideEmployeeDataAccess } from '@octo/mfr-data-access-employee';
 import { provideEmployeesDataAccess } from '@octo/mfr-data-access-employees';
 import { provideProjectDataAccess } from '@octo/mfr-data-access-project';
@@ -24,8 +25,6 @@ import { provideTasksDataAccess } from '@octo/mfr-data-access-tasks';
 import { provideUserDataAccess } from '@octo/mfr-data-access-user';
 
 import { provideExplorer } from '@octo/mfr-feature-explorer';
-
-import { AuthInterceptor } from '@octo/mfr-util-auth-interceptor';
 
 import { appRoutes } from './app.routes';
 

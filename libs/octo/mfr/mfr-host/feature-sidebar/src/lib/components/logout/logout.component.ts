@@ -7,7 +7,7 @@ import {
   MkTooltipDirective,
 } from '@meerkat-ui';
 
-import { AuthService } from '@octo/mfr-data-access-auth';
+import { AuthService } from '@kong-ng';
 
 import { SidebarComponent } from '../../sidebar.component';
 

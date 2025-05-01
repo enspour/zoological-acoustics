@@ -9,7 +9,7 @@ import {
   MkInputContainerComponent,
 } from '@meerkat-ui';
 
-import { AuthService } from '@octo/mfr-data-access-auth';
+import { AuthService } from '@kong-ng';
 
 @Component({
   selector: 'lib-login-page',
@@ -38,7 +38,6 @@ export class LoginPageComponent {
     const { username, password } = this.form.getRawValue();
     const response = await this.authService.login(username, password);
 
-    console.log(response);
     if (response.statusCode === 200) {
       this.router.navigateByUrl('/');
     }

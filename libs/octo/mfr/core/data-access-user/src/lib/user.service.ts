@@ -1,7 +1,7 @@
 import { inject, Injectable, resource } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
-import { AuthService } from '@octo/mfr-data-access-auth';
+import { AuthService } from '@kong-ng';
 
 import { UserApi } from './user.api';
 

@@ -9,7 +9,7 @@ import {
   MkInputContainerComponent,
 } from '@meerkat-ui';
 
-import { AuthService } from '@octo/mfr-data-access-auth';
+import { AuthService } from '@kong-ng';
 
 @Component({
   selector: 'lib-signup-page',

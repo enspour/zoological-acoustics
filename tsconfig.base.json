@@ -18,6 +18,7 @@
     "paths": {
       "@kong-jwt": ["libs/kong-jwt/src/index.ts"],
       "@kong-nest": ["libs/kong-nest/src/index.ts"],
+      "@kong-ng": ["libs/kong-ng/src/index.ts"],
       "@kong/domain": ["libs/kong/domain/src/index.ts"],
       "@kong/msrv-data-access-entities": [
         "libs/kong/msrv/data-access-entities/src/index.ts"
@@ -42,9 +43,6 @@
       "@meerkat-ui-icons": ["libs/meerkat-ui-icons/src/index.ts"],
       "@meerkat-utils": ["libs/meerkat-utils/src/index.ts"],
       "@octo/domain": ["libs/octo/domain/src/index.ts"],
-      "@octo/mfr-data-access-auth": [
-        "libs/octo/mfr/core/data-access-auth/src/index.ts"
-      ],
       "@octo/mfr-data-access-employee": [
         "libs/octo/mfr/core/data-access-employee/src/index.ts"
       ],
@@ -233,21 +231,12 @@
       "@octo/mfr-ui-task-column": [
         "libs/octo/mfr/core/ui-task-column/src/index.ts"
       ],
-      "@octo/mfr-util-auth-guard": [
-        "libs/octo/mfr/core/util-auth-guard/src/index.ts"
-      ],
-      "@octo/mfr-util-auth-interceptor": [
-        "libs/octo/mfr/core/util-auth-interceptor/src/index.ts"
-      ],
-      "@octo/mfr-util-cookie": ["libs/octo/mfr/core/util-cookie/src/index.ts"],
       "@octo/mfr-util-employees": [
         "libs/octo/mfr/core/util-employees/src/index.ts"
       ],
       "@octo/mfr-util-gantt-chart": [
         "libs/octo/mfr/mfr-gantt/util-gantt-chart/src/index.ts"
       ],
-      "@octo/mfr-util-http": ["libs/octo/mfr/core/util-http/src/index.ts"],
-      "@octo/mfr-util-jwt": ["libs/octo/mfr/core/util-jwt/src/index.ts"],
       "@octo/mfr-util-kanban-last-board": [
         "libs/octo/mfr/mfr-kanban/util-kanban-last-board/src/index.ts"
       ],
