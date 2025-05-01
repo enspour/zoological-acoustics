@@ -5,7 +5,7 @@ import { MkPostgresService } from '@meerkat-nest-pg';
 
 import { CreatableTaskBoard } from '@octo/domain';
 
-import { TaskBoardEntity } from '../entities/task-board.entity';
+import { TaskBoardEntity } from '@octo/msrv-data-access-task-entities';
 
 @Injectable()
 export class TaskBoardsService {

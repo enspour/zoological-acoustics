@@ -8,7 +8,7 @@ import { KongTokenModule } from '@kong-nest-token';
 import {
   UserCredentialsEntity,
   UserEntity,
-} from '@kong/msrv-data-access-user-entities';
+} from '@kong/msrv-data-access-entities';
 
 import { AuthModule } from '@kong/msrv-feature-auth';
 import { UsersModule } from '@kong/msrv-feature-users';

@@ -19,8 +19,8 @@
       "@kong-domain": ["libs/kong-domain/src/index.ts"],
       "@kong-nest-guard": ["libs/kong-nest-guard/src/index.ts"],
       "@kong-nest-token": ["libs/kong-nest-token/src/index.ts"],
-      "@kong/msrv-data-access-user-entities": [
-        "libs/kong/msrv/data-access-user-entities/src/index.ts"
+      "@kong/msrv-data-access-entities": [
+        "libs/kong/msrv/data-access-entities/src/index.ts"
       ],
       "@kong/msrv-feature-auth": ["libs/kong/msrv/feature-auth/src/index.ts"],
       "@kong/msrv-feature-user-events": [
@@ -250,9 +250,6 @@
       "@octo/mfr-util-kanban-last-board": [
         "libs/octo/mfr/mfr-kanban/util-kanban-last-board/src/index.ts"
       ],
-      "@octo/mfr-util-local-storage": [
-        "libs/octo/mfr/core/util-local-storage/src/index.ts"
-      ],
       "@octo/mfr-util-project-data-field": [
         "libs/octo/mfr/mfr-projects/util-project-data-field/src/index.ts"
       ],
@@ -292,6 +289,12 @@
       ],
       "@octo/msrv-feature-user-duplication": [
         "libs/octo/msrv/core/feature-user-duplication/src/index.ts"
+      ],
+      "@octo/msrv-data-access-employee-entities": [
+        "libs/octo/msrv/msrv-employees/data-access-employee-entities/src/index.ts"
+      ],
+      "@octo/msrv-data-access-task-entities": [
+        "libs/octo/msrv/msrv-tasks/data-access-task-entities/src/index.ts"
       ]
     }
   },

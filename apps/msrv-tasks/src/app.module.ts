@@ -5,12 +5,13 @@ import { MkPostgresModule } from '@meerkat-nest-pg';
 
 import { KongTokenModule } from '@kong-nest-token';
 
+import { TasksModule } from '@octo/msrv-feature-tasks';
+
 import {
   TaskBoardEntity,
   TaskColumnEntity,
   TaskEntity,
-  TasksModule,
-} from '@octo/msrv-feature-tasks';
+} from '@octo/msrv-data-access-task-entities';
 
 import { AppController } from './controllers/app.controller';
 import { TaskBoardsController } from './controllers/task-boards.controller';

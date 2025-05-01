@@ -4,11 +4,15 @@ import { MkPostgresModule } from '@meerkat-nest-pg';
 
 import { KongTokenModule } from '@kong-nest-token';
 
+import {
+  TaskBoardEntity,
+  TaskColumnEntity,
+  TaskEntity,
+} from '@octo/msrv-data-access-task-entities';
+
 import { TaskBoardsService } from './services/task-boards.service';
 import { TaskColumnsService } from './services/task-columns.service';
 import { TasksService } from './services/tasks.service';
-
-import { TaskBoardEntity, TaskColumnEntity, TaskEntity } from './entities';
 
 @Module({
   imports: [

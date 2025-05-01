@@ -6,7 +6,7 @@ import { MkPostgresService } from '@meerkat-nest-pg';
 
 import { EmployeeEventsService } from '@octo/msrv-feature-employee-events';
 
-import { EmployeeEntity } from '../entities';
+import { EmployeeEntity } from '@octo/msrv-data-access-employee-entities';
 
 @Injectable()
 export class EmployeesService {

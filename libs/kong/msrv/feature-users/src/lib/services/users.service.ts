@@ -11,7 +11,7 @@ import {
 
 import { UserEventsService } from '@kong/msrv-feature-user-events';
 
-import { UserEntity } from '@kong/msrv-data-access-user-entities';
+import { UserEntity } from '@kong/msrv-data-access-entities';
 
 import { UserCredentialsService } from './user-credentials.service';
 

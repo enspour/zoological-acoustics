@@ -5,7 +5,7 @@ import { MkPostgresService } from '@meerkat-nest-pg';
 
 import { CreatableTaskColumn } from '@octo/domain';
 
-import { TaskColumnEntity } from '../entities';
+import { TaskColumnEntity } from '@octo/msrv-data-access-task-entities';
 
 @Injectable()
 export class TaskColumnsService {

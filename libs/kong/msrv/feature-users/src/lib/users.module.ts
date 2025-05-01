@@ -7,7 +7,7 @@ import { UserEventsModule } from '@kong/msrv-feature-user-events';
 import {
   UserCredentialsEntity,
   UserEntity,
-} from '@kong/msrv-data-access-user-entities';
+} from 'libs/kong/msrv/data-access-entities/src';
 
 import { UserCredentialsService } from './services/user-credentials.service';
 import { UsersService } from './services/users.service';

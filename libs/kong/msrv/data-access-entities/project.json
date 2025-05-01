@@ -1,7 +1,7 @@
 {
-  "name": "kong-msrv-data-access-user-entities",
+  "name": "kong-msrv-data-access-entities",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/kong/msrv/data-access-user-entities/src",
+  "sourceRoot": "libs/kong/msrv/data-access-entities/src",
   "projectType": "library",
   "tags": [],
   "// targets": "to see all targets run: nx show project data-access-user-entities --web",

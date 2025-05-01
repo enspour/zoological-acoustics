@@ -4,11 +4,12 @@ import { In, LessThanOrEqual, MoreThanOrEqual } from 'typeorm';
 import { MkNotFoundError, MkUnauthorizedError } from '@meerkat-nest-errors';
 import { MkPostgresService } from '@meerkat-nest-pg';
 
-import { CreatableTask, UpdatableTask } from '@octo/domain';
-
 import { KongTokenService } from '@kong-nest-token';
 
-import { TaskEntity } from '../entities';
+import { CreatableTask, UpdatableTask } from '@octo/domain';
+
+import { TaskEntity } from '@octo/msrv-data-access-task-entities';
+
 import { TasksQuery } from '../interfaces';
 
 @Injectable()

@@ -5,7 +5,7 @@ import { MkPostgresModule } from '@meerkat-nest-pg';
 import { EmployeeEventsModule } from '@octo/msrv-feature-employee-events';
 import { UserDuplicationModule } from '@octo/msrv-feature-user-duplication';
 
-import { EmployeeEntity } from './entities';
+import { EmployeeEntity } from '@octo/msrv-data-access-employee-entities';
 
 import { EmployeesService } from './services/employees.service';
 

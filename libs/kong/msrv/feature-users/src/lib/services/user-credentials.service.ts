@@ -4,7 +4,7 @@ import { MkPostgresService } from '@meerkat-nest-pg';
 
 import { CreatableUserCredentials, KongUser } from '@kong-domain';
 
-import { UserCredentialsEntity } from '@kong/msrv-data-access-user-entities';
+import { UserCredentialsEntity } from '@kong/msrv-data-access-entities';
 
 @Injectable()
 export class UserCredentialsService {
