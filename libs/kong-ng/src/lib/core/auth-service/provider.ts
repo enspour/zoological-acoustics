@@ -1,6 +1,6 @@
-import { AuthApi } from './auth.api';
-import { AuthService } from './auth.service';
+import { KongAuthApi } from './auth.api';
+import { KongAuthService } from './auth.service';
 
-export const provideAuthDataAccess = () => {
-  return [AuthApi, AuthService];
+export const provideKongAuthDataAccess = () => {
+  return [KongAuthApi, KongAuthService];
 };

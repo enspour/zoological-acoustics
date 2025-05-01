@@ -9,7 +9,7 @@ import {
   MkInputContainerComponent,
 } from '@meerkat-ui';
 
-import { AuthService } from '@kong-ng';
+import { KongAuthService } from '@kong-ng';
 
 @Component({
   selector: 'lib-signup-page',
@@ -27,7 +27,7 @@ import { AuthService } from '@kong-ng';
 export class SignupPageComponent {
   private fb = inject(FormBuilder);
   private router = inject(Router);
-  private authService = inject(AuthService);
+  private authService = inject(KongAuthService);
 
   public form = this.fb.nonNullable.group({
     name: this.fb.nonNullable.control('', [Validators.required]),

@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 
-import { AuthInterceptor, provideAuthDataAccess } from '@kong-ng';
+import { KongAuthInterceptor, provideKongAuthDataAccess } from '@kong-ng';
 
 import { provideEmployeeDataAccess } from '@octo/mfr-data-access-employee';
 import { provideEmployeesDataAccess } from '@octo/mfr-data-access-employees';
@@ -36,7 +36,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes, withComponentInputBinding()),
     provideHttpClient(withInterceptorsFromDi()),
     provideExplorer(),
-    provideAuthDataAccess(),
+    provideKongAuthDataAccess(),
     provideUserDataAccess(),
     provideEmployeesDataAccess(),
     provideEmployeeDataAccess(),
@@ -48,6 +48,6 @@ export const appConfig: ApplicationConfig = {
     provideTaskBoardsDataAccess(),
 
     { provide: LOCALE_ID, useValue: 'ru-RU' },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: KongAuthInterceptor, multi: true },
   ],
 };

@@ -9,20 +9,20 @@ import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, from, Observable, switchMap, tap, throwError } from 'rxjs';
 
-import { AuthService } from '../auth-service';
+import { KongAuthService } from '../auth-service';
 
-import { BYPASS_AUTH_INTERCEPTOR } from '../../tokens';
+import { BYPASS_KONG_AUTH_INTERCEPTOR } from '../../tokens';
 
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+export class KongAuthInterceptor implements HttpInterceptor {
   private router = inject(Router);
-  private authService = inject(AuthService);
+  private authService = inject(KongAuthService);
 
   public intercept(
     req: HttpRequest<any>,
     next: HttpHandler,
   ): Observable<HttpEvent<any>> {
-    if (req.context.get(BYPASS_AUTH_INTERCEPTOR)) {
+    if (req.context.get(BYPASS_KONG_AUTH_INTERCEPTOR)) {
       return next.handle(req);
     }
 

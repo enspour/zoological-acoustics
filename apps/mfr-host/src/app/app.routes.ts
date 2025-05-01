@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 
-import { AuthGuard, UnAuthGuard } from '@kong-ng';
+import { KongAuthGuard, KongUnAuthGuard } from '@kong-ng';
 
 const AuthLayout = () =>
   import('@octo/mfr-feature-auth-layout').then((c) => c.LayoutComponent);
@@ -24,19 +24,19 @@ export const appRoutes: Route[] = [
   {
     path: 'login',
     title: 'Octo | Login',
-    canActivate: [UnAuthGuard],
+    canActivate: [KongUnAuthGuard],
     loadComponent: LoginPage,
   },
   {
     path: 'signup',
     title: 'Octo | Signup',
-    canActivate: [UnAuthGuard],
+    canActivate: [KongUnAuthGuard],
     loadComponent: SignupPage,
   },
   {
     path: '',
     title: 'Octo',
-    canActivate: [AuthGuard],
+    canActivate: [KongAuthGuard],
     loadComponent: AuthLayout,
     children: [
       {

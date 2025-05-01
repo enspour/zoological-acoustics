@@ -1,14 +1,14 @@
 import { inject, Injectable, resource } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
-import { AuthService } from '@kong-ng';
+import { KongAuthService } from '@kong-ng';
 
 import { UserApi } from './user.api';
 
 @Injectable()
 export class UserService {
   private userApi = inject(UserApi);
-  private authService = inject(AuthService);
+  private authService = inject(KongAuthService);
 
   private response = resource({
     request: () => this.authService.auth(),

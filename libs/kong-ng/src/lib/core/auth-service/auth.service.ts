@@ -2,26 +2,22 @@ import { DOCUMENT } from '@angular/common';
 import { inject, Injectable, signal } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
+import { KongAccessTokenPayload } from '@kong-jwt';
+
 import { decodeToken, parseCookie } from '../../utils';
 
-import { AuthApi } from './auth.api';
+import { KongAuthApi } from './auth.api';
 
-export type Auth = { token: AuthToken };
-export type AuthToken = { payload: AuthTokenPayload };
-export type AuthTokenPayload = {
-  sub: string;
-  name: string;
-  exp: number;
-  iat: number;
-};
+export type KongAuth = { token: KongAuthToken };
+export type KongAuthToken = { payload: KongAccessTokenPayload };
 
 @Injectable()
-export class AuthService {
+export class KongAuthService {
   private document = inject(DOCUMENT);
 
-  public auth = signal<Auth | null>(null);
+  public auth = signal<KongAuth | null>(null);
 
-  constructor(private authApi: AuthApi) {
+  constructor(private authApi: KongAuthApi) {
     this.checkAuth();
   }
 
@@ -79,7 +75,7 @@ export class AuthService {
     const token = cookies['access-token'];
 
     if (token) {
-      const payload = decodeToken<AuthTokenPayload>(token);
+      const payload = decodeToken<KongAccessTokenPayload>(token);
 
       if (payload) {
         return this.auth.set({ token: { payload } });

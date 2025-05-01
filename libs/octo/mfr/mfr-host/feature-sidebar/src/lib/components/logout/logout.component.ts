@@ -7,7 +7,7 @@ import {
   MkTooltipDirective,
 } from '@meerkat-ui';
 
-import { AuthService } from '@kong-ng';
+import { KongAuthService } from '@kong-ng';
 
 import { SidebarComponent } from '../../sidebar.component';
 
@@ -20,7 +20,7 @@ import { SidebarComponent } from '../../sidebar.component';
 })
 export class LogoutComponent {
   private router = inject(Router);
-  private authService = inject(AuthService);
+  private authService = inject(KongAuthService);
 
   private sidebar = inject(SidebarComponent);
 
