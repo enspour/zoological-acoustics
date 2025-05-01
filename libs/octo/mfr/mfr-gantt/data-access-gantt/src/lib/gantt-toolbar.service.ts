@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 
-import { LocalStorageService } from '@octo/mfr-util-local-storage';
+import { MkLocalStorageService } from '@meerkat-ng-web-apis';
 
 import { GanttGrouping, GanttZoom } from './interfaces';
 
@@ -9,7 +9,7 @@ const LS_GANTT_TOOLBAR_GROUPING = '__v1/gantt/toolbar/grouping';
 
 @Injectable()
 export class GanttToolbarService {
-  private localStorageService = inject(LocalStorageService);
+  private localStorageService = inject(MkLocalStorageService);
 
   private _zoom = signal<GanttZoom>(this.getInitialZoom());
   public zoom = this._zoom.asReadonly();

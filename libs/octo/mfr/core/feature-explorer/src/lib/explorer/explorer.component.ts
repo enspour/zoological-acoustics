@@ -9,9 +9,9 @@ import {
   signal,
 } from '@angular/core';
 
-import { MkIconComponent, MkSidebarComponent } from '@meerkat-ui';
+import { MkLocalStorageService } from '@meerkat-ng-web-apis';
 
-import { LocalStorageService } from '@octo/mfr-util-local-storage';
+import { MkIconComponent, MkSidebarComponent } from '@meerkat-ui';
 
 import { ExplorerResizerComponent } from '../explorer-resizer/explorer-resizer.component';
 import { ExplorerRef } from '../explorer.interface';
@@ -31,7 +31,7 @@ const LS_EXPLORER = '__v1/explorer';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExplorerComponent implements AfterViewInit {
-  private localStorageService = inject(LocalStorageService);
+  private localStorageService = inject(MkLocalStorageService);
 
   public explorer = input.required<ExplorerRef<unknown>>();
 

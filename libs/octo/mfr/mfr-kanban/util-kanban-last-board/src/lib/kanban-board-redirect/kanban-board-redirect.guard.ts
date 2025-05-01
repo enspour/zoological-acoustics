@@ -1,15 +1,15 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 
-import { ProjectTaskBoardsService } from '@octo/mfr-data-access-project';
+import { MkLocalStorageService } from '@meerkat-ng-web-apis';
 
-import { LocalStorageService } from '@octo/mfr-util-local-storage';
+import { ProjectTaskBoardsService } from '@octo/mfr-data-access-project';
 
 import { LS_KANBAN_LAST_BOARD } from '../constants';
 
 export const kanbanBoardRedirectGuard: CanActivateFn = (_, state) => {
   const router = inject(Router);
-  const localStorageService = inject(LocalStorageService);
+  const localStorageService = inject(MkLocalStorageService);
   const projectTaskBoardsService = inject(ProjectTaskBoardsService);
 
   const boards = projectTaskBoardsService.boards();

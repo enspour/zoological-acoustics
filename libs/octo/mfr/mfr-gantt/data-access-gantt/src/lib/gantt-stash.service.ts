@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { of, switchMap } from 'rxjs';
 
-import { LocalStorageService } from '@octo/mfr-util-local-storage';
+import { MkLocalStorageService } from '@meerkat-ng-web-apis';
 
 import { ProjectService } from '@octo/mfr-data-access-project';
 
@@ -12,7 +12,7 @@ const LS_GANTT_STASH = '__v1/gantt/stash';
 
 @Injectable()
 export class GanttStashService {
-  private localStorageService = inject(LocalStorageService);
+  private localStorageService = inject(MkLocalStorageService);
   private projectService = inject(ProjectService);
 
   public stash = toSignal(
@@ -20,7 +20,7 @@ export class GanttStashService {
       switchMap((project) => {
         if (project) {
           const key = `${LS_GANTT_STASH}/${project.uuid}`;
-          return this.localStorageService.subscriber<GanttStashItem[]>(key);
+          return this.localStorageService.subscribe<GanttStashItem[]>(key);
         }
 
         return of([]);

@@ -1,31 +1,34 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 
+import { mkLocalStorage } from '../../tokens';
+
 @Injectable({ providedIn: 'root' })
-export class LocalStorageService {
+export class MkLocalStorageService {
+  private localStorage = inject(mkLocalStorage);
   private subscribers: Map<string, Subscriber<any>[]> = new Map();
 
   public get<T>(key: string): T | null {
-    const json = localStorage.getItem(key);
+    const json = this.localStorage.getItem(key);
     return json ? (JSON.parse(json) as T) : null;
   }
 
   public set<T>(key: string, value: T) {
-    localStorage.setItem(key, JSON.stringify(value));
+    this.localStorage.setItem(key, JSON.stringify(value));
     this.notify(key, value);
   }
 
   public clear(key: string) {
-    localStorage.removeItem(key);
+    this.localStorage.removeItem(key);
     this.notify(key);
   }
 
   public clearAll() {
-    localStorage.clear();
+    this.localStorage.clear();
     this.notifyAll();
   }
 
-  public subscriber<T>(key: string) {
+  public subscribe<T>(key: string) {
     return new Observable<T | null>((subscriber) => {
       subscriber.next(this.get<T>(key));
 

@@ -2,7 +2,7 @@ import { Directive, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 
-import { LocalStorageService } from '@octo/mfr-util-local-storage';
+import { MkLocalStorageService } from '@meerkat-ng-web-apis';
 
 import { LS_KANBAN_LAST_BOARD } from '../constants';
 
@@ -11,8 +11,7 @@ import { LS_KANBAN_LAST_BOARD } from '../constants';
 })
 export class KanbanBoardSaverDirective {
   private route = inject(ActivatedRoute);
-
-  private localStorageService = inject(LocalStorageService);
+  private localStorageService = inject(MkLocalStorageService);
 
   constructor() {
     this.route.params.pipe(takeUntilDestroyed()).subscribe((params) => {
