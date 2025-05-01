@@ -2,14 +2,11 @@ import { Injectable } from '@nestjs/common';
 
 import { MkBadRequestError, MkNotFoundError } from '@meerkat-nest-errors';
 
-import {
-  KongCreatableUser,
-  KongRefreshTokenPayload,
-  kongComparePassword,
-  kongHashPassword,
-} from '@kong-domain';
+import { CreatableUser } from '@kong/domain';
 
 import { UserCredentialsService, UsersService } from '@kong/msrv-feature-users';
+
+import { comparePassword, hashPassword } from '@kong/msrv-util-password';
 
 import { AuthTokensService } from './auth-tokens.service';
 
@@ -31,10 +28,7 @@ export class AuthService {
       );
     }
 
-    const isEqual = await kongComparePassword(
-      password,
-      credentials.hashedPassword,
-    );
+    const isEqual = await comparePassword(password, credentials.hashedPassword);
 
     if (!isEqual) {
       throw new MkBadRequestError(
@@ -53,12 +47,8 @@ export class AuthService {
     };
   }
 
-  public async signup(
-    username: string,
-    password: string,
-    data: KongCreatableUser,
-  ) {
-    const hashedPassword = await kongHashPassword(password);
+  public async signup(username: string, password: string, data: CreatableUser) {
+    const hashedPassword = await hashPassword(password);
 
     const user = await this.usersService.create(data, {
       username,
@@ -75,8 +65,7 @@ export class AuthService {
   }
 
   public async refresh(token: string) {
-    const payload =
-      this.authTokensService.verify<KongRefreshTokenPayload>(token);
+    const payload = this.authTokensService.verifyRefreshToken(token);
 
     if (!payload) {
       throw new MkBadRequestError('Токен истек!');

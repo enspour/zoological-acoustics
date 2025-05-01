@@ -4,10 +4,10 @@ import { MkNotFoundError } from '@meerkat-nest-errors';
 import { MkPostgresService } from '@meerkat-nest-pg';
 
 import {
+  CreatableUser,
   CreatableUserCredentials,
-  KongCreatableUser,
-  KongUpdatableUser,
-} from '@kong-domain';
+  UpdatableUser,
+} from '@kong/domain';
 
 import { UserEventsService } from '@kong/msrv-feature-user-events';
 
@@ -29,7 +29,7 @@ export class UsersService {
   }
 
   public async create(
-    data: KongCreatableUser,
+    data: CreatableUser,
     credentials: CreatableUserCredentials,
   ) {
     return await this.postgresService.startTransaction(async () => {
@@ -44,7 +44,7 @@ export class UsersService {
     });
   }
 
-  public async update(data: KongUpdatableUser) {
+  public async update(data: UpdatableUser) {
     const manager = this.postgresService.ManagerInTransaction;
 
     const found = await manager.findOne(UserEntity, {

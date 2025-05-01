@@ -20,7 +20,7 @@ import {
   ApiResponse,
 } from '@nestjs/swagger';
 
-import { KongAuthGuard } from '@kong-nest-guard';
+import { KongAuthGuard } from '@kong-nest';
 
 import { TasksService } from '@octo/msrv-feature-tasks';
 

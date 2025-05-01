@@ -16,9 +16,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@kong-domain": ["libs/kong-domain/src/index.ts"],
-      "@kong-nest-guard": ["libs/kong-nest-guard/src/index.ts"],
-      "@kong-nest-token": ["libs/kong-nest-token/src/index.ts"],
+      "@kong-jwt": ["libs/kong-jwt/src/index.ts"],
+      "@kong-nest": ["libs/kong-nest/src/index.ts"],
+      "@kong/domain": ["libs/kong/domain/src/index.ts"],
       "@kong/msrv-data-access-entities": [
         "libs/kong/msrv/data-access-entities/src/index.ts"
       ],
@@ -27,6 +27,7 @@
         "libs/kong/msrv/feature-user-events/src/index.ts"
       ],
       "@kong/msrv-feature-users": ["libs/kong/msrv/feature-users/src/index.ts"],
+      "@kong/msrv-util-password": ["libs/kong/msrv/util-password/src/index.ts"],
       "@meerkat-date": ["libs/meerkat-date/src/index.ts"],
       "@meerkat-differ": ["libs/meerkat-differ/src/index.ts"],
       "@meerkat-dnd": ["libs/meerkat-dnd/src/index.ts"],
@@ -260,8 +261,14 @@
       "@octo/mfr-util-user-redirection": [
         "libs/octo/mfr/core/util-user-redirection/src/index.ts"
       ],
+      "@octo/msrv-data-access-employee-entities": [
+        "libs/octo/msrv/msrv-employees/data-access-employee-entities/src/index.ts"
+      ],
       "@octo/msrv-data-access-project-entities": [
         "libs/octo/msrv/msrv-projects/data-access-project-entities/src/index.ts"
+      ],
+      "@octo/msrv-data-access-task-entities": [
+        "libs/octo/msrv/msrv-tasks/data-access-task-entities/src/index.ts"
       ],
       "@octo/msrv-feature-employee-duplication": [
         "libs/octo/msrv/core/feature-employee-duplication/src/index.ts"
@@ -289,12 +296,6 @@
       ],
       "@octo/msrv-feature-user-duplication": [
         "libs/octo/msrv/core/feature-user-duplication/src/index.ts"
-      ],
-      "@octo/msrv-data-access-employee-entities": [
-        "libs/octo/msrv/msrv-employees/data-access-employee-entities/src/index.ts"
-      ],
-      "@octo/msrv-data-access-task-entities": [
-        "libs/octo/msrv/msrv-tasks/data-access-task-entities/src/index.ts"
       ]
     }
   },

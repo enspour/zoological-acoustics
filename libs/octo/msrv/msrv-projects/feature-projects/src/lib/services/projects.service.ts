@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { MkNotFoundError, MkUnauthorizedError } from '@meerkat-nest-errors';
 import { MkPostgresService } from '@meerkat-nest-pg';
 
-import { KongTokenService } from '@kong-nest-token';
+import { KongTokenService } from '@kong-nest';
 
 import { CreatableProject, UpdatableProject } from '@octo/domain';
 

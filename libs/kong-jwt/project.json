@@ -1,0 +1,9 @@
+{
+  "name": "kong-jwt",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/kong-jwt/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project kong-jwt --web",
+  "targets": {}
+}

@@ -1,0 +1,9 @@
+{
+  "name": "kong-msrv-password",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/kong/msrv/util-password/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project util-password --web",
+  "targets": {}
+}

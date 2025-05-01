@@ -16,7 +16,7 @@ import {
   ApiResponse,
 } from '@nestjs/swagger';
 
-import { KongAuthGuard } from '@kong-nest-guard';
+import { KongAuthGuard } from '@kong-nest';
 
 import { EmployeesService } from '@octo/msrv-feature-employees';
 

@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 
-import { KongAuthGuard } from '@kong-nest-guard';
+import { KongAuthGuard } from '@kong-nest';
 
 import { ProjectMembersService } from '@octo/msrv-feature-project-members';
 

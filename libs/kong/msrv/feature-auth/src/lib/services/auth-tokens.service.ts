@@ -1,14 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
+import { User } from '@kong/domain';
+
 import {
   KongAccessTokenPayload,
+  kongDecodeRefreshToken,
+  kongIssueAccessToken,
+  kongIssueRefreshToken,
   KongRefreshTokenPayload,
-  KongUser,
-  kongDecodeToken,
-  kongSignToken,
-  kongVerifyToken,
-} from '@kong-domain';
+  kongVerifyRefreshToken,
+} from '@kong-jwt';
 
 @Injectable()
 export class AuthTokensService {
@@ -16,28 +18,36 @@ export class AuthTokensService {
 
   constructor(private configService: ConfigService) {}
 
-  public issueAccessToken(user: KongUser): string {
+  public issueAccessToken(user: User): string {
     const payload: KongAccessTokenPayload = {
       sub: user.uuid,
       name: user.name,
     };
 
-    return kongSignToken(payload, this.secret, { expiresIn: '1h' });
+    return kongIssueAccessToken(payload, this.secret, { expiresIn: '1h' });
   }
 
-  public issueRefreshToken(user: KongUser): string {
+  public issueRefreshToken(user: User): string {
     const payload: KongRefreshTokenPayload = {
       sub: user.uuid,
     };
 
-    return kongSignToken(payload, this.secret, { expiresIn: '2d' });
+    return kongIssueRefreshToken(payload, this.secret, { expiresIn: '2d' });
   }
 
-  public verify<T>(token: string): T | null {
-    return kongVerifyToken(token, this.secret) as T | null;
+  public verifyAccessToken(token: string) {
+    return kongVerifyRefreshToken(token, this.secret);
   }
 
-  public decode<T>(token: string): T {
-    return kongDecodeToken(token) as T;
+  public verifyRefreshToken(token: string) {
+    return kongVerifyRefreshToken(token, this.secret);
+  }
+
+  public decodeAccessToken(token: string) {
+    return kongDecodeRefreshToken(token);
+  }
+
+  public decodeRefreshToken(token: string) {
+    return kongDecodeRefreshToken(token);
   }
 }

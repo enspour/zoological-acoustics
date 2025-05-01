@@ -1,7 +1,7 @@
 import { Controller, UseGuards } from '@nestjs/common';
 import { EventPattern, Payload } from '@nestjs/microservices';
 
-import { KongAuthGuard } from '@kong-nest-guard';
+import { KongAuthGuard } from '@kong-nest';
 
 import { Project } from '@octo/domain';
 

@@ -1,11 +1,11 @@
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
-import { KongUser } from '@kong-domain';
+import { User } from '@kong/domain';
 
 import { UserCredentialsEntity } from './user-credentials.entity';
 
 @Entity()
-export class UserEntity implements KongUser {
+export class UserEntity implements User {
   @PrimaryGeneratedColumn('uuid')
   uuid!: string;
 

@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 
 import { MkPostgresModule } from '@meerkat-nest-pg';
 
-import { KongTokenModule } from '@kong-nest-token';
+import { KongTokenModule } from '@kong-nest';
 
 import {
   TaskBoardEntity,

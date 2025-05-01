@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 
 import { MkPostgresModule } from '@meerkat-nest-pg';
 
-import { KongTokenModule } from '@kong-nest-token';
+import { KongTokenModule } from '@kong-nest';
 
 import { EmployeesModule } from '@octo/msrv-feature-employees';
 

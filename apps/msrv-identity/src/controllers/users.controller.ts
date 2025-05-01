@@ -18,7 +18,7 @@ import {
   ApiResponse,
 } from '@nestjs/swagger';
 
-import { KongAuthGuard } from '@kong-nest-guard';
+import { KongAuthGuard } from '@kong-nest';
 
 import { UsersService } from '@kong/msrv-feature-users';
 

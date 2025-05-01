@@ -4,7 +4,7 @@ import { In, LessThanOrEqual, MoreThanOrEqual } from 'typeorm';
 import { MkNotFoundError, MkUnauthorizedError } from '@meerkat-nest-errors';
 import { MkPostgresService } from '@meerkat-nest-pg';
 
-import { KongTokenService } from '@kong-nest-token';
+import { KongTokenService } from '@kong-nest';
 
 import { CreatableTask, UpdatableTask } from '@octo/domain';
 

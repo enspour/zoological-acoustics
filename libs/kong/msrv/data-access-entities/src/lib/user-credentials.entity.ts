@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-import { UserCredentials } from '@kong-domain';
+import { UserCredentials } from '@kong/domain';
 
 import { UserEntity } from './user.entity';
 
