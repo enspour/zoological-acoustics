@@ -12,8 +12,10 @@ import {
 } from '@angular/core';
 
 import { mkSize } from '../../../size';
-import { mkTabContent } from '../../directives/tab-content.directive';
-import { MkTabsComponent } from '../tabs/tabs.component';
+
+import { MkTab } from '../../interfaces';
+
+import { mkTab, mkTabContent, mkTabs } from '../../tokens';
 
 @Component({
   selector: 'mk-tab',
@@ -21,10 +23,11 @@ import { MkTabsComponent } from '../tabs/tabs.component';
   templateUrl: './tab.component.html',
   styleUrl: './tab.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [{ provide: mkTab, useExisting: MkTabComponent }],
 })
-export class MkTabComponent {
+export class MkTabComponent implements MkTab {
   private size = inject(mkSize);
-  private tabs = inject(MkTabsComponent);
+  private tabs = inject(mkTabs);
 
   public orientation = this.tabs.orientation;
 
@@ -44,5 +47,9 @@ export class MkTabComponent {
   public onClick(event: Event) {
     this.tabs.open(this);
     this.byClick.emit(event);
+  }
+
+  public setIsActive(isActive: boolean) {
+    this.isActive.set(isActive);
   }
 }

@@ -1,8 +1,8 @@
-import { Directive, inject, InjectionToken, TemplateRef } from '@angular/core';
+import { Directive, inject, TemplateRef } from '@angular/core';
 
-export const mkAccordionItemContent = new InjectionToken(
-  'mk-ui/accordion-item/content',
-);
+import { MkAccordionItemContent } from '../interfaces';
+
+import { mkAccordionItemContent } from '../tokens';
 
 @Directive({
   selector: '[mkAccordionItemContent]',
@@ -13,8 +13,6 @@ export const mkAccordionItemContent = new InjectionToken(
     },
   ],
 })
-export class MkAccordionItemContentDirective {
-  public template = inject<TemplateRef<unknown> | undefined>(TemplateRef, {
-    optional: true,
-  });
+export class MkAccordionItemContentDirective implements MkAccordionItemContent {
+  public template = inject(TemplateRef, { optional: true });
 }

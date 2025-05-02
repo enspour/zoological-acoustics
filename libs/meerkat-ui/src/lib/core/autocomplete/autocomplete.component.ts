@@ -62,6 +62,8 @@ export class MkAutocompleteComponent {
   public placement = signal<MkPopupPlacement>('bottom');
 
   constructor() {
+    this.trigger.closable.set(false);
+
     effect(() => this.search());
   }
 
@@ -76,7 +78,7 @@ export class MkAutocompleteComponent {
 
   @HostListener('byOptionClick')
   public onOptionClick() {
-    if (!Array.isArray(this.options.value)) {
+    if (!Array.isArray(this.options.value())) {
       this.trigger.close();
     }
   }
@@ -88,9 +90,9 @@ export class MkAutocompleteComponent {
       const text = option.elementRef.nativeElement.innerText.toLowerCase();
 
       if (text.includes(searchTerm)) {
-        option.isHidden.set(false);
+        option.setIsHidden(false);
       } else {
-        option.isHidden.set(true);
+        option.setIsHidden(true);
       }
     }
   }

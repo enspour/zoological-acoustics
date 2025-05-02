@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 
 import { MkVirtualScrollComponent } from '../core';
 
-type VirtualScroll = MkVirtualScrollComponent<number> & {
+type VirtualScroll = MkVirtualScrollComponent<string> & {
   height: number;
 };
 
@@ -15,7 +15,7 @@ const meta: Meta<VirtualScroll> = {
   },
   args: {
     height: 500,
-    elements: [...Array(10000)].map((_, i) => i),
+    elements: [...Array(10000)].map((_, i) => `Element #${i}`),
     elementHeight: 30,
   },
 };

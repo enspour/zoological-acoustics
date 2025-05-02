@@ -5,20 +5,32 @@ import {
   StoryObj,
 } from '@storybook/angular';
 
-import { MkInputComponent, MkInputContainerComponent } from '../core';
+import {
+  MkInputComponent,
+  MkInputContainerComponent,
+  MkSize,
+  MkSizeDirective,
+} from '../core';
 
-const meta: Meta<MkInputComponent> = {
+type Input = MkInputComponent & {
+  placeholder: string;
+  mkSize: MkSize;
+};
+
+const meta: Meta<Input> = {
   component: MkInputComponent,
   decorators: [
     moduleMetadata({
-      imports: [MkInputContainerComponent],
+      imports: [MkInputContainerComponent, MkSizeDirective],
     }),
   ],
   argTypes: {
-    kind: { control: 'select', options: ['outlined', 'filled'] },
+    placeholder: { control: 'text' },
+    mkSize: { control: 'select', options: ['sm', 'md', 'lg'] },
   },
   args: {
-    kind: 'outlined',
+    placeholder: 'Type you favorite animal...',
+    mkSize: 'md',
   },
 };
 
@@ -26,7 +38,7 @@ export default meta;
 
 type Story = StoryObj<MkInputComponent>;
 
-export const Outlined: Story = {
+export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `

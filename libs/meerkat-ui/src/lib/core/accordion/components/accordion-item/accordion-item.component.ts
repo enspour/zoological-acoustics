@@ -14,8 +14,13 @@ import { mkSize } from '../../../size';
 
 import { MkExpandedComponent } from '../../../expanded/expanded.component';
 
-import { mkAccordionItemContent } from '../../directives/accordion-item-content.directive';
-import { MkAccordionComponent } from '../accordion/accordion.component';
+import { MkAccordionItem } from '../../interfaces';
+
+import {
+  mkAccordion,
+  mkAccordionItem,
+  mkAccordionItemContent,
+} from '../../tokens';
 
 @Component({
   selector: 'mk-accordion-item',
@@ -24,10 +29,13 @@ import { MkAccordionComponent } from '../accordion/accordion.component';
   templateUrl: './accordion-item.component.html',
   styleUrl: './accordion-item.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    { provide: mkAccordionItem, useExisting: MkAccordionItemComponent },
+  ],
 })
-export class MkAccordionItemComponent {
-  private accordion = inject(MkAccordionComponent);
+export class MkAccordionItemComponent implements MkAccordionItem {
   private size = inject(mkSize);
+  private accordion = inject(mkAccordion);
 
   public content = contentChild(mkAccordionItemContent, {
     read: TemplateRef,

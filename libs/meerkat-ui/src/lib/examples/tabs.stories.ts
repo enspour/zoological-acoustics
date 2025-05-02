@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
+import {
+  argsToTemplate,
+  Meta,
+  moduleMetadata,
+  StoryObj,
+} from '@storybook/angular';
 
 import {
   MkInputComponent,
@@ -12,13 +17,28 @@ import {
 
 @Component({
   selector: `lib-rnd`,
-  template: `{{ rnd }}`,
+  template: `You are {{ animal }}`,
 })
-class RndComponent {
-  public rnd = Math.random();
+class RndAnimalComponent {
+  private animals = [
+    'Meerkat',
+    'Octopus',
+    'Gorilla',
+    'Rabbit',
+    'Raccoon',
+    'Dolphin',
+  ];
+
+  public animal = this.animals[this.getRndIndex()];
+
+  public getRndIndex() {
+    return Math.floor(Math.random() * this.animals.length);
+  }
 }
 
-type Tabs = MkTabsComponent & { mkSize: MkSize };
+type Tabs = MkTabsComponent & {
+  mkSize: MkSize;
+};
 
 const meta: Meta<Tabs> = {
   component: MkTabsComponent,
@@ -29,7 +49,7 @@ const meta: Meta<Tabs> = {
         MkTabContentDirective,
         MkInputComponent,
         MkSizeDirective,
-        RndComponent,
+        RndAnimalComponent,
       ],
     }),
   ],
@@ -41,7 +61,7 @@ const meta: Meta<Tabs> = {
   args: {
     currentIndex: 0,
     orientation: 'horizontal',
-    mkSize: 'sm',
+    mkSize: 'md',
   },
 };
 
@@ -53,14 +73,11 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <mk-tabs 
-        [currentIndex]="currentIndex" 
-        [orientation]="orientation"
-        [mkSize]="mkSize" 
-      >
-        <mk-tab name="Preview"> Preview Content </mk-tab>
-        <mk-tab name="HTML"> HTML Content </mk-tab>
-        <mk-tab name="Random"> <lib-rnd /> </mk-tab>
+      <mk-tabs ${argsToTemplate(args)}>
+        <mk-tab name="Meerkat"> Meerkat </mk-tab>
+        <mk-tab name="Octopus"> Octopus </mk-tab>
+        <mk-tab name="Gorilla"> Gorilla </mk-tab>
+        <mk-tab name="Random animal"> <lib-rnd /> </mk-tab>
       </mk-tabs>
     `,
   }),
@@ -70,20 +87,20 @@ export const Lazy: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <mk-tabs 
-        [currentIndex]="currentIndex" 
-        [orientation]="orientation"
-        [mkSize]="mkSize" 
-      >
-        <mk-tab name="Preview">
-          <ng-template mkTabContent> Preview Content </ng-template>
+      <mk-tabs ${argsToTemplate(args)}>
+        <mk-tab name="Meerkat">
+          <ng-template mkTabContent> Meerkat </ng-template>
         </mk-tab>
 
-        <mk-tab name="HTML">
-          <ng-template mkTabContent> HTML Content </ng-template>
+        <mk-tab name="Octopus">
+          <ng-template mkTabContent> Octopus </ng-template>
         </mk-tab>
 
-        <mk-tab name="Random">
+        <mk-tab name="Gorilla">
+          <ng-template mkTabContent> Gorilla </ng-template>
+        </mk-tab>
+
+        <mk-tab name="You are ???">
           <ng-template mkTabContent> <lib-rnd /> </ng-template>
         </mk-tab>
       </mk-tabs>

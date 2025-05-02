@@ -1,13 +1,13 @@
-import { Directive, inject, InjectionToken, TemplateRef } from '@angular/core';
+import { Directive, inject, TemplateRef } from '@angular/core';
 
-export const mkTabContent = new InjectionToken<MkTabContentDirective>(
-  'mk-ui/tab-content',
-);
+import { MkTabContent } from '../interfaces';
+
+import { mkTabContent } from '../tokens';
 
 @Directive({
   selector: '[mkTabContent]',
   providers: [{ provide: mkTabContent, useExisting: MkTabContentDirective }],
 })
-export class MkTabContentDirective {
-  public template = inject<TemplateRef<unknown>>(TemplateRef);
+export class MkTabContentDirective implements MkTabContent {
+  public template = inject(TemplateRef);
 }

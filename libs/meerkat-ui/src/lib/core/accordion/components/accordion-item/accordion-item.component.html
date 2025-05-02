@@ -3,11 +3,13 @@
 </button>
 
 <mk-expanded [isOpen]="isOpen()">
-  @let _content = content();
+  @if (isOpen()) {
+    @let _content = content();
 
-  @if (_content) {
-    <ng-container [ngTemplateOutlet]="_content" />
-  } @else {
-    <ng-content select="[mkAccordionItemContent]" />
+    @if (_content) {
+      <ng-container [ngTemplateOutlet]="_content" />
+    } @else {
+      <ng-content select="[mkAccordionItemContent]" />
+    }
   }
 </mk-expanded>

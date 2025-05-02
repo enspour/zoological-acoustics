@@ -2,8 +2,8 @@
   <ng-content />
 </div>
 
-@let explicitContent = tab().explicitContent();
-@let implicitContent = tab().implicitContent();
+@let explicitContent = currentTab().explicitContent();
+@let implicitContent = currentTab().implicitContent();
 
 @if (explicitContent || implicitContent) {
   <div class="content">

@@ -5,14 +5,9 @@ import {
   StoryObj,
 } from '@storybook/angular';
 
-import {
-  MkCalendarComponent,
-  MkSize,
-  MkSizeDirective,
-} from '../core';
+import { MkCalendarComponent, MkSize, MkSizeDirective } from '../core';
 
 type Calendar = MkCalendarComponent & {
-  multiple: boolean;
   mkSize: MkSize;
 };
 
@@ -23,11 +18,11 @@ const meta: Meta<Calendar> = {
       imports: [MkSizeDirective],
     }),
   ],
-  args: {
-    mkSize: 'sm',
-  },
   argTypes: {
     mkSize: { control: 'select', options: ['sm', 'md', 'lg'] },
+  },
+  args: {
+    mkSize: 'md',
   },
 };
 

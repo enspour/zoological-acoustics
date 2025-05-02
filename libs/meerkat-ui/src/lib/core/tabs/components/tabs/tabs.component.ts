@@ -14,9 +14,9 @@ import {
 
 import { mkSize } from '../../../size';
 
-import { MkTabComponent } from '../tab/tab.component';
+import { MkTab, MkTabs, MkTabsOrientation } from '../../interfaces';
 
-export type MkTabsOrientation = 'vertical' | 'horizontal';
+import { mkTab, mkTabs } from '../../tokens';
 
 @Component({
   selector: 'mk-tabs',
@@ -24,16 +24,16 @@ export type MkTabsOrientation = 'vertical' | 'horizontal';
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [{ provide: mkTabs, useExisting: MkTabsComponent }],
 })
-export class MkTabsComponent {
+export class MkTabsComponent implements MkTabs {
   public size = inject(mkSize);
 
-  private tabs = contentChildren(MkTabComponent);
+  private tabs = contentChildren(mkTab);
 
   public orientation = input<MkTabsOrientation>('horizontal');
 
-  public tab = computed(() => this.tabs()[this.currentIndex()]);
-
+  public currentTab = computed(() => this.tabs()[this.currentIndex()]);
   public currentIndex = model(0);
 
   private previousIndex = linkedSignal<number, number>({
@@ -43,8 +43,8 @@ export class MkTabsComponent {
 
   constructor() {
     effect(() => {
-      this.tabs()[this.previousIndex()].isActive.set(false);
-      this.tabs()[this.currentIndex()].isActive.set(true);
+      this.tabs()[this.previousIndex()].setIsActive(false);
+      this.tabs()[this.currentIndex()].setIsActive(true);
     });
   }
 
@@ -53,7 +53,7 @@ export class MkTabsComponent {
     return `${this.size()} ${this.orientation()}`;
   }
 
-  public open(tab: MkTabComponent) {
+  public open(tab: MkTab) {
     const index = this.tabs().findIndex((t) => t === tab);
 
     if (index !== -1) {

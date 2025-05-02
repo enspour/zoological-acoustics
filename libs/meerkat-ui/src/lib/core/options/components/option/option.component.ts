@@ -13,7 +13,9 @@ import {
 
 import { mkSize } from '../../../size';
 
-import { MkOptionsDirective } from '../../directives/options.directive';
+import { MkOption } from '../../interfaces';
+
+import { mkOption, mkOptions } from '../../tokens';
 
 @Component({
   selector: 'mk-option',
@@ -21,18 +23,19 @@ import { MkOptionsDirective } from '../../directives/options.directive';
   templateUrl: './option.component.html',
   styleUrl: './option.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [{ provide: mkOption, useExisting: MkOptionComponent }],
 })
-export class MkOptionComponent<T> {
-  private options = inject(MkOptionsDirective);
+export class MkOptionComponent<V> implements MkOption<V> {
+  private options = inject(mkOptions);
 
   private size = inject(mkSize);
 
-  public value = input.required<T>();
+  public value = input.required<V>();
 
   public disabled = input(false);
 
   public isHidden = signal(false);
-  public isSelected = computed(() => this.getIsSelected());
+  public isSelected = computed(() => this.options.isSelected(this.value()));
 
   public byClick = output<Event>();
 
@@ -54,7 +57,7 @@ export class MkOptionComponent<T> {
     this.byClick.emit(event);
   }
 
-  private getIsSelected() {
-    return this.options.isSelected(this.value());
+  public setIsHidden(isHidden: boolean) {
+    this.isHidden.set(isHidden);
   }
 }

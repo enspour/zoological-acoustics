@@ -20,13 +20,17 @@ type Button = MkButtonComponent & {
 const meta: Meta<Button> = {
   component: MkButtonComponent,
   argTypes: {
-    kind: { name: 'Kind', control: 'select', options: ['outlined', 'filled'] },
+    kind: {
+      name: 'Kind',
+      control: 'select',
+      options: ['outlined', 'bordered', 'filled'],
+    },
     mkSize: { name: 'Size', control: 'select', options: ['sm', 'md', 'lg'] },
     mkRipple: { name: 'Ripple', control: 'boolean' },
   },
   args: {
     kind: 'outlined',
-    mkSize: 'sm',
+    mkSize: 'md',
     mkRipple: false,
   },
   decorators: [

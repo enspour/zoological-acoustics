@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   contentChildren,
   HostBinding,
   inject,
@@ -10,7 +9,9 @@ import {
 
 import { mkSize } from '../../../size';
 
-import { MkAccordionItemComponent } from '../accordion-item/accordion-item.component';
+import { MkAccordion, MkAccordionItem } from '../../interfaces';
+
+import { mkAccordion, mkAccordionItem } from '../../tokens';
 
 @Component({
   selector: 'mk-accordion',
@@ -19,24 +20,23 @@ import { MkAccordionItemComponent } from '../accordion-item/accordion-item.compo
   templateUrl: './accordion.component.html',
   styleUrl: './accordion.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [{ provide: mkAccordion, useExisting: MkAccordionComponent }],
 })
-export class MkAccordionComponent {
+export class MkAccordionComponent implements MkAccordion {
   private size = inject(mkSize);
 
-  private items = contentChildren(MkAccordionItemComponent);
+  private items = contentChildren(mkAccordionItem);
 
   public multiple = input<boolean>(false);
-
-  private opened = computed(() => this.items().filter((item) => item.isOpen()));
 
   @HostBinding('class')
   public get Classes() {
     return `${this.size()}`;
   }
 
-  public toggle(item: MkAccordionItemComponent) {
+  public toggle(item: MkAccordionItem) {
     if (!this.multiple()) {
-      this.opened().forEach((opened) => opened !== item && opened.close());
+      this.items().forEach((item) => item.close());
     }
 
     item.toggle();

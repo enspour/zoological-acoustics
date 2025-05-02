@@ -10,18 +10,23 @@ import {
 
 import { MkSelectionDirective } from '../../selection';
 
-import { MkOptionComponent } from '../components/option/option.component';
+import { MkOption, MkOptions } from '../interfaces';
+
+import { mkOption, mkOptions } from '../tokens';
 
 export type MkOptionsValue<T> = T extends Array<infer I> ? I[] : T;
 
 @Directive({
   selector: '[mkOptions]',
   hostDirectives: [MkSelectionDirective],
+  providers: [{ provide: mkOptions, useExisting: MkOptionsDirective }],
 })
-export class MkOptionsDirective<T, V extends MkOptionsValue<T>> {
+export class MkOptionsDirective<T, V extends MkOptionsValue<T>>
+  implements MkOptions<V>
+{
   private selection = inject(MkSelectionDirective<V>);
 
-  public options = contentChildren(MkOptionComponent<V>);
+  public options = contentChildren<MkOption<V>>(mkOption);
 
   public value = model.required<V>({ alias: 'mkOptionsValue' });
 
