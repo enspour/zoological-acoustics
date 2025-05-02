@@ -17,7 +17,6 @@ import {
 import { MkPopupTriggerDirective } from '../../directives/popup-trigger.directive';
 
 export type MkPopupConfig = MkOverlayConfig;
-
 export type MkPopupPlacement = MkOverlayPlacement;
 
 @Component({

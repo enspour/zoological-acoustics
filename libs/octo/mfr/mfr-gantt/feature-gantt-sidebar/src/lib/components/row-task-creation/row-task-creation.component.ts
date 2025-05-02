@@ -13,11 +13,11 @@ import { TasksService } from '@octo/mfr-data-access-tasks';
 
 import { GanttLayoutRowsDirective } from '@octo/mfr-feature-gantt-layout';
 
-import { RenameableComponent } from '@octo/mfr-ui-kit';
+import { TextfieldEditableComponent } from '@octo/mfr-ui-kit';
 
 @Component({
   selector: 'lib-row-task-creation',
-  imports: [MkIconComponent, RenameableComponent],
+  imports: [MkIconComponent, TextfieldEditableComponent],
   templateUrl: './row-task-creation.component.html',
   styleUrl: './row-task-creation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

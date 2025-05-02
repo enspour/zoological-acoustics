@@ -10,12 +10,16 @@ import { MkPopupComponent } from '../../../popup/components/popup/popup.componen
 import { mkSize } from '../../../size';
 
 import { MkMenuTriggerDirective } from '../../directives/menu-trigger.directive';
+
+import { MkMenuComponent } from '../menu/menu.component';
+
 import { MkMenu } from '../../interfaces';
+
 import { mkMenu } from '../../tokens';
 
 @Component({
   selector: 'mk-menu-by-trigger',
-  imports: [MkPopupComponent],
+  imports: [MkPopupComponent, MkMenuComponent],
   templateUrl: './menu-by-trigger.component.html',
   styleUrl: './menu-by-trigger.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

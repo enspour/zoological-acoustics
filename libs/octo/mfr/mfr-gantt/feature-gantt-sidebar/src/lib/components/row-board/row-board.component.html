@@ -6,9 +6,9 @@
   }
 </button>
 
-<lib-renameable [value]="row().board.title" [(isEdit)]="isEdit">
+<lib-textfield-editable [value]="row().board.title" [(isEdit)]="isEdit">
   <div class="title">{{ row().board.title }}</div>
-</lib-renameable>
+</lib-textfield-editable>
 
 <lib-task-board-more
   #more

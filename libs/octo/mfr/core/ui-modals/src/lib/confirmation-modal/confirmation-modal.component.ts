@@ -7,6 +7,8 @@ import {
   MkIconComponent,
 } from '@meerkat-ui';
 
+import { ConfirmationModalData } from './confirmation-modal.interface';
+
 @Component({
   selector: 'lib-confirmation',
   imports: [MkButtonComponent, MkIconComponent],
@@ -17,7 +19,7 @@ import {
 export class ConfirmationModalComponent {
   private dialogRef = inject(MkDialogRef);
 
-  public data = inject(mkDialogData);
+  public data = inject<ConfirmationModalData>(mkDialogData);
 
   public onClose() {
     this.dialogRef.close(false);

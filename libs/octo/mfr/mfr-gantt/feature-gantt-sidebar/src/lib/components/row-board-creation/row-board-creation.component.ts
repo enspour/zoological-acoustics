@@ -14,11 +14,11 @@ import { TaskBoardsService } from '@octo/mfr-data-access-task-boards';
 
 import { GanttLayoutRowsDirective } from '@octo/mfr-feature-gantt-layout';
 
-import { RenameableComponent } from '@octo/mfr-ui-kit';
+import { TextfieldEditableComponent } from '@octo/mfr-ui-kit';
 
 @Component({
   selector: 'lib-row-board-creation',
-  imports: [MkIconComponent, RenameableComponent],
+  imports: [MkIconComponent, TextfieldEditableComponent],
   templateUrl: './row-board-creation.component.html',
   styleUrl: './row-board-creation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
