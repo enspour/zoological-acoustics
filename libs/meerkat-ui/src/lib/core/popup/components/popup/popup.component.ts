@@ -10,24 +10,25 @@ import { filter, skip } from 'rxjs';
 
 import {
   MkOverlayComponent,
-  MkOverlayConfig,
-  MkOverlayPlacement,
+  MkOverlayFlexibleConfig,
+  MkOverlayFlexiblePlacement,
+  MkOverlayFlexiblePositionDirective,
 } from '../../../overlay';
 
-import { MkPopupTriggerDirective } from '../../directives/popup-trigger.directive';
+import { mkPopupTrigger } from '../../tokens';
 
-export type MkPopupConfig = MkOverlayConfig;
-export type MkPopupPlacement = MkOverlayPlacement;
+export type MkPopupConfig = MkOverlayFlexibleConfig;
+export type MkPopupPlacement = MkOverlayFlexiblePlacement;
 
 @Component({
   selector: 'mk-popup',
-  imports: [MkOverlayComponent],
+  imports: [MkOverlayComponent, MkOverlayFlexiblePositionDirective],
   templateUrl: './popup.component.html',
   styleUrl: './popup.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MkPopupComponent {
-  private popupTriggerDirective = inject(MkPopupTriggerDirective);
+  private popupTriggerDirective = inject(mkPopupTrigger);
 
   public origin = this.popupTriggerDirective.origin;
   public isOpen = this.popupTriggerDirective.isOpen;

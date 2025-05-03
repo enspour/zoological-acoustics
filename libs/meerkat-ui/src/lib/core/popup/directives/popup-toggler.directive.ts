@@ -1,4 +1,4 @@
-import { Directive, inject } from '@angular/core';
+import { Directive, HostListener, inject, linkedSignal } from '@angular/core';
 
 import { MkActiveZoneDirective } from '../../active-zone';
 import { MkOverlayFlexibleOriginDirective } from '../../overlay';
@@ -9,8 +9,8 @@ import { MkPopupTrigger } from '../interfaces';
 import { mkPopupTrigger } from '../tokens';
 
 @Directive({
-  selector: '[mkPopupTrigger]',
-  exportAs: 'mkPopupTrigger',
+  selector: '[mkPopupToggler]',
+  exportAs: 'mkPopupToggler',
   hostDirectives: [
     MkOverlayFlexibleOriginDirective,
     MkZoneDirective,
@@ -20,14 +20,28 @@ import { mkPopupTrigger } from '../tokens';
     tabindex: '0',
   },
   providers: [
-    { provide: mkPopupTrigger, useExisting: MkPopupTriggerDirective },
+    { provide: mkPopupTrigger, useExisting: MkPopupTogglerDirective },
   ],
 })
-export class MkPopupTriggerDirective implements MkPopupTrigger {
+export class MkPopupTogglerDirective implements MkPopupTrigger {
   private activeZoneDirective = inject(MkActiveZoneDirective);
 
   public origin = inject(MkOverlayFlexibleOriginDirective);
   public isOpen = this.activeZoneDirective.active;
+
+  private isToggled = linkedSignal({
+    source: this.isOpen,
+    computation: () => false,
+  });
+
+  @HostListener('click')
+  public onClick() {
+    if (this.isToggled()) {
+      this.close();
+    } else {
+      this.isToggled.set(true);
+    }
+  }
 
   public close() {
     this.activeZoneDirective.deactivate();

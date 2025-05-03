@@ -2,8 +2,8 @@
   class="employees"
   [class.employees--empty]="value().length === 0"
   [class.employees--opened]="trigger.isOpen()"
-  #trigger="mkPopupTrigger"
-  mkPopupTrigger
+  #trigger="mkPopupToggler"
+  mkPopupToggler
 >
   @if (value().length === 0) {
     <mk-icon icon="user-circle" [iconSize]="26" />

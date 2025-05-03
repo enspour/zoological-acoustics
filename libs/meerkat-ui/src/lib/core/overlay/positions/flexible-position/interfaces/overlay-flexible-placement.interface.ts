@@ -1,4 +1,4 @@
-export type MkOverlayPlacement =
+export type MkOverlayFlexiblePlacement =
   | 'left'
   | 'left-bottom'
   | 'left-top'

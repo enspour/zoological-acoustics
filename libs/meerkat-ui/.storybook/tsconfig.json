@@ -1,7 +1,10 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2023", "dom"]
   },
   "exclude": ["../**/*.spec.ts"],
   "include": [

@@ -1,8 +1,9 @@
 <mk-overlay
   [isOpen]="isOpen()"
-  [origin]="origin"
-  [config]="config()"
-  (placementChange)="placementChange.emit($event)"
+  mkOverlayFlexiblePosition
+  [mkOverlayFlexiblePositionOrigin]="origin"
+  [mkOverlayFlexiblePositionConfig]="config()"
+  (mkOverlayFlexiblePositionPlacementChange)="placementChange.emit($event)"
 >
   <ng-content />
 </mk-overlay>

@@ -15,7 +15,7 @@ import {
   MkInputComponent,
   MkPopupComponent,
   MkPopupConfig,
-  MkPopupTriggerDirective,
+  MkPopupTogglerDirective,
 } from '@meerkat-ui';
 
 import { Employee } from '@octo/domain';
@@ -31,7 +31,7 @@ import { EmployeeAvatarsComponent } from '../employee-avatars';
     MkIconComponent,
     MkInputComponent,
     MkPopupComponent,
-    MkPopupTriggerDirective,
+    MkPopupTogglerDirective,
     EmployeeAvatarsComponent,
   ],
   templateUrl: './employee-picker.component.html',

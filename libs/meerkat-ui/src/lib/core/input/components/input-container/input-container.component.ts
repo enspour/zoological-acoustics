@@ -21,10 +21,6 @@ export class MkInputContainerComponent {
 
   private trigger = inject(MkPopupTriggerDirective);
 
-  constructor() {
-    this.trigger.closable.set(false);
-  }
-
   @HostBinding('class')
   public get Classes() {
     return `

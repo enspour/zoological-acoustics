@@ -12,7 +12,7 @@ import {
 import { toSignal } from '@angular/core/rxjs-interop';
 import { fromEvent, map, merge } from 'rxjs';
 
-import { MkOverlayOriginDirective } from '../../overlay';
+import { MkOverlayFlexibleOriginDirective } from '../../overlay';
 
 import { MkTooltipComponent } from '../components/tooltip/tooltip.component';
 
@@ -20,12 +20,12 @@ export type MkTooltipPlacement = 'left' | 'right' | 'bottom' | 'top';
 
 @Directive({
   selector: '[mkTooltip]',
-  hostDirectives: [MkOverlayOriginDirective],
+  hostDirectives: [MkOverlayFlexibleOriginDirective],
 })
 export class MkTooltipDirective implements OnDestroy {
   private vcRef = inject(ViewContainerRef);
   private elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
-  private origin = inject(MkOverlayOriginDirective);
+  private origin = inject(MkOverlayFlexibleOriginDirective);
 
   public tooltip = input.required<string | TemplateRef<any>>({
     alias: 'mkTooltip',

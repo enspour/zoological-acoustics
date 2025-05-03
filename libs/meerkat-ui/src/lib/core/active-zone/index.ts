@@ -1,2 +1,2 @@
 export * from './directives/active-zone.directive';
-export * from './tokens';
+export * from './services/active-element.service';

@@ -1,17 +1,17 @@
 import { Directive, inject } from '@angular/core';
 
-import { MkPopupTriggerDirective } from '../../popup';
+import { MkPopupTogglerDirective } from '../../popup';
 
 @Directive({
   selector: '[mkMenuTrigger]',
   exportAs: 'mkMenuTrigger',
-  hostDirectives: [MkPopupTriggerDirective],
+  hostDirectives: [MkPopupTogglerDirective],
   host: {
     tabindex: '-1',
   },
 })
 export class MkMenuTriggerDirective {
-  private trigger = inject(MkPopupTriggerDirective);
+  private trigger = inject(MkPopupTogglerDirective);
 
   public isOpen = this.trigger.isOpen;
 

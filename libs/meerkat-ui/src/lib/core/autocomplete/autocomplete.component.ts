@@ -62,8 +62,6 @@ export class MkAutocompleteComponent {
   public placement = signal<MkPopupPlacement>('bottom');
 
   constructor() {
-    this.trigger.closable.set(false);
-
     effect(() => this.search());
   }
 

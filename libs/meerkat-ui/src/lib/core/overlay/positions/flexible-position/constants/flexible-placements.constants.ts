@@ -1,8 +1,8 @@
-import { MkOverlayPlacement } from '../interfaces';
+import { MkOverlayFlexiblePlacement } from '../interfaces';
 
-export const FALLBACK_PLACEMENTS: Record<
-  MkOverlayPlacement,
-  MkOverlayPlacement[]
+export const PLACEMENT_FALLBACK: Record<
+  MkOverlayFlexiblePlacement,
+  MkOverlayFlexiblePlacement[]
 > = {
   left: ['right', 'left-bottom', 'left-top', 'right-bottom', 'right-top'],
   'left-bottom': ['left', 'left-top', 'right-bottom', 'right', 'right-top'],

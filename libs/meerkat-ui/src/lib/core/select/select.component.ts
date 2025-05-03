@@ -14,7 +14,7 @@ import {
   MkPopupComponent,
   MkPopupConfig,
   MkPopupPlacement,
-  MkPopupTriggerDirective,
+  MkPopupTogglerDirective,
 } from '../popup';
 
 import { MkOptionsDirective } from '../options';
@@ -28,7 +28,7 @@ import { mkSize } from '../size';
   styleUrl: './select.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
-    MkPopupTriggerDirective,
+    MkPopupTogglerDirective,
     {
       directive: MkOptionsDirective,
       inputs: ['mkOptionsValue: value'],
@@ -41,7 +41,7 @@ import { mkSize } from '../size';
 })
 export class MkSelectComponent {
   private domSanitizer = inject(DomSanitizer);
-  private trigger = inject(MkPopupTriggerDirective);
+  private trigger = inject(MkPopupTogglerDirective);
   private options = inject(MkOptionsDirective);
 
   public size = inject(mkSize);

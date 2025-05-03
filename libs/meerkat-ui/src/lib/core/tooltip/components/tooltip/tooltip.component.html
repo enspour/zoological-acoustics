@@ -1,4 +1,8 @@
-<mk-overlay [origin]="origin()" [config]="config()">
+<mk-overlay
+  mkOverlayFlexiblePosition
+  [mkOverlayFlexiblePositionOrigin]="origin()"
+  [mkOverlayFlexiblePositionConfig]="config()"
+>
   @let tooltip = this.tooltip();
 
   @if (isTemplateRef(tooltip)) {

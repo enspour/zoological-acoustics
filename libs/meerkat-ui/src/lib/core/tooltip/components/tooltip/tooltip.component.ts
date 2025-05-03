@@ -9,27 +9,32 @@ import {
 
 import {
   MkOverlayComponent,
-  MkOverlayConfig,
-  MkOverlayOriginDirective,
+  MkOverlayFlexibleConfig,
+  MkOverlayFlexibleOriginDirective,
+  MkOverlayFlexiblePositionDirective,
 } from '../../../overlay';
 
 import { MkTooltipPlacement } from '../../directives/tooltip.directive';
 
 @Component({
   selector: 'mk-tooltip',
-  imports: [NgTemplateOutlet, MkOverlayComponent],
+  imports: [
+    NgTemplateOutlet,
+    MkOverlayComponent,
+    MkOverlayFlexiblePositionDirective,
+  ],
   templateUrl: './tooltip.component.html',
   styleUrl: './tooltip.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MkTooltipComponent {
-  public origin = input.required<MkOverlayOriginDirective>();
+  public origin = input.required<MkOverlayFlexibleOriginDirective>();
 
   public tooltip = input.required<string | TemplateRef<any>>();
 
   public placement = input.required<MkTooltipPlacement>();
 
-  public config = computed<MkOverlayConfig>(() => ({
+  public config = computed<MkOverlayFlexibleConfig>(() => ({
     width: 'self-width',
     placement: this.placement(),
     gap: 4,
