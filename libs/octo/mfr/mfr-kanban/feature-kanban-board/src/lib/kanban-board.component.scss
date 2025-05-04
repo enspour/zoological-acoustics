@@ -11,16 +11,12 @@
   gap: 10px;
 }
 
-.task__creation {
+.task-creation {
   padding: 6px 10px;
 }
 
-.task__creation--creating {
+.task-creation--creating {
   padding-bottom: 0;
-}
-
-.task__employees {
-  align-self: flex-end;
 }
 
 .tasks {
@@ -30,4 +26,12 @@
   flex-direction: column;
   gap: 6px;
   overflow: auto;
+}
+
+.task {
+  flex-shrink: 0;
+}
+
+.task__employees {
+  align-self: flex-end;
 }

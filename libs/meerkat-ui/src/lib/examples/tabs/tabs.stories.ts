@@ -13,7 +13,7 @@ import {
   MkTabComponent,
   MkTabContentDirective,
   MkTabsComponent,
-} from '../core';
+} from '../../core';
 
 @Component({
   selector: `lib-rnd`,

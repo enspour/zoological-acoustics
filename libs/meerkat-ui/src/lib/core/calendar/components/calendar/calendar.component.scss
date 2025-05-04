@@ -29,7 +29,7 @@
 :host.lg {
   --mk-calendar-width: calc(7 * 40px);
   --mk-calendar-today-size: 5px;
-  --mk-calendar-today-bottom: 6px;
+  --mk-calendar-today-bottom: 4px;
   @include layout.lg;
   padding: 0;
   font-size: 16px;

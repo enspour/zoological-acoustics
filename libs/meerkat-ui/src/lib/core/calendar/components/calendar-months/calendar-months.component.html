@@ -1,6 +1,11 @@
 <div class="months">
   @for (month of months; track $index) {
-    <button mk-button class="month" (click)="onMonthClick($index)">
+    <button
+      mk-button
+      [style.width.%]="100"
+      [style.height.%]="100"
+      (click)="onMonthClick($index)"
+    >
       {{ month }}
     </button>
   }

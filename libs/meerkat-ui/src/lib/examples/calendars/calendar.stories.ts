@@ -5,7 +5,7 @@ import {
   StoryObj,
 } from '@storybook/angular';
 
-import { MkCalendarComponent, MkSize, MkSizeDirective } from '../core';
+import { MkCalendarComponent, MkSize, MkSizeDirective } from '../../core';
 
 type Calendar = MkCalendarComponent & {
   mkSize: MkSize;

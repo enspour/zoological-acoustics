@@ -13,7 +13,7 @@ import {
   MkButtonComponent,
   MkSize,
   MkSizeDirective,
-} from '../core';
+} from '../../core';
 
 @Component({
   selector: `lib-rnd`,

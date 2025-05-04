@@ -4,6 +4,7 @@
   height: 180px;
   display: block;
   border-radius: 4px;
+  box-sizing: border-box;
   overflow: hidden;
 }
 
@@ -16,6 +17,7 @@
   border: 2px solid #ffffff;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  box-sizing: border-box;
   box-shadow:
     inset 0 0 1px 0 rgba(0, 0, 0, 0.25),
     0 0 0 1px rgba(0, 0, 0, 0.25);

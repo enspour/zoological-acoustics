@@ -41,14 +41,15 @@
 :host:after {
   content: '';
   position: absolute;
-  left: 5px;
+  left: 6px;
   top: 2px;
   display: block;
-  width: 6px;
-  height: 9px;
+  width: calc(var(--mk-checkbox-size) / 2 - 4px);
+  height: calc(var(--mk-checkbox-size) / 2 + 1px);
   border: 2px solid var(--mk-checkbox-active-inner);
   border-top: 0;
   border-left: 0;
+  box-sizing: border-box;
   opacity: var(--opacity, 0);
   transform: rotate(var(--rotate, 20deg));
   transition:

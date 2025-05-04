@@ -13,9 +13,17 @@
 }
 
 .btn {
+  padding: 0;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
   cursor: pointer;
 
   &:hover {
     color: #134b7c;
   }
+}
+
+.btn--date {
+  background: none;
 }

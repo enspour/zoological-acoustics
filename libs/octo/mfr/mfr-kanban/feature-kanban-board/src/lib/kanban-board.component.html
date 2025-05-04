@@ -22,6 +22,7 @@
 
       @for (task of tasks; track task.uuid) {
         <lib-kanban-task
+          class="task"
           [task]="task"
           (click)="onTaskClick(task)"
           (byDelete)="onTaskDelete($event)"
@@ -52,8 +53,8 @@
     >
       <lib-kanban-task-creation
         #creation
-        class="task__creation"
-        [class.task__creation--creating]="creation.isCreating()"
+        class="task-creation"
+        [class.task-creation--creating]="creation.isCreating()"
         (byCreate)="onTaskCreate($event, column)"
       />
 
@@ -68,6 +69,7 @@
 
         @for (task of tasks; track task.uuid) {
           <lib-kanban-task
+            class="task"
             [task]="task"
             (click)="onTaskClick(task)"
             mkDndDrag

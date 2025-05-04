@@ -7,6 +7,7 @@ const config: StorybookConfig = {
     name: '@storybook/angular',
     options: {},
   },
+  staticDirs: [{ from: '../../meerkat-ui-icons/src/lib', to: '/assets' }],
 };
 
 export default config;

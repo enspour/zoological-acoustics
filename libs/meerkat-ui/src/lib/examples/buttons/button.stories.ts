@@ -10,7 +10,7 @@ import {
   MkRippleDirective,
   MkSize,
   MkSizeDirective,
-} from '../core';
+} from '../../core';
 
 type Button = MkButtonComponent & {
   mkSize: MkSize;
@@ -44,6 +44,20 @@ export default meta;
 type Story = StoryObj<Button>;
 
 export const Outlined: Story = {
+  render: ({ mkRipple, ...args }) => ({
+    props: args,
+    template: `
+      <button mk-button ${argsToTemplate(args)} ${mkRipple ? 'mkRipple' : ''}>
+        Click Me
+      </button>
+    `,
+  }),
+};
+
+export const Bordered: Story = {
+  args: {
+    kind: 'bordered',
+  },
   render: ({ mkRipple, ...args }) => ({
     props: args,
     template: `

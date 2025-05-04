@@ -10,7 +10,7 @@ import {
   MkOptionComponent,
   MkSize,
   MkSizeDirective,
-} from '../core';
+} from '../../core';
 
 type Autocomplete = MkAutocompleteComponent & {
   value: string | string[];

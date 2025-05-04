@@ -3,6 +3,7 @@ import {
   Component,
   computed,
   HostBinding,
+  linkedSignal,
   model,
 } from '@angular/core';
 
@@ -34,6 +35,13 @@ export class MkColorPickerComponent {
     y: -this.hsv.value().v / 100 + 1,
   }));
 
+  public hue = linkedSignal<any, number>({
+    source: this.hsv.value,
+    computation(hsv, prev) {
+      return prev && hsv.s === 0 ? prev.value : hsv.h;
+    },
+  });
+
   @HostBinding('style.--mk-color-picker-color')
   public get Color() {
     return this.color();
@@ -41,12 +49,13 @@ export class MkColorPickerComponent {
 
   @HostBinding('style.--mk-color-picker-hue')
   public get Hue() {
-    return this.hsv.value().h;
+    return this.hue();
   }
 
   public onPlanePointChange(point: MkColorPoint) {
-    const { h, a } = this.hsv.value();
+    const { a } = this.hsv.value();
 
+    const h = this.hue();
     const s = point.x * 100;
     const v = (1 - point.y) * 100;
 
@@ -57,13 +66,18 @@ export class MkColorPickerComponent {
     const { s, v, a } = this.hsv.value();
 
     const h = Math.floor(value * 360);
+    this.hue.set(h);
 
     this.updateColor({ h, s, v, a });
   }
 
   public onAlphaPointChange(value: number) {
-    const { h, s, v } = this.hsv.value();
-    this.updateColor({ h, s, v, a: value });
+    const { s, v } = this.hsv.value();
+
+    const h = this.hue();
+    const a = value;
+
+    this.updateColor({ h, s, v, a });
   }
 
   private updateColor(hsv: MkColorHsv) {

@@ -11,21 +11,24 @@
 
 :host.sm {
   --mk-switch-height: 16px;
+  --mk-switch-width: 34px;
 }
 
 :host.md {
-  --mk-switch-height: 18px;
+  --mk-switch-height: 20px;
+  --mk-switch-width: 38px;
 }
 
 :host.lg {
-  --mk-switch-height: 20px;
+  --mk-switch-height: 24px;
+  --mk-switch-width: 42px;
 }
 
 :host {
   appearance: none;
   position: relative;
-  height: 20px;
-  width: 38px;
+  height: var(--mk-switch-height);
+  width: var(--mk-switch-width);
   outline: none;
   border: 1px solid var(--background, var(--mk-switch-border));
   border-radius: 11px;
@@ -43,12 +46,13 @@
   left: 1px;
   top: 1px;
   display: block;
-  width: 16px;
-  height: 16px;
+  width: calc(var(--mk-switch-height) - 4px);
+  height: calc(var(--mk-switch-height) - 4px);
   background-color: var(--background-active, var(--mk-switch-border));
   transform: translateX(var(--x, 0));
   border-radius: 50%;
   border: 1px solid var(--mk-switch-active-inner);
+  box-sizing: border-box;
   opacity: var(--opacity, 1);
   transition:
     transform var(--d-t, 0.3s) var(--d-t-e, ease),

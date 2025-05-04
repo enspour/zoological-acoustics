@@ -1,6 +1,6 @@
 import { Signal, computed } from '@angular/core';
 
-export class MemoizedSignal<TInput, TValue> {
+export class MkMemoizedSignal<TInput, TValue> {
   private lastInput: TInput | null = null;
   private lastValue: TValue | null = null;
 
@@ -28,6 +28,6 @@ export class MemoizedSignal<TInput, TValue> {
 export function createMemoizedSignal<TInput, TValue>(
   input: Signal<TInput>,
   compute: (input: TInput) => TValue,
-): MemoizedSignal<TInput, TValue> {
-  return new MemoizedSignal(input, compute);
+): MkMemoizedSignal<TInput, TValue> {
+  return new MkMemoizedSignal(input, compute);
 }

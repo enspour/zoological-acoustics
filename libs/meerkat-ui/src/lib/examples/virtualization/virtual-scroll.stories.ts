@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/angular';
 
-import { MkVirtualScrollComponent } from '../core';
+import { MkVirtualScrollComponent } from '../../core';
 
 type VirtualScroll = MkVirtualScrollComponent<string> & {
   height: number;

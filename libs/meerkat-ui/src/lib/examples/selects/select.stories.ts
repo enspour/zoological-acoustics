@@ -10,7 +10,7 @@ import {
   MkSelectComponent,
   MkSize,
   MkSizeDirective,
-} from '../core';
+} from '../../core';
 
 type Select = MkSelectComponent & {
   value: string | string[];

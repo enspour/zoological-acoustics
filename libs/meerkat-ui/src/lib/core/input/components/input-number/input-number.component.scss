@@ -39,11 +39,16 @@
 }
 
 .control {
+  padding: 0 6px;
   color: #bbbbbb;
-  border-radius: 2px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
 
   &:hover {
     color: #191919;
     background-color: #dddddd;
+    border-radius: 2px;
   }
 }

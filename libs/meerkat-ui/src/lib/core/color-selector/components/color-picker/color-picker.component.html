@@ -8,7 +8,7 @@
   <div class="group__pickers">
     <mk-color-linear-picker
       class="hue"
-      [value]="hsv.value().h / 360"
+      [value]="hue() / 360"
       (valueChange)="onHuePointChange($event)"
     />
 

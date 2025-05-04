@@ -1,49 +1,42 @@
-import {
-  argsToTemplate,
-  Meta,
-  moduleMetadata,
-  StoryObj,
-} from '@storybook/angular';
+import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 
 import {
-  MkInputComponent,
+  MkInputColorComponent,
   MkInputContainerComponent,
   MkSize,
   MkSizeDirective,
-} from '../core';
+} from '../../core';
 
-type Input = MkInputComponent & {
-  placeholder: string;
+type Input = MkInputColorComponent & {
   mkSize: MkSize;
 };
 
 const meta: Meta<Input> = {
-  component: MkInputComponent,
+  component: MkInputColorComponent,
   decorators: [
     moduleMetadata({
       imports: [MkInputContainerComponent, MkSizeDirective],
     }),
   ],
   argTypes: {
-    placeholder: { control: 'text' },
     mkSize: { control: 'select', options: ['sm', 'md', 'lg'] },
   },
   args: {
-    placeholder: 'Type you favorite animal...',
+    value: '#ffffff',
     mkSize: 'md',
   },
 };
 
 export default meta;
 
-type Story = StoryObj<MkInputComponent>;
+type Story = StoryObj<MkInputColorComponent>;
 
 export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
       <mk-input-container>
-        <input mk-input ${argsToTemplate(args)}/>
+        <input mk-input-color [(value)]="value" [mkSize]="mkSize"/>
       </mk-input-container>
     `,
   }),
