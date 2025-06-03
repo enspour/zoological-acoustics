@@ -1,9 +1,0 @@
-{
-  "name": "octo-msrv-data-access-task-entities",
-  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/octo/msrv/msrv-tasks/data-access-task-entities/src",
-  "projectType": "library",
-  "tags": [],
-  "// targets": "to see all targets run: nx show project data-access-task-entities --web",
-  "targets": {}
-}

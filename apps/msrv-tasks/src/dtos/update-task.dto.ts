@@ -1,5 +1,5 @@
+import { UpdatableTask } from '@kraken/domain';
 import { ApiProperty } from '@nestjs/swagger';
-import { UpdatableTask } from '@octo/domain';
 import { IsDateString, IsString, IsUUID, ValidateIf } from 'class-validator';
 
 export class UpdateTaskDto implements Omit<UpdatableTask, 'uuid'> {

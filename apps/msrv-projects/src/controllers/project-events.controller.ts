@@ -3,9 +3,9 @@ import { EventPattern, Payload } from '@nestjs/microservices';
 
 import { KongAuthGuard } from '@kong-nest';
 
-import { Project } from '@octo/domain';
+import { Project } from '@kraken/domain';
 
-import { ProjectMembersService } from '@octo/msrv-feature-project-members';
+import { ProjectMembersService } from '@kraken/msrv-feature-project-members';
 
 @Controller()
 @UseGuards(KongAuthGuard)

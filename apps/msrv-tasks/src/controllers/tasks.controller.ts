@@ -22,7 +22,7 @@ import {
 
 import { KongAuthGuard } from '@kong-nest';
 
-import { TasksService } from '@octo/msrv-feature-tasks';
+import { TasksService } from '@kraken/msrv-feature-tasks';
 
 import { CreateTaskDto, GetByQueryDto, UpdateTaskDto } from '../dtos';
 

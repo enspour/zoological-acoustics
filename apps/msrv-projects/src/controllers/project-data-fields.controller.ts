@@ -14,7 +14,7 @@ import { ApiBody, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 
 import { KongAuthGuard } from '@kong-nest';
 
-import { ProjectDataFieldsService } from '@octo/msrv-feature-project-data-fields';
+import { ProjectDataFieldsService } from '@kraken/msrv-feature-project-data-fields';
 
 import { CreateProjectDataFieldDto, UpdateProjectDataFieldDto } from '../dtos';
 

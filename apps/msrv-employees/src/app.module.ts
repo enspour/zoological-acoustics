@@ -5,9 +5,9 @@ import { MkPostgresModule } from '@meerkat-nest-pg';
 
 import { KongTokenModule } from '@kong-nest';
 
-import { EmployeesModule } from '@octo/msrv-feature-employees';
+import { EmployeesModule } from '@kraken/msrv-feature-employees';
 
-import { EmployeeEntity } from '@octo/msrv-data-access-employee-entities';
+import { EmployeeEntity } from '@kraken/msrv-data-access-employee-entities';
 
 import { AppController } from './controllers/app.controller';
 import { EmployeesController } from './controllers/employees.controller';

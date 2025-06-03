@@ -12,11 +12,11 @@ import {
   ProjectMemberEntity,
   ProjectToDataValueEntity,
   ProjectToMemberEntity,
-} from '@octo/msrv-data-access-project-entities';
+} from '@kraken/msrv-data-access-project-entities';
 
-import { ProjectDataFieldsModule } from '@octo/msrv-feature-project-data-fields';
-import { ProjectMembersModule } from '@octo/msrv-feature-project-members';
-import { ProjectsModule } from '@octo/msrv-feature-projects';
+import { ProjectDataFieldsModule } from '@kraken/msrv-feature-project-data-fields';
+import { ProjectMembersModule } from '@kraken/msrv-feature-project-members';
+import { ProjectsModule } from '@kraken/msrv-feature-projects';
 
 import { AppController } from './controllers/app.controller';
 import { ProjectDataFieldsController } from './controllers/project-data-fields.controller';

@@ -42,249 +42,255 @@
       "@meerkat-ui": ["libs/meerkat-ui/src/index.ts"],
       "@meerkat-ui-icons": ["libs/meerkat-ui-icons/src/index.ts"],
       "@meerkat-utils": ["libs/meerkat-utils/src/index.ts"],
-      "@octo/domain": ["libs/octo/domain/src/index.ts"],
-      "@octo/mfr-data-access-employee": [
-        "libs/octo/mfr/core/data-access-employee/src/index.ts"
+      "@kraken/domain": ["libs/kraken/domain/src/index.ts"],
+      "@kraken/mfr-data-access-employee": [
+        "libs/kraken/mfr/core/data-access-employee/src/index.ts"
       ],
-      "@octo/mfr-data-access-employees": [
-        "libs/octo/mfr/core/data-access-employees/src/index.ts"
+      "@kraken/mfr-data-access-employees": [
+        "libs/kraken/mfr/core/data-access-employees/src/index.ts"
       ],
-      "@octo/mfr-data-access-gantt": [
-        "libs/octo/mfr/mfr-gantt/data-access-gantt/src/index.ts"
+      "@kraken/mfr-data-access-gantt": [
+        "libs/kraken/mfr/mfr-gantt/data-access-gantt/src/index.ts"
       ],
-      "@octo/mfr-data-access-kanban": [
-        "libs/octo/mfr/mfr-kanban/data-access-kanban/src/index.ts"
+      "@kraken/mfr-data-access-kanban": [
+        "libs/kraken/mfr/mfr-kanban/data-access-kanban/src/index.ts"
       ],
-      "@octo/mfr-data-access-project": [
-        "libs/octo/mfr/core/data-access-project/src/index.ts"
+      "@kraken/mfr-data-access-project": [
+        "libs/kraken/mfr/core/data-access-project/src/index.ts"
       ],
-      "@octo/mfr-data-access-projects": [
-        "libs/octo/mfr/core/data-access-projects/src/index.ts"
+      "@kraken/mfr-data-access-projects": [
+        "libs/kraken/mfr/core/data-access-projects/src/index.ts"
       ],
-      "@octo/mfr-data-access-projects-data-fields": [
-        "libs/octo/mfr/core/data-access-projects-data-fields/src/index.ts"
+      "@kraken/mfr-data-access-projects-data-fields": [
+        "libs/kraken/mfr/core/data-access-projects-data-fields/src/index.ts"
       ],
-      "@octo/mfr-data-access-task-boards": [
-        "libs/octo/mfr/core/data-access-task-boards/src/index.ts"
+      "@kraken/mfr-data-access-task-boards": [
+        "libs/kraken/mfr/core/data-access-task-boards/src/index.ts"
       ],
-      "@octo/mfr-data-access-task-columns": [
-        "libs/octo/mfr/core/data-access-task-columns/src/index.ts"
+      "@kraken/mfr-data-access-task-columns": [
+        "libs/kraken/mfr/core/data-access-task-columns/src/index.ts"
       ],
-      "@octo/mfr-data-access-tasks": [
-        "libs/octo/mfr/core/data-access-tasks/src/index.ts"
+      "@kraken/mfr-data-access-tasks": [
+        "libs/kraken/mfr/core/data-access-tasks/src/index.ts"
       ],
-      "@octo/mfr-data-access-user": [
-        "libs/octo/mfr/core/data-access-user/src/index.ts"
+      "@kraken/mfr-data-access-user": [
+        "libs/kraken/mfr/core/data-access-user/src/index.ts"
       ],
-      "@octo/mfr-feature-auth-layout": [
-        "libs/octo/mfr/mfr-host/feature-auth-layout/src/index.ts"
+      "@kraken/mfr-feature-auth-layout": [
+        "libs/kraken/mfr/mfr-host/feature-auth-layout/src/index.ts"
       ],
-      "@octo/mfr-feature-browse-employee": [
-        "libs/octo/mfr/core/feature-browse-employee/src/index.ts"
+      "@kraken/mfr-feature-browse-employee": [
+        "libs/kraken/mfr/core/feature-browse-employee/src/index.ts"
       ],
-      "@octo/mfr-feature-browse-project-access": [
-        "libs/octo/mfr/mfr-projects/feature-browse-project-access/src/index.ts"
+      "@kraken/mfr-feature-browse-project-access": [
+        "libs/kraken/mfr/mfr-projects/feature-browse-project-access/src/index.ts"
       ],
-      "@octo/mfr-feature-browse-project-data-field": [
-        "libs/octo/mfr/mfr-projects/feature-browse-project-data-field/src/index.ts"
+      "@kraken/mfr-feature-browse-project-data-field": [
+        "libs/kraken/mfr/mfr-projects/feature-browse-project-data-field/src/index.ts"
       ],
-      "@octo/mfr-feature-browse-task": [
-        "libs/octo/mfr/core/feature-browse-task/src/index.ts"
+      "@kraken/mfr-feature-browse-task": [
+        "libs/kraken/mfr/core/feature-browse-task/src/index.ts"
       ],
-      "@octo/mfr-feature-create-project": [
-        "libs/octo/mfr/mfr-projects/feature-create-project/src/index.ts"
+      "@kraken/mfr-feature-create-project": [
+        "libs/kraken/mfr/mfr-projects/feature-create-project/src/index.ts"
       ],
-      "@octo/mfr-feature-create-project-data-field": [
-        "libs/octo/mfr/mfr-projects/feature-create-project-data-field/src/index.ts"
+      "@kraken/mfr-feature-create-project-data-field": [
+        "libs/kraken/mfr/mfr-projects/feature-create-project-data-field/src/index.ts"
       ],
-      "@octo/mfr-feature-employee": [
-        "libs/octo/mfr/mfr-employees/feature-employee/src/index.ts"
+      "@kraken/mfr-feature-employee": [
+        "libs/kraken/mfr/mfr-employees/feature-employee/src/index.ts"
       ],
-      "@octo/mfr-feature-employee-contacts": [
-        "libs/octo/mfr/mfr-employees/feature-employee-contacts/src/index.ts"
+      "@kraken/mfr-feature-employee-contacts": [
+        "libs/kraken/mfr/mfr-employees/feature-employee-contacts/src/index.ts"
       ],
-      "@octo/mfr-feature-employee-overview": [
-        "libs/octo/mfr/mfr-employees/feature-employee-overview/src/index.ts"
+      "@kraken/mfr-feature-employee-overview": [
+        "libs/kraken/mfr/mfr-employees/feature-employee-overview/src/index.ts"
       ],
-      "@octo/mfr-feature-employees": [
-        "libs/octo/mfr/mfr-employees/feature-employees/src/index.ts"
+      "@kraken/mfr-feature-employees": [
+        "libs/kraken/mfr/mfr-employees/feature-employees/src/index.ts"
       ],
-      "@octo/mfr-feature-explorer": [
-        "libs/octo/mfr/core/feature-explorer/src/index.ts"
+      "@kraken/mfr-feature-explorer": [
+        "libs/kraken/mfr/core/feature-explorer/src/index.ts"
       ],
-      "@octo/mfr-feature-gantt": [
-        "libs/octo/mfr/mfr-gantt/feature-gantt/src/index.ts"
+      "@kraken/mfr-feature-gantt": [
+        "libs/kraken/mfr/mfr-gantt/feature-gantt/src/index.ts"
       ],
-      "@octo/mfr-feature-gantt-chart": [
-        "libs/octo/mfr/mfr-gantt/feature-gantt-chart/src/index.ts"
+      "@kraken/mfr-feature-gantt-chart": [
+        "libs/kraken/mfr/mfr-gantt/feature-gantt-chart/src/index.ts"
       ],
-      "@octo/mfr-feature-gantt-layout": [
-        "libs/octo/mfr/mfr-gantt/feature-gantt-layout/src/index.ts"
+      "@kraken/mfr-feature-gantt-layout": [
+        "libs/kraken/mfr/mfr-gantt/feature-gantt-layout/src/index.ts"
       ],
-      "@octo/mfr-feature-gantt-sidebar": [
-        "libs/octo/mfr/mfr-gantt/feature-gantt-sidebar/src/index.ts"
+      "@kraken/mfr-feature-gantt-sidebar": [
+        "libs/kraken/mfr/mfr-gantt/feature-gantt-sidebar/src/index.ts"
       ],
-      "@octo/mfr-feature-gantt-toolbar": [
-        "libs/octo/mfr/mfr-gantt/feature-gantt-toolbar/src/index.ts"
+      "@kraken/mfr-feature-gantt-toolbar": [
+        "libs/kraken/mfr/mfr-gantt/feature-gantt-toolbar/src/index.ts"
       ],
-      "@octo/mfr-feature-home": [
-        "libs/octo/mfr/mfr-host/feature-home/src/index.ts"
+      "@kraken/mfr-feature-home": [
+        "libs/kraken/mfr/mfr-host/feature-home/src/index.ts"
       ],
-      "@octo/mfr-feature-invite-employee": [
-        "libs/octo/mfr/mfr-employees/feature-invite-employee/src/index.ts"
+      "@kraken/mfr-feature-invite-employee": [
+        "libs/kraken/mfr/mfr-employees/feature-invite-employee/src/index.ts"
       ],
-      "@octo/mfr-feature-invite-project-member": [
-        "libs/octo/mfr/mfr-projects/feature-invite-project-member/src/index.ts"
+      "@kraken/mfr-feature-invite-project-member": [
+        "libs/kraken/mfr/mfr-projects/feature-invite-project-member/src/index.ts"
       ],
-      "@octo/mfr-feature-kanban": [
-        "libs/octo/mfr/mfr-kanban/feature-kanban/src/index.ts"
+      "@kraken/mfr-feature-kanban": [
+        "libs/kraken/mfr/mfr-kanban/feature-kanban/src/index.ts"
       ],
-      "@octo/mfr-feature-kanban-board": [
-        "libs/octo/mfr/mfr-kanban/feature-kanban-board/src/index.ts"
+      "@kraken/mfr-feature-kanban-board": [
+        "libs/kraken/mfr/mfr-kanban/feature-kanban-board/src/index.ts"
       ],
-      "@octo/mfr-feature-kanban-toolbar": [
-        "libs/octo/mfr/mfr-kanban/feature-kanban-toolbar/src/index.ts"
+      "@kraken/mfr-feature-kanban-toolbar": [
+        "libs/kraken/mfr/mfr-kanban/feature-kanban-toolbar/src/index.ts"
       ],
-      "@octo/mfr-feature-login": [
-        "libs/octo/mfr/mfr-host/feature-login/src/index.ts"
+      "@kraken/mfr-feature-login": [
+        "libs/kraken/mfr/mfr-host/feature-login/src/index.ts"
       ],
-      "@octo/mfr-feature-organization": [
-        "libs/octo/mfr/mfr-organization/feature-organization/src/index.ts"
+      "@kraken/mfr-feature-organization": [
+        "libs/kraken/mfr/mfr-organization/feature-organization/src/index.ts"
       ],
-      "@octo/mfr-feature-organization-overview": [
-        "libs/octo/mfr/mfr-organization/feature-organization-overview/src/index.ts"
+      "@kraken/mfr-feature-organization-overview": [
+        "libs/kraken/mfr/mfr-organization/feature-organization-overview/src/index.ts"
       ],
-      "@octo/mfr-feature-organization-structure": [
-        "libs/octo/mfr/mfr-organization/feature-organization-structure/src/index.ts"
+      "@kraken/mfr-feature-organization-structure": [
+        "libs/kraken/mfr/mfr-organization/feature-organization-structure/src/index.ts"
       ],
-      "@octo/mfr-feature-project": [
-        "libs/octo/mfr/mfr-projects/feature-project/src/index.ts"
+      "@kraken/mfr-feature-project": [
+        "libs/kraken/mfr/mfr-projects/feature-project/src/index.ts"
       ],
-      "@octo/mfr-feature-project-overview": [
-        "libs/octo/mfr/mfr-projects/feature-project-overview/src/index.ts"
+      "@kraken/mfr-feature-project-overview": [
+        "libs/kraken/mfr/mfr-projects/feature-project-overview/src/index.ts"
       ],
-      "@octo/mfr-feature-project-settings": [
-        "libs/octo/mfr/mfr-projects/feature-project-settings/src/index.ts"
+      "@kraken/mfr-feature-project-settings": [
+        "libs/kraken/mfr/mfr-projects/feature-project-settings/src/index.ts"
       ],
-      "@octo/mfr-feature-project-settings-access": [
-        "libs/octo/mfr/mfr-projects/feature-project-settings-access/src/index.ts"
+      "@kraken/mfr-feature-project-settings-access": [
+        "libs/kraken/mfr/mfr-projects/feature-project-settings-access/src/index.ts"
       ],
-      "@octo/mfr-feature-project-settings-boards": [
-        "libs/octo/mfr/mfr-projects/feature-project-settings-boards/src/index.ts"
+      "@kraken/mfr-feature-project-settings-boards": [
+        "libs/kraken/mfr/mfr-projects/feature-project-settings-boards/src/index.ts"
       ],
-      "@octo/mfr-feature-project-settings-general": [
-        "libs/octo/mfr/mfr-projects/feature-project-settings-general/src/index.ts"
+      "@kraken/mfr-feature-project-settings-general": [
+        "libs/kraken/mfr/mfr-projects/feature-project-settings-general/src/index.ts"
       ],
-      "@octo/mfr-feature-projects": [
-        "libs/octo/mfr/mfr-projects/feature-projects/src/index.ts"
+      "@kraken/mfr-feature-projects": [
+        "libs/kraken/mfr/mfr-projects/feature-projects/src/index.ts"
       ],
-      "@octo/mfr-feature-projects-data-fields": [
-        "libs/octo/mfr/mfr-projects/feature-projects-data-fields/src/index.ts"
+      "@kraken/mfr-feature-projects-data-fields": [
+        "libs/kraken/mfr/mfr-projects/feature-projects-data-fields/src/index.ts"
       ],
-      "@octo/mfr-feature-projects-settings": [
-        "libs/octo/mfr/mfr-projects/feature-projects-settings/src/index.ts"
+      "@kraken/mfr-feature-projects-settings": [
+        "libs/kraken/mfr/mfr-projects/feature-projects-settings/src/index.ts"
       ],
-      "@octo/mfr-feature-sidebar": [
-        "libs/octo/mfr/mfr-host/feature-sidebar/src/index.ts"
+      "@kraken/mfr-feature-sidebar": [
+        "libs/kraken/mfr/mfr-host/feature-sidebar/src/index.ts"
       ],
-      "@octo/mfr-feature-signup": [
-        "libs/octo/mfr/mfr-host/feature-signup/src/index.ts"
+      "@kraken/mfr-feature-signup": [
+        "libs/kraken/mfr/mfr-host/feature-signup/src/index.ts"
       ],
-      "@octo/mfr-feature-tasks": [
-        "libs/octo/mfr/mfr-tasks/feature-tasks/src/index.ts"
+      "@kraken/mfr-feature-tasks": [
+        "libs/kraken/mfr/mfr-tasks/feature-tasks/src/index.ts"
       ],
-      "@octo/mfr-organization/Routes": [
+      "@kraken/mfr-organization/Routes": [
         "apps/mfr-organization/src/app/remote-entry/entry.routes.ts"
       ],
-      "@octo/mfr-projects/Routes": [
+      "@kraken/mfr-projects/Routes": [
         "apps/mfr-projects/src/app/remote-entry/entry.routes.ts"
       ],
-      "@octo/mfr-ui-employee": ["libs/octo/mfr/core/ui-employee/src/index.ts"],
-      "@octo/mfr-ui-gantt-board": [
-        "libs/octo/mfr/mfr-gantt/ui-gantt-board/src/index.ts"
+      "@kraken/mfr-ui-employee": [
+        "libs/kraken/mfr/core/ui-employee/src/index.ts"
       ],
-      "@octo/mfr-ui-gantt-task": [
-        "libs/octo/mfr/mfr-gantt/ui-gantt-task/src/index.ts"
+      "@kraken/mfr-ui-gantt-board": [
+        "libs/kraken/mfr/mfr-gantt/ui-gantt-board/src/index.ts"
       ],
-      "@octo/mfr-ui-gantt-timeline": [
-        "libs/octo/mfr/mfr-gantt/ui-gantt-timeline/src/index.ts"
+      "@kraken/mfr-ui-gantt-task": [
+        "libs/kraken/mfr/mfr-gantt/ui-gantt-task/src/index.ts"
       ],
-      "@octo/mfr-ui-kanban-board-tabs": [
-        "libs/octo/mfr/mfr-kanban/ui-kanban-board-tabs/src/index.ts"
+      "@kraken/mfr-ui-gantt-timeline": [
+        "libs/kraken/mfr/mfr-gantt/ui-gantt-timeline/src/index.ts"
       ],
-      "@octo/mfr-ui-kanban-column": [
-        "libs/octo/mfr/mfr-kanban/ui-kanban-column/src/index.ts"
+      "@kraken/mfr-ui-kanban-board-tabs": [
+        "libs/kraken/mfr/mfr-kanban/ui-kanban-board-tabs/src/index.ts"
       ],
-      "@octo/mfr-ui-kanban-task": [
-        "libs/octo/mfr/mfr-kanban/ui-kanban-task/src/index.ts"
+      "@kraken/mfr-ui-kanban-column": [
+        "libs/kraken/mfr/mfr-kanban/ui-kanban-column/src/index.ts"
       ],
-      "@octo/mfr-ui-kit": ["libs/octo/mfr/core/ui-kit/src/index.ts"],
-      "@octo/mfr-ui-modals": ["libs/octo/mfr/core/ui-modals/src/index.ts"],
-      "@octo/mfr-ui-project": ["libs/octo/mfr/core/ui-project/src/index.ts"],
-      "@octo/mfr-ui-project-data-field": [
-        "libs/octo/mfr/mfr-projects/ui-project-data-field/src/index.ts"
+      "@kraken/mfr-ui-kanban-task": [
+        "libs/kraken/mfr/mfr-kanban/ui-kanban-task/src/index.ts"
       ],
-      "@octo/mfr-ui-task": ["libs/octo/mfr/core/ui-task/src/index.ts"],
-      "@octo/mfr-ui-task-board": [
-        "libs/octo/mfr/core/ui-task-board/src/index.ts"
+      "@kraken/mfr-ui-kit": ["libs/kraken/mfr/core/ui-kit/src/index.ts"],
+      "@kraken/mfr-ui-modals": ["libs/kraken/mfr/core/ui-modals/src/index.ts"],
+      "@kraken/mfr-ui-project": [
+        "libs/kraken/mfr/core/ui-project/src/index.ts"
       ],
-      "@octo/mfr-ui-task-column": [
-        "libs/octo/mfr/core/ui-task-column/src/index.ts"
+      "@kraken/mfr-ui-project-data-field": [
+        "libs/kraken/mfr/mfr-projects/ui-project-data-field/src/index.ts"
       ],
-      "@octo/mfr-util-employees": [
-        "libs/octo/mfr/core/util-employees/src/index.ts"
+      "@kraken/mfr-ui-task": ["libs/kraken/mfr/core/ui-task/src/index.ts"],
+      "@kraken/mfr-ui-task-board": [
+        "libs/kraken/mfr/core/ui-task-board/src/index.ts"
       ],
-      "@octo/mfr-util-gantt-chart": [
-        "libs/octo/mfr/mfr-gantt/util-gantt-chart/src/index.ts"
+      "@kraken/mfr-ui-task-column": [
+        "libs/kraken/mfr/core/ui-task-column/src/index.ts"
       ],
-      "@octo/mfr-util-kanban-last-board": [
-        "libs/octo/mfr/mfr-kanban/util-kanban-last-board/src/index.ts"
+      "@kraken/mfr-util-employees": [
+        "libs/kraken/mfr/core/util-employees/src/index.ts"
       ],
-      "@octo/mfr-util-project-data-field": [
-        "libs/octo/mfr/mfr-projects/util-project-data-field/src/index.ts"
+      "@kraken/mfr-util-gantt-chart": [
+        "libs/kraken/mfr/mfr-gantt/util-gantt-chart/src/index.ts"
       ],
-      "@octo/mfr-util-tasks": ["libs/octo/mfr/core/util-tasks/src/index.ts"],
-      "@octo/mfr-util-unique-component": [
-        "libs/octo/mfr/core/util-unique-component/src/index.ts"
+      "@kraken/mfr-util-kanban-last-board": [
+        "libs/kraken/mfr/mfr-kanban/util-kanban-last-board/src/index.ts"
       ],
-      "@octo/mfr-util-user-redirection": [
-        "libs/octo/mfr/core/util-user-redirection/src/index.ts"
+      "@kraken/mfr-util-project-data-field": [
+        "libs/kraken/mfr/mfr-projects/util-project-data-field/src/index.ts"
       ],
-      "@octo/msrv-data-access-employee-entities": [
-        "libs/octo/msrv/msrv-employees/data-access-employee-entities/src/index.ts"
+      "@kraken/mfr-util-tasks": [
+        "libs/kraken/mfr/core/util-tasks/src/index.ts"
       ],
-      "@octo/msrv-data-access-project-entities": [
-        "libs/octo/msrv/msrv-projects/data-access-project-entities/src/index.ts"
+      "@kraken/mfr-util-unique-component": [
+        "libs/kraken/mfr/core/util-unique-component/src/index.ts"
       ],
-      "@octo/msrv-data-access-task-entities": [
-        "libs/octo/msrv/msrv-tasks/data-access-task-entities/src/index.ts"
+      "@kraken/mfr-util-user-redirection": [
+        "libs/kraken/mfr/core/util-user-redirection/src/index.ts"
       ],
-      "@octo/msrv-feature-employee-duplication": [
-        "libs/octo/msrv/core/feature-employee-duplication/src/index.ts"
+      "@kraken/msrv-data-access-employee-entities": [
+        "libs/kraken/msrv/msrv-employees/data-access-employee-entities/src/index.ts"
       ],
-      "@octo/msrv-feature-employee-events": [
-        "libs/octo/msrv/msrv-employees/feature-employee-events/src/index.ts"
+      "@kraken/msrv-data-access-project-entities": [
+        "libs/kraken/msrv/msrv-projects/data-access-project-entities/src/index.ts"
       ],
-      "@octo/msrv-feature-employees": [
-        "libs/octo/msrv/msrv-employees/feature-employees/src/index.ts"
+      "@kraken/msrv-data-access-task-entities": [
+        "libs/kraken/msrv/msrv-tasks/data-access-task-entities/src/index.ts"
       ],
-      "@octo/msrv-feature-project-data-fields": [
-        "libs/octo/msrv/msrv-projects/feature-project-data-fields/src/index.ts"
+      "@kraken/msrv-feature-employee-duplication": [
+        "libs/kraken/msrv/core/feature-employee-duplication/src/index.ts"
       ],
-      "@octo/msrv-feature-project-events": [
-        "libs/octo/msrv/msrv-projects/feature-project-events/src/index.ts"
+      "@kraken/msrv-feature-employee-events": [
+        "libs/kraken/msrv/msrv-employees/feature-employee-events/src/index.ts"
       ],
-      "@octo/msrv-feature-project-members": [
-        "libs/octo/msrv/msrv-projects/feature-project-members/src/index.ts"
+      "@kraken/msrv-feature-employees": [
+        "libs/kraken/msrv/msrv-employees/feature-employees/src/index.ts"
       ],
-      "@octo/msrv-feature-projects": [
-        "libs/octo/msrv/msrv-projects/feature-projects/src/index.ts"
+      "@kraken/msrv-feature-project-data-fields": [
+        "libs/kraken/msrv/msrv-projects/feature-project-data-fields/src/index.ts"
       ],
-      "@octo/msrv-feature-tasks": [
-        "libs/octo/msrv/msrv-tasks/feature-tasks/src/index.ts"
+      "@kraken/msrv-feature-project-events": [
+        "libs/kraken/msrv/msrv-projects/feature-project-events/src/index.ts"
       ],
-      "@octo/msrv-feature-user-duplication": [
-        "libs/octo/msrv/core/feature-user-duplication/src/index.ts"
+      "@kraken/msrv-feature-project-members": [
+        "libs/kraken/msrv/msrv-projects/feature-project-members/src/index.ts"
+      ],
+      "@kraken/msrv-feature-projects": [
+        "libs/kraken/msrv/msrv-projects/feature-projects/src/index.ts"
+      ],
+      "@kraken/msrv-feature-tasks": [
+        "libs/kraken/msrv/msrv-tasks/feature-tasks/src/index.ts"
+      ],
+      "@kraken/msrv-feature-user-duplication": [
+        "libs/kraken/msrv/core/feature-user-duplication/src/index.ts"
       ]
     }
   },

@@ -13,7 +13,7 @@ import { ApiBody, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 
 import { KongAuthGuard } from '@kong-nest';
 
-import { TaskColumnsService } from '@octo/msrv-feature-tasks';
+import { TaskColumnsService } from '@kraken/msrv-feature-tasks';
 
 import { CreateTaskColumnDto } from '../dtos';
 

@@ -14,17 +14,17 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 import { KongAuthInterceptor, provideKongAuthDataAccess } from '@kong-ng';
 
-import { provideEmployeeDataAccess } from '@octo/mfr-data-access-employee';
-import { provideEmployeesDataAccess } from '@octo/mfr-data-access-employees';
-import { provideProjectDataAccess } from '@octo/mfr-data-access-project';
-import { provideProjectsDataAccess } from '@octo/mfr-data-access-projects';
-import { provideProjectDataFieldsDataAccess } from '@octo/mfr-data-access-projects-data-fields';
-import { provideTaskBoardsDataAccess } from '@octo/mfr-data-access-task-boards';
-import { provideTaskColumnsDataAccess } from '@octo/mfr-data-access-task-columns';
-import { provideTasksDataAccess } from '@octo/mfr-data-access-tasks';
-import { provideUserDataAccess } from '@octo/mfr-data-access-user';
+import { provideEmployeeDataAccess } from '@kraken/mfr-data-access-employee';
+import { provideEmployeesDataAccess } from '@kraken/mfr-data-access-employees';
+import { provideProjectDataAccess } from '@kraken/mfr-data-access-project';
+import { provideProjectsDataAccess } from '@kraken/mfr-data-access-projects';
+import { provideProjectDataFieldsDataAccess } from '@kraken/mfr-data-access-projects-data-fields';
+import { provideTaskBoardsDataAccess } from '@kraken/mfr-data-access-task-boards';
+import { provideTaskColumnsDataAccess } from '@kraken/mfr-data-access-task-columns';
+import { provideTasksDataAccess } from '@kraken/mfr-data-access-tasks';
+import { provideUserDataAccess } from '@kraken/mfr-data-access-user';
 
-import { provideExplorer } from '@octo/mfr-feature-explorer';
+import { provideExplorer } from '@kraken/mfr-feature-explorer';
 
 import { appRoutes } from './app.routes';
 

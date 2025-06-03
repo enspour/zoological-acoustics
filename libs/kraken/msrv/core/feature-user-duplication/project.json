@@ -1,0 +1,9 @@
+{
+  "name": "kraken-msrv-feature-user-duplication",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/kraken/msrv/core/feature-user-duplication/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project feature-user-duplication --web",
+  "targets": {}
+}

@@ -15,7 +15,7 @@ module.exports = {
         './src/assets',
         // {
         //   glob: '**/*.proto',
-        //   input: 'libs/octo/msrv/core/protos',
+        //   input: 'libs/kraken/msrv/core/protos',
         //   output: './protos',
         // },
       ],

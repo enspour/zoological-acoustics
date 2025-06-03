@@ -12,7 +12,7 @@ import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 import { KongAuthGuard } from '@kong-nest';
 
-import { ProjectMembersService } from '@octo/msrv-feature-project-members';
+import { ProjectMembersService } from '@kraken/msrv-feature-project-members';
 
 @Controller('projects/:projectUuid/members')
 @UseGuards(KongAuthGuard)

@@ -1,0 +1,9 @@
+{
+  "name": "data-access-employee-entities",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/kraken/msrv/msrv-employees/data-access-employee-entities/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project data-access-employee-entities --web",
+  "targets": {}
+}

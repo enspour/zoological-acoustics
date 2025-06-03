@@ -1,58 +1,58 @@
 import { Route } from '@angular/router';
 import { RemoteEntryComponent } from './entry.component';
 
-import { kanbanBoardRedirectGuard } from '@octo/mfr-util-kanban-last-board';
-import { userRedirectionGuard } from '@octo/mfr-util-user-redirection';
+import { kanbanBoardRedirectGuard } from '@kraken/mfr-util-kanban-last-board';
+import { userRedirectionGuard } from '@kraken/mfr-util-user-redirection';
 
 const ProjectsPage = () =>
-  import('@octo/mfr-feature-projects').then((c) => c.ProjectsPageComponent);
+  import('@kraken/mfr-feature-projects').then((c) => c.ProjectsPageComponent);
 
 const ProjectsSettingsPage = () =>
-  import('@octo/mfr-feature-projects-settings').then(
+  import('@kraken/mfr-feature-projects-settings').then(
     (c) => c.ProjectsSettingsPageComponent,
   );
 
 const ProjectsDataFieldsPage = () =>
-  import('@octo/mfr-feature-projects-data-fields').then(
+  import('@kraken/mfr-feature-projects-data-fields').then(
     (c) => c.ProjectsDataFieldsPageComponent,
   );
 
 const ProjectPage = () =>
-  import('@octo/mfr-feature-project').then((c) => c.ProjectPageComponent);
+  import('@kraken/mfr-feature-project').then((c) => c.ProjectPageComponent);
 
 const ProjectOverviewPage = () =>
-  import('@octo/mfr-feature-project-overview').then(
+  import('@kraken/mfr-feature-project-overview').then(
     (c) => c.ProjectOverviewPageComponent,
   );
 
 const ProjectSettingsPage = () =>
-  import('@octo/mfr-feature-project-settings').then(
+  import('@kraken/mfr-feature-project-settings').then(
     (c) => c.ProjectSettingsPageComponent,
   );
 
 const ProjectSettingsGeneralPage = () =>
-  import('@octo/mfr-feature-project-settings-general').then(
+  import('@kraken/mfr-feature-project-settings-general').then(
     (c) => c.ProjectSettingsGeneralPageComponent,
   );
 
 const ProjectSettingsAccessPage = () =>
-  import('@octo/mfr-feature-project-settings-access').then(
+  import('@kraken/mfr-feature-project-settings-access').then(
     (c) => c.ProjectSettingsAccessPageComponent,
   );
 
 const ProjectSettingsBoardsPage = () =>
-  import('@octo/mfr-feature-project-settings-boards').then(
+  import('@kraken/mfr-feature-project-settings-boards').then(
     (c) => c.ProjectSettingsBoardsPageComponent,
   );
 
 const TasksPage = () =>
-  import('@octo/mfr-feature-tasks').then((c) => c.TasksPageComponent);
+  import('@kraken/mfr-feature-tasks').then((c) => c.TasksPageComponent);
 
 const GanttPage = () =>
-  import('@octo/mfr-feature-gantt').then((c) => c.GanttPageComponent);
+  import('@kraken/mfr-feature-gantt').then((c) => c.GanttPageComponent);
 
 const KanbanPage = () =>
-  import('@octo/mfr-feature-kanban').then((c) => c.KanbanPageComponent);
+  import('@kraken/mfr-feature-kanban').then((c) => c.KanbanPageComponent);
 
 export const remoteRoutes: Route[] = [
   {

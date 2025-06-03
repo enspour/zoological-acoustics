@@ -1,0 +1,19 @@
+{
+  "name": "kraken-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/kraken/domain/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/kraken/domain",
+        "main": "libs/kraken/domain/src/index.ts",
+        "tsConfig": "libs/kraken/domain/tsconfig.lib.json",
+        "assets": ["libs/kraken/domain/*.md"]
+      }
+    }
+  }
+}

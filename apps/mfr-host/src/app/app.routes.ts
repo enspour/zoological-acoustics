@@ -3,22 +3,22 @@ import { Route } from '@angular/router';
 import { KongAuthGuard, KongUnAuthGuard } from '@kong-ng';
 
 const AuthLayout = () =>
-  import('@octo/mfr-feature-auth-layout').then((c) => c.LayoutComponent);
+  import('@kraken/mfr-feature-auth-layout').then((c) => c.LayoutComponent);
 
 const LoginPage = () =>
-  import('@octo/mfr-feature-login').then((c) => c.LoginPageComponent);
+  import('@kraken/mfr-feature-login').then((c) => c.LoginPageComponent);
 
 const SignupPage = () =>
-  import('@octo/mfr-feature-signup').then((c) => c.SignupPageComponent);
+  import('@kraken/mfr-feature-signup').then((c) => c.SignupPageComponent);
 
 const HomePage = () =>
-  import('@octo/mfr-feature-home').then((c) => c.HomePageComponent);
+  import('@kraken/mfr-feature-home').then((c) => c.HomePageComponent);
 
 const ProjectsPages = () =>
-  import('@octo/mfr-projects/Routes').then((m) => m.remoteRoutes);
+  import('@kraken/mfr-projects/Routes').then((m) => m.remoteRoutes);
 
 const OrganizationPages = () =>
-  import('@octo/mfr-organization/Routes').then((m) => m.remoteRoutes);
+  import('@kraken/mfr-organization/Routes').then((m) => m.remoteRoutes);
 
 export const appRoutes: Route[] = [
   {

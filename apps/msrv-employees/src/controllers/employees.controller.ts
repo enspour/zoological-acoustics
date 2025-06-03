@@ -18,7 +18,7 @@ import {
 
 import { KongAuthGuard } from '@kong-nest';
 
-import { EmployeesService } from '@octo/msrv-feature-employees';
+import { EmployeesService } from '@kraken/msrv-feature-employees';
 
 import { UpdateEmployeeDto } from '../dtos';
 

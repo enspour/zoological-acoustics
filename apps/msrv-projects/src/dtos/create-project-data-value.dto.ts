@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString } from 'class-validator';
 
-import { CreatableProjectDataValue } from '@octo/domain';
+import { CreatableProjectDataValue } from '@kraken/domain';
 
 export class CreateProjectDataValueDto
   implements Omit<CreatableProjectDataValue, 'fieldUuid'>

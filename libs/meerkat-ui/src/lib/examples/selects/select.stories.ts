@@ -46,7 +46,7 @@ export const Default: Story = {
     template: `
       <mk-select ${argsToTemplate(args)}>
         <mk-option value="meerkat"> Meerkat </mk-option>
-        <mk-option value="octopus"> Octopus </mk-option>
+        <mk-option value="krakenpus"> Octopus </mk-option>
         <mk-option value="gorilla"> Gorilla </mk-option>
         <mk-option value="rabbit"> Rabbit </mk-option>
         <mk-option value="raccoon"> Raccoon </mk-option>
@@ -66,7 +66,7 @@ export const Multiple: Story = {
     template: `
       <mk-select ${argsToTemplate(args)}>
         <mk-option value="meerkat"> Meerkat </mk-option>
-        <mk-option value="octopus"> Octopus </mk-option>
+        <mk-option value="krakenpus"> Octopus </mk-option>
         <mk-option value="gorilla"> Gorilla </mk-option>
         <mk-option value="rabbit"> Rabbit </mk-option>
         <mk-option value="raccoon"> Raccoon </mk-option>
